@@ -1,9 +1,9 @@
 'use client'
 
-import { Link } from '@/components/link'
 import InvestorLayout, {
   IRMetricCard,
 } from '@/components/investors/investor-layout'
+import { Link } from '@/components/link'
 
 const METRICS = [
   { stat: '$89.4M', label: 'FY2024 Revenue', note: '+218% year-over-year' },
@@ -81,10 +81,10 @@ const QUICK_LINKS = [
 export default function InvestorsPage() {
   return (
     <InvestorLayout>
-      <section className="px-6 pb-16 pt-24">
+      <section className="px-6 pt-24 pb-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 pt-8">
-            <p className="mb-5 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Investor Relations
             </p>
             <h1 className="font-display text-[clamp(2.5rem,6vw,5rem)] leading-[1.05] tracking-tight text-foreground">
@@ -110,7 +110,7 @@ export default function InvestorsPage() {
           </div>
 
           <div className="mb-20">
-            <p className="mb-6 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Latest
             </p>
             <div className="flex flex-col gap-3">
@@ -134,7 +134,7 @@ export default function InvestorsPage() {
           </div>
 
           <div className="mb-20">
-            <p className="mb-6 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Resources
             </p>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -171,7 +171,7 @@ export default function InvestorsPage() {
           </div>
 
           <div className="rounded-sm border border-edge-subtle bg-surface-alt p-8">
-            <p className="mb-6 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Investor Relations Contact
             </p>
             <div className="grid gap-8 md:grid-cols-2">
@@ -182,7 +182,7 @@ export default function InvestorsPage() {
                 <p className="mb-3 text-xs text-foreground-muted">
                   Founder & Chief Executive Officer
                 </p>
-                <p className="text-xs text-accent">ir@riseco.online</p>
+                <p className="text-xs text-accent">ir@riseawake.com</p>
               </div>
               <div>
                 <p className="mb-1 text-sm font-medium text-foreground-secondary">
@@ -191,7 +191,7 @@ export default function InvestorsPage() {
                 <p className="mb-3 text-xs text-foreground-muted">
                   Press & Communications
                 </p>
-                <p className="text-xs text-accent">press@riseco.online</p>
+                <p className="text-xs text-accent">press@riseawake.com</p>
               </div>
             </div>
             <p className="mt-8 border-t border-edge-subtle pt-6 text-[10px] leading-loose text-foreground-muted">

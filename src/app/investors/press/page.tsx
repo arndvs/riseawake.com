@@ -5,8 +5,7 @@ import InvestorLayout from '@/components/investors/investor-layout'
 const COVERAGE = [
   {
     outlet: 'Future of Work Quarterly',
-    quote:
-      'The most consequential piece of furniture since the alarm clock.',
+    quote: 'The most consequential piece of furniture since the alarm clock.',
     date: 'October 2024',
     stars: 5,
     tone: 'positive' as const,
@@ -92,7 +91,7 @@ export default function InvestorPressPage() {
       <section className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 pt-8">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Press & Coverage
             </p>
             <h1 className="mb-4 font-display text-[clamp(2rem,5vw,3.5rem)] tracking-tight text-foreground">
@@ -119,7 +118,7 @@ export default function InvestorPressPage() {
                     {item.date}
                   </p>
                 </div>
-                <p className="mb-4 flex-1 text-sm italic leading-loose text-foreground-muted">
+                <p className="mb-4 flex-1 text-sm leading-loose text-foreground-muted italic">
                   &ldquo;{item.quote}&rdquo;
                 </p>
                 {item.stars && (
@@ -140,7 +139,7 @@ export default function InvestorPressPage() {
                   <div className="mt-2 border-t border-edge-subtle pt-3">
                     <p className="text-[10px] leading-relaxed text-accent/70">
                       Note from RISE™: This coverage is included for
-                      completeness. The documentation is at riseco.online/legal.
+                      completeness. The documentation is at riseawake.com/legal.
                     </p>
                   </div>
                 )}
@@ -153,7 +152,7 @@ export default function InvestorPressPage() {
               <strong className="text-foreground-secondary">
                 Media inquiries:
               </strong>{' '}
-              press@riseco.online
+              press@riseawake.com
             </p>
             <p className="text-xs leading-loose text-foreground-muted/60">
               RISE™ responds to all media inquiries within 5 business days. Dr.

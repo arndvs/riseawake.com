@@ -36,7 +36,7 @@ const QA = [
   {
     q: 'My apartment has stairs. The bed stops at the bottom every morning. When will this be fixed?',
     questioner: 'Retail shareholder, via proxy',
-    a: 'It is being worked on. It will not be free. There is no loyalty discount for current Push owners. The product that addresses this is called the RISE™ Move. We are not providing further details today. You may join a notification list at riseco.online/move.',
+    a: 'It is being worked on. It will not be free. There is no loyalty discount for current Push owners. The product that addresses this is called the RISE™ Move. We are not providing further details today. You may join a notification list at riseawake.com/move.',
     respondent: 'Dr. Voss',
   },
   {
@@ -60,19 +60,48 @@ const QA = [
 ]
 
 const RESOLUTIONS = [
-  { title: 'Approval of FY2024 Financial Statements', result: 'Passed unanimously' },
-  { title: 'Re-election of Board Members (all standing)', result: 'Passed (97% in favour)' },
-  { title: 'Approval of Equity Incentive Plan Expansion', result: 'Passed (94% in favour)' },
-  { title: 'Advisory Vote on Executive Compensation', result: 'Passed (89% in favour)' },
-  { title: 'Proposal to Add Push Mode Override (shareholder-submitted)', result: 'Defeated (3% in favour)' },
+  {
+    title: 'Approval of FY2024 Financial Statements',
+    result: 'Passed unanimously',
+  },
+  {
+    title: 'Re-election of Board Members (all standing)',
+    result: 'Passed (97% in favour)',
+  },
+  {
+    title: 'Approval of Equity Incentive Plan Expansion',
+    result: 'Passed (94% in favour)',
+  },
+  {
+    title: 'Advisory Vote on Executive Compensation',
+    result: 'Passed (89% in favour)',
+  },
+  {
+    title: 'Proposal to Add Push Mode Override (shareholder-submitted)',
+    result: 'Defeated (3% in favour)',
+  },
 ]
 
 const ACTIONS = [
   { action: 'Prepare S-1 for Q3 2026 filing', owner: 'CFO' },
-  { action: 'Monitor autonomous device regulatory landscape across all active markets', owner: 'General Counsel' },
-  { action: 'Provide Push Pro timeline for board review by Q2 2025', owner: 'CPO' },
-  { action: 'Publish RISE™ Move press release and launch riseco.online/move notification page', owner: 'Marketing & Communications' },
-  { action: 'Publish Appendix G (company holiday schedule)', owner: 'Legal & Compliance' },
+  {
+    action:
+      'Monitor autonomous device regulatory landscape across all active markets',
+    owner: 'General Counsel',
+  },
+  {
+    action: 'Provide Push Pro timeline for board review by Q2 2025',
+    owner: 'CPO',
+  },
+  {
+    action:
+      'Publish RISE™ Move press release and launch riseawake.com/move notification page',
+    owner: 'Marketing & Communications',
+  },
+  {
+    action: 'Publish Appendix G (company holiday schedule)',
+    owner: 'Legal & Compliance',
+  },
   { action: 'No action required on Push Mode override proposal', owner: 'N/A' },
 ]
 
@@ -91,7 +120,7 @@ export default function MeetingMinutesPage() {
       <article className="px-6 py-16">
         <div className="mx-auto max-w-3xl">
           <div className="mb-12 pt-8">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Official Record
             </p>
             <h1 className="mb-2 font-display text-[clamp(2rem,5vw,3.5rem)] tracking-tight text-foreground">
@@ -165,7 +194,7 @@ export default function MeetingMinutesPage() {
                   <p className="mb-2 text-[10px] tracking-[0.1em] text-foreground-muted/60">
                     Q — {item.questioner}
                   </p>
-                  <p className="mb-4 text-sm italic leading-relaxed text-foreground-secondary">
+                  <p className="mb-4 text-sm leading-relaxed text-foreground-secondary italic">
                     &ldquo;{item.q}&rdquo;
                   </p>
                   <p className="mb-2 text-[10px] tracking-[0.1em] text-accent">

@@ -120,7 +120,7 @@ export default function SDKPage() {
         <div className="mx-auto max-w-5xl text-center">
           <div className="mb-8 inline-flex items-center gap-2 rounded-sm border border-accent/15 bg-accent/8 px-3 py-1.5">
             <div className="h-1.5 w-1.5 rounded-full bg-accent/80" />
-            <span className="text-[10px] uppercase tracking-[0.18em] text-accent/80">
+            <span className="text-[10px] tracking-[0.18em] text-accent/80 uppercase">
               RISE™ Developer Platform
             </span>
           </div>
@@ -135,7 +135,7 @@ export default function SDKPage() {
             architecture designed for precision, security, and longitudinal
             integrity.
           </p>
-          <p className="mx-auto mb-16 max-w-xl text-sm italic leading-relaxed text-accent/70">
+          <p className="mx-auto mb-16 max-w-xl text-sm leading-relaxed text-accent/70 italic">
             DataKit SDK is the only tool capable of reading it.
           </p>
 
@@ -154,7 +154,7 @@ export default function SDKPage() {
             <p className="mt-3 text-xs text-foreground-muted/60">
               Before purchasing, consult the{' '}
               <button
-                className="cursor-pointer underline text-accent/60"
+                className="cursor-pointer text-accent/60 underline"
                 onClick={() =>
                   alert(
                     'The DataKit Compatibility Matrix is available to registered DataKit SDK customers. To become a registered customer, please purchase the SDK.',
@@ -173,7 +173,7 @@ export default function SDKPage() {
       <section className="border-t border-edge-subtle px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-14 text-center">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Pricing
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -200,7 +200,7 @@ export default function SDKPage() {
               >
                 {tier.highlighted && (
                   <div className="mb-4">
-                    <span className="rounded-sm bg-accent/15 px-2 py-1 text-[10px] uppercase tracking-[0.16em] text-accent">
+                    <span className="rounded-sm bg-accent/15 px-2 py-1 text-[10px] tracking-[0.16em] text-accent uppercase">
                       Most Comprehensive
                     </span>
                   </div>
@@ -208,7 +208,7 @@ export default function SDKPage() {
                 <h3 className="mb-1 font-display text-2xl text-foreground">
                   {tier.name}
                 </h3>
-                <p className="mb-6 text-xs italic text-foreground-muted">
+                <p className="mb-6 text-xs text-foreground-muted italic">
                   {tier.tagline}
                 </p>
                 <div className="mb-6">
@@ -221,7 +221,7 @@ export default function SDKPage() {
                 </div>
 
                 <div className="flex-1">
-                  <p className="mb-3 text-[10px] uppercase tracking-[0.16em] text-foreground-muted">
+                  <p className="mb-3 text-[10px] tracking-[0.16em] text-foreground-muted uppercase">
                     Includes
                   </p>
                   <ul className="mb-6 flex flex-col gap-2">
@@ -235,7 +235,7 @@ export default function SDKPage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="mb-3 text-[10px] uppercase tracking-[0.16em] text-foreground-muted/60">
+                  <p className="mb-3 text-[10px] tracking-[0.16em] text-foreground-muted/60 uppercase">
                     Known Limitations
                   </p>
                   <ul className="mb-8 flex flex-col gap-2">
@@ -253,7 +253,7 @@ export default function SDKPage() {
 
                 <button
                   onClick={() => handlePurchase(tier.id)}
-                  className={`w-full cursor-pointer rounded-sm py-3 text-xs font-medium uppercase tracking-[0.14em] transition-all duration-300 ${
+                  className={`w-full cursor-pointer rounded-sm py-3 text-xs font-medium tracking-[0.14em] uppercase transition-all duration-300 ${
                     tier.highlighted
                       ? 'bg-accent text-white'
                       : 'border border-edge bg-foreground/6 text-foreground-secondary hover:bg-foreground/10'
@@ -279,7 +279,7 @@ export default function SDKPage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 text-center">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Features
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground">
@@ -307,14 +307,16 @@ export default function SDKPage() {
       {/* Format Spec */}
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-16">
         <div className="mx-auto max-w-4xl">
-          <p className="mb-6 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             Technical Reference
           </p>
           <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground">
             The .rsm Format
           </h2>
           <div className="rounded-sm border border-edge-subtle bg-surface-inset p-6 font-mono text-xs leading-8 text-foreground-secondary">
-            <p className="text-accent/70">RISE™ Standard Metric Format (.rsm)</p>
+            <p className="text-accent/70">
+              RISE™ Standard Metric Format (.rsm)
+            </p>
             <p className="text-foreground-muted/50">
               Specification v2.3 — Internal Reference
             </p>
@@ -356,7 +358,7 @@ export default function SDKPage() {
               href="/sdk/documentation"
               className="text-accent/50 underline"
             >
-              riseco.online/sdk/documentation
+              riseawake.com/sdk/documentation
             </Link>
             . Documentation is available without purchase. Usefulness of the
             documentation without the SDK is limited.
@@ -381,13 +383,13 @@ export default function SDKPage() {
                 <div className="flex flex-col gap-3">
                   <button
                     onClick={() => setHasRSDP(true)}
-                    className="cursor-pointer rounded-sm bg-accent py-3 text-xs font-medium uppercase tracking-[0.14em] text-white"
+                    className="cursor-pointer rounded-sm bg-accent py-3 text-xs font-medium tracking-[0.14em] text-white uppercase"
                   >
                     I have received my RSDP
                   </button>
                   <button
                     onClick={() => setHasRSDP(false)}
-                    className="cursor-pointer rounded-sm border border-edge bg-foreground/5 py-3 text-xs font-medium uppercase tracking-[0.14em] text-foreground-secondary"
+                    className="cursor-pointer rounded-sm border border-edge bg-foreground/5 py-3 text-xs font-medium tracking-[0.14em] text-foreground-secondary uppercase"
                   >
                     I have not yet received my RSDP
                   </button>
@@ -429,14 +431,14 @@ export default function SDKPage() {
                       setModalTier(null)
                       setHasRSDP(null)
                     }}
-                    className="rounded-sm bg-accent py-3 text-center text-xs font-medium uppercase tracking-[0.14em] text-white"
+                    className="rounded-sm bg-accent py-3 text-center text-xs font-medium tracking-[0.14em] text-white uppercase"
                   >
                     Begin Data Request Process
                   </Link>
                   {!waitlisted ? (
                     <button
                       onClick={() => setWaitlisted(true)}
-                      className="cursor-pointer rounded-sm border border-edge bg-foreground/5 py-3 text-xs font-medium uppercase tracking-[0.14em] text-foreground-secondary"
+                      className="cursor-pointer rounded-sm border border-edge bg-foreground/5 py-3 text-xs font-medium tracking-[0.14em] text-foreground-secondary uppercase"
                     >
                       Purchase Now (Lock In Price)
                     </button>
@@ -476,7 +478,7 @@ export default function SDKPage() {
                   <div className="flex flex-col gap-3">
                     <button
                       onClick={() => setWaitlisted(true)}
-                      className="cursor-pointer rounded-sm bg-accent py-3 text-xs font-medium uppercase tracking-[0.14em] text-white"
+                      className="cursor-pointer rounded-sm bg-accent py-3 text-xs font-medium tracking-[0.14em] text-white uppercase"
                     >
                       Join Developer Waitlist
                     </button>

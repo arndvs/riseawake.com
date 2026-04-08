@@ -1,7 +1,7 @@
 'use client'
 
-import { Link } from '@/components/link'
 import InvestorLayout from '@/components/investors/investor-layout'
+import { Link } from '@/components/link'
 
 const RISK_FACTORS = [
   {
@@ -39,11 +39,41 @@ const RISK_FACTORS = [
 ]
 
 const FINANCIALS = [
-  { year: 'FY2020', revenue: '$2.1M', growth: '\u2014', margin: '12%', units: '940' },
-  { year: 'FY2021', revenue: '$8.4M', growth: '+300%', margin: '41%', units: '3,800' },
-  { year: 'FY2022', revenue: '$23.7M', growth: '+182%', margin: '55%', units: '10,600' },
-  { year: 'FY2023', revenue: '$38.2M', growth: '+61%', margin: '63%', units: '17,100' },
-  { year: 'FY2024', revenue: '$89.4M', growth: '+134%', margin: '68%', units: '47,000' },
+  {
+    year: 'FY2020',
+    revenue: '$2.1M',
+    growth: '\u2014',
+    margin: '12%',
+    units: '940',
+  },
+  {
+    year: 'FY2021',
+    revenue: '$8.4M',
+    growth: '+300%',
+    margin: '41%',
+    units: '3,800',
+  },
+  {
+    year: 'FY2022',
+    revenue: '$23.7M',
+    growth: '+182%',
+    margin: '55%',
+    units: '10,600',
+  },
+  {
+    year: 'FY2023',
+    revenue: '$38.2M',
+    growth: '+61%',
+    margin: '63%',
+    units: '17,100',
+  },
+  {
+    year: 'FY2024',
+    revenue: '$89.4M',
+    growth: '+134%',
+    margin: '68%',
+    units: '47,000',
+  },
 ]
 
 const LEADERSHIP = [
@@ -69,7 +99,13 @@ const LEADERSHIP = [
   },
 ]
 
-const TABLE_HEADERS = ['Year', 'Revenue', 'YoY Growth', 'Gross Margin', 'Units Shipped']
+const TABLE_HEADERS = [
+  'Year',
+  'Revenue',
+  'YoY Growth',
+  'Gross Margin',
+  'Units Shipped',
+]
 
 export default function AnnualReportPage() {
   return (
@@ -77,7 +113,7 @@ export default function AnnualReportPage() {
       <article className="px-6 py-16">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 pt-8">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Annual Report
             </p>
             <h1 className="mb-2 font-display text-[clamp(2rem,5vw,3.5rem)] tracking-tight text-foreground">
@@ -94,10 +130,11 @@ export default function AnnualReportPage() {
             </h2>
             <p className="mb-4 text-sm leading-loose text-foreground-muted">
               FY2024 was RISE™&rsquo;s strongest year on record and, we believe,
-              the year the adjustable base market ceased to be the relevant frame
-              of reference for what we do. Revenue reached $89.4M, representing
-              134% growth over FY2023. Push Mode compliance among active users
-              reached 98%. The waitlist reached 340,000. We shipped 47,000 units.
+              the year the adjustable base market ceased to be the relevant
+              frame of reference for what we do. Revenue reached $89.4M,
+              representing 134% growth over FY2023. Push Mode compliance among
+              active users reached 98%. The waitlist reached 340,000. We shipped
+              47,000 units.
             </p>
             <p className="text-sm leading-loose text-foreground-muted">
               These numbers tell a story about product-market fit. The deeper
@@ -178,7 +215,7 @@ export default function AnnualReportPage() {
                   <p className="mb-1 font-display text-2xl text-foreground">
                     {s.stat}
                   </p>
-                  <p className="text-[10px] uppercase tracking-[0.14em] text-foreground-muted">
+                  <p className="text-[10px] tracking-[0.14em] text-foreground-muted uppercase">
                     {s.label}
                   </p>
                 </div>
@@ -229,12 +266,12 @@ export default function AnnualReportPage() {
             </p>
             <div className="rounded-sm border border-accent/12 bg-accent/5 p-5">
               <p className="text-xs leading-loose text-foreground-muted">
-                <strong className="text-foreground-secondary">TAM:</strong>{' '}
-                $4.2 trillion (global productivity loss attributable to morning
+                <strong className="text-foreground-secondary">TAM:</strong> $4.2
+                trillion (global productivity loss attributable to morning
                 routine deficiency) ·{' '}
-                <strong className="text-foreground-secondary">SAM:</strong>{' '}
-                $890 billion (addressable with current Push Mode geography and
-                price point) ·{' '}
+                <strong className="text-foreground-secondary">SAM:</strong> $890
+                billion (addressable with current Push Mode geography and price
+                point) ·{' '}
                 <strong className="text-foreground-secondary">SOM:</strong>{' '}
                 $89.4M (FY2024 actual) ·{' '}
                 <strong className="text-accent">
@@ -261,7 +298,7 @@ export default function AnnualReportPage() {
                   key={i}
                   className="rounded-sm border border-edge-subtle bg-surface-alt p-6"
                 >
-                  <h3 className="mb-3 text-xs font-medium uppercase tracking-[0.14em] text-foreground-secondary">
+                  <h3 className="mb-3 text-xs font-medium tracking-[0.14em] text-foreground-secondary uppercase">
                     {r.title}
                   </h3>
                   <p className="text-sm leading-loose text-foreground-muted">
@@ -303,11 +340,8 @@ export default function AnnualReportPage() {
               providing a revised TAM estimate until the product is closer to
               announcement. Investors who wish to be notified when additional
               information becomes available may visit{' '}
-              <Link
-                href="/move"
-                className="text-accent underline"
-              >
-                riseco.online/move
+              <Link href="/move" className="text-accent underline">
+                riseawake.com/move
               </Link>
               .
             </p>

@@ -94,7 +94,7 @@ Enterprise customers may submit API reference questions to the Developer Support
     title: '9. Contacting Support',
     content: `Developer support is available to registered DataKit SDK customers via email.
 
-Support email: developer-support@riseco.online
+Support email: developer-support@riseawake.com
 Response time: 15 business days
 Enterprise: 15 business days (prioritized)
 
@@ -121,7 +121,7 @@ export default function SDKDocsPage() {
             <span className="text-foreground-secondary">Documentation</span>
           </div>
 
-          <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             DataKit SDK
           </p>
           <h1 className="mb-2 font-display text-[clamp(2.5rem,5vw,4rem)] tracking-tight text-foreground">
@@ -135,8 +135,8 @@ export default function SDKDocsPage() {
             <p className="text-xs leading-relaxed text-accent/75">
               <strong className="text-accent">Note:</strong> This documentation
               is available without a DataKit SDK license. Usefulness of this
-              documentation without a license is limited. The SDK itself requires
-              a license key delivered after purchase.{' '}
+              documentation without a license is limited. The SDK itself
+              requires a license key delivered after purchase.{' '}
               <Link href="/sdk" className="text-accent/60 underline">
                 Purchase DataKit SDK →
               </Link>
@@ -158,8 +158,7 @@ export default function SDKDocsPage() {
                 </span>
                 <span
                   className={`text-xs ${
-                    item === 'API Reference' ||
-                    item === 'Session Architecture'
+                    item === 'API Reference' || item === 'Session Architecture'
                       ? 'text-foreground-muted/50'
                       : 'text-foreground-secondary'
                   }`}
@@ -182,11 +181,11 @@ export default function SDKDocsPage() {
                 {section.title}
               </h2>
               {section.content ? (
-                <div className="whitespace-pre-line text-sm leading-8 text-foreground-muted">
+                <div className="text-sm leading-8 whitespace-pre-line text-foreground-muted">
                   {section.content}
                 </div>
               ) : (
-                <p className="text-sm italic text-foreground-muted/60">
+                <p className="text-sm text-foreground-muted/60 italic">
                   See section above.
                 </p>
               )}
@@ -199,9 +198,9 @@ export default function SDKDocsPage() {
               This documentation is provided as-is. RISE™ makes no warranty that
               following these instructions will result in successful SDK
               operation. Compatibility with your specific operating system
-              configuration cannot be confirmed without the Compatibility Matrix,
-              which is available to registered customers. To become a registered
-              customer,{' '}
+              configuration cannot be confirmed without the Compatibility
+              Matrix, which is available to registered customers. To become a
+              registered customer,{' '}
               <Link href="/sdk" className="text-accent/50 underline">
                 purchase DataKit SDK
               </Link>
