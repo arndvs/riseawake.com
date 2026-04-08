@@ -1,7 +1,7 @@
 'use client'
 
 import { Link } from '@/components/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 type TOCItem = {
   id: string
@@ -28,6 +28,8 @@ export default function LegalLayout({
 }: Props) {
   const [activeSection, setActiveSection] = useState<string>('')
 
+  const tocIds = useMemo(() => toc.map(({ id }) => id), [toc])
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -37,12 +39,12 @@ export default function LegalLayout({
       },
       { rootMargin: '-20% 0px -70% 0px' },
     )
-    toc.forEach(({ id }) => {
+    tocIds.forEach((id) => {
       const el = document.getElementById(id)
       if (el) observer.observe(el)
     })
     return () => observer.disconnect()
-  }, [toc])
+  }, [tocIds])
 
   return (
     <div className="min-h-screen">
