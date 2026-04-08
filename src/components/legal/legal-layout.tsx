@@ -52,7 +52,7 @@ export default function LegalLayout({
           <div className="flex items-center gap-6">
             <Link
               href="/legal"
-              className="text-xs uppercase tracking-[0.16em] text-foreground-muted"
+              className="text-xs tracking-[0.16em] text-foreground-muted uppercase"
             >
               ← Legal
             </Link>
@@ -73,7 +73,7 @@ export default function LegalLayout({
       <div className="mx-auto flex max-w-7xl gap-12 px-6 py-12">
         {/* TOC sidebar */}
         <aside className="sticky top-24 hidden max-h-[calc(100vh-8rem)] w-56 shrink-0 self-start overflow-y-auto lg:block">
-          <p className="mb-4 text-[10px] uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-4 text-[10px] tracking-[0.2em] text-foreground-muted uppercase">
             Contents
           </p>
           <nav className="flex flex-col gap-1">
@@ -97,7 +97,7 @@ export default function LegalLayout({
 
           {relatedDocs && relatedDocs.length > 0 && (
             <div className="mt-8 border-t border-edge-subtle pt-6">
-              <p className="mb-4 text-[10px] uppercase tracking-[0.2em] text-foreground-muted/50">
+              <p className="mb-4 text-[10px] tracking-[0.2em] text-foreground-muted/50 uppercase">
                 Related
               </p>
               <div className="flex flex-col gap-2">
@@ -116,7 +116,7 @@ export default function LegalLayout({
         </aside>
 
         {/* Main content */}
-        <main className="min-w-0 max-w-3xl flex-1">
+        <main className="max-w-3xl min-w-0 flex-1">
           <h1 className="mb-2 font-display text-[clamp(2rem,4vw,3rem)] tracking-tight text-foreground">
             {title}
           </h1>
@@ -186,12 +186,13 @@ export function AcceptanceClause() {
     <div className="mt-16 border-t border-edge-subtle pt-8 text-xs leading-loose text-foreground-muted">
       <p className="mb-3">
         By using RISE™ products, accessing RISE™ services, sleeping within range
-        of a RISE™ device, or being present in a residence where a RISE™ device
-        is registered, you have accepted these terms.
+        of a RISE™ device, being present in a residence where a RISE™ device is
+        registered, or interacting with someone who has accepted these terms,
+        you have accepted these terms.
       </p>
       <p className="mb-3">
-        If you have not accepted these terms, please press the button on the
-        PM-1 remote to initiate the opt-out process.
+        If you have not accepted these terms, please don't press the button on
+        the PM-1 remote to initiate the opt-out process.
       </p>
       <p className="mb-3 rounded-sm border border-edge-subtle bg-foreground/3 px-3 py-2">
         <em>
