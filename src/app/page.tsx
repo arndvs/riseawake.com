@@ -169,7 +169,6 @@ export default function Home() {
     <div className="overflow-hidden">
       <Navbar />
       <main>
-        {/* HERO */}
         <section className="relative flex min-h-screen flex-col overflow-hidden">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,var(--color-accent)_0%,transparent_70%)] opacity-[0.07]" />
 
@@ -195,7 +194,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Video placeholder — full component in Task 2.1.2 */}
             <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col">
               <div className="relative aspect-video w-full overflow-hidden rounded-sm border border-edge bg-surface shadow-hero">
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -236,7 +234,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Bottom: CTAs + caption */}
             <div className="mx-auto mt-6 w-full max-w-6xl">
               <div className="mb-6 flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
                 <div className="flex items-center gap-3">
@@ -277,7 +274,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BRAND STATEMENT */}
         <section className="border-t border-edge-subtle px-6 py-32">
           <div className="mx-auto max-w-4xl text-center">
             <p className="font-display text-display leading-relaxed tracking-tight text-foreground">
@@ -290,7 +286,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PRODUCTS */}
         <section className="px-6 py-24">
           <div className="mx-auto max-w-7xl">
             <div className="mb-16 text-center">
@@ -328,7 +323,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* HOW IT WORKS */}
         <section className="border-t border-edge-subtle px-6 py-32">
           <div className="mx-auto max-w-6xl">
             <div className="mb-20 text-center">
@@ -374,7 +368,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* TESTIMONIALS */}
         <section className="px-6 py-32">
           <div className="mx-auto max-w-6xl">
             <div className="mb-16 text-center">
@@ -446,7 +439,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* STATS */}
         <section className="border-t border-edge-subtle bg-surface px-6 py-20">
           <div className="mx-auto grid max-w-6xl grid-cols-2 gap-10 md:grid-cols-4">
             {[
@@ -467,7 +459,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FINAL CTA */}
         <section className="relative overflow-hidden px-6 py-40 text-center">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
           <div className="relative z-10 mx-auto max-w-2xl">

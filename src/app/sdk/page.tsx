@@ -133,7 +133,6 @@ export default function SDKPage() {
     <main>
       <Navbar />
 
-      {/* Hero */}
       <section className="relative overflow-hidden px-6 pt-40 pb-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-accent)/7%,transparent_70%)]" />
         <div className="mx-auto max-w-5xl text-center">
@@ -186,7 +185,6 @@ export default function SDKPage() {
         </div>
       </section>
 
-      {/* Pricing */}
       <section className="border-t border-edge-subtle px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-14 text-center">
@@ -292,7 +290,6 @@ export default function SDKPage() {
         </div>
       </section>
 
-      {/* Features */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 text-center">
@@ -321,7 +318,6 @@ export default function SDKPage() {
         </div>
       </section>
 
-      {/* Format Spec */}
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-16">
         <div className="mx-auto max-w-4xl">
           <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
@@ -383,7 +379,6 @@ export default function SDKPage() {
         </div>
       </section>
 
-      {/* Purchase Modal */}
       {modalTier && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/80 px-6 backdrop-blur-sm" onClick={closeModal}>
           <div className="w-full max-w-md rounded-xl border border-edge bg-surface p-8" role="dialog" aria-modal="true" aria-labelledby="sdk-modal-title" onClick={(e) => e.stopPropagation()}>

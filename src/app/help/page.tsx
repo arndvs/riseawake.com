@@ -68,7 +68,6 @@ export default function HelpPage() {
     <main>
       <Navbar />
 
-      {/* HEADER */}
       <section className="relative overflow-hidden px-6 pt-40 pb-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-accent)_0%,transparent_70%)] opacity-[0.05]" />
         <div className="mx-auto max-w-4xl">
@@ -107,7 +106,6 @@ export default function HelpPage() {
         </div>
       </section>
 
-      {/* QUICK LINKS */}
       <section className="border-t border-edge-subtle px-6 py-16">
         <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-3">
           {[
@@ -144,7 +142,6 @@ export default function HelpPage() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section id="faq" className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-4xl">
           <div className="mb-14">
@@ -200,7 +197,6 @@ export default function HelpPage() {
         </div>
       </section>
 
-      {/* WARRANTY */}
       <section
         id="warranty"
         className="border-t border-edge-subtle bg-surface-alt px-6 py-24"
@@ -277,7 +273,6 @@ export default function HelpPage() {
         </div>
       </section>
 
-      {/* CONTACT FORM */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-4xl">
           <div className="mb-14">

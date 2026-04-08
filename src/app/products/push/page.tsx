@@ -158,7 +158,6 @@ export default function PushPage() {
     <main>
       <Navbar />
 
-      {/* HERO */}
       <section className="relative overflow-hidden px-6 pt-40 pb-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_30%,var(--color-accent)_0%,transparent_65%)] opacity-[0.09]" />
 
@@ -178,7 +177,6 @@ export default function PushPage() {
           </nav>
 
           <div className="grid items-start gap-16 md:grid-cols-2">
-            {/* Left: Visual */}
             <div>
               <div className="mb-8 rounded-sm border border-accent/15 bg-accent/6 px-4 py-3 text-xs leading-relaxed text-foreground-secondary">
                 <span className="font-medium text-accent">
@@ -207,7 +205,6 @@ export default function PushPage() {
               </div>
             </div>
 
-            {/* Right: Info */}
             <div className="pt-2">
               <div className="mb-4">
                 <span className="rounded-sm border border-accent/20 bg-accent/10 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-accent">
@@ -242,7 +239,6 @@ export default function PushPage() {
                 already decided to be.
               </p>
 
-              {/* NOTIFICATION FORM */}
               <div className="mb-6 rounded-sm border border-edge bg-foreground/3 p-6">
                 {!submitted ? (
                   <>
@@ -303,7 +299,6 @@ export default function PushPage() {
         </div>
       </section>
 
-      {/* FEATURES */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16">
@@ -336,7 +331,6 @@ export default function PushPage() {
         </div>
       </section>
 
-      {/* PUSH MODE DETAIL */}
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="grid items-center gap-16 md:grid-cols-2">
@@ -371,7 +365,6 @@ export default function PushPage() {
         </div>
       </section>
 
-      {/* SPECS */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
@@ -421,7 +414,6 @@ export default function PushPage() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
       <section className="relative overflow-hidden border-t border-edge-subtle px-6 py-32 text-center">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
         <div className="relative z-10 mx-auto max-w-xl">

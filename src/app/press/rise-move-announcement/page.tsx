@@ -19,7 +19,6 @@ export default function MoveAnnouncementPage() {
             </ol>
           </nav>
 
-          {/* PR Header */}
           <div className="mb-12 border-b border-edge-subtle pb-8">
             <div className="mb-6 flex items-center gap-3">
               <span className="rounded-sm border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] tracking-[0.14em] text-accent/65 uppercase">
@@ -46,7 +45,6 @@ export default function MoveAnnouncementPage() {
             </p>
           </div>
 
-          {/* Body */}
           <div className="mb-14 space-y-5 text-sm leading-loose text-foreground-muted">
             <p>
               RISE™ Technologies, Inc. today confirmed that its research and
@@ -160,7 +158,6 @@ export default function MoveAnnouncementPage() {
             </p>
           </div>
 
-          {/* Boilerplate */}
           <div className="border-t border-edge-subtle pt-8 pb-8">
             <p className="mb-4 text-xs font-medium text-foreground-muted">
               About RISE™ Technologies, Inc.
@@ -208,7 +205,6 @@ export default function MoveAnnouncementPage() {
             </p>
           </div>
 
-          {/* Navigation */}
           <div className="flex items-center justify-between border-t border-edge-subtle pt-6">
             <Link href="/press" className="text-xs text-foreground-muted">
               ← All Press Releases

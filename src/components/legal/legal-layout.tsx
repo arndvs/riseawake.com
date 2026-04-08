@@ -48,7 +48,6 @@ export default function LegalLayout({
 
   return (
     <div className="min-h-screen">
-      {/* Document header */}
       <div className="border-b border-edge-subtle bg-surface-alt/80 px-6 py-4">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-6">
@@ -73,7 +72,6 @@ export default function LegalLayout({
       </div>
 
       <div className="mx-auto flex max-w-7xl gap-12 px-6 py-12">
-        {/* TOC sidebar */}
         <aside className="sticky top-24 hidden max-h-[calc(100vh-8rem)] w-56 shrink-0 self-start overflow-y-auto lg:block">
           <p className="mb-4 text-[10px] tracking-[0.2em] text-foreground-muted uppercase">
             Contents
@@ -114,7 +112,6 @@ export default function LegalLayout({
           )}
         </aside>
 
-        {/* Main content */}
         <main className="max-w-3xl min-w-0 flex-1">
           <h1 className="mb-2 font-display text-[clamp(2rem,4vw,3rem)] tracking-tight text-foreground">
             {title}

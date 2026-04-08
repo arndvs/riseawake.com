@@ -43,7 +43,6 @@ export default function MovePage() {
     <main>
       <Navbar />
 
-      {/* HERO */}
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
         <div
           className="pointer-events-none absolute inset-0"
@@ -129,7 +128,6 @@ export default function MovePage() {
         </div>
       </section>
 
-      {/* WHAT WE KNOW / DON'T KNOW */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-4xl">
           <div className="mb-14 text-center">
@@ -186,7 +184,6 @@ export default function MovePage() {
         </div>
       </section>
 
-      {/* THE STAIRS PROBLEM */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-3xl">
           <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
@@ -237,7 +234,6 @@ export default function MovePage() {
         </div>
       </section>
 
-      {/* VERTICAL NAVIGATION SERVICES */}
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-24">
         <div className="mx-auto max-w-3xl">
           <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
@@ -310,7 +306,6 @@ export default function MovePage() {
         </div>
       </section>
 
-      {/* CEO QUOTE */}
       <section className="border-t border-edge-subtle px-6 py-32 text-center">
         <div className="mx-auto max-w-2xl">
           <p className="mb-6 font-display text-[clamp(1.6rem,4vw,2.8rem)] leading-snug tracking-tight text-foreground-secondary italic">
@@ -337,7 +332,6 @@ export default function MovePage() {
         </div>
       </section>
 
-      {/* PUSH OWNERS */}
       <section className="border-t border-edge-subtle px-6 py-16">
         <div className="mx-auto max-w-3xl rounded-sm border border-edge-subtle bg-surface-alt p-8">
           <p className="mb-3 text-xs font-medium text-foreground-secondary">
@@ -369,7 +363,6 @@ export default function MovePage() {
         </div>
       </section>
 
-      {/* REPEAT SIGNUP */}
       <section className="border-t border-edge-subtle px-6 py-24 text-center">
         <div className="mx-auto max-w-xl">
           <h2 className="mb-4 font-display text-3xl tracking-tight text-foreground-secondary">

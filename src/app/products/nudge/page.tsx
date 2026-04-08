@@ -140,7 +140,6 @@ export default function NudgePage() {
     <main>
       <Navbar />
 
-      {/* HERO */}
       <section className="relative overflow-hidden px-6 pt-40 pb-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-foreground)_0%,transparent_70%)] opacity-[0.025]" />
 
@@ -160,7 +159,6 @@ export default function NudgePage() {
           </nav>
 
           <div className="grid items-start gap-16 md:grid-cols-2">
-            {/* Left: Visual */}
             <div>
               <div className="mb-8 rounded-sm border border-edge bg-foreground/3 px-4 py-3 text-xs leading-relaxed text-foreground-muted">
                 <span className="font-medium text-foreground-secondary">
@@ -207,7 +205,6 @@ export default function NudgePage() {
               </div>
             </div>
 
-            {/* Right: Info */}
             <div className="pt-2">
               <div className="mb-4">
                 <span className="rounded-sm border border-edge bg-foreground/5 px-3 py-1.5 text-[10px] font-medium tracking-[0.18em] text-foreground-muted uppercase">
@@ -269,7 +266,6 @@ export default function NudgePage() {
         </div>
       </section>
 
-      {/* FEATURES */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16">
@@ -299,7 +295,6 @@ export default function NudgePage() {
         </div>
       </section>
 
-      {/* SPECS */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
@@ -329,7 +324,6 @@ export default function NudgePage() {
         </div>
       </section>
 
-      {/* TRANSITION CTA */}
       <section className="border-t border-edge-subtle px-6 py-32 text-center">
         <div className="mx-auto max-w-xl">
           <p className="mb-8 text-xs tracking-[0.2em] text-foreground-muted uppercase">

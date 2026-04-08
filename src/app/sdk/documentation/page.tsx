@@ -141,7 +141,6 @@ export default function SDKDocsPage() {
             </p>
           </div>
 
-          {/* Table of Contents */}
           <div className="mb-12 rounded-xl border border-edge bg-surface p-6">
             <p className="mb-4 text-xs font-medium text-foreground-secondary">
               Contents
@@ -172,7 +171,6 @@ export default function SDKDocsPage() {
             ))}
           </div>
 
-          {/* Sections */}
           {SECTIONS.map((section, i) => (
             <div key={i} className="mb-10 scroll-mt-24">
               <h2 className="mb-4 text-sm font-medium text-foreground-secondary">

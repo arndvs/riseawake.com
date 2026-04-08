@@ -373,7 +373,6 @@ export default function AboutPage() {
     <main>
       <Navbar />
 
-      {/* HEADER */}
       <section className="relative overflow-hidden px-6 pt-40 pb-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_30%,var(--color-accent)_0%,transparent_70%)] opacity-[0.07]" />
         <div
@@ -410,7 +409,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* PRINCIPLES */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16">
@@ -440,7 +438,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* TIMELINE */}
       <section className="border-t border-edge-subtle px-6 py-32">
         <div className="mx-auto max-w-6xl">
           <div className="mb-20">
@@ -458,13 +455,11 @@ export default function AboutPage() {
           </div>
 
           <div className="relative">
-            {/* Vertical spine */}
             <div className="absolute top-0 bottom-0 left-[88px] w-px bg-gradient-to-b from-transparent via-edge to-transparent md:left-[120px]" />
 
             <div className="flex flex-col gap-0">
               {TIMELINE.map((era, eraIndex) => (
                 <div key={era.year} className="relative">
-                  {/* Era header */}
                   <div className="mt-14 mb-8 flex items-start gap-8 first:mt-0 md:gap-12">
                     <div className="w-[72px] shrink-0 pt-0.5 text-right">
                       <span
@@ -499,7 +494,6 @@ export default function AboutPage() {
                     </div>
                   </div>
 
-                  {/* Entries */}
                   <div className="flex flex-col gap-4">
                     {era.entries.map((entry, entryIndex) => (
                       <div
@@ -531,7 +525,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* BY THE NUMBERS */}
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 text-center">
@@ -580,7 +573,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CLOSING CTA */}
       <section className="relative overflow-hidden px-6 py-40 text-center">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
         <div className="relative z-10 mx-auto max-w-xl">

@@ -383,7 +383,6 @@ export default function ActivatePage() {
     <main>
       <Navbar />
 
-      {/* HERO */}
       <section className="relative overflow-hidden px-6 pt-40 pb-16">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-accent)_0%,transparent_70%)] opacity-[0.07]" />
         <div className="mx-auto max-w-3xl">
@@ -406,7 +405,6 @@ export default function ActivatePage() {
             inadequate.
           </p>
 
-          {/* Serial number form */}
           <div ref={configTopRef} className="mb-6 rounded-sm border border-edge bg-surface-alt p-8">
             {formState === 'activated' ? (
               <div className="py-12 text-center">
@@ -784,7 +782,6 @@ export default function ActivatePage() {
         </div>
       </section>
 
-      {/* THE 12 STAGES */}
       <section className="border-t border-edge-subtle px-6 py-20">
         <div className="mx-auto max-w-3xl">
           <div className="mb-12">
@@ -876,7 +873,6 @@ export default function ActivatePage() {
         </div>
       </section>
 
-      {/* WHAT THE BED COLLECTS */}
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-20">
         <div className="mx-auto max-w-3xl">
           <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
@@ -1014,7 +1010,6 @@ export default function ActivatePage() {
         </div>
       </section>
 
-      {/* CLOSING */}
       <section className="border-t border-edge-subtle px-6 py-32 text-center">
         <div className="mx-auto max-w-xl">
           <p className="mb-8 text-xs tracking-[0.2em] text-foreground-muted uppercase">

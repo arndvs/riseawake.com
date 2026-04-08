@@ -232,7 +232,6 @@ export default function DataRequestPage() {
             interests are not always aligned.
           </p>
 
-          {/* Timeline banner */}
           <div className="mb-16 rounded-sm border border-accent/12 bg-accent/6 p-5">
             <div className="flex flex-wrap gap-8">
               {STATS.map((stat) => (
@@ -248,7 +247,6 @@ export default function DataRequestPage() {
             </div>
           </div>
 
-          {/* Visual step tracker */}
           <div className="mb-12 flex items-center gap-1 overflow-x-auto pb-2">
             {STEPS.map((step, i) => (
               <div key={step.number} className="flex items-center">
@@ -262,7 +260,6 @@ export default function DataRequestPage() {
             ))}
           </div>
 
-          {/* Steps */}
           <div className="flex flex-col gap-6">
             {STEPS.map((step) => (
               <div
@@ -296,7 +293,6 @@ export default function DataRequestPage() {
             ))}
           </div>
 
-          {/* Closing note */}
           <div className="mt-12 rounded-xl border border-edge-subtle bg-foreground/2 p-6">
             <p className="mb-4 font-display text-sm text-foreground-secondary">
               A final note.
