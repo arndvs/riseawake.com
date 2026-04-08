@@ -5,32 +5,38 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@headlessui/react'
-import { Menu } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
 import { Link } from './link'
 import { Logo } from './logo'
-import { PlusGrid, PlusGridItem, PlusGridRow } from './plus-grid'
 
 const links = [
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/company', label: 'Company' },
+  { href: '/about', label: 'Our Story' },
+  { href: '/products/nudge', label: 'The Nudge' },
+  { href: '/products/push', label: 'The Push' },
+  { href: '/move', label: 'Move' },
+  { href: '/activate', label: 'Activate' },
+  { href: '/help', label: 'Support' },
   { href: '/blog', label: 'Blog' },
-  { href: '/login', label: 'Login' },
 ]
 
 function DesktopNav() {
   return (
-    <nav className="relative hidden lg:flex">
+    <nav className="relative hidden items-center gap-8 lg:flex">
       {links.map(({ href, label }) => (
-        <PlusGridItem key={href} className="relative flex">
-          <Link
-            href={href}
-            className="flex items-center px-4 py-3 text-base font-medium text-gray-950 bg-blend-multiply data-hover:bg-black/2.5"
-          >
-            {label}
-          </Link>
-        </PlusGridItem>
+        <Link
+          key={href}
+          href={href}
+          className="text-xs font-medium uppercase tracking-widest text-foreground-secondary transition-colors duration-200 hover:text-foreground"
+        >
+          {label}
+        </Link>
       ))}
+      <Link
+        href="/products/push"
+        className="rounded-pill bg-accent px-5 py-2.5 text-xs font-medium uppercase tracking-widest text-white transition-colors duration-200 hover:bg-accent-hover"
+      >
+        Shop Now
+      </Link>
     </nav>
   )
 }
@@ -38,38 +44,33 @@ function DesktopNav() {
 function MobileNavButton() {
   return (
     <DisclosureButton
-      className="flex size-12 items-center justify-center self-center rounded-lg data-hover:bg-black/5 lg:hidden"
+      className="flex size-12 items-center justify-center self-center rounded-lg text-foreground-secondary hover:text-foreground lg:hidden"
       aria-label="Open main menu"
     >
-      <Menu className="size-6" />
+      {({ open }) => (open ? <X className="size-6" /> : <Menu className="size-6" />)}
     </DisclosureButton>
   )
 }
 
 function MobileNav() {
   return (
-    <DisclosurePanel className="lg:hidden">
-      <div className="flex flex-col gap-6 py-4">
-        {links.map(({ href, label }, linkIndex) => (
-          <motion.div
-            initial={{ opacity: 0, rotateX: -90 }}
-            animate={{ opacity: 1, rotateX: 0 }}
-            transition={{
-              duration: 0.15,
-              ease: 'easeInOut',
-              rotateX: { duration: 0.3, delay: linkIndex * 0.1 },
-            }}
+    <DisclosurePanel className="border-t border-edge bg-page/97 backdrop-blur-xl lg:hidden">
+      <div className="flex flex-col gap-6 px-6 py-6">
+        {links.map(({ href, label }) => (
+          <Link
             key={href}
+            href={href}
+            className="text-sm font-medium uppercase tracking-widest text-foreground-secondary transition-colors hover:text-foreground"
           >
-            <Link href={href} className="text-base font-medium text-gray-950">
-              {label}
-            </Link>
-          </motion.div>
+            {label}
+          </Link>
         ))}
-      </div>
-      <div className="absolute left-1/2 w-screen -translate-x-1/2">
-        <div className="absolute inset-x-0 top-0 border-t border-black/5" />
-        <div className="absolute inset-x-0 top-2 border-t border-black/5" />
+        <Link
+          href="/products/push"
+          className="rounded-pill bg-accent px-5 py-3 text-center text-sm font-medium uppercase tracking-widest text-white transition-colors hover:bg-accent-hover"
+        >
+          Shop Now
+        </Link>
       </div>
     </DisclosurePanel>
   )
@@ -77,25 +78,21 @@ function MobileNav() {
 
 export function Navbar({ banner }: { banner?: React.ReactNode }) {
   return (
-    <Disclosure as="header" className="pt-12 sm:pt-16">
-      <PlusGrid>
-        <PlusGridRow className="relative flex justify-between">
-          <div className="relative flex gap-6">
-            <PlusGridItem className="py-3">
-              <Link href="/" title="Home">
-                <Logo className="h-9" />
-              </Link>
-            </PlusGridItem>
-            {banner && (
-              <div className="relative hidden items-center py-3 lg:flex">
-                {banner}
-              </div>
-            )}
-          </div>
-          <DesktopNav />
-          <MobileNavButton />
-        </PlusGridRow>
-      </PlusGrid>
+    <Disclosure as="header" className="fixed inset-x-0 top-0 z-50 border-b border-edge/0 bg-page/85 backdrop-blur-xl transition-all duration-500 data-[open]:border-edge">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-12">
+        <div className="flex items-center gap-6">
+          <Link href="/" title="Home">
+            <Logo className="h-7" />
+          </Link>
+          {banner && (
+            <div className="hidden items-center lg:flex">
+              {banner}
+            </div>
+          )}
+        </div>
+        <DesktopNav />
+        <MobileNavButton />
+      </div>
       <MobileNav />
     </Disclosure>
   )
