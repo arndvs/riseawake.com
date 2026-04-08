@@ -1,5 +1,3 @@
-'use client'
-
 import { Link } from './link'
 import { Logo } from './logo'
 import { SpotifyIcon } from './spotify-icon'
