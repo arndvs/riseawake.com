@@ -11,7 +11,7 @@ const TOTAL_POSTS_QUERY = defineQuery(/* groq */ `count(*[
 export async function getPostsCount(category?: string) {
   return await sanityFetch({
     query: TOTAL_POSTS_QUERY,
-    params: { category: category ?? null },
+    params: { category: category !== undefined ? category : null },
   })
 }
 
@@ -41,7 +41,7 @@ export async function getPosts(
     params: {
       startIndex,
       endIndex,
-      category: category ?? null,
+      category: category !== undefined ? category : null,
     },
   })
 }
