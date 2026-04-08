@@ -21,13 +21,13 @@ function LogoIcon() {
       />
       <path
         d="M6.93 12.93l1.41 1.41M21.07 12.93l-1.41 1.41M4 20h2M22 20h2"
-        className="stroke-amber-400/50"
+        className="stroke-accent/50"
         strokeWidth="1"
         strokeLinecap="round"
       />
       <path
         d="M18 20a4 4 0 0 0-8 0"
-        className="stroke-amber-500"
+        className="stroke-accent"
         strokeWidth="1.5"
         strokeLinecap="round"
       />
