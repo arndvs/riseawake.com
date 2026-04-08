@@ -261,6 +261,7 @@ export default function PushPage() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="your@email.com"
+                        aria-label="Email address"
                         required
                         className="flex-1 rounded-sm border border-edge bg-foreground/5 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
                       />
