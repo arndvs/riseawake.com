@@ -3,7 +3,7 @@
 import { Footer } from '@/components/footer'
 import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const TIERS = [
   {
@@ -109,6 +109,21 @@ export default function SDKPage() {
     setModalTier(tierId)
     setHasRSDP(null)
   }
+
+  const closeModal = () => {
+    setModalTier(null)
+    setHasRSDP(null)
+    setWaitlisted(false)
+  }
+
+  useEffect(() => {
+    if (!modalTier) return
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeModal()
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [modalTier])
 
   return (
     <main className="bg-page">
@@ -368,11 +383,11 @@ export default function SDKPage() {
 
       {/* Purchase Modal */}
       {modalTier && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-6 backdrop-blur-sm">
-          <div className="w-full max-w-md rounded-xl border border-edge bg-surface p-8">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-6 backdrop-blur-sm" onClick={closeModal}>
+          <div className="w-full max-w-md rounded-xl border border-edge bg-surface p-8" role="dialog" aria-modal="true" aria-labelledby="sdk-modal-title" onClick={(e) => e.stopPropagation()}>
             {hasRSDP === null ? (
               <>
-                <h3 className="mb-4 font-display text-2xl text-foreground">
+                <h3 id="sdk-modal-title" className="mb-4 font-display text-2xl text-foreground">
                   Before You Purchase
                 </h3>
                 <p className="mb-6 text-sm leading-relaxed text-foreground-secondary">
@@ -394,10 +409,7 @@ export default function SDKPage() {
                     I have not yet received my RSDP
                   </button>
                   <button
-                    onClick={() => {
-                      setModalTier(null)
-                      setHasRSDP(null)
-                    }}
+                    onClick={closeModal}
                     className="cursor-pointer bg-transparent py-2 text-xs text-foreground-muted/50"
                   >
                     Cancel
@@ -406,7 +418,7 @@ export default function SDKPage() {
               </>
             ) : hasRSDP === false ? (
               <>
-                <h3 className="mb-4 font-display text-xl text-foreground">
+                <h3 id="sdk-modal-title" className="mb-4 font-display text-xl text-foreground">
                   Complete Your Data Request First
                 </h3>
                 <p className="mb-4 text-xs leading-relaxed text-foreground-secondary">
@@ -427,10 +439,7 @@ export default function SDKPage() {
                 <div className="flex flex-col gap-3">
                   <Link
                     href="/data-request"
-                    onClick={() => {
-                      setModalTier(null)
-                      setHasRSDP(null)
-                    }}
+                    onClick={closeModal}
                     className="rounded-sm bg-accent py-3 text-center text-xs font-medium tracking-[0.14em] text-white uppercase"
                   >
                     Begin Data Request Process
@@ -453,11 +462,7 @@ export default function SDKPage() {
                     </div>
                   )}
                   <button
-                    onClick={() => {
-                      setModalTier(null)
-                      setHasRSDP(null)
-                      setWaitlisted(false)
-                    }}
+                    onClick={closeModal}
                     className="cursor-pointer bg-transparent py-2 text-xs text-foreground-muted/50"
                   >
                     Close
@@ -466,7 +471,7 @@ export default function SDKPage() {
               </>
             ) : (
               <>
-                <h3 className="mb-4 font-display text-xl text-foreground">
+                <h3 id="sdk-modal-title" className="mb-4 font-display text-xl text-foreground">
                   SDK Developer Waitlist
                 </h3>
                 <p className="mb-6 text-xs leading-relaxed text-foreground-secondary">
@@ -483,10 +488,7 @@ export default function SDKPage() {
                       Join Developer Waitlist
                     </button>
                     <button
-                      onClick={() => {
-                        setModalTier(null)
-                        setHasRSDP(null)
-                      }}
+                      onClick={closeModal}
                       className="cursor-pointer bg-transparent py-2 text-xs text-foreground-muted/50"
                     >
                       Cancel
@@ -507,11 +509,7 @@ export default function SDKPage() {
                       </p>
                     </div>
                     <button
-                      onClick={() => {
-                        setModalTier(null)
-                        setHasRSDP(null)
-                        setWaitlisted(false)
-                      }}
+                      onClick={closeModal}
                       className="w-full cursor-pointer bg-transparent py-2 text-xs text-foreground-muted"
                     >
                       Close
