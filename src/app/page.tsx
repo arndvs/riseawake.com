@@ -16,6 +16,7 @@ function BedIcon({ status }: { status: string }) {
       height="80"
       viewBox="0 0 120 80"
       fill="none"
+      aria-hidden="true"
       className={isDiscontinued ? 'text-foreground/12' : 'text-accent/40'}
     >
       <rect
@@ -206,6 +207,7 @@ export default function Home() {
                         height="24"
                         viewBox="0 0 22 24"
                         fill="none"
+                        aria-hidden="true"
                       >
                         <path
                           d="M3 2L20 12L3 22V2Z"

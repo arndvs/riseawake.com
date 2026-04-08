@@ -3,7 +3,7 @@
 import { Footer } from '@/components/footer'
 import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const STAGES = [
   {
@@ -109,12 +109,218 @@ type FormState =
   | 'validating'
   | 'invalid'
   | 'refund-warning'
-  | 'continue'
+  | 'configurator'
+  | 'activated'
+
+const SLEEP_POSITIONS = [
+  { id: 'side', label: 'Side', desc: 'Left or right lateral' },
+  { id: 'back', label: 'Back', desc: 'Supine position' },
+  { id: 'stomach', label: 'Stomach', desc: 'Prone position' },
+  { id: 'unknown', label: 'I don\'t know', desc: 'The bed will determine this' },
+] as const
+
+const BED_SIDES = [
+  { id: 'left', label: 'Left' },
+  { id: 'right', label: 'Right' },
+  { id: 'center', label: 'Center (solo occupant)' },
+] as const
+
+const INTENSITY_LABELS = [
+  { value: 0, label: 'Gentle', desc: 'Gradual elevation. Extended transition window.' },
+  { value: 33, label: 'Standard', desc: 'Manufacturer-recommended settings.' },
+  { value: 66, label: 'Committed', desc: 'Reduced transition window. Direct delivery.' },
+  { value: 100, label: 'Non-Negotiable', desc: 'Full Push Mode. No transition period. Immediate vertical delivery.' },
+] as const
+
+const DEFAULT_SEQUENCE = [
+  { id: 'bedroom', label: 'Bedroom', icon: '◻', duration: '0 min', note: 'Origin point' },
+  { id: 'bathroom', label: 'Bathroom', icon: '◻', duration: '8 min', note: 'The bed waits at the door' },
+  { id: 'closet', label: 'Closet', icon: '◻', duration: '5 min', note: 'Outfit verification by inference' },
+  { id: 'kitchen', label: 'Kitchen', icon: '◻', duration: '4 min', note: 'Coffee not carried' },
+  { id: 'front-door', label: 'Front Door', icon: '◻', duration: '1 min', note: 'Departure point' },
+]
+
+const ACKNOWLEDGMENTS = [
+  'Push Mode cannot be manually interrupted once initiated.',
+  'The refund window has closed upon serial number entry.',
+  'Environmental incompatibilities discovered during activation are not grounds for refund.',
+  'Staircase navigation is not supported. See RISE™ Move.',
+  'Duration estimates are monitored and automatically adjusted.',
+  'GPS coordinates are shared with the autonomous navigation system.',
+  'The bed infers outfit correctness from time and behavior. It cannot see.',
+  'Push Mode intensity is calibrated automatically. Manual adjustment is not available.',
+]
+
+function BedSilhouette({ angle }: { angle: number }) {
+  const mattressY = 60 - angle * 0.4
+  const headAngle = -angle * 0.9
+
+  return (
+    <svg width="120" height="80" viewBox="0 0 120 80" fill="none" aria-hidden="true" className="text-accent/40">
+      <rect x="10" y="50" width="100" height="4" rx="1" className="fill-foreground/8" />
+      <g style={{ transform: `rotate(${headAngle}deg)`, transformOrigin: '60px 50px' }}>
+        <rect x="15" y={mattressY} width="90" height="12" rx="2" className="fill-accent/12 stroke-accent/20" strokeWidth="0.5" />
+      </g>
+      <circle cx="55" cy={mattressY + 2} r="4" className="fill-foreground/15" />
+      <rect x="8" y="54" width="4" height="12" rx="1" className="fill-foreground/10" />
+      <rect x="108" y="54" width="4" height="12" rx="1" className="fill-foreground/10" />
+    </svg>
+  )
+}
+
+function IntensityDial({ value, onRelease }: { value: number; onRelease: () => void }) {
+  const [dragging, setDragging] = useState(false)
+  const [localValue, setLocalValue] = useState(value)
+  const trackRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!dragging) setLocalValue(value)
+  }, [value, dragging])
+
+  const currentLabel = INTENSITY_LABELS.reduce((prev, curr) =>
+    Math.abs(curr.value - localValue) < Math.abs(prev.value - localValue) ? curr : prev
+  )
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    setDragging(true)
+    ;(e.target as HTMLElement).setPointerCapture(e.pointerId)
+    updateFromPointer(e)
+  }
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!dragging) return
+    updateFromPointer(e)
+  }
+
+  const handlePointerUp = () => {
+    setDragging(false)
+    onRelease()
+  }
+
+  const updateFromPointer = (e: React.PointerEvent) => {
+    if (!trackRef.current) return
+    const rect = trackRef.current.getBoundingClientRect()
+    const pct = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100))
+    setLocalValue(Math.round(pct))
+  }
+
+  return (
+    <div className="select-none">
+      <div className="mb-8 flex items-center justify-between">
+        <div>
+          <p className="text-sm font-medium text-foreground-secondary">{currentLabel.label}</p>
+          <p className="mt-1 text-xs text-foreground-muted">{currentLabel.desc}</p>
+        </div>
+        <span className="font-mono text-2xl tabular-nums text-accent/60">{localValue}%</span>
+      </div>
+
+      <div
+        ref={trackRef}
+        className="relative h-2 cursor-pointer rounded-full bg-foreground/8"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+      >
+        <div
+          className="absolute inset-y-0 left-0 rounded-full bg-accent/30 transition-[width] duration-75"
+          style={{ width: `${localValue}%` }}
+        />
+        <div
+          className="absolute top-1/2 size-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-accent bg-surface shadow-elevated transition-[left] duration-75"
+          style={{ left: `${localValue}%` }}
+        />
+
+        {INTENSITY_LABELS.map((mark) => (
+          <div
+            key={mark.value}
+            className="absolute top-full mt-3 -translate-x-1/2"
+            style={{ left: `${mark.value}%` }}
+          >
+            <div className="mx-auto mb-1 h-1.5 w-px bg-foreground/15" />
+            <span className="block whitespace-nowrap text-[9px] text-foreground-muted/50">{mark.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function SequenceItem({ item, index, total, onMoveUp, onMoveDown }: {
+  item: typeof DEFAULT_SEQUENCE[number]
+  index: number
+  total: number
+  onMoveUp: () => void
+  onMoveDown: () => void
+}) {
+  return (
+    <div className="flex items-center gap-4 rounded-sm border border-edge bg-surface-alt p-4">
+      <span className="shrink-0 font-mono text-xs text-accent/40">{String(index + 1).padStart(2, '0')}</span>
+      <div className="flex-1">
+        <p className="text-sm font-medium text-foreground-secondary">{item.label}</p>
+        <p className="text-[10px] text-foreground-muted">{item.note}</p>
+      </div>
+      <span className="shrink-0 font-mono text-[10px] text-foreground-muted/50">{item.duration}</span>
+      <div className="flex shrink-0 flex-col gap-0.5">
+        <button
+          onClick={onMoveUp}
+          disabled={index === 0}
+          className="flex size-6 cursor-pointer items-center justify-center rounded border border-transparent text-foreground-muted transition-colors duration-150 disabled:cursor-default disabled:opacity-20"
+          aria-label="Move up"
+        >
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 5L5 1L9 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        </button>
+        <button
+          onClick={onMoveDown}
+          disabled={index === total - 1}
+          className="flex size-6 cursor-pointer items-center justify-center rounded border border-transparent text-foreground-muted transition-colors duration-150 disabled:cursor-default disabled:opacity-20"
+          aria-label="Move down"
+        >
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+function ConfiguratorStepIndicator({ step, total }: { step: number; total: number }) {
+  return (
+    <div className="mb-10 flex items-center gap-3">
+      {Array.from({ length: total }, (_, i) => (
+        <div key={i} className="flex items-center gap-3">
+          <div className={`flex size-8 items-center justify-center rounded-full text-xs font-medium transition-all duration-500 ${
+            i < step ? 'bg-accent/15 text-accent' :
+            i === step ? 'bg-accent text-white' :
+            'bg-foreground/5 text-foreground-muted/40'
+          }`}>
+            {i < step ? (
+              <svg width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true"><path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            ) : (
+              i + 1
+            )}
+          </div>
+          {i < total - 1 && (
+            <div className={`h-px w-8 transition-colors duration-500 ${i < step ? 'bg-accent/30' : 'bg-foreground/8'}`} />
+          )}
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export default function ActivatePage() {
   const [serial, setSerial] = useState('')
   const [formState, setFormState] = useState<FormState>('idle')
   const [refundAcknowledged, setRefundAcknowledged] = useState(false)
+
+  const [configStep, setConfigStep] = useState(0)
+  const [sleepPosition, setSleepPosition] = useState<string | null>(null)
+  const [bedSide, setBedSide] = useState<string | null>(null)
+  const [resistance, setResistance] = useState(5)
+  const [intensityValue, setIntensityValue] = useState(100)
+  const [intensitySnapped, setIntensitySnapped] = useState(false)
+  const [sequence, setSequence] = useState(DEFAULT_SEQUENCE)
+  const [acknowledgments, setAcknowledgments] = useState<boolean[]>(new Array(ACKNOWLEDGMENTS.length).fill(false))
+  const configTopRef = useRef<HTMLDivElement>(null)
 
   const handleSerialSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -127,7 +333,43 @@ export default function ActivatePage() {
   }
 
   const handleBeginActivation = () => {
-    if (refundAcknowledged) setFormState('continue')
+    if (!refundAcknowledged) return
+    setFormState('configurator')
+    setConfigStep(0)
+  }
+
+  const scrollToConfig = () => {
+    setTimeout(() => configTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100)
+  }
+
+  const handleIntensityRelease = () => {
+    setTimeout(() => {
+      setIntensityValue(100)
+      setIntensitySnapped(true)
+    }, 600)
+  }
+
+  const moveSequenceItem = (fromIndex: number, direction: -1 | 1) => {
+    const toIndex = fromIndex + direction
+    if (toIndex < 0 || toIndex >= sequence.length) return
+    const next = [...sequence]
+    const item = next[fromIndex]
+    next[fromIndex] = next[toIndex]
+    next[toIndex] = item
+    setSequence(next)
+  }
+
+  const allAcknowledged = acknowledgments.every(Boolean)
+
+  const handleFinalActivation = () => {
+    if (!allAcknowledged) return
+    setFormState('activated')
+    scrollToConfig()
+  }
+
+  const handleNextStep = () => {
+    setConfigStep((s) => s + 1)
+    scrollToConfig()
   }
 
   return (
@@ -158,35 +400,242 @@ export default function ActivatePage() {
           </p>
 
           {/* Serial number form */}
-          <div className="mb-6 rounded-sm border border-edge bg-surface-alt p-8">
-            {formState === 'continue' ? (
-              <div className="py-8 text-center">
-                <div className="mx-auto mb-6 flex size-12 items-center justify-center rounded-full border border-accent/30 bg-accent/10">
-                  <div className="animate-glow-pulse size-2 rounded-full bg-accent" />
+          <div ref={configTopRef} className="mb-6 rounded-sm border border-edge bg-surface-alt p-8">
+            {formState === 'activated' ? (
+              <div className="py-12 text-center">
+                <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-accent/10">
+                  <svg width="24" height="20" viewBox="0 0 24 20" fill="none" aria-hidden="true">
+                    <path d="M2 10L8.5 16.5L22 3" stroke="var(--color-accent)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </div>
-                <p className="mb-3 font-display text-2xl tracking-tight text-foreground">
-                  Activation initiated.
+                <p className="mb-3 font-display text-3xl tracking-tight text-foreground">
+                  Push Mode activated.
                 </p>
                 <p className="mb-2 text-xs leading-relaxed text-foreground-muted">
                   Serial{' '}
                   <span className="font-mono text-accent/70">
                     {serial.trim().toUpperCase()}
                   </span>{' '}
-                  registered.
+                  — fully configured.
+                </p>
+                <p className="mb-2 text-xs leading-relaxed text-foreground-muted">
+                  Sleep position: {sleepPosition}. Bed side: {bedSide}. Morning resistance: {resistance}/10.
+                </p>
+                <p className="mb-2 text-xs leading-relaxed text-foreground-muted">
+                  Push Mode intensity: Non-Negotiable (100%).
                 </p>
                 <p className="mb-8 text-xs leading-relaxed text-foreground-muted/50 italic">
-                  The refund window has closed. Proceed through the 12 stages
-                  below.
+                  The bed is now calibrating. First Push Mode morning will use your configured sequence.
+                  Persistent deviations from estimated durations will result in automatic adjustment.
                 </p>
-                <div className="inline-flex items-center gap-3 rounded-sm bg-accent px-6 py-3 text-white">
-                  <span className="text-xs font-medium tracking-[0.14em] uppercase">
-                    Stage 01 — The Person →
-                  </span>
-                </div>
-                <p className="mt-4 text-[10px] text-foreground-muted/30">
-                  Full interactive form coming soon. Your serial has been
-                  recorded.
+                <div className="mx-auto mb-6 h-px w-32 bg-edge" />
+                <p className="text-xs text-foreground-muted">
+                  Have a productive day.
                 </p>
+              </div>
+            ) : formState === 'configurator' ? (
+              <div>
+                <ConfiguratorStepIndicator step={configStep} total={4} />
+
+                {configStep === 0 && (
+                  <div>
+                    <p className="mb-1 text-xs tracking-[0.16em] text-foreground-muted uppercase">Stage 01</p>
+                    <h3 className="mb-6 font-display text-2xl tracking-tight text-foreground">Your Profile</h3>
+
+                    <div className="mb-8">
+                      <p className="mb-4 text-xs font-medium text-foreground-secondary">Sleep Position</p>
+                      <div className="grid grid-cols-2 gap-3">
+                        {SLEEP_POSITIONS.map((pos) => (
+                          <button
+                            key={pos.id}
+                            onClick={() => setSleepPosition(pos.id)}
+                            className={`cursor-pointer rounded-sm border p-4 text-left transition-all duration-200 ${
+                              sleepPosition === pos.id
+                                ? 'border-accent/40 bg-accent/5'
+                                : 'border-edge bg-surface'
+                            }`}
+                          >
+                            <p className={`text-sm font-medium ${sleepPosition === pos.id ? 'text-foreground' : 'text-foreground-secondary'}`}>{pos.label}</p>
+                            <p className="mt-0.5 text-[10px] text-foreground-muted">{pos.desc}</p>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mb-8">
+                      <p className="mb-4 text-xs font-medium text-foreground-secondary">Dominant Side of Bed</p>
+                      <div className="flex gap-3">
+                        {BED_SIDES.map((side) => (
+                          <button
+                            key={side.id}
+                            onClick={() => setBedSide(side.id)}
+                            className={`flex-1 cursor-pointer rounded-sm border px-4 py-3 text-center text-sm transition-all duration-200 ${
+                              bedSide === side.id
+                                ? 'border-accent/40 bg-accent/5 font-medium text-foreground'
+                                : 'border-edge bg-surface text-foreground-secondary'
+                            }`}
+                          >
+                            {side.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mb-8">
+                      <div className="mb-4 flex items-center justify-between">
+                        <p className="text-xs font-medium text-foreground-secondary">Morning Resistance</p>
+                        <span className="font-mono text-lg tabular-nums text-accent/50">{resistance}</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="1"
+                        max="10"
+                        value={resistance}
+                        onChange={(e) => setResistance(Number(e.target.value))}
+                        className="w-full accent-accent"
+                      />
+                      <div className="mt-2 flex justify-between text-[9px] text-foreground-muted/40">
+                        <span>1 — Mild reluctance</span>
+                        <span>10 — Hostile non-compliance</span>
+                      </div>
+                      {resistance >= 8 && (
+                        <p className="mt-3 text-[10px] text-foreground-muted/60 italic">
+                          Self-assessed resistance of {resistance}/10 has been noted. Push Mode intensity will be calibrated accordingly.
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="mb-4 flex items-center justify-center">
+                      <BedSilhouette angle={resistance * 9} />
+                    </div>
+
+                    <button
+                      onClick={handleNextStep}
+                      disabled={!sleepPosition || !bedSide}
+                      className="w-full cursor-pointer rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-white uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-30"
+                    >
+                      Continue to Calibration →
+                    </button>
+                  </div>
+                )}
+
+                {configStep === 1 && (
+                  <div>
+                    <p className="mb-1 text-xs tracking-[0.16em] text-foreground-muted uppercase">Stage 02</p>
+                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground">Push Mode Calibration</h3>
+                    <p className="mb-10 text-xs leading-relaxed text-foreground-muted">
+                      Adjust the intensity to match your morning requirements. The system will finalize calibration based on your profile data.
+                    </p>
+
+                    <IntensityDial value={intensityValue} onRelease={handleIntensityRelease} />
+
+                    {intensitySnapped && (
+                      <div className="mt-12 rounded-sm border border-edge bg-foreground/3 p-4">
+                        <p className="text-xs leading-relaxed text-foreground-muted">
+                          Push Mode intensity is calibrated automatically based on your profile, sleep position, and self-assessed morning resistance ({resistance}/10).
+                          Manual adjustment is not available at this time.
+                        </p>
+                        <p className="mt-2 text-[10px] text-foreground-muted/40 italic">
+                          Your preference has been noted.
+                        </p>
+                      </div>
+                    )}
+
+                    <button
+                      onClick={handleNextStep}
+                      className="mt-8 w-full cursor-pointer rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-white uppercase transition-all duration-300"
+                    >
+                      Continue to Morning Sequence →
+                    </button>
+                  </div>
+                )}
+
+                {configStep === 2 && (
+                  <div>
+                    <p className="mb-1 text-xs tracking-[0.16em] text-foreground-muted uppercase">Stage 03</p>
+                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground">Morning Sequence</h3>
+                    <p className="mb-8 text-xs leading-relaxed text-foreground-muted">
+                      Arrange your morning stops in preferred order. The bed will navigate these sequentially.
+                    </p>
+
+                    <div className="flex flex-col gap-2">
+                      {sequence.map((item, i) => (
+                        <SequenceItem
+                          key={item.id}
+                          item={item}
+                          index={i}
+                          total={sequence.length}
+                          onMoveUp={() => moveSequenceItem(i, -1)}
+                          onMoveDown={() => moveSequenceItem(i, 1)}
+                        />
+                      ))}
+                    </div>
+
+                    <p className="mt-4 text-[10px] leading-relaxed text-foreground-muted/40 italic">
+                      The bed will optimize this sequence based on your floor plan and environment mapping data.
+                      Your preferred order has been noted.
+                    </p>
+
+                    <button
+                      onClick={handleNextStep}
+                      className="mt-8 w-full cursor-pointer rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-white uppercase transition-all duration-300"
+                    >
+                      Continue to Review →
+                    </button>
+                  </div>
+                )}
+
+                {configStep === 3 && (
+                  <div>
+                    <p className="mb-1 text-xs tracking-[0.16em] text-foreground-muted uppercase">Stage 04</p>
+                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground">Review & Activate</h3>
+                    <p className="mb-8 text-xs leading-relaxed text-foreground-muted">
+                      Acknowledge each statement below. All eight are required. Activation cannot be undone.
+                    </p>
+
+                    <div className="mb-8 rounded-sm border border-edge bg-foreground/2 p-5">
+                      <p className="mb-1 text-xs font-medium text-foreground-secondary">Configuration Summary</p>
+                      <div className="mt-3 flex flex-col gap-1.5 text-xs text-foreground-muted">
+                        <p>Serial: <span className="font-mono text-foreground-secondary">{serial.trim().toUpperCase()}</span></p>
+                        <p>Sleep position: <span className="text-foreground-secondary">{sleepPosition}</span> · Bed side: <span className="text-foreground-secondary">{bedSide}</span></p>
+                        <p>Morning resistance: <span className="text-foreground-secondary">{resistance}/10</span></p>
+                        <p>Push Mode intensity: <span className="text-foreground-secondary">Non-Negotiable (100%)</span></p>
+                        <p>Morning sequence: <span className="text-foreground-secondary">{sequence.map((s) => s.label).join(' → ')}</span></p>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-3">
+                      {ACKNOWLEDGMENTS.map((ack, i) => (
+                        <label key={i} className="flex cursor-pointer items-start gap-3 rounded-sm border border-edge bg-surface p-4 transition-colors duration-150">
+                          <input
+                            type="checkbox"
+                            checked={acknowledgments[i]}
+                            onChange={(e) => {
+                              const next = [...acknowledgments]
+                              next[i] = e.target.checked
+                              setAcknowledgments(next)
+                            }}
+                            className="mt-0.5 shrink-0 accent-accent"
+                          />
+                          <span className="text-xs leading-relaxed text-foreground-muted">{ack}</span>
+                        </label>
+                      ))}
+                    </div>
+
+                    <button
+                      onClick={handleFinalActivation}
+                      disabled={!allAcknowledged}
+                      className="mt-8 w-full cursor-pointer rounded-sm bg-accent px-6 py-4 text-xs font-medium tracking-[0.16em] text-white uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-30"
+                    >
+                      Activate Push Mode
+                    </button>
+                    <p className="mt-3 text-center text-[10px] text-foreground-muted/30">
+                      This action cannot be undone.{' '}
+                      <Link href="/legal/push-mode-eula" className="text-foreground-muted/50 underline">Push Mode EULA</Link>{' · '}
+                      <Link href="/legal/terms#s7" className="text-foreground-muted/50 underline">Section 7</Link>
+                    </p>
+                  </div>
+                )}
               </div>
             ) : formState === 'refund-warning' ? (
               <div>
@@ -250,13 +699,7 @@ export default function ActivatePage() {
                   <button
                     onClick={handleBeginActivation}
                     disabled={!refundAcknowledged}
-                    className="rounded-sm border-none px-6 py-3 text-xs font-medium tracking-[0.14em] uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:bg-accent/30 disabled:text-white/30"
-                    style={{
-                      background: refundAcknowledged
-                        ? 'var(--color-accent)'
-                        : undefined,
-                      color: refundAcknowledged ? 'white' : undefined,
-                    }}
+                    className="cursor-pointer rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-white uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:bg-accent/30 disabled:text-white/30"
                   >
                     Begin Activation
                   </button>
@@ -359,7 +802,7 @@ export default function ActivatePage() {
                 key={stage.number}
                 className={`rounded-sm border p-6 ${
                   stage.flagged
-                    ? 'border-edge-subtle bg-foreground/[0.015]'
+                    ? 'border-edge-subtle bg-foreground/1.5'
                     : 'border-edge bg-surface-alt'
                 }`}
               >

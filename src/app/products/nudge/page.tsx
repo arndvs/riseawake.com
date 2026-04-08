@@ -1,5 +1,3 @@
-'use client'
-
 import { Footer } from '@/components/footer'
 import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
@@ -45,6 +43,7 @@ function NudgeBedIllustration() {
       height="260"
       viewBox="0 0 200 260"
       fill="none"
+      aria-hidden="true"
       className="text-foreground"
     >
       <rect
@@ -116,7 +115,6 @@ function NudgeBedIllustration() {
             width="14"
             height={4 + n * 2}
             rx="1"
-            fill={`rgba(var(--color-foreground), ${0.04 + n * 0.02})`}
             className="fill-foreground/5 stroke-foreground/6"
             strokeWidth="0.5"
           />

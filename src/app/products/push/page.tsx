@@ -63,6 +63,7 @@ function PushBedIllustration() {
       height="300"
       viewBox="0 0 160 300"
       fill="none"
+      aria-hidden="true"
       className="text-accent"
     >
       <rect
@@ -122,6 +123,7 @@ function RemoteIllustration() {
         height="280"
         viewBox="0 0 140 280"
         fill="none"
+        aria-hidden="true"
       >
         <rect x="25" y="10" width="90" height="260" rx="8" className="fill-rise-charcoal/90 stroke-accent/20" strokeWidth="1" />
         <rect x="26" y="11" width="88" height="258" rx="7.5" className="fill-foreground/1" />

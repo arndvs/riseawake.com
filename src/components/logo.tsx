@@ -47,6 +47,7 @@ export function Logo({ className }: { className?: string }) {
     <svg
       viewBox="0 0 120 28"
       fill="none"
+      aria-hidden="true"
       className={clsx(className, 'overflow-visible')}
     >
       <LogoIcon />
