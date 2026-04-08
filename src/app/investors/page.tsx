@@ -1,5 +1,3 @@
-'use client'
-
 import InvestorLayout, {
   IRMetricCard,
 } from '@/components/investors/investor-layout'

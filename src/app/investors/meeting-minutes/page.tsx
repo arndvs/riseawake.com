@@ -1,5 +1,3 @@
-'use client'
-
 import InvestorLayout from '@/components/investors/investor-layout'
 
 const QA = [
