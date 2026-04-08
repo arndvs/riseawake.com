@@ -168,16 +168,14 @@ export default function SDKPage() {
             </p>
             <p className="mt-3 text-xs text-foreground-muted/60">
               Before purchasing, consult the{' '}
-              <button
-                className="cursor-pointer text-accent/60 underline"
-                onClick={() =>
-                  alert(
-                    'The DataKit Compatibility Matrix is available to registered DataKit SDK customers. To become a registered customer, please purchase the SDK.',
-                  )
-                }
-              >
-                DataKit Compatibility Matrix
-              </button>{' '}
+              <details className="inline">
+                <summary className="cursor-pointer text-accent/60 underline">
+                  DataKit Compatibility Matrix
+                </summary>
+                <span className="block mt-2 rounded-sm border border-edge-subtle bg-surface-alt px-3 py-2 text-[11px] leading-relaxed text-foreground-secondary not-italic">
+                  The DataKit Compatibility Matrix is available to registered DataKit SDK customers. To become a registered customer, please purchase the SDK.
+                </span>
+              </details>{' '}
               to confirm your system meets minimum requirements.
             </p>
           </div>
