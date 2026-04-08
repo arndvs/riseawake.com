@@ -18,19 +18,25 @@ export function Logo({ className }: { className?: string }) {
         strokeWidth="0.5"
       />
       <path
-        d="M8 20H20M8 20V14M20 20V14"
+        d="M24 24H4"
         className="stroke-foreground/20"
         strokeWidth="1"
         strokeLinecap="round"
       />
       <path
-        d="M11 14H17"
-        className="stroke-foreground/15"
+        d="M6.93 12.93l1.41 1.41M21.07 12.93l-1.41 1.41M4 20h2M22 20h2"
+        className="stroke-amber-400/50"
         strokeWidth="1"
         strokeLinecap="round"
       />
       <path
-        d="M14 14V8M14 8L11 11M14 8L17 11"
+        d="M18 20a4 4 0 0 0-8 0"
+        className="stroke-amber-500"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M14 4v8M10 8l4-4 4 4"
         className="stroke-accent"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -64,19 +70,25 @@ export function Mark({ className }: { className?: string }) {
         strokeWidth="0.5"
       />
       <path
-        d="M8 20H20M8 20V14M20 20V14"
+        d="M24 24H4"
         className="stroke-foreground/20"
         strokeWidth="1"
         strokeLinecap="round"
       />
       <path
-        d="M11 14H17"
-        className="stroke-foreground/15"
+        d="M6.93 12.93l1.41 1.41M21.07 12.93l-1.41 1.41M4 20h2M22 20h2"
+        className="stroke-amber-400/50"
         strokeWidth="1"
         strokeLinecap="round"
       />
       <path
-        d="M14 14V8M14 8L11 11M14 8L17 11"
+        d="M18 20a4 4 0 0 0-8 0"
+        className="stroke-amber-500"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M14 4v8M10 8l4-4 4 4"
         className="stroke-accent"
         strokeWidth="1.5"
         strokeLinecap="round"
