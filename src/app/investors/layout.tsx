@@ -1,3 +1,5 @@
+import { Footer } from '@/components/footer'
+import { Navbar } from '@/components/navbar'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -11,5 +13,11 @@ export default function InvestorsLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <Navbar />
+      {children}
+      <Footer />
+    </>
+  )
 }
