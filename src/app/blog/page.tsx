@@ -104,8 +104,9 @@ async function Categories({ selected }: { selected?: string }) {
     <div className="flex flex-wrap items-center justify-between gap-2">
       <Menu>
         <MenuButton className="flex items-center justify-between gap-2 font-medium">
-          {categories.find(({ slug }) => slug === selected)?.title ||
-            'All categories'}
+          {selected
+            ? categories.find(({ slug }) => slug === selected)?.title
+            : 'All categories'}
           <ChevronsUpDown className="size-4 text-foreground" />
         </MenuButton>
         <MenuItems
