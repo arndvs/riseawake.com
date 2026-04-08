@@ -292,10 +292,11 @@ export default function HelpPage() {
           {!submitted ? (
             <form onSubmit={handleSubmit} className="grid gap-5 md:grid-cols-2">
               <div className="flex flex-col gap-2">
-                <label className="text-[10px] tracking-[0.16em] text-foreground-muted uppercase">
+                <label htmlFor="help-name" className="text-[10px] tracking-[0.16em] text-foreground-muted uppercase">
                   Name
                 </label>
                 <input
+                  id="help-name"
                   type="text"
                   required
                   value={formState.name}
@@ -306,10 +307,11 @@ export default function HelpPage() {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-[10px] tracking-[0.16em] text-foreground-muted uppercase">
+                <label htmlFor="help-email" className="text-[10px] tracking-[0.16em] text-foreground-muted uppercase">
                   Email
                 </label>
                 <input
+                  id="help-email"
                   type="email"
                   required
                   value={formState.email}
@@ -320,10 +322,11 @@ export default function HelpPage() {
                 />
               </div>
               <div className="flex flex-col gap-2 md:col-span-2">
-                <label className="text-[10px] tracking-[0.16em] text-foreground-muted uppercase">
+                <label htmlFor="help-subject" className="text-[10px] tracking-[0.16em] text-foreground-muted uppercase">
                   Subject
                 </label>
                 <select
+                  id="help-subject"
                   value={formState.subject}
                   onChange={(e) =>
                     setFormState({ ...formState, subject: e.target.value })
@@ -354,10 +357,11 @@ export default function HelpPage() {
                 </select>
               </div>
               <div className="flex flex-col gap-2 md:col-span-2">
-                <label className="text-[10px] tracking-[0.16em] text-foreground-muted uppercase">
+                <label htmlFor="help-message" className="text-[10px] tracking-[0.16em] text-foreground-muted uppercase">
                   Message
                 </label>
                 <textarea
+                  id="help-message"
                   required
                   rows={5}
                   value={formState.message}
