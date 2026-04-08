@@ -492,6 +492,7 @@ export default function ActivatePage() {
                         max="10"
                         value={resistance}
                         onChange={(e) => setResistance(Number(e.target.value))}
+                        aria-label="Morning Resistance"
                         className="w-full accent-accent"
                       />
                       <div className="mt-2 flex justify-between text-[9px] text-foreground-muted/40">
