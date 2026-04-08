@@ -9,19 +9,15 @@ export default function MoveAnnouncementPage() {
 
       <article className="px-6 pt-40 pb-24">
         <div className="mx-auto max-w-3xl">
-          {/* Breadcrumb */}
-          <div className="mb-12 flex items-center gap-2 text-xs text-foreground-muted/60">
-            <Link
-              href="/press"
-              className="transition-colors hover:text-foreground-muted"
-            >
-              Press
-            </Link>
-            <span>/</span>
-            <span className="text-foreground-muted">
-              RISE™ Move Announcement
-            </span>
-          </div>
+          <nav aria-label="Breadcrumb" className="mb-12 text-xs text-foreground-muted/60">
+            <ol className="flex items-center gap-2">
+              <li>
+                <Link href="/press" className="transition-colors hover:text-foreground-muted">Press</Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-foreground-muted">RISE™ Move Announcement</li>
+            </ol>
+          </nav>
 
           {/* PR Header */}
           <div className="mb-12 border-b border-edge-subtle pb-8">

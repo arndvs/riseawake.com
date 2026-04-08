@@ -145,24 +145,19 @@ export default function NudgePage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-foreground)_0%,transparent_70%)] opacity-[0.025]" />
 
         <div className="mx-auto max-w-6xl">
-          {/* Breadcrumb */}
-          <div className="mb-12 flex items-center gap-2 text-xs text-foreground-muted/40">
-            <Link
-              href="/"
-              className="transition-colors hover:text-foreground-muted"
-            >
-              Home
-            </Link>
-            <span>/</span>
-            <Link
-              href="/products/nudge"
-              className="transition-colors hover:text-foreground-muted"
-            >
-              Products
-            </Link>
-            <span>/</span>
-            <span className="text-foreground-secondary">The Nudge</span>
-          </div>
+          <nav aria-label="Breadcrumb" className="mb-12 text-xs text-foreground-muted/40">
+            <ol className="flex items-center gap-2">
+              <li>
+                <Link href="/" className="transition-colors hover:text-foreground-muted">Home</Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link href="/products/nudge" className="transition-colors hover:text-foreground-muted">Products</Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-foreground-secondary">The Nudge</li>
+            </ol>
+          </nav>
 
           <div className="grid items-start gap-16 md:grid-cols-2">
             {/* Left: Visual */}
