@@ -183,7 +183,7 @@ export default function NudgePage() {
               </div>
 
               <div className="relative flex h-105 w-full items-center justify-center overflow-hidden rounded-sm border border-edge bg-surface-alt">
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-foreground/1 to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-foreground/1 to-transparent" />
                 <NudgeBedIllustration />
                 <div
                   className="absolute inset-0 flex -rotate-12 items-center justify-center"

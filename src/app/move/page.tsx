@@ -124,7 +124,7 @@ export default function MovePage() {
           <span className="text-[9px] tracking-[0.2em] text-foreground-muted uppercase">
             What we know
           </span>
-          <div className="h-8 w-px bg-gradient-to-b from-foreground-muted/60 to-transparent" />
+          <div className="h-8 w-px bg-linear-to-b from-foreground-muted/60 to-transparent" />
         </div>
       </section>
 

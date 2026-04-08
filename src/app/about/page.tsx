@@ -455,7 +455,7 @@ export default function AboutPage() {
           </div>
 
           <div className="relative">
-            <div className="absolute top-0 bottom-0 left-22 w-px bg-gradient-to-b from-transparent via-edge to-transparent md:left-30" />
+            <div className="absolute top-0 bottom-0 left-22 w-px bg-linear-to-b from-transparent via-edge to-transparent md:left-30" />
 
             <div className="flex flex-col gap-0">
               {TIMELINE.map((era, eraIndex) => (

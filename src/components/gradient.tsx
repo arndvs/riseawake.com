@@ -6,7 +6,7 @@ export function GradientBackground() {
       <div
         className={clsx(
           'absolute -top-44 -right-60 h-60 w-xl transform-gpu md:right-0',
-          'bg-gradient-to-br from-accent/10 via-accent/5 to-transparent',
+          'bg-linear-to-br from-accent/10 via-accent/5 to-transparent',
           'rotate-[-10deg] rounded-full blur-3xl',
         )}
       />
