@@ -58,13 +58,13 @@ export default function MovePage() {
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <div className="mb-14 inline-flex items-center gap-2 rounded-sm border border-edge-subtle bg-foreground/3 px-4 py-2">
             <div className="size-1.5 rounded-full bg-foreground-muted/50" />
-            <span className="text-[10px] uppercase tracking-[0.22em] text-foreground-muted/70">
+            <span className="text-[10px] tracking-[0.22em] text-foreground-muted/70 uppercase">
               In Development
             </span>
           </div>
 
           <div className="mb-4">
-            <p className="mb-3 text-xs uppercase tracking-[0.22em] text-foreground-muted/50">
+            <p className="mb-3 text-xs tracking-[0.22em] text-foreground-muted/50 uppercase">
               RISE™
             </p>
             <h1 className="font-display text-[clamp(5rem,18vw,14rem)] leading-none tracking-tight text-foreground">
@@ -75,7 +75,7 @@ export default function MovePage() {
           <p className="mb-3 text-base leading-relaxed text-foreground-muted md:text-lg">
             Next-generation vertical navigation.
           </p>
-          <p className="mb-16 text-sm italic text-foreground-muted/40">
+          <p className="mb-16 text-sm text-foreground-muted/40 italic">
             Up. And down. Both directions. All floors.
           </p>
 
@@ -90,12 +90,12 @@ export default function MovePage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
                 required
-                className="flex-1 rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground outline-none transition-all duration-200 focus:border-accent/40"
+                className="flex-1 rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
               />
               <button
                 type="submit"
                 disabled={loading}
-                className="whitespace-nowrap rounded-sm border border-edge bg-foreground/8 px-6 py-3 text-xs font-medium uppercase tracking-[0.14em] text-foreground-secondary transition-all duration-300 disabled:cursor-not-allowed"
+                className="rounded-sm border border-edge bg-foreground/8 px-6 py-3 text-xs font-medium tracking-[0.14em] whitespace-nowrap text-foreground-secondary uppercase transition-all duration-300 disabled:cursor-not-allowed"
               >
                 {loading ? '...' : 'Notify Me'}
               </button>
@@ -106,8 +106,8 @@ export default function MovePage() {
                 You&rsquo;re on the list.
               </p>
               <p className="text-xs leading-relaxed text-foreground-muted">
-                We&rsquo;ll be in touch when we&rsquo;re ready to tell you
-                more. That may be a while.
+                We&rsquo;ll be in touch when we&rsquo;re ready to tell you more.
+                That may be a while.
               </p>
             </div>
           )}
@@ -121,7 +121,7 @@ export default function MovePage() {
         </div>
 
         <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 opacity-20">
-          <span className="text-[9px] uppercase tracking-[0.2em] text-foreground-muted">
+          <span className="text-[9px] tracking-[0.2em] text-foreground-muted uppercase">
             What we know
           </span>
           <div className="h-8 w-px bg-gradient-to-b from-foreground-muted/60 to-transparent" />
@@ -132,7 +132,7 @@ export default function MovePage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-4xl">
           <div className="mb-14 text-center">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Disclosure
             </p>
             <h2 className="font-display text-3xl tracking-tight text-foreground-secondary md:text-4xl">
@@ -146,7 +146,7 @@ export default function MovePage() {
 
           <div className="grid gap-px bg-edge-subtle md:grid-cols-2">
             <div className="bg-surface-alt p-8">
-              <p className="mb-6 text-xs font-medium uppercase tracking-[0.16em] text-foreground-muted">
+              <p className="mb-6 text-xs font-medium tracking-[0.16em] text-foreground-muted uppercase">
                 Confirmed
               </p>
               <ul className="flex flex-col gap-4">
@@ -164,14 +164,14 @@ export default function MovePage() {
               </ul>
             </div>
             <div className="bg-surface-alt p-8">
-              <p className="mb-6 text-xs font-medium uppercase tracking-[0.16em] text-foreground-muted/60">
+              <p className="mb-6 text-xs font-medium tracking-[0.16em] text-foreground-muted/60 uppercase">
                 Not Confirmed
               </p>
               <ul className="flex flex-col gap-4">
                 {NOT_CONFIRMING.map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 text-sm italic leading-relaxed text-foreground-muted"
+                    className="flex items-start gap-3 text-sm leading-relaxed text-foreground-muted italic"
                   >
                     <span className="mt-1 shrink-0 text-foreground-muted/40">
                       —
@@ -188,7 +188,7 @@ export default function MovePage() {
       {/* THE STAIRS PROBLEM */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-3xl">
-          <p className="mb-6 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             Context
           </p>
           <h2 className="mb-10 font-display text-3xl tracking-tight text-foreground-secondary md:text-4xl">
@@ -229,7 +229,7 @@ export default function MovePage() {
               unattended. The solo return commute goes up the stairs. The bed
               comes home.
             </p>
-            <p className="italic text-foreground-muted/50">
+            <p className="text-foreground-muted/50 italic">
               We are not providing additional detail at this time.
             </p>
           </div>
@@ -239,7 +239,7 @@ export default function MovePage() {
       {/* VERTICAL NAVIGATION SERVICES */}
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-24">
         <div className="mx-auto max-w-3xl">
-          <p className="mb-6 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             Pricing Structure
           </p>
           <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-secondary md:text-4xl">
@@ -249,8 +249,8 @@ export default function MovePage() {
             Staircase navigation in both directions requires real-time spatial
             mapping, dynamic load calculation, step-by-step surface
             verification, and continuous telemetry during vertical transitions.
-            This is ongoing cloud compute. It is not a one-time firmware feature.
-            RISE™ will pass this cost to the user as a monthly Vertical
+            This is ongoing cloud compute. It is not a one-time firmware
+            feature. RISE™ will pass this cost to the user as a monthly Vertical
             Navigation Services subscription.
           </p>
           <p className="mb-6 text-sm leading-loose text-foreground-muted">
@@ -280,7 +280,7 @@ export default function MovePage() {
                 key={item.label}
                 className="rounded-sm border border-edge-subtle bg-foreground/3 p-6 text-center"
               >
-                <p className="mb-3 text-xs uppercase tracking-[0.14em] text-foreground-muted">
+                <p className="mb-3 text-xs tracking-[0.14em] text-foreground-muted uppercase">
                   {item.label}
                 </p>
                 <p
@@ -292,19 +292,19 @@ export default function MovePage() {
                 >
                   {item.value}
                 </p>
-                <p className="text-[10px] italic leading-relaxed text-foreground-muted/50">
+                <p className="text-[10px] leading-relaxed text-foreground-muted/50 italic">
                   {item.note}
                 </p>
               </div>
             ))}
           </div>
 
-          <p className="mt-8 text-xs italic leading-relaxed text-foreground-muted/50">
+          <p className="mt-8 text-xs leading-relaxed text-foreground-muted/50 italic">
             Push owners: you have a Push. It works. It will continue to work on
             flat surfaces. The Move is a different product for a different
-            problem. We appreciate your understanding and your original purchase,
-            which was not contingent on staircase capability, as the product
-            specifications have always clearly stated.
+            problem. We appreciate your understanding and your original
+            purchase, which was not contingent on staircase capability, as the
+            product specifications have always clearly stated.
           </p>
         </div>
       </section>
@@ -312,7 +312,7 @@ export default function MovePage() {
       {/* CEO QUOTE */}
       <section className="border-t border-edge-subtle px-6 py-32 text-center">
         <div className="mx-auto max-w-2xl">
-          <p className="mb-6 font-display text-[clamp(1.6rem,4vw,2.8rem)] italic leading-snug tracking-tight text-foreground-secondary">
+          <p className="mb-6 font-display text-[clamp(1.6rem,4vw,2.8rem)] leading-snug tracking-tight text-foreground-secondary italic">
             &ldquo;We are aware of the stairs.
             <br />
             All of them.
@@ -324,13 +324,13 @@ export default function MovePage() {
           <p className="text-xs text-foreground-muted">
             Dr. Eleanor Voss, Founder & CEO
           </p>
-          <p className="mt-1 text-[10px] italic text-foreground-muted/30">
+          <p className="mt-1 text-[10px] text-foreground-muted/30 italic">
             Press release, February 3, 2025. Full release:{' '}
             <Link
               href="/press/rise-move-announcement"
               className="text-foreground-muted/50 underline"
             >
-              riseco.online/press/rise-move-announcement
+              riseawake.com/press/rise-move-announcement
             </Link>
           </p>
         </div>
@@ -349,11 +349,12 @@ export default function MovePage() {
             indefinitely.
           </p>
           <p className="mb-3 text-sm leading-loose text-foreground-muted">
-            The Move is a different product. It addresses a different constraint.
-            If you have stairs and wish to address them, the Move will be
-            available for purchase at the standard price when it is released.
+            The Move is a different product. It addresses a different
+            constraint. If you have stairs and wish to address them, the Move
+            will be available for purchase at the standard price when it is
+            released.
           </p>
-          <p className="text-xs italic leading-relaxed text-foreground-muted/50">
+          <p className="text-xs leading-relaxed text-foreground-muted/50 italic">
             There is no trade-in program. There is no loyalty discount. There is
             no upgrade path. These are consistent with{' '}
             <Link
@@ -389,12 +390,12 @@ export default function MovePage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
                 required
-                className="flex-1 rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground outline-none transition-all duration-200 focus:border-accent/40"
+                className="flex-1 rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
               />
               <button
                 type="submit"
                 disabled={loading}
-                className="rounded-sm border border-edge bg-foreground/8 px-6 py-3 text-xs font-medium uppercase tracking-[0.14em] text-foreground-secondary"
+                className="rounded-sm border border-edge bg-foreground/8 px-6 py-3 text-xs font-medium tracking-[0.14em] text-foreground-secondary uppercase"
               >
                 {loading ? '...' : 'Notify Me'}
               </button>

@@ -53,7 +53,7 @@ export default function PressPage() {
 
       <section className="px-6 pt-40 pb-24">
         <div className="mx-auto max-w-4xl">
-          <p className="mb-5 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             Press
           </p>
           <h1 className="mb-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] tracking-tight text-foreground">
@@ -63,7 +63,7 @@ export default function PressPage() {
             Official communications from RISE™ Technologies, Inc.
           </p>
           <p className="mb-16 text-xs leading-relaxed text-foreground-muted/50">
-            Media inquiries: press@riseco.online · Response time: 5 business
+            Media inquiries: press@riseawake.com · Response time: 5 business
             days · Dr. Voss is available for comment on most topics. She is not
             available for comment on The Push Pro or the Move&rsquo;s timeline.
           </p>
@@ -94,7 +94,7 @@ export default function PressPage() {
                     {r.date}
                   </span>
                 </div>
-                <h2 className="mb-3 text-sm font-medium leading-relaxed text-foreground-secondary">
+                <h2 className="mb-3 text-sm leading-relaxed font-medium text-foreground-secondary">
                   {r.headline}
                 </h2>
                 <p className="mb-4 text-xs leading-relaxed text-foreground-muted">

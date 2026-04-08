@@ -28,10 +28,10 @@ export default function MoveAnnouncementPage() {
           {/* PR Header */}
           <div className="mb-12 border-b border-edge-subtle pb-8">
             <div className="mb-6 flex items-center gap-3">
-              <span className="rounded-sm border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] uppercase tracking-[0.14em] text-accent/65">
+              <span className="rounded-sm border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] tracking-[0.14em] text-accent/65 uppercase">
                 Product
               </span>
-              <span className="rounded-sm border border-edge-subtle bg-foreground/3 px-2 py-1 text-[10px] uppercase tracking-[0.14em] text-foreground-muted">
+              <span className="rounded-sm border border-edge-subtle bg-foreground/3 px-2 py-1 text-[10px] tracking-[0.14em] text-foreground-muted uppercase">
                 Press Release
               </span>
             </div>
@@ -65,9 +65,9 @@ export default function MoveAnnouncementPage() {
               .
             </p>
             <p>
-              The announcement addresses a known limitation of the current
-              RISE™ Push, which operates on flat and gradual-gradient surfaces
-              only. Staircase navigation — in either direction — has not been
+              The announcement addresses a known limitation of the current RISE™
+              Push, which operates on flat and gradual-gradient surfaces only.
+              Staircase navigation — in either direction — has not been
               supported in any RISE™ product to date. This limitation is
               documented in the Push&rsquo;s product specifications, disclosed
               during the activation process at Stage 5, and addressed in{' '}
@@ -81,9 +81,9 @@ export default function MoveAnnouncementPage() {
             </p>
 
             <blockquote className="my-8 border-l-2 border-foreground-muted/30 pl-6">
-              <p className="mb-3 text-base italic leading-relaxed text-foreground-secondary">
-                &ldquo;We are aware of the stairs. All of them. Both
-                directions. We are doing something about it.&rdquo;
+              <p className="mb-3 text-base leading-relaxed text-foreground-secondary italic">
+                &ldquo;We are aware of the stairs. All of them. Both directions.
+                We are doing something about it.&rdquo;
               </p>
               <p className="text-xs text-foreground-muted">
                 — Dr. Eleanor Voss, Founder & Chief Executive Officer, RISE™
@@ -117,15 +117,15 @@ export default function MoveAnnouncementPage() {
             <p>
               RISE™ declined to provide additional details, including the
               Move&rsquo;s form factor, hardware price, VNS subscription fee,
-              first available date, or any specification beyond the above.
-              RISE™ also declined to comment on whether the Move will include
-              Push Mode, whether Push Mode in the Move will have an off switch,
-              and whether current Push owners will be able to trade in their
+              first available date, or any specification beyond the above. RISE™
+              also declined to comment on whether the Move will include Push
+              Mode, whether Push Mode in the Move will have an off switch, and
+              whether current Push owners will be able to trade in their
               existing device.
             </p>
 
             <blockquote className="my-8 border-l-2 border-edge-subtle pl-6">
-              <p className="mb-3 text-base italic leading-relaxed text-foreground-secondary/70">
+              <p className="mb-3 text-base leading-relaxed text-foreground-secondary/70 italic">
                 &ldquo;We are not currently accepting questions about the RISE™
                 Move beyond what has been disclosed today. The fact that it
                 exists, that it navigates stairs in both directions, and that it
@@ -145,7 +145,7 @@ export default function MoveAnnouncementPage() {
                 href="/move"
                 className="text-foreground-secondary underline"
               >
-                riseco.online/move
+                riseawake.com/move
               </Link>
               . Joining the list does not reserve a unit, establish pricing, or
               constitute any agreement with RISE™. Current Push owners will be
@@ -159,7 +159,7 @@ export default function MoveAnnouncementPage() {
                 href="/products/push"
                 className="text-foreground-muted underline"
               >
-                riseco.online/products/push
+                riseawake.com/products/push
               </Link>
               . The Push is not being discontinued. It operates on flat
               surfaces. It will continue to do so.
@@ -175,7 +175,7 @@ export default function MoveAnnouncementPage() {
               RISE™ Technologies, Inc. develops smart adjustable base platforms
               for people who need a little push. The company&rsquo;s current
               product, The Push, features Push Mode autonomous morning routing
-              and is available by waitlist at riseco.online. RISE™ is
+              and is available by waitlist at riseawake.com. RISE™ is
               headquartered in San Francisco, California. The company was
               founded in 2009 by Dr. Eleanor Voss, who has not been late to a
               meeting since 2021.
@@ -206,7 +206,7 @@ export default function MoveAnnouncementPage() {
               Media Contact
             </p>
             <p className="text-xs leading-relaxed text-foreground-muted/60">
-              press@riseco.online · Response time: 5 business days
+              press@riseawake.com · Response time: 5 business days
               <br />
               Dr. Voss is available for comment. She is not available for
               comment on the Move&rsquo;s timeline, price, or whether it will
@@ -216,10 +216,7 @@ export default function MoveAnnouncementPage() {
 
           {/* Navigation */}
           <div className="flex items-center justify-between border-t border-edge-subtle pt-6">
-            <Link
-              href="/press"
-              className="text-xs text-foreground-muted"
-            >
+            <Link href="/press" className="text-xs text-foreground-muted">
               ← All Press Releases
             </Link>
             <Link href="/move" className="text-xs text-accent/60">

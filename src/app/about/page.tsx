@@ -203,7 +203,7 @@ const TIMELINE: TimelineEra[] = [
         type: 'product',
         status: 'Current — Out of Stock',
         headline: 'The answer.',
-        body: "After twelve years, nine product lines, and a 94% average failure rate across early models, RISE™ arrives at the only conclusion the data supports: the bed must move the person. Not suggest. Not tilt. Not vibrate. Not apply presence. Move. Push Mode activates, transitions the base to vertical, and navigates the user through their full morning routine with the quiet, unhurried precision of a system that has already decided how this ends. One button. No off switch. By design.",
+        body: 'After twelve years, nine product lines, and a 94% average failure rate across early models, RISE™ arrives at the only conclusion the data supports: the bed must move the person. Not suggest. Not tilt. Not vibrate. Not apply presence. Move. Push Mode activates, transitions the base to vertical, and navigates the user through their full morning routine with the quiet, unhurried precision of a system that has already decided how this ends. One button. No off switch. By design.',
         outcome: 'Currently out of stock. Join the waitlist.',
         isCurrentProduct: true,
       },
@@ -301,7 +301,7 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
           )}
           {entry.status && (
             <span
-              className={`rounded-sm border px-2.5 py-1 text-[10px] uppercase tracking-widest ${
+              className={`rounded-sm border px-2.5 py-1 text-[10px] tracking-widest uppercase ${
                 isCurrent
                   ? 'border-accent/20 bg-accent/15 text-accent'
                   : isRedacted
@@ -340,20 +340,17 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
           {isCurrent ? (
             <Link
               href="/products/push"
-              className="inline-block rounded-sm bg-accent px-5 py-2.5 text-xs font-medium uppercase tracking-widest text-white transition-colors hover:bg-accent-hover"
+              className="inline-block rounded-sm bg-accent px-5 py-2.5 text-xs font-medium tracking-widest text-white uppercase transition-colors hover:bg-accent-hover"
             >
               Join the Waitlist →
             </Link>
           ) : entry.product === 'RISE™ Move' ? (
             <div className="flex items-center gap-4">
-              <p className="text-xs italic text-foreground-muted">
+              <p className="text-xs text-foreground-muted italic">
                 No timeline. No price. Both directions.
               </p>
-              <Link
-                href="/move"
-                className="text-xs text-accent/60 underline"
-              >
-                riseco.online/move →
+              <Link href="/move" className="text-xs text-accent/60 underline">
+                riseawake.com/move →
               </Link>
             </div>
           ) : (
@@ -394,7 +391,7 @@ export default function AboutPage() {
         />
 
         <div className="relative z-10 mx-auto max-w-5xl">
-          <p className="mb-6 text-xs uppercase tracking-[0.24em] text-foreground-muted">
+          <p className="mb-6 text-xs tracking-[0.24em] text-foreground-muted uppercase">
             About RISE™
           </p>
           <h1 className="mb-8 font-display text-hero leading-none text-foreground">
@@ -419,7 +416,7 @@ export default function AboutPage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               What We Learned
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -429,10 +426,7 @@ export default function AboutPage() {
 
           <div className="grid gap-px bg-edge-subtle md:grid-cols-2">
             {PRINCIPLES.map((p) => (
-              <div
-                key={p.number}
-                className="bg-surface-alt p-10 md:p-12"
-              >
+              <div key={p.number} className="bg-surface-alt p-10 md:p-12">
                 <p className="mb-6 font-display text-5xl text-accent/25">
                   {p.number}
                 </p>
@@ -452,7 +446,7 @@ export default function AboutPage() {
       <section className="border-t border-edge-subtle px-6 py-32">
         <div className="mx-auto max-w-6xl">
           <div className="mb-20">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Product History
             </p>
             <h2 className="mb-6 font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -467,19 +461,17 @@ export default function AboutPage() {
 
           <div className="relative">
             {/* Vertical spine */}
-            <div className="absolute left-[88px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-edge to-transparent md:left-[120px]" />
+            <div className="absolute top-0 bottom-0 left-[88px] w-px bg-gradient-to-b from-transparent via-edge to-transparent md:left-[120px]" />
 
             <div className="flex flex-col gap-0">
               {TIMELINE.map((era, eraIndex) => (
                 <div key={era.year} className="relative">
                   {/* Era header */}
-                  <div className="mb-8 mt-14 flex items-start gap-8 first:mt-0 md:gap-12">
+                  <div className="mt-14 mb-8 flex items-start gap-8 first:mt-0 md:gap-12">
                     <div className="w-[72px] shrink-0 pt-0.5 text-right">
                       <span
                         className={`font-display text-lg tracking-tight md:text-xl ${
-                          era.isAccent
-                            ? 'text-accent/50'
-                            : 'text-foreground/15'
+                          era.isAccent ? 'text-accent/50' : 'text-foreground/15'
                         }`}
                       >
                         {era.year}
@@ -500,10 +492,8 @@ export default function AboutPage() {
 
                     <div>
                       <p
-                        className={`text-xs font-medium uppercase tracking-[0.18em] ${
-                          era.isAccent
-                            ? 'text-accent/70'
-                            : 'text-foreground/20'
+                        className={`text-xs font-medium tracking-[0.18em] uppercase ${
+                          era.isAccent ? 'text-accent/70' : 'text-foreground/20'
                         }`}
                       >
                         {era.era}
@@ -547,7 +537,7 @@ export default function AboutPage() {
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 text-center">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               The Record
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -576,7 +566,7 @@ export default function AboutPage() {
                 >
                   {s.stat}
                 </p>
-                <p className="text-xs uppercase tracking-widest text-foreground-muted">
+                <p className="text-xs tracking-widest text-foreground-muted uppercase">
                   {s.label}
                 </p>
               </div>
@@ -596,15 +586,13 @@ export default function AboutPage() {
       <section className="relative overflow-hidden px-6 py-40 text-center">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
         <div className="relative z-10 mx-auto max-w-xl">
-          <p className="mb-8 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-8 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             The Result
           </p>
           <h2 className="mb-8 font-display text-display leading-tight tracking-tight text-foreground">
             Twelve years of failure
             <br />
-            <span className="text-foreground-muted">
-              taught us one thing.
-            </span>
+            <span className="text-foreground-muted">taught us one thing.</span>
           </h2>
           <p className="mb-4 text-sm leading-relaxed text-foreground-muted">
             The decision cannot be left to the user.
@@ -614,7 +602,7 @@ export default function AboutPage() {
           </p>
           <Link
             href="/products/push"
-            className="inline-block rounded-sm bg-accent px-10 py-4 text-xs font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-accent-hover"
+            className="inline-block rounded-sm bg-accent px-10 py-4 text-xs font-medium tracking-[0.16em] text-white uppercase transition-colors hover:bg-accent-hover"
           >
             Join the Waitlist
           </Link>

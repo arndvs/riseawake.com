@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'RISE™ — Smart Adjustable Base',
     description: 'For People Who Need A Little Push.',
-    url: 'https://riseco.online',
+    url: 'https://riseawake.com',
     siteName: 'RISE™',
     type: 'website',
   },
@@ -39,10 +39,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${dmSans.variable} ${dmSerifDisplay.variable}`}
-    >
+    <html lang="en" className={`${dmSans.variable} ${dmSerifDisplay.variable}`}>
       <head>
         <link
           rel="alternate"

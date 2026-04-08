@@ -138,7 +138,7 @@ export default function ActivatePage() {
       <section className="relative overflow-hidden px-6 pt-40 pb-16">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-accent)_0%,transparent_70%)] opacity-[0.07]" />
         <div className="mx-auto max-w-3xl">
-          <p className="mb-5 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             Device Activation
           </p>
           <h1 className="mb-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-tight tracking-tight text-foreground">
@@ -150,10 +150,10 @@ export default function ActivatePage() {
             coordinates, and your honest assessment of how resistant you are to
             mornings.
           </p>
-          <p className="mb-16 max-w-xl text-sm italic leading-loose text-foreground-muted/60">
+          <p className="mb-16 max-w-xl text-sm leading-loose text-foreground-muted/60 italic">
             Activation takes 45–90 minutes. RISE™ recommends completing it
-            before your first intended Push Mode morning. The bed will operate on
-            default settings until then. Most users find the default settings
+            before your first intended Push Mode morning. The bed will operate
+            on default settings until then. Most users find the default settings
             inadequate.
           </p>
 
@@ -162,7 +162,7 @@ export default function ActivatePage() {
             {formState === 'continue' ? (
               <div className="py-8 text-center">
                 <div className="mx-auto mb-6 flex size-12 items-center justify-center rounded-full border border-accent/30 bg-accent/10">
-                  <div className="size-2 animate-glow-pulse rounded-full bg-accent" />
+                  <div className="animate-glow-pulse size-2 rounded-full bg-accent" />
                 </div>
                 <p className="mb-3 font-display text-2xl tracking-tight text-foreground">
                   Activation initiated.
@@ -174,12 +174,12 @@ export default function ActivatePage() {
                   </span>{' '}
                   registered.
                 </p>
-                <p className="mb-8 text-xs italic leading-relaxed text-foreground-muted/50">
+                <p className="mb-8 text-xs leading-relaxed text-foreground-muted/50 italic">
                   The refund window has closed. Proceed through the 12 stages
                   below.
                 </p>
                 <div className="inline-flex items-center gap-3 rounded-sm bg-accent px-6 py-3 text-white">
-                  <span className="text-xs font-medium uppercase tracking-[0.14em]">
+                  <span className="text-xs font-medium tracking-[0.14em] uppercase">
                     Stage 01 — The Person →
                   </span>
                 </div>
@@ -224,10 +224,10 @@ export default function ActivatePage() {
                     was present at time of purchase and does not constitute
                     grounds for refund.
                   </p>
-                  <p className="text-xs italic leading-relaxed text-foreground-muted/50">
+                  <p className="text-xs leading-relaxed text-foreground-muted/50 italic">
                     Product specifications, including all known Push Mode
                     environmental limitations, have been available at
-                    riseco.online/products/push since launch.
+                    riseawake.com/products/push since launch.
                   </p>
                 </div>
 
@@ -250,7 +250,7 @@ export default function ActivatePage() {
                   <button
                     onClick={handleBeginActivation}
                     disabled={!refundAcknowledged}
-                    className="rounded-sm border-none px-6 py-3 text-xs font-medium uppercase tracking-[0.14em] transition-all duration-300 disabled:cursor-not-allowed disabled:bg-accent/30 disabled:text-white/30"
+                    className="rounded-sm border-none px-6 py-3 text-xs font-medium tracking-[0.14em] uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:bg-accent/30 disabled:text-white/30"
                     style={{
                       background: refundAcknowledged
                         ? 'var(--color-accent)'
@@ -265,7 +265,7 @@ export default function ActivatePage() {
                       setFormState('idle')
                       setRefundAcknowledged(false)
                     }}
-                    className="cursor-pointer rounded-sm border border-edge bg-transparent px-6 py-3 text-xs font-medium uppercase tracking-[0.14em] text-foreground-muted"
+                    className="cursor-pointer rounded-sm border border-edge bg-transparent px-6 py-3 text-xs font-medium tracking-[0.14em] text-foreground-muted uppercase"
                   >
                     Cancel
                   </button>
@@ -279,8 +279,7 @@ export default function ActivatePage() {
                 <p className="mb-5 text-xs leading-relaxed text-foreground-muted">
                   Located on the label affixed to the underside of the base
                   frame. Readable by lying on the floor beneath the bed with a
-                  light source and reading upward. Format:
-                  RSB-XXXXXXXXXXXXXXXX.
+                  light source and reading upward. Format: RSB-XXXXXXXXXXXXXXXX.
                 </p>
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <input
@@ -291,7 +290,7 @@ export default function ActivatePage() {
                       setFormState('idle')
                     }}
                     placeholder="RSB-"
-                    className={`flex-1 rounded-sm border px-4 py-3 font-mono text-sm tracking-wider text-foreground outline-none transition-all duration-200 ${
+                    className={`flex-1 rounded-sm border px-4 py-3 font-mono text-sm tracking-wider text-foreground transition-all duration-200 outline-none ${
                       formState === 'invalid'
                         ? 'border-rise-error/40 bg-foreground/4'
                         : 'border-edge bg-foreground/4'
@@ -301,7 +300,7 @@ export default function ActivatePage() {
                   />
                   <button
                     type="submit"
-                    className="whitespace-nowrap rounded-sm border-none bg-accent px-6 py-3 text-xs font-medium uppercase tracking-[0.14em] text-white transition-all duration-300"
+                    className="rounded-sm border-none bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] whitespace-nowrap text-white uppercase transition-all duration-300"
                   >
                     Locate Device
                   </button>
@@ -337,7 +336,7 @@ export default function ActivatePage() {
       <section className="border-t border-edge-subtle px-6 py-20">
         <div className="mx-auto max-w-3xl">
           <div className="mb-12">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               What to expect
             </p>
             <h2 className="mb-4 font-display text-3xl tracking-tight text-foreground md:text-4xl">
@@ -394,7 +393,7 @@ export default function ActivatePage() {
                       {stage.desc}
                     </p>
                     {stage.note && (
-                      <p className="mt-2 text-[10px] italic leading-relaxed text-foreground-muted/50">
+                      <p className="mt-2 text-[10px] leading-relaxed text-foreground-muted/50 italic">
                         {stage.flagged ? (
                           <>
                             {stage.note.replace(' See RISE™ Move.', '')}{' '}
@@ -428,7 +427,7 @@ export default function ActivatePage() {
       {/* WHAT THE BED COLLECTS */}
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-20">
         <div className="mx-auto max-w-3xl">
-          <p className="mb-6 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             What activation collects
           </p>
           <h2 className="mb-10 font-display text-3xl tracking-tight text-foreground-secondary">
@@ -566,7 +565,7 @@ export default function ActivatePage() {
       {/* CLOSING */}
       <section className="border-t border-edge-subtle px-6 py-32 text-center">
         <div className="mx-auto max-w-xl">
-          <p className="mb-8 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-8 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             Ready?
           </p>
           <h2 className="mb-6 font-display text-[clamp(2rem,5vw,3.5rem)] leading-tight tracking-tight text-foreground">
@@ -581,7 +580,7 @@ export default function ActivatePage() {
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="glow-btn inline-block cursor-pointer rounded-sm border-none bg-accent px-10 py-4 text-xs font-medium uppercase tracking-[0.16em] text-white"
+            className="inline-block glow-btn cursor-pointer rounded-sm border-none bg-accent px-10 py-4 text-xs font-medium tracking-[0.16em] text-white uppercase"
           >
             Begin Activation →
           </button>
