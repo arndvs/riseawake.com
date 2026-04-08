@@ -116,7 +116,7 @@ export default function LegalHubPage() {
             ))}
           </div>
 
-          <div className="rounded-sm border border-edge-subtle bg-foreground/[0.02] p-6">
+          <div className="rounded-sm border border-edge-subtle bg-foreground/2 p-6">
             <p className="text-xs leading-loose text-foreground-muted">
               These documents cross-reference each other extensively. Reading
               one document in full requires reading all of them. RISE™

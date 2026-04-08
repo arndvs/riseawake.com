@@ -153,7 +153,7 @@ export default function AnnualReportPage() {
                     {TABLE_HEADERS.map((h) => (
                       <th
                         key={h}
-                        className="py-3 pr-6 text-left font-medium tracking-[0.1em] text-foreground-muted"
+                        className="py-3 pr-6 text-left font-medium tracking-widest text-foreground-muted"
                       >
                         {h}
                       </th>
