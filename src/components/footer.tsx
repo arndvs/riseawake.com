@@ -1,5 +1,8 @@
+'use client'
+
 import { Link } from './link'
 import { Logo } from './logo'
+import { SpotifyIcon } from './spotify-icon'
 
 function FooterHeading({ children }: { children: React.ReactNode }) {
   return (
@@ -33,6 +36,15 @@ export function Footer() {
             <p className="text-xs italic leading-relaxed text-foreground-muted">
               &ldquo;Push Mode cannot be manually interrupted once initiated, This is a feature, not a limitation.&rdquo;
             </p>
+            <a
+              href="https://open.spotify.com/user/riseco"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 text-xs text-foreground-muted transition-colors duration-200 hover:text-foreground"
+            >
+              <SpotifyIcon className="size-4" />
+              RISE™ on Spotify
+            </a>
           </div>
 
           <div>
