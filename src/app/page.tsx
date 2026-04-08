@@ -155,7 +155,7 @@ function ProductCard({
 
         <div className="flex items-center justify-between border-t border-edge pt-6">
           <span className="text-xs text-foreground-muted">{detail}</span>
-          <span className="text-xs font-medium uppercase tracking-widest text-foreground-secondary transition-transform duration-300 group-hover:translate-x-1">
+          <span className="text-xs font-medium uppercase tracking-widest text-foreground-secondary transition-colors duration-300 group-hover:text-foreground">
             View →
           </span>
         </div>

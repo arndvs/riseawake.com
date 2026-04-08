@@ -1,5 +1,3 @@
-'use client'
-
 import { Footer } from '@/components/footer'
 import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
@@ -109,7 +107,7 @@ export default function LegalHubPage() {
                     </p>
                   )}
                   <div className="mt-4 flex justify-end border-t border-edge-subtle pt-4">
-                    <span className="text-xs text-foreground-muted transition-transform duration-300 group-hover:translate-x-1">
+                    <span className="text-xs text-foreground-muted transition-colors duration-300 group-hover:text-foreground-secondary">
                       Read →
                     </span>
                   </div>
