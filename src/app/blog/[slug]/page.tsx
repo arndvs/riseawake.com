@@ -18,7 +18,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
-  let { data: post } = await getPost((await params).slug)
+  const { data: post } = await getPost((await params).slug)
 
   return post ? { title: post.title, description: post.excerpt } : {}
 }
@@ -28,7 +28,7 @@ export default async function BlogPost({
 }: {
   params: Promise<{ slug: string }>
 }) {
-  let { data: post } = await getPost((await params).slug)
+  const { data: post } = await getPost((await params).slug)
   if (!post) notFound()
 
   return (
@@ -53,7 +53,7 @@ export default async function BlogPost({
                     className="aspect-square size-6 rounded-full object-cover"
                   />
                 )}
-                <div className="text-sm/5 text-gray-700">
+                <div className="text-sm/5 text-foreground-secondary">
                   {post.author.name}
                 </div>
               </div>
@@ -64,7 +64,7 @@ export default async function BlogPost({
                   <Link
                     key={category.slug}
                     href={`/blog?category=${category.slug}`}
-                    className="rounded-full border border-dotted border-gray-300 bg-gray-50 px-2 text-sm/6 font-medium text-gray-500"
+                    className="rounded-full border border-dotted border-edge bg-surface-alt px-2 text-sm/6 font-medium text-foreground-muted"
                   >
                     {category.title}
                   </Link>
@@ -72,7 +72,7 @@ export default async function BlogPost({
               </div>
             )}
           </div>
-          <div className="text-gray-700">
+          <div className="text-foreground-secondary">
             <div className="max-w-2xl xl:mx-auto">
               {post.mainImage && (
                 <img
@@ -92,17 +92,17 @@ export default async function BlogPost({
                         </p>
                       ),
                       h2: ({ children }) => (
-                        <h2 className="mt-12 mb-10 text-2xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
+                        <h2 className="mt-12 mb-10 text-2xl/8 font-medium tracking-tight text-foreground first:mt-0 last:mb-0">
                           {children}
                         </h2>
                       ),
                       h3: ({ children }) => (
-                        <h3 className="mt-12 mb-10 text-xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
+                        <h3 className="mt-12 mb-10 text-xl/8 font-medium tracking-tight text-foreground first:mt-0 last:mb-0">
                           {children}
                         </h3>
                       ),
                       blockquote: ({ children }) => (
-                        <blockquote className="my-10 border-l-2 border-l-gray-300 pl-6 text-base/8 text-gray-950 first:mt-0 last:mb-0">
+                        <blockquote className="my-10 border-l-2 border-l-edge pl-6 text-base/8 text-foreground first:mt-0 last:mb-0">
                           {children}
                         </blockquote>
                       ),
@@ -119,7 +119,7 @@ export default async function BlogPost({
                         switch (value.style) {
                           case 'line':
                             return (
-                              <hr className="my-8 border-t border-gray-200" />
+                              <hr className="my-8 border-t border-edge" />
                             )
                           case 'space':
                             return <div className="my-8" />
@@ -130,12 +130,12 @@ export default async function BlogPost({
                     },
                     list: {
                       bullet: ({ children }) => (
-                        <ul className="list-disc pl-4 text-base/8 marker:text-gray-400">
+                        <ul className="list-disc pl-4 text-base/8 marker:text-foreground-muted">
                           {children}
                         </ul>
                       ),
                       number: ({ children }) => (
-                        <ol className="list-decimal pl-4 text-base/8 marker:text-gray-400">
+                        <ol className="list-decimal pl-4 text-base/8 marker:text-foreground-muted">
                           {children}
                         </ol>
                       ),
@@ -158,14 +158,14 @@ export default async function BlogPost({
                     },
                     marks: {
                       strong: ({ children }) => (
-                        <strong className="font-semibold text-gray-950">
+                        <strong className="font-semibold text-foreground">
                           {children}
                         </strong>
                       ),
                       code: ({ children }) => (
                         <>
                           <span aria-hidden>`</span>
-                          <code className="text-[15px]/8 font-semibold text-gray-950">
+                          <code className="text-[15px]/8 font-semibold text-foreground">
                             {children}
                           </code>
                           <span aria-hidden>`</span>
@@ -175,7 +175,7 @@ export default async function BlogPost({
                         return (
                           <Link
                             href={value.href}
-                            className="font-medium text-gray-950 underline decoration-gray-400 underline-offset-4 data-hover:decoration-gray-600"
+                            className="font-medium text-foreground underline decoration-foreground-muted underline-offset-4 data-hover:decoration-foreground-secondary"
                           >
                             {children}
                           </Link>

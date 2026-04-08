@@ -34,21 +34,21 @@ export const metadata: Metadata = {
 const postsPerPage = 5
 
 async function FeaturedPosts() {
-  let { data: featuredPosts } = await getFeaturedPosts(3)
+  const { data: featuredPosts } = await getFeaturedPosts(3)
 
   if (featuredPosts.length === 0) {
     return
   }
 
   return (
-    <div className="mt-16 bg-linear-to-t from-gray-100 pb-14">
+    <div className="mt-16 bg-linear-to-t from-surface-alt pb-14">
       <Container>
         <h2 className="text-2xl font-medium tracking-tight">Featured</h2>
         <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-3">
           {featuredPosts.map((post) => (
             <div
               key={post.slug}
-              className="relative flex flex-col rounded-3xl bg-white p-2 shadow-md ring-1 shadow-black/5 ring-black/5"
+              className="relative flex flex-col rounded-3xl bg-surface p-2 shadow-md ring-1 shadow-card ring-edge"
             >
               {post.mainImage && (
                 <img
@@ -58,7 +58,7 @@ async function FeaturedPosts() {
                 />
               )}
               <div className="flex flex-1 flex-col p-8">
-                <div className="text-sm/5 text-gray-700">
+                <div className="text-sm/5 text-foreground-secondary">
                   {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
                 </div>
                 <div className="mt-2 text-base/7 font-medium">
@@ -67,7 +67,7 @@ async function FeaturedPosts() {
                     {post.title}
                   </Link>
                 </div>
-                <div className="mt-2 flex-1 text-sm/6 text-gray-500">
+                <div className="mt-2 flex-1 text-sm/6 text-foreground-muted">
                   {post.excerpt}
                 </div>
                 {post.author && (
@@ -79,7 +79,7 @@ async function FeaturedPosts() {
                         className="aspect-square size-6 rounded-full object-cover"
                       />
                     )}
-                    <div className="text-sm/5 text-gray-700">
+                    <div className="text-sm/5 text-foreground-secondary">
                       {post.author.name}
                     </div>
                   </div>
@@ -94,7 +94,7 @@ async function FeaturedPosts() {
 }
 
 async function Categories({ selected }: { selected?: string }) {
-  let { data: categories } = await getCategories()
+  const { data: categories } = await getCategories()
 
   if (categories.length === 0) {
     return
@@ -106,17 +106,17 @@ async function Categories({ selected }: { selected?: string }) {
         <MenuButton className="flex items-center justify-between gap-2 font-medium">
           {categories.find(({ slug }) => slug === selected)?.title ||
             'All categories'}
-          <ChevronsUpDown className="size-4 text-gray-900" />
+          <ChevronsUpDown className="size-4 text-foreground" />
         </MenuButton>
         <MenuItems
           anchor="bottom start"
-          className="min-w-40 rounded-lg bg-white p-1 shadow-lg ring-1 ring-gray-200 [--anchor-gap:6px] [--anchor-offset:-4px] [--anchor-padding:10px]"
+          className="min-w-40 rounded-lg bg-surface p-1 shadow-lg ring-1 ring-edge [--anchor-gap:6px] [--anchor-offset:-4px] [--anchor-padding:10px]"
         >
           <MenuItem>
             <Link
               href="/blog"
               data-selected={selected === undefined ? true : undefined}
-              className="group grid grid-cols-[1rem_1fr] items-center gap-2 rounded-md px-2 py-1 data-focus:bg-gray-950/5"
+              className="group grid grid-cols-[1rem_1fr] items-center gap-2 rounded-md px-2 py-1 data-focus:bg-foreground/5"
             >
               <Check className="hidden size-4 group-data-selected:block" />
               <p className="col-start-2 text-sm/6">All categories</p>
@@ -127,7 +127,7 @@ async function Categories({ selected }: { selected?: string }) {
               <Link
                 href={`/blog?category=${category.slug}`}
                 data-selected={category.slug === selected ? true : undefined}
-                className="group grid grid-cols-[16px_1fr] items-center gap-2 rounded-md px-2 py-1 data-focus:bg-gray-950/5"
+              className="group grid grid-cols-[16px_1fr] items-center gap-2 rounded-md px-2 py-1 data-focus:bg-foreground/5"
               >
                 <Check className="hidden size-4 group-data-selected:block" />
                 <p className="col-start-2 text-sm/6">{category.title}</p>
@@ -145,7 +145,7 @@ async function Categories({ selected }: { selected?: string }) {
 }
 
 async function Posts({ page, category }: { page: number; category?: string }) {
-  let { data: posts } = await getPosts(
+  const { data: posts } = await getPosts(
     (page - 1) * postsPerPage,
     page * postsPerPage,
     category,
@@ -156,7 +156,7 @@ async function Posts({ page, category }: { page: number; category?: string }) {
   }
 
   if (posts.length === 0) {
-    return <p className="mt-6 text-gray-500">No posts found.</p>
+    return <p className="mt-6 text-foreground-muted">No posts found.</p>
   }
 
   return (
@@ -164,10 +164,10 @@ async function Posts({ page, category }: { page: number; category?: string }) {
       {posts.map((post) => (
         <div
           key={post.slug}
-          className="relative grid grid-cols-1 border-b border-b-gray-100 py-10 first:border-t first:border-t-gray-200 max-sm:gap-3 sm:grid-cols-3"
+          className="relative grid grid-cols-1 border-b border-b-edge-subtle py-10 first:border-t first:border-t-edge max-sm:gap-3 sm:grid-cols-3"
         >
           <div>
-            <div className="text-sm/5 max-sm:text-gray-700 sm:font-medium">
+            <div className="text-sm/5 max-sm:text-foreground-secondary sm:font-medium">
               {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
             </div>
             {post.author && (
@@ -179,7 +179,7 @@ async function Posts({ page, category }: { page: number; category?: string }) {
                     className="aspect-square size-6 rounded-full object-cover"
                   />
                 )}
-                <div className="text-sm/5 text-gray-700">
+                <div className="text-sm/5 text-foreground-secondary">
                   {post.author.name}
                 </div>
               </div>
@@ -187,7 +187,7 @@ async function Posts({ page, category }: { page: number; category?: string }) {
           </div>
           <div className="sm:col-span-2 sm:max-w-2xl">
             <h2 className="text-sm/5 font-medium">{post.title}</h2>
-            <p className="mt-3 text-sm/6 text-gray-500">{post.excerpt}</p>
+            <p className="mt-3 text-sm/6 text-foreground-muted">{post.excerpt}</p>
             <div className="mt-4">
               <Link
                 href={`/blog/${post.slug}`}
@@ -195,7 +195,7 @@ async function Posts({ page, category }: { page: number; category?: string }) {
               >
                 <span className="absolute inset-0" />
                 Read more
-                <ChevronRight className="size-4 text-gray-400" />
+                <ChevronRight className="size-4 text-foreground-muted" />
               </Link>
             </div>
           </div>
@@ -213,7 +213,7 @@ async function Pagination({
   category?: string
 }) {
   function url(page: number) {
-    let params = new URLSearchParams()
+    const params = new URLSearchParams()
 
     if (category) params.set('category', category)
     if (page > 1) params.set('page', page.toString())
@@ -221,12 +221,12 @@ async function Pagination({
     return params.size !== 0 ? `/blog?${params.toString()}` : '/blog'
   }
 
-  let totalPosts = (await getPostsCount(category)).data
-  let hasPreviousPage = page > 1
-  let previousPageUrl = hasPreviousPage ? url(page - 1) : undefined
-  let hasNextPage = page * postsPerPage < totalPosts
-  let nextPageUrl = hasNextPage ? url(page + 1) : undefined
-  let pageCount = Math.ceil(totalPosts / postsPerPage)
+  const totalPosts = (await getPostsCount(category)).data
+  const hasPreviousPage = page > 1
+  const previousPageUrl = hasPreviousPage ? url(page - 1) : undefined
+  const hasNextPage = page * postsPerPage < totalPosts
+  const nextPageUrl = hasNextPage ? url(page + 1) : undefined
+  const pageCount = Math.ceil(totalPosts / postsPerPage)
 
   if (pageCount < 2) {
     return
@@ -250,9 +250,9 @@ async function Pagination({
             data-active={i + 1 === page ? true : undefined}
             className={clsx(
               'size-7 rounded-lg text-center text-sm/7 font-medium',
-              'data-hover:bg-gray-100',
-              'data-active:shadow-sm data-active:ring-1 data-active:ring-black/10',
-              'data-active:data-hover:bg-gray-50',
+              'data-hover:bg-surface-alt',
+              'data-active:shadow-sm data-active:ring-1 data-active:ring-edge-strong',
+              'data-active:data-hover:bg-surface-alt',
             )}
           >
             {i + 1}
@@ -272,15 +272,15 @@ export default async function Blog({
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
-  let params = await searchParams
-  let page =
+  const params = await searchParams
+  const page =
     'page' in params
       ? typeof params.page === 'string' && parseInt(params.page) > 1
         ? parseInt(params.page)
         : notFound()
       : 1
 
-  let category =
+  const category =
     typeof params.category === 'string' ? params.category : undefined
 
   return (

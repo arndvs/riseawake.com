@@ -4,15 +4,15 @@ import { Feed } from 'feed'
 import assert from 'node:assert'
 
 export async function GET(req: Request) {
-  let siteUrl = new URL(req.url).origin
+  const siteUrl = new URL(req.url).origin
 
-  let feed = new Feed({
+  const feed = new Feed({
     title: 'RISE™ Blog',
     description:
       'Updates, observations, and communications from RISE™ Technologies.',
     author: {
       name: 'RISE™ Technologies',
-      email: 'press@riseco.online',
+      email: 'press@riseawake.com',
     },
     id: siteUrl,
     link: siteUrl,
@@ -24,7 +24,7 @@ export async function GET(req: Request) {
     },
   })
 
-  let { data: posts } = await getPostsForFeed()
+  const { data: posts } = await getPostsForFeed()
 
   posts.forEach((post) => {
     try {
@@ -33,7 +33,7 @@ export async function GET(req: Request) {
       assert(typeof post.excerpt === 'string')
       assert(typeof post.publishedAt === 'string')
     } catch (error) {
-      console.log('Post is missing required fields for RSS feed:', post, error)
+      console.error('Post is missing required fields for RSS feed:', post, error)
       return
     }
 
