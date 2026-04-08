@@ -21,7 +21,7 @@ export default function InvestorLayout({ children }: Props) {
   const pathname = usePathname()
 
   return (
-    <div className="bg-page">
+    <main>
       <div className="sticky top-16 z-40 border-b border-edge-subtle bg-page/95 px-6 backdrop-blur-xl">
         <div className="scrollbar-none mx-auto flex max-w-7xl items-center gap-6 overflow-x-auto py-3">
           {IR_NAV.map((item) => (
@@ -45,7 +45,7 @@ export default function InvestorLayout({ children }: Props) {
       </div>
 
       {children}
-    </div>
+    </main>
   )
 }
 
