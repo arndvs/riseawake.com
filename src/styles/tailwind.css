@@ -33,10 +33,7 @@
 /* These never change between modes. Opacity modifiers work: bg-rise-blue/10 */
 @theme {
   --color-rise-blue: #1A4FD6;
-  --color-rise-blue-light: #4C7CFF;
-  --color-rise-dark: #1D1D1F;
   --color-rise-charcoal: #1C1C1E;
-  --color-rise-gray: #2C2C2E;
   --color-rise-error: #FF6464;
 
   /* Fonts — variables set by next/font/google in layout.tsx */
