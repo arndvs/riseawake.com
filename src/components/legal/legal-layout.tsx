@@ -87,10 +87,7 @@ export default function LegalLayout({
                   activeSection === item.id
                     ? 'border-accent/60 text-foreground-secondary'
                     : 'border-transparent text-foreground-muted'
-                }`}
-                style={{
-                  paddingLeft: item.level === 2 ? '12px' : '8px',
-                }}
+                } ${item.level === 2 ? 'pl-3' : 'pl-2'}`}
               >
                 {item.label}
               </a>
