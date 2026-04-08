@@ -119,7 +119,11 @@ export default function SDKPage() {
   useEffect(() => {
     if (!modalTier) return
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeModal()
+      if (e.key === 'Escape') {
+        setModalTier(null)
+        setHasRSDP(null)
+        setWaitlisted(false)
+      }
     }
     document.addEventListener('keydown', onKeyDown)
     return () => document.removeEventListener('keydown', onKeyDown)
