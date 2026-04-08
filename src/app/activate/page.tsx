@@ -353,8 +353,8 @@ export default function ActivatePage() {
     const toIndex = fromIndex + direction
     if (toIndex < 0 || toIndex >= sequence.length) return
     const next = [...sequence]
-    const item = next[fromIndex]
-    next[fromIndex] = next[toIndex]
+    const item = next[fromIndex]!
+    next[fromIndex] = next[toIndex]!
     next[toIndex] = item
     setSequence(next)
   }
