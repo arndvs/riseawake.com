@@ -83,7 +83,7 @@ export default function HelpPage() {
             <span className="text-foreground-secondary">Support</span>
           </div>
 
-          <p className="mb-5 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             Support
           </p>
           <h1 className="mb-6 font-display text-hero leading-none text-foreground">
@@ -98,10 +98,10 @@ export default function HelpPage() {
           </p>
 
           <div className="mt-8 inline-flex items-center gap-3 rounded-sm border border-accent/12 bg-accent/6 px-4 py-3">
-            <div className="size-1.5 animate-glow-pulse rounded-full bg-accent/80" />
+            <div className="animate-glow-pulse size-1.5 rounded-full bg-accent/80" />
             <p className="text-xs text-foreground-secondary">
               You were referred here from the RISE™ PM-1 remote.{' '}
-              <span className="text-foreground-muted">rise.co/help</span>
+              <span className="text-foreground-muted">riseawake.com/help</span>
             </p>
           </div>
         </div>
@@ -145,13 +145,10 @@ export default function HelpPage() {
       </section>
 
       {/* FAQ */}
-      <section
-        id="faq"
-        className="border-t border-edge-subtle px-6 py-24"
-      >
+      <section id="faq" className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-4xl">
           <div className="mb-14">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               FAQ
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -205,7 +202,7 @@ export default function HelpPage() {
       >
         <div className="mx-auto max-w-4xl">
           <div className="mb-12">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Warranty
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground">
@@ -279,7 +276,7 @@ export default function HelpPage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-4xl">
           <div className="mb-14">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Contact
             </p>
             <h2 className="mb-4 font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -287,18 +284,15 @@ export default function HelpPage() {
             </h2>
             <p className="text-sm leading-relaxed text-foreground-muted">
               Our support team responds within 2–3 business days. If Push Mode
-              has already started, we respectfully suggest finishing your morning
-              first.
+              has already started, we respectfully suggest finishing your
+              morning first.
             </p>
           </div>
 
           {!submitted ? (
-            <form
-              onSubmit={handleSubmit}
-              className="grid gap-5 md:grid-cols-2"
-            >
+            <form onSubmit={handleSubmit} className="grid gap-5 md:grid-cols-2">
               <div className="flex flex-col gap-2">
-                <label className="text-[10px] uppercase tracking-[0.16em] text-foreground-muted">
+                <label className="text-[10px] tracking-[0.16em] text-foreground-muted uppercase">
                   Name
                 </label>
                 <input
@@ -308,11 +302,11 @@ export default function HelpPage() {
                   onChange={(e) =>
                     setFormState({ ...formState, name: e.target.value })
                   }
-                  className="rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground outline-none transition-all duration-200 focus:border-accent/40"
+                  className="rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-accent/40"
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-[10px] uppercase tracking-[0.16em] text-foreground-muted">
+                <label className="text-[10px] tracking-[0.16em] text-foreground-muted uppercase">
                   Email
                 </label>
                 <input
@@ -322,11 +316,11 @@ export default function HelpPage() {
                   onChange={(e) =>
                     setFormState({ ...formState, email: e.target.value })
                   }
-                  className="rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground outline-none transition-all duration-200 focus:border-accent/40"
+                  className="rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-accent/40"
                 />
               </div>
               <div className="flex flex-col gap-2 md:col-span-2">
-                <label className="text-[10px] uppercase tracking-[0.16em] text-foreground-muted">
+                <label className="text-[10px] tracking-[0.16em] text-foreground-muted uppercase">
                   Subject
                 </label>
                 <select
@@ -335,7 +329,7 @@ export default function HelpPage() {
                     setFormState({ ...formState, subject: e.target.value })
                   }
                   required
-                  className={`rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-accent/40 ${
+                  className={`rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-sm transition-all duration-200 outline-none focus:border-accent/40 ${
                     formState.subject
                       ? 'text-foreground'
                       : 'text-foreground-muted'
@@ -344,9 +338,7 @@ export default function HelpPage() {
                   <option value="" disabled>
                     Select a topic
                   </option>
-                  <option value="push-mode">
-                    Push Mode — General Enquiry
-                  </option>
+                  <option value="push-mode">Push Mode — General Enquiry</option>
                   <option value="push-stop">
                     Push Mode — It Will Not Stop
                   </option>
@@ -362,7 +354,7 @@ export default function HelpPage() {
                 </select>
               </div>
               <div className="flex flex-col gap-2 md:col-span-2">
-                <label className="text-[10px] uppercase tracking-[0.16em] text-foreground-muted">
+                <label className="text-[10px] tracking-[0.16em] text-foreground-muted uppercase">
                   Message
                 </label>
                 <textarea
@@ -372,7 +364,7 @@ export default function HelpPage() {
                   onChange={(e) =>
                     setFormState({ ...formState, message: e.target.value })
                   }
-                  className="resize-none rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground outline-none transition-all duration-200 focus:border-accent/40"
+                  className="resize-none rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-accent/40"
                 />
               </div>
               <div className="flex items-center justify-between md:col-span-2">
@@ -383,7 +375,7 @@ export default function HelpPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="rounded-sm bg-accent px-8 py-3 text-xs font-medium uppercase tracking-widest text-white transition-all duration-300 hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
+                  className="rounded-sm bg-accent px-8 py-3 text-xs font-medium tracking-widest text-white uppercase transition-all duration-300 hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {loading ? 'Sending...' : 'Send Message'}
                 </button>

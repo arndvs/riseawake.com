@@ -16,7 +16,7 @@ const SPECS = [
   { label: 'Caster Base', value: 'Stationary' },
   { label: 'App Support', value: 'Discontinued — iOS 9 only' },
   { label: 'Warranty', value: 'Expired' },
-  { label: 'Support', value: 'Legacy customers: rise.co/help' },
+  { label: 'Support', value: 'Legacy customers: riseawake.com/help' },
 ]
 
 const FEATURES = [
@@ -48,20 +48,65 @@ function NudgeBedIllustration() {
       className="text-foreground"
     >
       <rect
-        x="20" y="80" width="160" height="100" rx="3"
+        x="20"
+        y="80"
+        width="160"
+        height="100"
+        rx="3"
         className="fill-foreground/3 stroke-foreground/10"
         strokeWidth="1"
       />
       <rect
-        x="20" y="60" width="160" height="24" rx="3"
+        x="20"
+        y="60"
+        width="160"
+        height="24"
+        rx="3"
         className="fill-foreground/4 stroke-foreground/8"
         strokeWidth="0.8"
       />
-      <rect x="25" y="63" width="40" height="18" rx="2" className="fill-foreground/7" />
-      <line x1="20" y1="75" x2="180" y2="75" className="stroke-foreground/6" strokeWidth="0.8" />
-      <rect x="28" y="180" width="8" height="20" rx="1" className="fill-foreground/5 stroke-foreground/8" strokeWidth="0.8" />
-      <rect x="164" y="180" width="8" height="20" rx="1" className="fill-foreground/5 stroke-foreground/8" strokeWidth="0.8" />
-      <rect x="145" y="150" width="28" height="10" rx="1" className="fill-foreground/6" />
+      <rect
+        x="25"
+        y="63"
+        width="40"
+        height="18"
+        rx="2"
+        className="fill-foreground/7"
+      />
+      <line
+        x1="20"
+        y1="75"
+        x2="180"
+        y2="75"
+        className="stroke-foreground/6"
+        strokeWidth="0.8"
+      />
+      <rect
+        x="28"
+        y="180"
+        width="8"
+        height="20"
+        rx="1"
+        className="fill-foreground/5 stroke-foreground/8"
+        strokeWidth="0.8"
+      />
+      <rect
+        x="164"
+        y="180"
+        width="8"
+        height="20"
+        rx="1"
+        className="fill-foreground/5 stroke-foreground/8"
+        strokeWidth="0.8"
+      />
+      <rect
+        x="145"
+        y="150"
+        width="28"
+        height="10"
+        rx="1"
+        className="fill-foreground/6"
+      />
       <g opacity="0.4">
         {[0, 1, 2, 3, 4, 5, 6].map((n) => (
           <rect
@@ -78,7 +123,10 @@ function NudgeBedIllustration() {
         ))}
       </g>
       <text
-        x="100" y="235" textAnchor="middle" fontSize="9"
+        x="100"
+        y="235"
+        textAnchor="middle"
+        fontSize="9"
         className="fill-foreground/20"
         fontFamily="DM Sans, sans-serif"
         letterSpacing="3"
@@ -101,11 +149,17 @@ export default function NudgePage() {
         <div className="mx-auto max-w-6xl">
           {/* Breadcrumb */}
           <div className="mb-12 flex items-center gap-2 text-xs text-foreground-muted/40">
-            <Link href="/" className="transition-colors hover:text-foreground-muted">
+            <Link
+              href="/"
+              className="transition-colors hover:text-foreground-muted"
+            >
               Home
             </Link>
             <span>/</span>
-            <Link href="/products/nudge" className="transition-colors hover:text-foreground-muted">
+            <Link
+              href="/products/nudge"
+              className="transition-colors hover:text-foreground-muted"
+            >
               Products
             </Link>
             <span>/</span>
@@ -125,7 +179,7 @@ export default function NudgePage() {
                   href="/help"
                   className="underline transition-colors hover:text-foreground-secondary"
                 >
-                  rise.co/help
+                  riseawake.com/help
                 </Link>
                 . We recommend{' '}
                 <Link
@@ -144,7 +198,7 @@ export default function NudgePage() {
                   className="absolute inset-0 flex items-center justify-center"
                   style={{ transform: 'rotate(-12deg)' }}
                 >
-                  <p className="rounded-sm border border-edge px-6 py-2 text-[10px] font-medium uppercase tracking-[0.3em] text-foreground/8">
+                  <p className="rounded-sm border border-edge px-6 py-2 text-[10px] font-medium tracking-[0.3em] text-foreground/8 uppercase">
                     Discontinued
                   </p>
                 </div>
@@ -163,7 +217,7 @@ export default function NudgePage() {
             {/* Right: Info */}
             <div className="pt-2">
               <div className="mb-4">
-                <span className="rounded-sm border border-edge bg-foreground/5 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-foreground-muted">
+                <span className="rounded-sm border border-edge bg-foreground/5 px-3 py-1.5 text-[10px] font-medium tracking-[0.18em] text-foreground-muted uppercase">
                   Discontinued
                 </span>
               </div>
@@ -171,7 +225,7 @@ export default function NudgePage() {
               <h1 className="mb-2 font-display text-display text-foreground/85">
                 The Nudge
               </h1>
-              <p className="mb-8 text-sm italic text-foreground-muted">
+              <p className="mb-8 text-sm text-foreground-muted italic">
                 First Generation — &ldquo;It made its feelings known.&rdquo;
               </p>
 
@@ -183,10 +237,10 @@ export default function NudgePage() {
                 <em>what if the bed was on your side?</em>
               </p>
               <p className="mb-6 text-sm leading-relaxed text-foreground-secondary">
-                Not against you. Not indifferent to you.{' '}
-                <em>On your side</em> — in the way that a friend who genuinely
-                wants you to succeed might be, which is to say: occasionally
-                uncomfortable to be around, but correct.
+                Not against you. Not indifferent to you. <em>On your side</em> —
+                in the way that a friend who genuinely wants you to succeed
+                might be, which is to say: occasionally uncomfortable to be
+                around, but correct.
               </p>
               <p className="mb-10 text-sm leading-relaxed text-foreground-muted">
                 The Nudge never moved you anywhere. It simply made staying a
@@ -206,7 +260,7 @@ export default function NudgePage() {
                 </p>
                 <Link
                   href="/products/push"
-                  className="inline-block rounded-sm bg-accent px-6 py-3 text-xs font-medium uppercase tracking-widest text-white transition-colors hover:bg-accent-hover"
+                  className="inline-block rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-widest text-white uppercase transition-colors hover:bg-accent-hover"
                 >
                   Upgrade to The Push →
                 </Link>
@@ -226,7 +280,7 @@ export default function NudgePage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Technology
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground/75 md:text-5xl">
@@ -256,7 +310,7 @@ export default function NudgePage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Specifications
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground/75">
@@ -285,7 +339,7 @@ export default function NudgePage() {
       {/* TRANSITION CTA */}
       <section className="border-t border-edge-subtle px-6 py-32 text-center">
         <div className="mx-auto max-w-xl">
-          <p className="mb-8 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-8 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             The Next Step
           </p>
           <h2 className="mb-6 font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -300,7 +354,7 @@ export default function NudgePage() {
           </p>
           <Link
             href="/products/push"
-            className="inline-block rounded-sm bg-accent px-10 py-4 text-xs font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-accent-hover"
+            className="inline-block rounded-sm bg-accent px-10 py-4 text-xs font-medium tracking-[0.16em] text-white uppercase transition-colors hover:bg-accent-hover"
           >
             View The Push
           </Link>
