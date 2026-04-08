@@ -1,5 +1,3 @@
-'use client'
-
 import { Footer } from '@/components/footer'
 import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
@@ -178,7 +176,7 @@ The USB drive contains your data in .rsm format (RISE™ Standard Metric — pro
 
 Opening .rsm files requires RISE™ DataKit SDK:
 — Compatible with select operating systems (not all operating systems are supported; not all versions of supported operating systems are supported)
-— Available at riseco.online/sdk
+— Available at riseawake.com/sdk
 — Waitlist currently: 4,891 developers
 — Purchase price: $299–$2,400 depending on tier
 — License key delivered 5–7 business days after purchase
@@ -216,7 +214,7 @@ export default function DataRequestPage() {
       <Navbar />
       <section className="px-6 pt-40 pb-16">
         <div className="mx-auto max-w-4xl">
-          <p className="mb-5 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             Your Rights
           </p>
           <h1 className="mb-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-tight tracking-tight text-foreground">
@@ -286,10 +284,10 @@ export default function DataRequestPage() {
                         </span>
                       )}
                     </div>
-                    <p className="mb-4 text-xs italic text-foreground-secondary">
+                    <p className="mb-4 text-xs text-foreground-secondary italic">
                       {step.summary}
                     </p>
-                    <div className="whitespace-pre-line text-xs leading-8 text-foreground-muted">
+                    <div className="text-xs leading-8 whitespace-pre-line text-foreground-muted">
                       {step.detail}
                     </div>
                   </div>
@@ -305,17 +303,17 @@ export default function DataRequestPage() {
             </p>
             <p className="mb-3 text-xs leading-8 text-foreground-muted">
               RISE™ has designed this process to be thorough. Thoroughness
-              protects you. It also protects us. We recognize these interests are
-              not always aligned. We have resolved that tension in the way we
-              resolve most tensions: by proceeding.
+              protects you. It also protects us. We recognize these interests
+              are not always aligned. We have resolved that tension in the way
+              we resolve most tensions: by proceeding.
             </p>
             <p className="mb-3 text-xs leading-8 text-foreground-muted/60">
               If at any point during this process you feel that requesting your
               data is more effort than it is worth, we understand. Many users
-              reach this conclusion. The data will be here when you are ready. It
-              will be in .rsm format.
+              reach this conclusion. The data will be here when you are ready.
+              It will be in .rsm format.
             </p>
-            <p className="text-xs italic text-foreground-muted/50">
+            <p className="text-xs text-foreground-muted/50 italic">
               Have a productive day.
             </p>
           </div>
@@ -327,10 +325,7 @@ export default function DataRequestPage() {
                 FAQ
               </Link>{' '}
               or review the{' '}
-              <Link
-                href="/legal/privacy"
-                className="text-accent/50 underline"
-              >
+              <Link href="/legal/privacy" className="text-accent/50 underline">
                 Privacy Policy Sections 24–27
               </Link>
               .
