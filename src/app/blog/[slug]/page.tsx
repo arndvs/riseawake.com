@@ -172,9 +172,12 @@ export default async function BlogPost({
                         </>
                       ),
                       link: ({ value, children }) => {
+                        const href = /^https?:\/\//.test(value.href) || value.href.startsWith('/') || value.href.startsWith('#')
+                          ? value.href
+                          : '#'
                         return (
                           <Link
-                            href={value.href}
+                            href={href}
                             className="font-medium text-foreground underline decoration-foreground-muted underline-offset-4 data-hover:decoration-foreground-secondary"
                           >
                             {children}
