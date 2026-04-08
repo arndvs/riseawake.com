@@ -287,8 +287,8 @@ export default async function Blog({
   return (
     <main className="overflow-hidden">
       <GradientBackground />
+      <Navbar />
       <Container>
-        <Navbar />
         <Subheading className="mt-16">Blog</Subheading>
         <Heading as="h1" className="mt-2">
           What&rsquo;s happening at RISE™.
