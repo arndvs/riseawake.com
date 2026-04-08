@@ -1,46 +1,35 @@
 @import 'tailwindcss';
 
-/* ─── ADAPTIVE SEMANTIC TOKENS ─── */
-/* These auto-switch between light/dark. Use: bg-page, text-foreground, border-edge, etc. */
 @theme inline {
-  /* Surfaces */
   --color-page: var(--page);
   --color-surface: var(--surface);
   --color-surface-alt: var(--surface-alt);
   --color-surface-inset: var(--surface-inset);
 
-  /* Text */
   --color-foreground: var(--foreground);
   --color-foreground-secondary: var(--foreground-secondary);
   --color-foreground-muted: var(--foreground-muted);
 
-  /* Accent */
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
 
-  /* Borders */
   --color-edge: var(--edge);
   --color-edge-strong: var(--edge-strong);
   --color-edge-subtle: var(--edge-subtle);
 
-  /* Shadows */
   --shadow-card: var(--shadow-card-val);
   --shadow-elevated: var(--shadow-elevated-val);
   --shadow-hero: var(--shadow-hero-val);
 }
 
-/* ─── STATIC BRAND COLORS ─── */
-/* These never change between modes. Opacity modifiers work: bg-rise-blue/10 */
 @theme {
   --color-rise-blue: #1A4FD6;
   --color-rise-charcoal: #1C1C1E;
   --color-rise-error: #FF6464;
 
-  /* Fonts — variables set by next/font/google in layout.tsx */
   --font-display: var(--font-dm-serif), 'DM Serif Display', serif;
   --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
 
-  /* Responsive type scale */
   --text-hero: clamp(3.5rem, 9vw, 7.5rem);
   --text-hero--line-height: 1.05;
   --text-hero--letter-spacing: -0.03em;
@@ -49,40 +38,32 @@
   --text-display--line-height: 1.1;
   --text-display--letter-spacing: -0.02em;
 
-  /* Border radius */
   --radius-pill: 62rem;
 }
 
-/* ─── LIGHT MODE DEFAULTS ─── */
 @layer base {
   :root {
-    /* Surfaces */
     --page: #FAFAFA;
     --surface: #FFFFFF;
     --surface-alt: #F5F5F7;
     --surface-inset: #EBEBED;
 
-    /* Text */
     --foreground: #1D1D1F;
     --foreground-secondary: #6E6E73;
     --foreground-muted: #AEAEB2;
 
-    /* Accent */
     --accent: #1A4FD6;
     --accent-hover: #1440B8;
 
-    /* Borders */
     --edge: rgb(0 0 0 / 0.08);
     --edge-strong: rgb(0 0 0 / 0.14);
     --edge-subtle: rgb(0 0 0 / 0.04);
 
-    /* Shadows */
     --shadow-card-val: 0 1px 3px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.04);
     --shadow-elevated-val: 0 4px 16px rgb(0 0 0 / 0.08), 0 2px 4px rgb(0 0 0 / 0.04);
     --shadow-hero-val: 0 20px 60px rgb(0 0 0 / 0.10), 0 4px 16px rgb(0 0 0 / 0.06);
   }
 
-  /* ─── DARK MODE — SYSTEM ONLY ─── */
   @media (prefers-color-scheme: dark) {
     :root {
       --page: #000000;
@@ -166,7 +147,6 @@
   }
 }
 
-/* ─── ANIMATIONS ─── */
 @keyframes glow-pulse {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 0.85; }
