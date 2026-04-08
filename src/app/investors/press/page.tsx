@@ -1,5 +1,3 @@
-'use client'
-
 import InvestorLayout from '@/components/investors/investor-layout'
 
 const COVERAGE = [
@@ -122,10 +120,11 @@ export default function InvestorPressPage() {
                   &ldquo;{item.quote}&rdquo;
                 </p>
                 {item.stars && (
-                  <div className="mb-3 flex gap-0.5">
+                  <div className="mb-3 flex gap-0.5" role="img" aria-label={`${item.stars} out of 5 stars`}>
                     {Array.from({ length: 5 }).map((_, s) => (
                       <span
                         key={s}
+                        aria-hidden="true"
                         className={`text-[11px] ${
                           s < item.stars! ? 'text-accent' : 'text-edge-subtle'
                         }`}
