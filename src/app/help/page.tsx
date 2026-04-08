@@ -164,12 +164,15 @@ export default function HelpPage() {
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-panel-${i}`}
                   className="flex w-full cursor-pointer items-start justify-between gap-6 bg-transparent p-6 text-left"
                 >
                   <span className="text-sm font-medium text-foreground-secondary">
                     {item.q}
                   </span>
                   <span
+                    aria-hidden="true"
                     className="shrink-0 text-lg text-accent/60 transition-transform duration-300"
                     style={{
                       transform:
@@ -180,6 +183,8 @@ export default function HelpPage() {
                   </span>
                 </button>
                 <div
+                  id={`faq-panel-${i}`}
+                  role="region"
                   className="overflow-hidden transition-all duration-400"
                   style={{
                     maxHeight: openFaq === i ? '300px' : '0',
