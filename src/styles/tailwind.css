@@ -144,15 +144,9 @@
     }
   }
 
-  ::-webkit-scrollbar {
-    width: 4px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--surface);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--foreground-muted);
-    border-radius: 2px;
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--foreground-muted) var(--surface);
   }
 
   input:focus,
