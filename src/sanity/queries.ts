@@ -1,7 +1,7 @@
 import { defineQuery } from 'next-sanity'
 import { sanityFetch } from './live'
 
-const TOTAL_POSTS_QUERY = defineQuery(/* groq */ `count(*[
+const TOTAL_POSTS_QUERY = defineQuery(`count(*[
   _type == "post"
   && defined(slug.current)
   && (isFeatured != true || defined($category))
@@ -15,7 +15,7 @@ export async function getPostsCount(category?: string) {
   })
 }
 
-const POSTS_QUERY = defineQuery(/* groq */ `*[
+const POSTS_QUERY = defineQuery(`*[
   _type == "post"
   && defined(slug.current)
   && (isFeatured != true || defined($category))
@@ -46,7 +46,7 @@ export async function getPosts(
   })
 }
 
-const FEATURED_POSTS_QUERY = defineQuery(/* groq */ `*[
+const FEATURED_POSTS_QUERY = defineQuery(`*[
   _type == "post"
   && isFeatured == true
   && defined(slug.current)
@@ -69,7 +69,7 @@ export async function getFeaturedPosts(quantity: number) {
   })
 }
 
-const FEED_POSTS_QUERY = defineQuery(/* groq */ `*[
+const FEED_POSTS_QUERY = defineQuery(`*[
   _type == "post"
   && defined(slug.current)
 ]|order(isFeatured, publishedAt desc){
@@ -89,7 +89,7 @@ export async function getPostsForFeed() {
   })
 }
 
-const POST_QUERY = defineQuery(/* groq */ `*[
+const POST_QUERY = defineQuery(`*[
   _type == "post"
   && slug.current == $slug
 ][0]{
@@ -116,7 +116,7 @@ export async function getPost(slug: string) {
   })
 }
 
-const CATEGORIES_QUERY = defineQuery(/* groq */ `*[
+const CATEGORIES_QUERY = defineQuery(`*[
   _type == "category"
   && count(*[_type == "post" && defined(slug.current) && ^._id in categories[]._ref]) > 0
 ]|order(title asc){
