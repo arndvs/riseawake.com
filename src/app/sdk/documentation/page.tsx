@@ -104,7 +104,7 @@ Support tickets submitted without all required information will be closed and th
 
 export default function SDKDocsPage() {
   return (
-    <main className="bg-page">
+    <main>
       <Navbar />
       <div className="px-6 pt-32 pb-24">
         <div className="mx-auto max-w-4xl">

@@ -126,7 +126,7 @@ export default function SDKPage() {
   }, [modalTier])
 
   return (
-    <main className="bg-page">
+    <main>
       <Navbar />
 
       {/* Hero */}

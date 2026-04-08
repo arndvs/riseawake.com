@@ -210,7 +210,7 @@ const STATS = [
 
 export default function DataRequestPage() {
   return (
-    <main className="bg-page">
+    <main>
       <Navbar />
       <section className="px-6 pt-40 pb-16">
         <div className="mx-auto max-w-4xl">
