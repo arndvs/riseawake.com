@@ -194,16 +194,6 @@
 }
 
 /* ─── ANIMATIONS ─── */
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 @keyframes glow-pulse {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 0.85; }
@@ -214,56 +204,6 @@
   50% { box-shadow: 0 0 24px 4px rgb(26 79 214 / 0.2); }
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-@utility animate-fade-up {
-  animation: fade-up 0.7s ease forwards;
-}
-
-@utility animate-fade-in {
-  animation: fade-in 0.5s ease forwards;
-}
-
-@utility animate-glow {
-  animation: glow-pulse 3s ease-in-out infinite;
-}
-
 @utility glow-btn {
   animation: glow-btn 2.5s ease-in-out infinite;
-}
-
-@utility stagger-1 { animation-delay: 0.1s; opacity: 0; }
-@utility stagger-2 { animation-delay: 0.2s; opacity: 0; }
-@utility stagger-3 { animation-delay: 0.3s; opacity: 0; }
-@utility stagger-4 { animation-delay: 0.4s; opacity: 0; }
-@utility stagger-5 { animation-delay: 0.5s; opacity: 0; }
-@utility stagger-6 { animation-delay: 0.6s; opacity: 0; }
-
-/* ─── COMPONENT UTILITIES ─── */
-@utility rise-link {
-  position: relative;
-  text-decoration: none;
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: currentColor;
-    transition: width 0.3s ease;
-  }
-  &:hover::after {
-    width: 100%;
-  }
-}
-
-@utility grid-texture {
-  background-image:
-    linear-gradient(var(--edge-subtle) 1px, transparent 1px),
-    linear-gradient(90deg, var(--edge-subtle) 1px, transparent 1px);
-  background-size: 60px 60px;
 }
