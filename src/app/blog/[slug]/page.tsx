@@ -48,7 +48,7 @@ export default async function BlogPost({
               <div className="flex items-center gap-3">
                 {post.author.image && (
                   <img
-                    alt=""
+                    alt={post.author.name}
                     src={image(post.author.image).size(64, 64).url()}
                     className="aspect-square size-6 rounded-full object-cover"
                   />

@@ -74,7 +74,7 @@ async function FeaturedPosts() {
                   <div className="mt-6 flex items-center gap-3">
                     {post.author.image && (
                       <img
-                        alt=""
+                        alt={post.author.name}
                         src={image(post.author.image).size(64, 64).url()}
                         className="aspect-square size-6 rounded-full object-cover"
                       />
@@ -174,7 +174,7 @@ async function Posts({ page, category }: { page: number; category?: string }) {
               <div className="mt-2.5 flex items-center gap-3">
                 {post.author.image && (
                   <img
-                    alt=""
+                    alt={post.author.name}
                     src={image(post.author.image).size(64, 64).url()}
                     className="aspect-square size-6 rounded-full object-cover"
                   />
