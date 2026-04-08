@@ -204,6 +204,30 @@ function IntensityDial({ value, onRelease }: { value: number; onRelease: () => v
     setLocalValue(Math.round(pct))
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    const step = e.shiftKey ? 10 : 1
+    switch (e.key) {
+      case 'ArrowRight':
+      case 'ArrowUp':
+        e.preventDefault()
+        setLocalValue((v) => Math.min(100, v + step))
+        break
+      case 'ArrowLeft':
+      case 'ArrowDown':
+        e.preventDefault()
+        setLocalValue((v) => Math.max(0, v - step))
+        break
+      case 'Home':
+        e.preventDefault()
+        setLocalValue(0)
+        break
+      case 'End':
+        e.preventDefault()
+        setLocalValue(100)
+        break
+    }
+  }
+
   return (
     <div className="select-none">
       <div className="mb-8 flex items-center justify-between">
@@ -235,6 +259,7 @@ function IntensityDial({ value, onRelease }: { value: number; onRelease: () => v
           aria-valuenow={localValue}
           aria-valuetext={`${localValue}% — ${currentLabel.label}`}
           tabIndex={0}
+          onKeyDown={handleKeyDown}
         />
 
         {INTENSITY_LABELS.map((mark) => (
