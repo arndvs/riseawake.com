@@ -839,12 +839,11 @@ export default function ActivatePage() {
               >
                 <div className="flex items-start gap-5">
                   <span
-                    className={`shrink-0 font-display text-[1.8rem] leading-none ${
+                    className={`min-w-12 shrink-0 font-display text-[1.8rem] leading-none ${
                       stage.flagged
                         ? 'text-foreground-muted/30'
                         : 'text-accent/25'
                     }`}
-                    style={{ minWidth: '48px' }}
                   >
                     {stage.number}
                   </span>

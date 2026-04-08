@@ -186,8 +186,7 @@ export default function NudgePage() {
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-foreground/1 to-transparent" />
                 <NudgeBedIllustration />
                 <div
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{ transform: 'rotate(-12deg)' }}
+                  className="absolute inset-0 flex -rotate-12 items-center justify-center"
                 >
                   <p className="rounded-sm border border-edge px-6 py-2 text-[10px] font-medium tracking-[0.3em] text-foreground/8 uppercase">
                     Discontinued
