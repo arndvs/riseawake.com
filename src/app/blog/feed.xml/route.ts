@@ -32,9 +32,8 @@ export async function GET(req: Request) {
       assert(typeof post.slug === 'string')
       assert(typeof post.excerpt === 'string')
       assert(typeof post.publishedAt === 'string')
-    } catch (error) {
-      console.error('Post is missing required fields for RSS feed:', post, error)
-      return
+    } catch {
+      throw new Error(`Post is missing required fields for RSS feed: ${JSON.stringify(post)}`)
     }
 
     feed.addItem({
