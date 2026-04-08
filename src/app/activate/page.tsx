@@ -228,6 +228,13 @@ function IntensityDial({ value, onRelease }: { value: number; onRelease: () => v
         <div
           className="absolute top-1/2 size-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-accent bg-surface shadow-elevated transition-[left] duration-75"
           style={{ left: `${localValue}%` }}
+          role="slider"
+          aria-label="Push Mode Intensity"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={localValue}
+          aria-valuetext={`${localValue}% — ${currentLabel.label}`}
+          tabIndex={0}
         />
 
         {INTENSITY_LABELS.map((mark) => (
