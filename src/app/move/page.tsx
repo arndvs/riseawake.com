@@ -48,7 +48,7 @@ export default function MovePage() {
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            backgroundImage: `linear-gradient(var(--color-foreground-muted/.03) 1px, transparent 1px), linear-gradient(90deg, var(--color-foreground-muted/.03) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(color-mix(in srgb, var(--color-foreground-muted) 3%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--color-foreground-muted) 3%, transparent) 1px, transparent 1px)`,
             backgroundSize: '80px 80px',
             maskImage:
               'radial-gradient(ellipse 80% 70% at 50% 50%, black 0%, transparent 100%)',
