@@ -383,7 +383,7 @@ export default function SDKPage() {
 
       {/* Purchase Modal */}
       {modalTier && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-6 backdrop-blur-sm" onClick={closeModal}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/80 px-6 backdrop-blur-sm" onClick={closeModal}>
           <div className="w-full max-w-md rounded-xl border border-edge bg-surface p-8" role="dialog" aria-modal="true" aria-labelledby="sdk-modal-title" onClick={(e) => e.stopPropagation()}>
             {hasRSDP === null ? (
               <>
