@@ -733,6 +733,7 @@ export default function ActivatePage() {
                       setFormState('idle')
                     }}
                     placeholder="RSB-"
+                    aria-label="Device serial number"
                     className={`flex-1 rounded-sm border px-4 py-3 font-mono text-sm tracking-wider text-foreground transition-all duration-200 outline-none ${
                       formState === 'invalid'
                         ? 'border-rise-error/40 bg-foreground/4'
