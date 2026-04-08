@@ -12,7 +12,7 @@ const variants = {
   secondary: clsx(
     'relative inline-flex items-center justify-center px-4 py-[calc(--spacing(2)-1px)]',
     'rounded-full border border-transparent bg-surface/15 shadow-md ring-1 ring-edge-strong',
-    'after:absolute after:inset-0 after:rounded-full after:shadow-[inset_0_0_2px_1px_#ffffff4d]',
+    'after:absolute after:inset-0 after:rounded-full after:shadow-[inset_0_0_2px_1px_color-mix(in_srgb,var(--color-foreground)_30%,transparent)]',
     'text-base font-medium whitespace-nowrap text-foreground',
     'data-disabled:bg-surface/15 data-disabled:opacity-40 data-hover:bg-surface/20',
   ),
