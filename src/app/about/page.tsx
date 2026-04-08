@@ -455,13 +455,13 @@ export default function AboutPage() {
           </div>
 
           <div className="relative">
-            <div className="absolute top-0 bottom-0 left-[88px] w-px bg-gradient-to-b from-transparent via-edge to-transparent md:left-[120px]" />
+            <div className="absolute top-0 bottom-0 left-22 w-px bg-gradient-to-b from-transparent via-edge to-transparent md:left-30" />
 
             <div className="flex flex-col gap-0">
               {TIMELINE.map((era, eraIndex) => (
                 <div key={era.year} className="relative">
                   <div className="mt-14 mb-8 flex items-start gap-8 first:mt-0 md:gap-12">
-                    <div className="w-[72px] shrink-0 pt-0.5 text-right">
+                    <div className="w-18 shrink-0 pt-0.5 text-right">
                       <span
                         className={`font-display text-lg tracking-tight md:text-xl ${
                           era.isAccent ? 'text-accent/50' : 'text-foreground/15'
@@ -500,9 +500,9 @@ export default function AboutPage() {
                         key={entryIndex}
                         className="flex items-start gap-8 md:gap-12"
                       >
-                        <div className="w-[72px] shrink-0" />
+                        <div className="w-18 shrink-0" />
 
-                        <div className="relative mt-[18px] shrink-0">
+                        <div className="relative mt-4.5 shrink-0">
                           <div
                             className={`-ml-1 size-2 rounded-full border ${
                               entry.isCurrentProduct

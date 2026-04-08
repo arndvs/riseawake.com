@@ -198,8 +198,8 @@ export default function Home() {
               <div className="relative aspect-video w-full overflow-hidden rounded-sm border border-edge bg-surface shadow-hero">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative flex items-center justify-center">
-                    <div className="absolute size-[100px] animate-glow-pulse rounded-full border border-accent/35" />
-                    <div className="flex size-[76px] items-center justify-center rounded-full border border-accent/45 bg-accent/18 backdrop-blur-xl">
+                    <div className="absolute size-25 animate-glow-pulse rounded-full border border-accent/35" />
+                    <div className="flex size-19 items-center justify-center rounded-full border border-accent/45 bg-accent/18 backdrop-blur-xl">
                       <svg
                         width="22"
                         height="24"
@@ -266,7 +266,7 @@ export default function Home() {
                     Our Story
                   </Link>
                 </div>
-                <p className="hidden max-w-[280px] text-right text-xs italic leading-relaxed text-foreground-muted md:block">
+                <p className="hidden max-w-70 text-right text-xs italic leading-relaxed text-foreground-muted md:block">
                   For People Who Need A Little Push.
                 </p>
               </div>

@@ -182,7 +182,7 @@ export default function NudgePage() {
                 .
               </div>
 
-              <div className="relative flex h-[420px] w-full items-center justify-center overflow-hidden rounded-sm border border-edge bg-surface-alt">
+              <div className="relative flex h-105 w-full items-center justify-center overflow-hidden rounded-sm border border-edge bg-surface-alt">
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-foreground/1 to-transparent" />
                 <NudgeBedIllustration />
                 <div
@@ -311,7 +311,7 @@ export default function NudgePage() {
                 key={i}
                 className="flex items-start justify-between gap-6 bg-surface-alt p-5"
               >
-                <span className="min-w-[140px] text-xs font-medium text-foreground-muted">
+                <span className="min-w-35 text-xs font-medium text-foreground-muted">
                   {s.label}
                 </span>
                 <span className="text-right text-xs text-foreground-secondary">

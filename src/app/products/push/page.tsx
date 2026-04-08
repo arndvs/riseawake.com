@@ -187,7 +187,7 @@ export default function PushPage() {
                 available to you.
               </div>
 
-              <div className="relative flex h-[420px] w-full items-center justify-center overflow-hidden rounded-sm border border-accent/12 bg-surface-alt">
+              <div className="relative flex h-105 w-full items-center justify-center overflow-hidden rounded-sm border border-accent/12 bg-surface-alt">
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_40%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
                 <PushBedIllustration />
                 <div className="absolute right-8 bottom-8">
@@ -382,7 +382,7 @@ export default function PushPage() {
                 key={i}
                 className="flex items-start justify-between gap-6 bg-surface-alt p-5"
               >
-                <span className="min-w-[160px] text-xs font-medium text-foreground-muted">
+                <span className="min-w-40 text-xs font-medium text-foreground-muted">
                   {s.label}
                 </span>
                 <span

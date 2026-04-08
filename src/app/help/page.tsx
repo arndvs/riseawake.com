@@ -373,7 +373,7 @@ export default function HelpPage() {
                 />
               </div>
               <div className="flex items-center justify-between md:col-span-2">
-                <p className="max-w-[360px] text-[10px] leading-relaxed text-foreground-muted/30">
+                <p className="max-w-90 text-[10px] leading-relaxed text-foreground-muted/30">
                   By submitting this form you acknowledge that Push Mode cannot
                   be manually interrupted and agree to our terms of service.
                 </p>

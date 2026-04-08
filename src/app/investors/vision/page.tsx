@@ -288,10 +288,10 @@ export default function VisionPage() {
                   key={i}
                   className="flex gap-6 bg-surface-alt p-4"
                 >
-                  <span className="min-w-[80px] shrink-0 text-xs font-medium text-foreground-secondary">
+                  <span className="min-w-20 shrink-0 text-xs font-medium text-foreground-secondary">
                     {v.version}
                   </span>
-                  <span className="min-w-[60px] shrink-0 text-xs text-foreground-muted">
+                  <span className="min-w-15 shrink-0 text-xs text-foreground-muted">
                     {v.date}
                   </span>
                   <span className="text-xs leading-relaxed text-foreground-muted">
