@@ -1,20 +1,5 @@
 import { clsx } from 'clsx'
 
-export function Gradient({
-  className,
-  ...props
-}: React.ComponentPropsWithoutRef<'div'>) {
-  return (
-    <div
-      {...props}
-      className={clsx(
-        className,
-        'bg-gradient-to-br from-accent/5 via-accent/3 to-transparent',
-      )}
-    />
-  )
-}
-
 export function GradientBackground() {
   return (
     <div className="relative mx-auto max-w-7xl">
