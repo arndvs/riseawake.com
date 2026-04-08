@@ -418,10 +418,11 @@ export default function Home() {
                   key={i}
                   className="rounded-sm border border-edge bg-surface p-8"
                 >
-                  <div className="mb-6 flex gap-0.5">
+                  <div className="mb-6 flex gap-0.5" role="img" aria-label={`${t.stars} out of 5 stars`}>
                     {Array.from({ length: 5 }).map((_, s) => (
                       <span
                         key={s}
+                        aria-hidden="true"
                         className={`text-xs ${s < t.stars ? 'text-accent/80' : 'text-foreground-muted/30'}`}
                       >
                         ★
