@@ -76,7 +76,7 @@ export default async function BlogPost({
             <div className="max-w-2xl xl:mx-auto">
               {post.mainImage && (
                 <img
-                  alt={post.mainImage.alt || ''}
+                  alt={post.mainImage.alt ?? ''}
                   src={image(post.mainImage).size(2016, 1344).url()}
                   className="mb-10 aspect-3/2 w-full rounded-2xl object-cover shadow-xl"
                 />
@@ -110,7 +110,7 @@ export default async function BlogPost({
                     types: {
                       image: ({ value }) => (
                         <img
-                          alt={value.alt || ''}
+                          alt={value.alt ?? ''}
                           src={image(value).width(2000).url()}
                           className="w-full rounded-2xl"
                         />

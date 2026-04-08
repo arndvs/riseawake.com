@@ -52,7 +52,7 @@ async function FeaturedPosts() {
             >
               {post.mainImage && (
                 <img
-                  alt={post.mainImage.alt || ''}
+                  alt={post.mainImage.alt ?? ''}
                   src={image(post.mainImage).size(1170, 780).url()}
                   className="aspect-3/2 w-full rounded-2xl object-cover"
                 />
