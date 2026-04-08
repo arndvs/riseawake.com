@@ -182,6 +182,7 @@ export default function HelpPage() {
                 <div
                   id={`faq-panel-${i}`}
                   role="region"
+                  aria-hidden={openFaq !== i}
                   className="overflow-hidden transition-all duration-400"
                   style={{
                     maxHeight: openFaq === i ? '300px' : '0',
