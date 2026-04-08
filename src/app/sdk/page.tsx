@@ -3,7 +3,13 @@
 import { Footer } from '@/components/footer'
 import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
-import { useEffect, useState } from 'react'
+import {
+  Dialog,
+  DialogBackdrop,
+  DialogPanel,
+  DialogTitle,
+} from '@headlessui/react'
+import { useState } from 'react'
 
 const TIERS = [
   {
@@ -115,19 +121,6 @@ export default function SDKPage() {
     setHasRSDP(null)
     setWaitlisted(false)
   }
-
-  useEffect(() => {
-    if (!modalTier) return
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setModalTier(null)
-        setHasRSDP(null)
-        setWaitlisted(false)
-      }
-    }
-    document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
-  }, [modalTier])
 
   return (
     <main>
@@ -379,14 +372,15 @@ export default function SDKPage() {
         </div>
       </section>
 
-      {modalTier && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/80 px-6 backdrop-blur-sm" onClick={closeModal}>
-          <div className="w-full max-w-md rounded-xl border border-edge bg-surface p-8" role="dialog" aria-modal="true" aria-labelledby="sdk-modal-title" onClick={(e) => e.stopPropagation()}>
+      <Dialog open={modalTier !== null} onClose={closeModal} className="relative z-50">
+        <DialogBackdrop className="fixed inset-0 bg-foreground/80 backdrop-blur-sm" />
+        <div className="fixed inset-0 flex items-center justify-center px-6">
+          <DialogPanel className="w-full max-w-md rounded-xl border border-edge bg-surface p-8">
             {hasRSDP === null ? (
               <>
-                <h3 id="sdk-modal-title" className="mb-4 font-display text-2xl text-foreground">
+                <DialogTitle className="mb-4 font-display text-2xl text-foreground">
                   Before You Purchase
-                </h3>
+                </DialogTitle>
                 <p className="mb-6 text-sm leading-relaxed text-foreground-secondary">
                   DataKit SDK is designed exclusively for use with RISE™
                   Standard Data Packages (.rsm format). Have you received your
@@ -415,9 +409,9 @@ export default function SDKPage() {
               </>
             ) : hasRSDP === false ? (
               <>
-                <h3 id="sdk-modal-title" className="mb-4 font-display text-xl text-foreground">
+                <DialogTitle className="mb-4 font-display text-xl text-foreground">
                   Complete Your Data Request First
-                </h3>
+                </DialogTitle>
                 <p className="mb-4 text-xs leading-relaxed text-foreground-secondary">
                   Please complete the Data Subject Request Process before
                   purchasing DataKit SDK. Your data will be ready for you when
@@ -468,9 +462,9 @@ export default function SDKPage() {
               </>
             ) : (
               <>
-                <h3 id="sdk-modal-title" className="mb-4 font-display text-xl text-foreground">
+                <DialogTitle className="mb-4 font-display text-xl text-foreground">
                   SDK Developer Waitlist
-                </h3>
+                </DialogTitle>
                 <p className="mb-6 text-xs leading-relaxed text-foreground-secondary">
                   DataKit SDK is currently available to waitlisted developers
                   only. Add yourself to the waitlist and we&rsquo;ll notify you
@@ -515,9 +509,9 @@ export default function SDKPage() {
                 )}
               </>
             )}
-          </div>
+          </DialogPanel>
         </div>
-      )}
+      </Dialog>
 
       <Footer />
     </main>
