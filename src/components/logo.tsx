@@ -63,11 +63,3 @@ export function Logo({ className }: { className?: string }) {
     </svg>
   )
 }
-
-export function Mark({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 28 28" fill="none" className={className}>
-      <LogoIcon />
-    </svg>
-  )
-}
