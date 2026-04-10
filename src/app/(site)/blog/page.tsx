@@ -272,12 +272,15 @@ export default async function Blog({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
   const params = await searchParams
-  const page =
-    'page' in params
-      ? typeof params.page === 'string' && parseInt(params.page) > 1
-        ? parseInt(params.page)
-        : notFound()
+  const parsedPage =
+    'page' in params && typeof params.page === 'string'
+      ? parseInt(params.page, 10)
       : 1
+
+  if (!Number.isFinite(parsedPage) || parsedPage < 1)
+    notFound()
+
+  const page = parsedPage
 
   const category =
     typeof params.category === 'string' ? params.category : undefined

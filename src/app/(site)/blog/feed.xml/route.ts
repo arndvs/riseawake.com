@@ -1,7 +1,6 @@
 import { image } from '@/sanity/image'
 import { getPostsForFeed } from '@/sanity/queries'
 import { Feed } from 'feed'
-import assert from 'node:assert'
 
 export async function GET(req: Request) {
   const siteUrl = new URL(req.url).origin
@@ -26,14 +25,15 @@ export async function GET(req: Request) {
 
   const { data: posts } = await getPostsForFeed()
 
-  posts.forEach((post) => {
-    try {
-      assert(typeof post.title === 'string')
-      assert(typeof post.slug === 'string')
-      assert(typeof post.excerpt === 'string')
-      assert(typeof post.publishedAt === 'string')
-    } catch {
-      throw new Error(`Post is missing required fields for RSS feed: ${JSON.stringify(post)}`)
+  for (const post of posts) {
+    if (
+      typeof post.title !== 'string' ||
+      typeof post.slug !== 'string' ||
+      typeof post.excerpt !== 'string' ||
+      typeof post.publishedAt !== 'string'
+    ) {
+      console.error('Skipping post with missing required fields:', post)
+      continue
     }
 
     feed.addItem({
@@ -52,7 +52,7 @@ export async function GET(req: Request) {
       contributor: post.author?.name ? [{ name: post.author.name }] : [],
       date: new Date(post.publishedAt),
     })
-  })
+  }
 
   return new Response(feed.rss2(), {
     status: 200,

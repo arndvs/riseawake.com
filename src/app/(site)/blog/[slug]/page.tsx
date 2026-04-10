@@ -4,12 +4,17 @@ import { GradientBackground } from '@/components/gradient'
 import { Link } from '@/components/link'
 import { Heading, Subheading } from '@/components/text'
 import { image } from '@/sanity/image'
-import { getPost } from '@/sanity/queries'
+import { getAllPostSlugs, getPost } from '@/sanity/queries'
 import { ChevronLeft } from 'lucide-react'
 import dayjs from 'dayjs'
 import type { Metadata } from 'next'
 import { PortableText } from 'next-sanity'
 import { notFound } from 'next/navigation'
+
+export async function generateStaticParams() {
+  const { data: slugs } = await getAllPostSlugs()
+  return slugs.map((slug: string) => ({ slug }))
+}
 
 export async function generateMetadata({
   params,

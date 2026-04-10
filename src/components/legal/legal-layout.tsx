@@ -18,7 +18,7 @@ type Props = {
   relatedDocs?: { label: string; href: string }[]
 }
 
-export default function LegalLayout({
+export function LegalLayout({
   title,
   version,
   lastUpdated,

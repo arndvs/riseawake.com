@@ -1,6 +1,7 @@
 'use client'
 
 import { Link } from '@/components/link'
+import clsx from 'clsx'
 import { usePathname } from 'next/navigation'
 
 const IR_NAV = [
@@ -17,7 +18,7 @@ type Props = {
   children: React.ReactNode
 }
 
-export default function InvestorLayout({ children }: Props) {
+export function InvestorLayout({ children }: Props) {
   const pathname = usePathname()
 
   return (
@@ -28,11 +29,12 @@ export default function InvestorLayout({ children }: Props) {
             <Link
               key={item.href}
               href={item.href}
-              className={`whitespace-nowrap text-[11px] uppercase tracking-[0.14em] transition-colors duration-200 ${
+              className={clsx(
+                'whitespace-nowrap border-b pb-0.5 text-[11px] uppercase tracking-[0.14em] transition-colors duration-200',
                 pathname === item.href
-                  ? 'border-b border-accent/60 pb-0.5 text-foreground'
-                  : 'border-b border-transparent pb-0.5 text-foreground-muted'
-              }`}
+                  ? 'border-accent/60 text-foreground'
+                  : 'border-transparent text-foreground-muted',
+              )}
             >
               {item.label}
             </Link>

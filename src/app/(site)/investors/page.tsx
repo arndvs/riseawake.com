@@ -1,4 +1,5 @@
-import InvestorLayout, {
+import {
+  InvestorLayout,
   IRMetricCard,
 } from '@/components/investors/investor-layout'
 import { Link } from '@/components/link'

@@ -1,4 +1,5 @@
-import LegalLayout, {
+import {
+  LegalLayout,
   LegalNote,
   LegalP,
   LegalSection,

@@ -1,4 +1,4 @@
-import InvestorLayout from '@/components/investors/investor-layout'
+import { InvestorLayout } from '@/components/investors/investor-layout'
 import { Link } from '@/components/link'
 
 const RISK_FACTORS = [

@@ -1,6 +1,6 @@
 'use client'
 
-import InvestorLayout from '@/components/investors/investor-layout'
+import { InvestorLayout } from '@/components/investors/investor-layout'
 import {
   BarChart,
   Bar,

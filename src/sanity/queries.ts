@@ -1,4 +1,5 @@
 import { defineQuery } from 'next-sanity'
+import { client } from './client'
 import { sanityFetch } from './live'
 
 const TOTAL_POSTS_QUERY = defineQuery(`count(*[
@@ -128,4 +129,13 @@ export async function getCategories() {
   return await sanityFetch({
     query: CATEGORIES_QUERY,
   })
+}
+
+const ALL_POST_SLUGS_QUERY = defineQuery(`*[
+  _type == "post"
+  && defined(slug.current)
+].slug.current`)
+
+export async function getAllPostSlugs() {
+  return { data: await client.fetch<string[]>(ALL_POST_SLUGS_QUERY) }
 }
