@@ -3,6 +3,7 @@
 import PayloadShell, { fireToast } from '@/components/payload/PayloadShell'
 import type { InternalDoc } from '@/lib/internal-docs'
 import { CLASSIFICATION_COLORS, DOCS, STATUS_COLORS } from '@/lib/internal-docs'
+import { useBreachRecord } from '@/lib/internal-tracker'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -28,6 +29,8 @@ export default function InternalIndexPage() {
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc')
   const [selected, setSelected] = useState<Set<string>>(new Set())
   const [filterClass, setFilterClass] = useState<string>('All')
+  const [breach] = useBreachRecord()
+  const visitedDocIds = new Set(breach.docs.map((d) => d.id))
 
   const filtered = DOCS.filter(
     (d) =>
@@ -371,6 +374,31 @@ export default function InternalIndexPage() {
                             style={{ color: 'rgba(239,68,68,0.8)' }}
                           >
                             ⚠ {externalAccess.name}, {externalAccess.time}
+                          </p>
+                          {visitedDocIds.has(doc.id) && breach.ip && (
+                            <p
+                              className="font-mono text-[10px]"
+                              style={{ color: 'rgba(239,68,68,0.6)' }}
+                            >
+                              ⚠ {breach.ip}, just now
+                            </p>
+                          )}
+                        </div>
+                      ) : visitedDocIds.has(doc.id) && breach.ip ? (
+                        <div>
+                          {lastHuman && (
+                            <p
+                              className="text-[10px]"
+                              style={{ color: P.textMuted }}
+                            >
+                              {lastHuman.name}, {lastHuman.time}
+                            </p>
+                          )}
+                          <p
+                            className="font-mono text-[10px]"
+                            style={{ color: 'rgba(239,68,68,0.8)' }}
+                          >
+                            ⚠ {breach.ip}, just now
                           </p>
                         </div>
                       ) : lastHuman ? (

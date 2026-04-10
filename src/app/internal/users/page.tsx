@@ -1,6 +1,8 @@
 'use client'
 
 import PayloadShell, { fireToast } from '@/components/payload/PayloadShell'
+import { daysSinceArvin, parkLoginTime, vossLoginTime } from '@/lib/internal-time'
+import { useEffect, useState } from 'react'
 
 const P = {
   text: '#e8e8e8',
@@ -14,13 +16,13 @@ const P = {
   warning: '#eab308',
 }
 
-const USERS = [
+const USERS_STATIC = [
   {
     initials: 'EV',
     name: 'Dr. Eleanor Voss',
     email: 'evoss@riseco.online',
     role: 'Super Admin',
-    lastLogin: 'Today, 6:47am',
+    lastLogin: '', // computed dynamically
     status: 'active',
     note: null,
   },
@@ -29,7 +31,7 @@ const USERS = [
     name: 'James Park',
     email: 'jpark@riseco.online',
     role: 'Admin',
-    lastLogin: 'Yesterday, 9:12am',
+    lastLogin: '', // computed dynamically
     status: 'active',
     note: null,
   },
@@ -45,6 +47,21 @@ const USERS = [
 ]
 
 export default function UsersPage() {
+  const [users, setUsers] = useState(USERS_STATIC)
+
+  useEffect(() => {
+    setUsers(
+      USERS_STATIC.map((u) => {
+        if (u.name === 'Dr. Eleanor Voss')
+          return { ...u, lastLogin: vossLoginTime() }
+
+        if (u.name === 'James Park')
+          return { ...u, lastLogin: parkLoginTime() }
+
+        return u
+      }),
+    )
+  }, [])
   return (
     <PayloadShell
       breadcrumb={[
@@ -77,7 +94,7 @@ export default function UsersPage() {
             </tr>
           </thead>
           <tbody>
-            {USERS.map((u, i) => (
+            {users.map((u, i) => (
               <tr
                 key={i}
                 className="payload-row"
@@ -189,7 +206,7 @@ export default function UsersPage() {
         <p className="text-[10px]" style={{ color: P.textFaint }}>
           3 users ·{' '}
           <span style={{ color: P.warning }}>
-            1 user account should have been deactivated (Aug 12, 2024)
+            1 user account should have been deactivated (Aug 12, 2024 — {daysSinceArvin()} days ago)
           </span>
           {' · '}
           <span style={{ color: P.textFaint, fontStyle: 'italic' }}>

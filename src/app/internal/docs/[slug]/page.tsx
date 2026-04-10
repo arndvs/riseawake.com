@@ -1,15 +1,21 @@
 'use client'
 
-import PayloadShell, { fireToast } from '@/components/payload/PayloadShell'
+import PayloadShell, { fireToast, useVisitorIp } from '@/components/payload/PayloadShell'
+import type { AccessEntry } from '@/lib/internal-docs'
 import {
   CLASSIFICATION_COLORS,
   DOCS,
   getDoc,
   STATUS_COLORS,
 } from '@/lib/internal-docs'
+import {
+  breachNarrative,
+  recordDocVisit,
+  useBreachRecord,
+} from '@/lib/internal-tracker'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { use, useState } from 'react'
+import { use, useEffect, useState } from 'react'
 
 const P = {
   bg: '#0b0b0b',
@@ -154,6 +160,18 @@ function StatusBadge({ status }: { status: string }) {
     '🔴': P.error,
   }
   return <span style={{ color: colors[status] || P.textMuted }}>{status}</span>
+}
+
+// ─── Breach note component (reads from localStorage tracker) ────────────────
+
+function BreachNote({ docId }: { docId: string }) {
+  const [breach] = useBreachRecord()
+  const text = breachNarrative(breach, docId)
+  return (
+    <DocP style={{ color: 'rgba(239,68,68,0.8)' }}>
+      {text}
+    </DocP>
+  )
 }
 
 // ─── The 9 documents + secret 10th ─────────────────────────────────────────
@@ -306,11 +324,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           incidents are being monitored. They have been monitored since Q3 2022.
           Monitoring continues.
         </DocP>
-        <DocP>
-          The external IP address (203.0.113.47) appearing in document access
-          logs for this file and DOC-003, DOC-007, and DOC-009 has been flagged
-          to IT. IT is aware. Monitoring continues.
-        </DocP>
+        <BreachNote docId="DOC-001" />
       </DocSection>
     </DocBody>
   ),
@@ -565,11 +579,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
       </DocSection>
 
       <DocSection title="Access Log Note">
-        <DocP style={{ color: 'rgba(239,68,68,0.8)' }}>
-          This document has been accessed 3 times by IP address 203.0.113.47 in
-          the last 24 hours. This IP address is not an internal RISE™ address.
-          IT has been notified. IT is aware. The document remains accessible.
-        </DocP>
+        <BreachNote docId="DOC-003" />
       </DocSection>
     </DocBody>
   ),
@@ -1130,11 +1140,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           and QA Level 3+. The QA Level 3+ access portal is currently returning
           a 404. IT is aware.
         </DocP>
-        <DocP style={{ color: 'rgba(239,68,68,0.7)' }}>
-          Note: IP 203.0.113.47 accessed this document 2 hours ago. This is the
-          fourth document from this system accessed by that IP today. IT
-          continues to be aware.
-        </DocP>
+        <BreachNote docId="DOC-007" />
       </DocSection>
     </DocBody>
   ),
@@ -1339,13 +1345,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           has not been acted on. The next quarterly planning document will note
           it again.
         </DocP>
-        <DocP style={{ color: 'rgba(239,68,68,0.7)' }}>
-          This document has been accessed by IP 203.0.113.47 within the last
-          hour. 203.0.113.47 has now accessed 5 documents from this system
-          today: DOC-001, DOC-003, DOC-005, DOC-007, and this document. IT
-          security has been notified four times today. IT security is aware. The
-          documents remain accessible.
-        </DocP>
+        <BreachNote docId="DOC-009" />
       </DocSection>
     </DocBody>
   ),
@@ -1488,6 +1488,24 @@ export default function DocDetailPage({
   const sts = STATUS_COLORS[doc.status]
   const [editing, setEditing] = useState(false)
   const content = DOCUMENT_CONTENT[doc.slug]
+  const visitorIp = useVisitorIp()
+  const [breach, refreshBreach] = useBreachRecord()
+
+  // Record this doc visit in localStorage — the breach grows
+  useEffect(() => {
+    recordDocVisit(doc.id, doc.slug, doc.title, visitorIp)
+    refreshBreach()
+  }, [doc.id, doc.slug, doc.title, visitorIp, refreshBreach])
+
+  // Inject the viewer as a live access entry — you ARE the security breach
+  const accessLog: AccessEntry[] = [
+    ...doc.lastAccessed,
+    {
+      name: visitorIp ?? 'Unknown (public access)',
+      time: 'just now',
+      isExternal: true,
+    },
+  ]
 
   const handleSave = () => {
     setEditing(false)
@@ -1595,26 +1613,31 @@ export default function DocDetailPage({
         </div>
       </div>
 
-      {/* ── Access log warning if external IP ── */}
-      {doc.lastAccessed.some((a) => a.isExternal) && (
-        <div
-          className="flex items-center gap-3 px-6 py-2"
-          style={{
-            background: 'rgba(239,68,68,0.06)',
-            borderBottom: '1px solid rgba(239,68,68,0.15)',
-          }}
-        >
-          <span style={{ color: P.error, fontSize: '11px' }}>⚠</span>
-          <p className="text-[10px]" style={{ color: 'rgba(239,68,68,0.75)' }}>
-            External access detected:{' '}
-            {doc.lastAccessed
-              .filter((a) => a.isExternal)
-              .map((a) => `${a.name} (${a.time})`)
-              .join(', ')}{' '}
-            · IT has been notified
-          </p>
-        </div>
-      )}
+      {/* ── Access log warning — always visible now (you are the breach) ── */}
+      <div
+        className="flex items-center gap-3 px-6 py-2"
+        style={{
+          background: 'rgba(239,68,68,0.06)',
+          borderBottom: '1px solid rgba(239,68,68,0.15)',
+        }}
+      >
+        <span style={{ color: P.error, fontSize: '11px' }}>⚠</span>
+        <p className="text-[10px]" style={{ color: 'rgba(239,68,68,0.75)' }}>
+          External access detected:{' '}
+          {accessLog
+            .filter((a) => a.isExternal)
+            .map((a) => `${a.name} (${a.time})`)
+            .join(', ')}
+          {breach.docs.length > 0 && (
+            <>
+              {' · '}
+              {breach.docs.length} document{breach.docs.length !== 1 ? 's' : ''} accessed
+              {' · '}
+              IT notified {breach.itNotifications} time{breach.itNotifications !== 1 ? 's' : ''}
+            </>
+          )}
+        </p>
+      </div>
 
       {/* ── Document body ── */}
       <div className="max-w-4xl px-8 py-8">

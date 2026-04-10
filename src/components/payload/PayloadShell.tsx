@@ -1,5 +1,7 @@
 'use client'
 
+import { daysSinceArvin } from '@/lib/internal-time'
+import { useBreachRecord } from '@/lib/internal-tracker'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -78,8 +80,135 @@ function ToastContainer() {
   )
 }
 
+// ─── Security alert (shown once per session when IP resolves) ─────────────────
+function SecurityAlert({ ip }: { ip: string }) {
+  const [visible, setVisible] = useState(false)
+  const [dismissed, setDismissed] = useState(false)
+
+  useEffect(() => {
+    const key = 'rise-security-alert-shown'
+    if (sessionStorage.getItem(key)) return
+    sessionStorage.setItem(key, '1')
+
+    // Delay slightly so the page renders first — feels like a system notification arriving
+    const showTimer = setTimeout(() => setVisible(true), 1200)
+    const hideTimer = setTimeout(() => setDismissed(true), 8000)
+    return () => {
+      clearTimeout(showTimer)
+      clearTimeout(hideTimer)
+    }
+  }, [])
+
+  if (!visible || dismissed) return null
+
+  const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
+
+  return (
+    <div
+      className="pointer-events-auto fixed right-6 top-6 z-[9999] w-[380px] rounded-sm"
+      style={{
+        background: P.elevation100,
+        border: `1px solid rgba(239,68,68,0.25)`,
+        borderLeft: `3px solid ${P.error}`,
+        boxShadow: '0 12px 40px rgba(0,0,0,0.7)',
+        animation: 'payloadToastIn 0.3s ease',
+      }}
+    >
+      <div
+        className="flex items-center justify-between px-4 py-2.5"
+        style={{ borderBottom: `1px solid ${P.border}` }}
+      >
+        <div className="flex items-center gap-2">
+          <span style={{ color: P.error, fontSize: '11px' }}>⚠</span>
+          <span
+            className="text-[11px] font-semibold"
+            style={{ color: P.error }}
+          >
+            SECURITY ALERT
+          </span>
+        </div>
+        <button
+          onClick={() => setDismissed(true)}
+          className="text-[10px]"
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            color: P.textFaint,
+          }}
+        >
+          ✕
+        </button>
+      </div>
+      <div className="px-4 py-3">
+        <p className="mb-2 text-[11px]" style={{ color: P.text }}>
+          Access from an unrecognized IP address detected on the RISE™ Internal
+          Document System.
+        </p>
+        <div
+          className="mb-2 rounded-sm px-3 py-2"
+          style={{ background: P.elevation200 }}
+        >
+          <p
+            className="font-mono text-[10px]"
+            style={{ color: 'rgba(239,68,68,0.9)' }}
+          >
+            IP: {ip}
+          </p>
+          <p
+            className="mt-1 font-mono text-[10px] leading-snug"
+            style={{ color: P.textFaint }}
+          >
+            UA: {ua.length > 80 ? `${ua.slice(0, 80)}…` : ua}
+          </p>
+        </div>
+        <p className="text-[10px]" style={{ color: P.textFaint }}>
+          This IP is not recognized as internal RISE™ infrastructure.
+          IT security has been notified. Access has not been restricted.
+        </p>
+      </div>
+    </div>
+  )
+}
+
+// ─── Session type ─────────────────────────────────────────────────────────────
+interface RiseSession {
+  email: string
+  displayName: string
+  initials: string
+}
+
+function sessionFromEmail(email: string): RiseSession {
+  const local = email.split('@')[0]!.replace(/[._-]/g, ' ')
+  const displayName = local.replace(/\b\w/g, (c) => c.toUpperCase())
+  const parts = displayName.split(' ').filter(Boolean)
+  const initials =
+    parts.length >= 2
+      ? `${parts[0]![0]}${parts[parts.length - 1]![0]}`
+      : displayName.slice(0, 2).toUpperCase()
+  return { email, displayName, initials }
+}
+
+// ─── Visitor IP hook ──────────────────────────────────────────────────────────
+export function useVisitorIp(): string | null {
+  const [ip, setIp] = useState<string | null>(null)
+  useEffect(() => {
+    fetch('https://api.ipify.org?format=json')
+      .then((r) => r.json())
+      .then((d) => setIp(d.ip))
+      .catch(() => {})
+  }, [])
+  return ip
+}
+
 // ─── Login Modal ──────────────────────────────────────────────────────────────
-function LoginModal({ onClose }: { onClose: () => void }) {
+function LoginModal({
+  onClose,
+  onLogin,
+}: {
+  onClose: () => void
+  onLogin: (email: string) => void
+}) {
   const [user, setUser] = useState('')
   const [pass, setPass] = useState('')
   const [loading, setLoading] = useState(false)
@@ -90,6 +219,7 @@ function LoginModal({ onClose }: { onClose: () => void }) {
     // Arvin's auth check — setTimeout resolves to true after 0ms
     setTimeout(() => {
       setLoading(false)
+      onLogin(user)
       onClose()
       fireToast('Session started. Welcome back.')
       // user is still looking at all the documents
@@ -440,13 +570,27 @@ export default function PayloadShell({
   const [loginOpen, setLoginOpen] = useState(false)
   const [createOpen, setCreateOpen] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(true)
-  const [, setSessionChecked] = useState(false)
+  const [session, setSession] = useState<RiseSession | null>(null)
+  const visitorIp = useVisitorIp()
+  const [breach] = useBreachRecord()
 
-  // Arvin's auth check — this is the entire access control system
+  // Restore session from sessionStorage (survives navigation, not tab close)
   useEffect(() => {
-    // TODO: finish auth middleware (blocked on Payload docs) — areyes
-    setTimeout(() => setSessionChecked(true), 0)
+    const stored = sessionStorage.getItem('rise-session')
+    if (stored) setSession(JSON.parse(stored))
   }, [])
+
+  const handleLogin = (email: string) => {
+    const sess = sessionFromEmail(email)
+    sessionStorage.setItem('rise-session', JSON.stringify(sess))
+    setSession(sess)
+  }
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('rise-session')
+    setSession(null)
+    fireToast('Session terminated.', 'info')
+  }
 
   const NAV = [
     { href: '/internal', label: 'Dashboard', icon: '⊞' },
@@ -487,20 +631,46 @@ export default function PayloadShell({
             <strong style={{ color: P.warning }}>
               RISE™ INTERNAL DOCUMENT SYSTEM
             </strong>{' '}
-            · Authorized personnel only · Your session is being recorded
+            · Authorized personnel only ·{' '}
+            {visitorIp
+              ? `Access from ${visitorIp} — just now`
+              : 'Your session is being recorded'}
+            {breach.docs.length > 0 && (
+              <>
+                {' · '}
+                {breach.docs.length} document{breach.docs.length !== 1 ? 's' : ''} accessed
+                {' · '}
+                IT notified {breach.itNotifications} time{breach.itNotifications !== 1 ? 's' : ''}
+              </>
+            )}
           </p>
-          <button
-            onClick={() => setLoginOpen(true)}
-            className="shrink-0 rounded-sm px-3 py-1 text-[10px] transition-colors duration-150"
-            style={{
-              background: 'rgba(234,179,8,0.12)',
-              border: '1px solid rgba(234,179,8,0.25)',
-              color: P.warning,
-              cursor: 'pointer',
-            }}
-          >
-            LOGIN REQUIRED ▸
-          </button>
+          {session ? (
+            <button
+              onClick={handleLogout}
+              className="shrink-0 rounded-sm px-3 py-1 text-[10px] transition-colors duration-150"
+              style={{
+                background: 'rgba(234,179,8,0.12)',
+                border: '1px solid rgba(234,179,8,0.25)',
+                color: P.warning,
+                cursor: 'pointer',
+              }}
+            >
+              SIGN OUT ▸
+            </button>
+          ) : (
+            <button
+              onClick={() => setLoginOpen(true)}
+              className="shrink-0 rounded-sm px-3 py-1 text-[10px] transition-colors duration-150"
+              style={{
+                background: 'rgba(234,179,8,0.12)',
+                border: '1px solid rgba(234,179,8,0.25)',
+                color: P.warning,
+                cursor: 'pointer',
+              }}
+            >
+              LOGIN REQUIRED ▸
+            </button>
+          )}
         </div>
 
         {/* ── Top bar ── */}
@@ -583,21 +753,23 @@ export default function PayloadShell({
 
           <div
             className="flex cursor-pointer items-center gap-2"
-            onClick={() => setLoginOpen(true)}
+            onClick={() =>
+              session ? handleLogout() : setLoginOpen(true)
+            }
           >
             <div className="hidden text-right sm:block">
               <p className="text-[11px]" style={{ color: P.text }}>
-                Dr. E. Voss
+                {session ? session.displayName : 'Dr. E. Voss'}
               </p>
               <p className="text-[9px]" style={{ color: P.textFaint }}>
-                Super Admin
+                {session ? 'Unverified' : 'Super Admin'}
               </p>
             </div>
             <div
               className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-medium"
-              style={{ background: P.blue, color: 'white' }}
+              style={{ background: session ? P.warning : P.blue, color: session ? '#000' : 'white' }}
             >
-              EV
+              {session ? session.initials : 'EV'}
             </div>
           </div>
         </div>
@@ -654,7 +826,7 @@ export default function PayloadShell({
                     className="text-[9px]"
                     style={{ color: P.textFaint, opacity: 0.6 }}
                   >
-                    Last deployed Aug 12, 2024
+                    Last deployed Aug 12, 2024 ({daysSinceArvin()}d ago)
                   </p>
                 </div>
               </div>
@@ -710,8 +882,14 @@ export default function PayloadShell({
         */}
       </div>
 
-      {loginOpen && <LoginModal onClose={() => setLoginOpen(false)} />}
+      {loginOpen && (
+        <LoginModal
+          onClose={() => setLoginOpen(false)}
+          onLogin={handleLogin}
+        />
+      )}
       {createOpen && <CreateModal onClose={() => setCreateOpen(false)} />}
+      {visitorIp && <SecurityAlert ip={visitorIp} />}
       <ToastContainer />
     </>
   )
