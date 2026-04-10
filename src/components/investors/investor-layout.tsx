@@ -1,13 +1,13 @@
 'use client'
 
 import { Link } from '@/components/link'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { usePathname } from 'next/navigation'
 
 const IR_NAV = [
   { label: 'IR Hub', href: '/investors' },
   { label: 'Vision 2045', href: '/investors/vision' },
-  { label: 'CEO Letter', href: '/investors/shareholder-letter' },
+  { label: 'Shareholder Letter', href: '/investors/shareholder-letter' },
   { label: 'Annual Report', href: '/investors/annual-report' },
   { label: 'Meeting Minutes', href: '/investors/meeting-minutes' },
   { label: 'Financials', href: '/investors/financials' },
