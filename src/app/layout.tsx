@@ -1,3 +1,4 @@
+import { EasterEggs } from '@/components/easter-eggs'
 import { SanityLive } from '@/sanity/live'
 import { revalidateSyncTags } from '@/sanity/revalidateSyncTags'
 import '@/styles/tailwind.css'
@@ -50,6 +51,7 @@ export default function RootLayout({
       </head>
       <body className="bg-page text-foreground antialiased">
         {children}
+        <EasterEggs />
         <SanityLive revalidateSyncTags={revalidateSyncTags} />
       </body>
     </html>

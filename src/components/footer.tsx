@@ -1,6 +1,5 @@
 import { Link } from './link'
 import { Logo } from './logo'
-import { SpotifyIcon } from './spotify-icon'
 
 function FooterHeading({ children }: { children: React.ReactNode }) {
   return (
@@ -34,15 +33,7 @@ export function Footer() {
             <p className="text-xs italic leading-relaxed text-foreground-muted">
               &ldquo;Push Mode cannot be manually interrupted once initiated, This is a feature, not a limitation.&rdquo;
             </p>
-            <a
-              href="https://open.spotify.com/user/riseco"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 text-xs text-foreground-muted transition-colors duration-200 hover:text-foreground"
-            >
-              <SpotifyIcon className="size-4" />
-              RISE™ on Spotify
-            </a>
+
           </div>
 
           <div>
@@ -127,9 +118,12 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col items-start justify-between gap-4 border-t border-edge-subtle pt-8 md:flex-row md:items-center">
-          <p className="text-[11px] text-foreground-muted">
-            &copy; {year} RISE™ Technologies, Inc. All rights reserved.
-          </p>
+          <div className="flex items-center gap-6">
+            <p className="text-[11px] text-foreground-muted">
+              &copy; {year} RISE™ Technologies, Inc. All rights reserved.
+            </p>
+            <FooterLink href="/sitemap">Sitemap</FooterLink>
+          </div>
           <p className="max-w-md text-left text-[11px] text-foreground-muted/60 md:text-right">
             RISE™ is not responsible for productivity gains, lifestyle improvements, career advancement, relationship outcomes, or existential reckonings resulting from Push Mode. Results may exceed expectations.
           </p>
