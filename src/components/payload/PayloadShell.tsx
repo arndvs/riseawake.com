@@ -632,9 +632,11 @@ export default function PayloadShell({
               RISE™ INTERNAL DOCUMENT SYSTEM
             </strong>{' '}
             · Authorized personnel only ·{' '}
-            {visitorIp
-              ? `Access from ${visitorIp} — just now`
-              : 'Your session is being recorded'}
+            {session && visitorIp
+              ? `Access from ${session.displayName} (${visitorIp}) — just now`
+              : visitorIp
+                ? `Access from ${visitorIp} — just now`
+                : 'Your session is being recorded'}
             {breach.docs.length > 0 && (
               <>
                 {' · '}

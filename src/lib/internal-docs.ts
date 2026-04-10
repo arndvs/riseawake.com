@@ -139,7 +139,7 @@ const DOC_SEEDS: DocSeed[] = [
     relatedDocs: ['DOC-004'],
     summary:
       "Project status dashboard for the RISE™ Move. Solo commute stair navigation: RED. No timeline. Engineering team's note on the hard part.",
-    wordCount: 934,
+    wordCount: 1847,
   },
   {
     id: 'DOC-006',
