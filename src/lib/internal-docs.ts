@@ -98,7 +98,7 @@ export const DOCS: InternalDoc[] = [
     ],
     relatedDocs: ['DOC-001'],
     summary:
-      'Activation profile for Dr. Voss\'s personal Push unit. Marked DR. VOSS EYES ONLY. Currently accessible to anyone with the URL.',
+      "Activation profile for Dr. Voss's personal Push unit. Marked DR. VOSS EYES ONLY. Currently accessible to anyone with the URL.",
     wordCount: 412,
   },
   {
@@ -192,9 +192,7 @@ export const DOCS: InternalDoc[] = [
     lastUpdated: 'Quarterly',
     status: 'Active',
     isPublic: true,
-    lastAccessed: [
-      { name: 'Dr. E. Voss', role: 'CEO', time: '30d ago' },
-    ],
+    lastAccessed: [{ name: 'Dr. E. Voss', role: 'CEO', time: '30d ago' }],
     relatedDocs: [],
     summary:
       'The proprietary RISE™ Index methodology document the Terms of Service says is not disclosed. The methodology section is entirely redacted. The document is not.',

@@ -40,10 +40,7 @@ export default function InternalNotFound() {
             <h2 className="text-sm font-medium" style={{ color: '#e8e8e8' }}>
               Document not found
             </h2>
-            <p
-              className="mt-1 text-xs"
-              style={{ color: '#555' }}
-            >
+            <p className="mt-1 text-xs" style={{ color: '#555' }}>
               The document you are looking for does not exist or has been
               removed.
             </p>

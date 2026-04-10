@@ -1,14 +1,10 @@
 'use client'
 
-import { useState } from 'react'
-import Link from 'next/link'
 import PayloadShell, { fireToast } from '@/components/payload/PayloadShell'
-import {
-  DOCS,
-  CLASSIFICATION_COLORS,
-  STATUS_COLORS,
-} from '@/lib/internal-docs'
 import type { InternalDoc } from '@/lib/internal-docs'
+import { CLASSIFICATION_COLORS, DOCS, STATUS_COLORS } from '@/lib/internal-docs'
+import Link from 'next/link'
+import { useState } from 'react'
 
 const P = {
   bg: '#0b0b0b',
@@ -38,7 +34,7 @@ export default function InternalIndexPage() {
       (filterClass === 'All' || d.classification === filterClass) &&
       (d.title.toLowerCase().includes(search.toLowerCase()) ||
         d.id.toLowerCase().includes(search.toLowerCase()) ||
-        d.author.toLowerCase().includes(search.toLowerCase()))
+        d.author.toLowerCase().includes(search.toLowerCase())),
   ).sort((a, b) => {
     const av = a[sortKey] as string
     const bv = b[sortKey] as string
@@ -70,7 +66,7 @@ export default function InternalIndexPage() {
     }
     // bulk actions do nothing. arvin.
     fireToast(
-      `${action} applied to ${selected.size} document${selected.size > 1 ? 's' : ''}.`
+      `${action} applied to ${selected.size} document${selected.size > 1 ? 's' : ''}.`,
     )
     setSelected(new Set())
   }
@@ -105,7 +101,7 @@ export default function InternalIndexPage() {
         }}
       >
         <div
-          className="flex min-w-[200px] max-w-sm flex-1 items-center gap-2 rounded-sm px-3 py-2"
+          className="flex max-w-sm min-w-[200px] flex-1 items-center gap-2 rounded-sm px-3 py-2"
           style={{
             background: P.elevation200,
             border: `1px solid ${P.border}`,
@@ -232,7 +228,7 @@ export default function InternalIndexPage() {
               ).map((col) => (
                 <th
                   key={col.key}
-                  className="cursor-pointer select-none px-4 py-3 text-left"
+                  className="cursor-pointer px-4 py-3 text-left select-none"
                   style={{
                     color: P.textMuted,
                     fontWeight: 500,
@@ -275,11 +271,9 @@ export default function InternalIndexPage() {
                 const sts = STATUS_COLORS[doc.status]
                 const isSelected = selected.has(doc.id)
                 const externalAccess = doc.lastAccessed.find(
-                  (a) => a.isExternal
+                  (a) => a.isExternal,
                 )
-                const lastHuman = doc.lastAccessed.find(
-                  (a) => !a.isExternal
-                )
+                const lastHuman = doc.lastAccessed.find((a) => !a.isExternal)
 
                 return (
                   <tr
@@ -298,9 +292,7 @@ export default function InternalIndexPage() {
                         checked={isSelected}
                         onChange={() => {
                           const next = new Set(selected)
-                          isSelected
-                            ? next.delete(doc.id)
-                            : next.add(doc.id)
+                          isSelected ? next.delete(doc.id) : next.add(doc.id)
                           setSelected(next)
                         }}
                         style={{ accentColor: P.blue, cursor: 'pointer' }}
@@ -335,7 +327,7 @@ export default function InternalIndexPage() {
                     </td>
                     <td className="px-4 py-3">
                       <span
-                        className="whitespace-nowrap rounded-sm px-2 py-1 text-[10px] font-medium"
+                        className="rounded-sm px-2 py-1 text-[10px] font-medium whitespace-nowrap"
                         style={{
                           background: cls.bg,
                           color: cls.text,

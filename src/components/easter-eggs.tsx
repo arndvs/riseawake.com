@@ -97,7 +97,7 @@ function triggerKonami() {
     lineHeight: '1.8',
     textAlign: 'center',
     fontFamily:
-      "var(--font-dm-sans), -apple-system, BlinkMacSystemFont, sans-serif",
+      'var(--font-dm-sans), -apple-system, BlinkMacSystemFont, sans-serif',
     pointerEvents: 'none',
   })
   banner.innerHTML =

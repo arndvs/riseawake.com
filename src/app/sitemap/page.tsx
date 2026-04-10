@@ -1,5 +1,5 @@
-import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { Navbar } from '@/components/navbar'
 import Link from 'next/link'
 
 const SECTIONS = [
@@ -127,7 +127,7 @@ export default function SitemapPage() {
       <section className="px-6 pt-40 pb-24">
         <div className="mx-auto max-w-3xl">
           <p
-            className="text-eyebrow mb-4 uppercase"
+            className="mb-4 text-eyebrow uppercase"
             style={{
               color: 'rgba(255,255,255,0.25)',
               letterSpacing: '0.2em',
@@ -136,7 +136,7 @@ export default function SitemapPage() {
             riseawake.com
           </p>
           <h1
-            className="font-display text-section mb-4"
+            className="mb-4 font-display text-section"
             style={{ color: 'rgba(255,255,255,0.9)' }}
           >
             Sitemap
@@ -155,15 +155,15 @@ export default function SitemapPage() {
             }}
           >
             RISE™ reviews sitemap contents quarterly. The next review is
-            scheduled for June 1, 2025. If you believe a URL has been
-            listed in error, please contact webmaster@riseco.online.
+            scheduled for June 1, 2025. If you believe a URL has been listed in
+            error, please contact webmaster@riseco.online.
           </p>
 
           <div className="flex flex-col gap-10">
             {SECTIONS.map((section) => (
               <div key={section.label}>
                 <p
-                  className="mb-4 text-[10px] uppercase tracking-widest"
+                  className="mb-4 text-[10px] tracking-widest uppercase"
                   style={{
                     color: section.isInternal
                       ? 'rgba(234,179,8,0.6)'
@@ -190,10 +190,7 @@ export default function SitemapPage() {
                 </p>
                 <div className="flex flex-col gap-1">
                   {section.routes.map((route) => (
-                    <div
-                      key={route.path}
-                      className="flex items-baseline gap-4"
-                    >
+                    <div key={route.path} className="flex items-baseline gap-4">
                       <Link
                         href={route.path}
                         className="shrink-0 font-mono text-xs transition-colors duration-150 hover:text-white"
@@ -232,14 +229,13 @@ export default function SitemapPage() {
                 lineHeight: 1.8,
               }}
             >
-              This sitemap was generated automatically on March 1, 2025
-              by the RISE™ site management system. RISE™ reviews sitemap
-              contents quarterly. Quarterly reviews are scheduled and
-              conducted by the IT team. The IT team has been notified
-              that the Internal section of this sitemap contains routes
-              that should not be publicly indexed. The notification was
-              sent February 12, 2025. This sitemap was generated March
-              1, 2025. The routes remain listed.
+              This sitemap was generated automatically on March 1, 2025 by the
+              RISE™ site management system. RISE™ reviews sitemap contents
+              quarterly. Quarterly reviews are scheduled and conducted by the IT
+              team. The IT team has been notified that the Internal section of
+              this sitemap contains routes that should not be publicly indexed.
+              The notification was sent February 12, 2025. This sitemap was
+              generated March 1, 2025. The routes remain listed.
             </p>
           </div>
         </div>

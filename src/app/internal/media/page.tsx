@@ -42,7 +42,7 @@ export default function MediaPage() {
           onClick={() =>
             fireToast(
               'Upload failed. Storage connection not configured.',
-              'error'
+              'error',
             )
           }
           className="flex h-32 w-full max-w-md cursor-pointer flex-col items-center justify-center rounded-sm transition-colors duration-150"
@@ -54,12 +54,16 @@ export default function MediaPage() {
           onDrop={() =>
             fireToast(
               'Upload failed. Storage connection not configured.',
-              'error'
+              'error',
             )
           }
         >
           <span
-            style={{ color: P.textFaint, fontSize: '20px', marginBottom: '8px' }}
+            style={{
+              color: P.textFaint,
+              fontSize: '20px',
+              marginBottom: '8px',
+            }}
           >
             ↑
           </span>

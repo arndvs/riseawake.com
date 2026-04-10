@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 // ─── Payload-accurate CSS tokens ─────────────────────────────────────────────
 // Arvin copied these from the Payload source. They are correct.
@@ -52,7 +52,7 @@ function ToastContainer() {
     info: P.blue,
   }
   return (
-    <div className="pointer-events-none fixed bottom-6 right-6 z-[9999] flex flex-col gap-2">
+    <div className="pointer-events-none fixed right-6 bottom-6 z-[9999] flex flex-col gap-2">
       {toasts.map((t) => (
         <div
           key={t.id}
@@ -391,9 +391,7 @@ function NavItem({
         className="mx-2 flex items-center gap-2.5 rounded-sm px-3 py-2 transition-colors duration-150"
         style={{
           background: active ? 'rgba(255,255,255,0.07)' : 'transparent',
-          borderLeft: active
-            ? `2px solid ${P.blue}`
-            : '2px solid transparent',
+          borderLeft: active ? `2px solid ${P.blue}` : '2px solid transparent',
         }}
       >
         <span
@@ -482,7 +480,10 @@ export default function PayloadShell({
           }}
         >
           <span style={{ color: P.warning, fontSize: '12px' }}>⚠</span>
-          <p className="flex-1 text-[11px]" style={{ color: 'rgba(234,179,8,0.8)' }}>
+          <p
+            className="flex-1 text-[11px]"
+            style={{ color: 'rgba(234,179,8,0.8)' }}
+          >
             <strong style={{ color: P.warning }}>
               RISE™ INTERNAL DOCUMENT SYSTEM
             </strong>{' '}
@@ -551,18 +552,14 @@ export default function PayloadShell({
             >
               {breadcrumb.map((crumb, i) => (
                 <span key={i} className="flex items-center gap-1.5">
-                  {i > 0 && (
-                    <span style={{ color: P.textFaint }}>/</span>
-                  )}
+                  {i > 0 && <span style={{ color: P.textFaint }}>/</span>}
                   {crumb.href ? (
                     <Link
                       href={crumb.href}
                       className="transition-colors duration-150 hover:text-white"
                       style={{
                         color:
-                          i === breadcrumb.length - 1
-                            ? P.text
-                            : P.textMuted,
+                          i === breadcrumb.length - 1 ? P.text : P.textMuted,
                       }}
                     >
                       {crumb.label}
@@ -571,9 +568,7 @@ export default function PayloadShell({
                     <span
                       style={{
                         color:
-                          i === breadcrumb.length - 1
-                            ? P.text
-                            : P.textMuted,
+                          i === breadcrumb.length - 1 ? P.text : P.textMuted,
                       }}
                     >
                       {crumb.label}
@@ -621,7 +616,7 @@ export default function PayloadShell({
               }}
             >
               <p
-                className="mb-2 px-5 text-[9px] uppercase tracking-widest"
+                className="mb-2 px-5 text-[9px] tracking-widest uppercase"
                 style={{ color: P.textFaint, letterSpacing: '0.15em' }}
               >
                 Collections
@@ -676,10 +671,7 @@ export default function PayloadShell({
                   borderBottom: `1px solid ${P.border}`,
                 }}
               >
-                <h1
-                  className="text-sm font-semibold"
-                  style={{ color: P.text }}
-                >
+                <h1 className="text-sm font-semibold" style={{ color: P.text }}>
                   {title}
                 </h1>
                 {showCreate && (

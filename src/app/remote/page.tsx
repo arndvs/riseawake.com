@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 type Stage = 'idle' | 'activating' | 'active' | 'routing' | 'complete'
 
@@ -63,7 +63,7 @@ export default function RemotePage() {
           if (text.includes('productive day')) {
             timeouts.push(setTimeout(() => setStage('complete'), 1200))
           }
-        }, time)
+        }, time),
       )
     })
     return () => timeouts.forEach(clearTimeout)
@@ -170,8 +170,7 @@ export default function RemotePage() {
           <div
             style={{
               width: '88px',
-              background:
-                'linear-gradient(180deg, #1a1a1a 0%, #111 100%)',
+              background: 'linear-gradient(180deg, #1a1a1a 0%, #111 100%)',
               borderRadius: '44px',
               padding: '24px 0 32px',
               display: 'flex',

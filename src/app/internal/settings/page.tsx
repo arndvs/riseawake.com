@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
 import PayloadShell, { fireToast } from '@/components/payload/PayloadShell'
+import { useState } from 'react'
 
 const P = {
   text: '#e8e8e8',
@@ -67,13 +67,7 @@ const PERMISSION_ROWS = [
   },
 ]
 
-function Toggle({
-  value,
-  onChange,
-}: {
-  value: boolean
-  onChange: () => void
-}) {
+function Toggle({ value, onChange }: { value: boolean; onChange: () => void }) {
   return (
     <button
       onClick={onChange}
@@ -96,9 +90,7 @@ function Toggle({
 }
 
 export default function SettingsPage() {
-  const [perms, setPerms] = useState(
-    PERMISSION_ROWS.map((r) => ({ ...r }))
-  )
+  const [perms, setPerms] = useState(PERMISSION_ROWS.map((r) => ({ ...r })))
   const [accessLevel, setAccessLevel] = useState<
     'public' | 'private' | 'authenticated'
   >('public')
@@ -106,22 +98,18 @@ export default function SettingsPage() {
 
   const togglePerm = (
     rowIdx: number,
-    field: 'read' | 'create' | 'update' | 'delete'
+    field: 'read' | 'create' | 'update' | 'delete',
   ) => {
     setPerms((prev) =>
-      prev.map((r, i) =>
-        i === rowIdx ? { ...r, [field]: !r[field] } : r
-      )
+      prev.map((r, i) => (i === rowIdx ? { ...r, [field]: !r[field] } : r)),
     )
     setTimeout(() => fireToast('Settings saved.'), 0)
     // Toggle bounces back after 1s
     setTimeout(() => {
       setPerms((prev) =>
         prev.map((r, i) =>
-          i === rowIdx
-            ? { ...r, [field]: PERMISSION_ROWS[i]![field] }
-            : r
-        )
+          i === rowIdx ? { ...r, [field]: PERMISSION_ROWS[i]![field] } : r,
+        ),
       )
     }, 1000)
   }
@@ -147,7 +135,7 @@ export default function SettingsPage() {
         {/* Access Control */}
         <section>
           <h2
-            className="mb-1 text-xs font-semibold uppercase tracking-widest"
+            className="mb-1 text-xs font-semibold tracking-widest uppercase"
             style={{ color: P.textMuted, letterSpacing: '0.14em' }}
           >
             Access Control
@@ -160,36 +148,29 @@ export default function SettingsPage() {
             Controls who can access this system. Currently not enforced.
           </p>
           <div className="flex gap-3">
-            {(['public', 'authenticated', 'private'] as const).map(
-              (level) => (
-                <button
-                  key={level}
-                  onClick={() => {
-                    setAccessLevel(level)
-                    fireToast('Settings saved.')
-                    setTimeout(() => setAccessLevel('public'), 1000)
-                  }}
-                  className="rounded-sm px-4 py-2 text-xs capitalize transition-colors duration-150"
-                  style={{
-                    background:
-                      accessLevel === level ? P.blue : P.elevation200,
-                    color:
-                      accessLevel === level ? 'white' : P.textMuted,
-                    border: `1px solid ${accessLevel === level ? P.blue : P.border}`,
-                    cursor: 'pointer',
-                    fontFamily: 'inherit',
-                  }}
-                >
-                  {level}
-                </button>
-              )
-            )}
+            {(['public', 'authenticated', 'private'] as const).map((level) => (
+              <button
+                key={level}
+                onClick={() => {
+                  setAccessLevel(level)
+                  fireToast('Settings saved.')
+                  setTimeout(() => setAccessLevel('public'), 1000)
+                }}
+                className="rounded-sm px-4 py-2 text-xs capitalize transition-colors duration-150"
+                style={{
+                  background: accessLevel === level ? P.blue : P.elevation200,
+                  color: accessLevel === level ? 'white' : P.textMuted,
+                  border: `1px solid ${accessLevel === level ? P.blue : P.border}`,
+                  cursor: 'pointer',
+                  fontFamily: 'inherit',
+                }}
+              >
+                {level}
+              </button>
+            ))}
           </div>
           {accessLevel !== 'public' && (
-            <p
-              className="mt-3 text-[10px]"
-              style={{ color: P.warning }}
-            >
+            <p className="mt-3 text-[10px]" style={{ color: P.warning }}>
               ⚠ Access level change will not take effect until the auth
               middleware is implemented.
             </p>
@@ -204,7 +185,7 @@ export default function SettingsPage() {
         {/* Permissions Matrix */}
         <section>
           <h2
-            className="mb-1 text-xs font-semibold uppercase tracking-widest"
+            className="mb-1 text-xs font-semibold tracking-widest uppercase"
             style={{ color: P.textMuted, letterSpacing: '0.14em' }}
           >
             Permissions Matrix
@@ -242,25 +223,22 @@ export default function SettingsPage() {
               </thead>
               <tbody>
                 {perms.map((row, i) => (
-                  <tr
-                    key={i}
-                    style={{ borderTop: `1px solid ${P.border}` }}
-                  >
+                  <tr key={i} style={{ borderTop: `1px solid ${P.border}` }}>
                     <td className="px-4 py-3" style={{ color: P.text }}>
                       {row.collection}
                     </td>
-                    {(
-                      ['read', 'create', 'update', 'delete'] as const
-                    ).map((field) => (
-                      <td key={field} className="px-4 py-3 text-center">
-                        <div className="flex justify-center">
-                          <Toggle
-                            value={row[field]}
-                            onChange={() => togglePerm(i, field)}
-                          />
-                        </div>
-                      </td>
-                    ))}
+                    {(['read', 'create', 'update', 'delete'] as const).map(
+                      (field) => (
+                        <td key={field} className="px-4 py-3 text-center">
+                          <div className="flex justify-center">
+                            <Toggle
+                              value={row[field]}
+                              onChange={() => togglePerm(i, field)}
+                            />
+                          </div>
+                        </td>
+                      ),
+                    )}
                   </tr>
                 ))}
               </tbody>
@@ -280,26 +258,28 @@ export default function SettingsPage() {
         {/* System Info */}
         <section>
           <h2
-            className="mb-4 text-xs font-semibold uppercase tracking-widest"
+            className="mb-4 text-xs font-semibold tracking-widest uppercase"
             style={{ color: P.textMuted, letterSpacing: '0.14em' }}
           >
             System Information
           </h2>
           <div className="space-y-2 text-xs">
-            {([
-              ['CMS Version', 'Payload v3.0.0-beta.67'],
-              ['Next.js Version', '14.1.0'],
-              ['Database', 'Not connected (hardcoded data)'],
-              ['Storage', 'Not connected'],
-              ['Auth Middleware', 'Not implemented'],
-              ['Last Deployed', 'August 12, 2024'],
-              ['Deployed By', 'areyes@riseco.online'],
-              ['Next Planned Deployment', 'Next sprint (date TBD)'],
+            {(
               [
-                'Known Issues',
-                "See Arvin's TODO comments throughout codebase",
-              ],
-            ] as const).map(([k, v]) => (
+                ['CMS Version', 'Payload v3.0.0-beta.67'],
+                ['Next.js Version', '14.1.0'],
+                ['Database', 'Not connected (hardcoded data)'],
+                ['Storage', 'Not connected'],
+                ['Auth Middleware', 'Not implemented'],
+                ['Last Deployed', 'August 12, 2024'],
+                ['Deployed By', 'areyes@riseco.online'],
+                ['Next Planned Deployment', 'Next sprint (date TBD)'],
+                [
+                  'Known Issues',
+                  "See Arvin's TODO comments throughout codebase",
+                ],
+              ] as const
+            ).map(([k, v]) => (
               <div
                 key={k}
                 className="flex items-center gap-4 py-2"
@@ -307,10 +287,7 @@ export default function SettingsPage() {
                   borderBottom: `1px solid ${P.border}`,
                 }}
               >
-                <span
-                  className="w-40 shrink-0"
-                  style={{ color: P.textMuted }}
-                >
+                <span className="w-40 shrink-0" style={{ color: P.textMuted }}>
                   {k}
                 </span>
                 <span

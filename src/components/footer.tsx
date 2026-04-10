@@ -3,7 +3,7 @@ import { Logo } from './logo'
 
 function FooterHeading({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mb-5 text-xs uppercase tracking-[0.16em] text-foreground-muted">
+    <p className="mb-5 text-xs tracking-[0.16em] text-foreground-muted uppercase">
       {children}
     </p>
   )
@@ -28,12 +28,13 @@ export function Footer() {
           <div className="col-span-2">
             <Logo className="mb-4 h-7" />
             <p className="mb-4 max-w-48 text-xs leading-relaxed text-foreground-muted">
-              Smart Adjustable Base technology for people who need a little push.
+              Smart Adjustable Base technology for people who need a little
+              push.
             </p>
-            <p className="text-xs italic leading-relaxed text-foreground-muted">
-              &ldquo;Push Mode cannot be manually interrupted once initiated, This is a feature, not a limitation.&rdquo;
+            <p className="text-xs leading-relaxed text-foreground-muted italic">
+              &ldquo;Push Mode cannot be manually interrupted once initiated,
+              This is a feature, not a limitation.&rdquo;
             </p>
-
           </div>
 
           <div>
@@ -85,9 +86,15 @@ export function Footer() {
             <div className="flex flex-col gap-3">
               <FooterLink href="/legal/terms">Terms of Service</FooterLink>
               <FooterLink href="/legal/privacy">Privacy Policy</FooterLink>
-              <FooterLink href="/legal/push-mode-eula">Push Mode EULA</FooterLink>
-              <FooterLink href="/legal/sleep-data-policy">Sleep Data Policy</FooterLink>
-              <FooterLink href="/legal/autonomous-navigation">Autonomous Navigation</FooterLink>
+              <FooterLink href="/legal/push-mode-eula">
+                Push Mode EULA
+              </FooterLink>
+              <FooterLink href="/legal/sleep-data-policy">
+                Sleep Data Policy
+              </FooterLink>
+              <FooterLink href="/legal/autonomous-navigation">
+                Autonomous Navigation
+              </FooterLink>
               <FooterLink href="/legal/disclaimer">Disclaimer</FooterLink>
             </div>
           </div>
@@ -95,13 +102,16 @@ export function Footer() {
 
         <div className="mb-10 border-t border-edge-subtle pt-8">
           <div className="flex flex-wrap items-center gap-8">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-foreground-muted">
+            <span className="text-[10px] tracking-[0.2em] text-foreground-muted uppercase">
               Investors
             </span>
             {[
               { label: 'IR Hub', href: '/investors' },
               { label: 'Annual Report', href: '/investors/annual-report' },
-              { label: 'Shareholder Letter', href: '/investors/shareholder-letter' },
+              {
+                label: 'Shareholder Letter',
+                href: '/investors/shareholder-letter',
+              },
               { label: 'Vision 2045', href: '/investors/vision' },
               { label: 'Financials', href: '/investors/financials' },
               { label: 'Press', href: '/investors/press' },
@@ -125,7 +135,10 @@ export function Footer() {
             <FooterLink href="/sitemap">Sitemap</FooterLink>
           </div>
           <p className="max-w-md text-left text-[11px] text-foreground-muted/60 md:text-right">
-            RISE™ is not responsible for productivity gains, lifestyle improvements, career advancement, relationship outcomes, or existential reckonings resulting from Push Mode. Results may exceed expectations.
+            RISE™ is not responsible for productivity gains, lifestyle
+            improvements, career advancement, relationship outcomes, or
+            existential reckonings resulting from Push Mode. Results may exceed
+            expectations.
           </p>
         </div>
       </div>

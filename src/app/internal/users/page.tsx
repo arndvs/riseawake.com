@@ -65,17 +65,15 @@ export default function UsersPage() {
                 background: P.elevation50,
               }}
             >
-              {['', 'Name', 'Role', 'Last Login', 'Status', ''].map(
-                (h, i) => (
-                  <th
-                    key={i}
-                    className="px-4 py-3 text-left font-medium"
-                    style={{ color: P.textMuted }}
-                  >
-                    {h}
-                  </th>
-                )
-              )}
+              {['', 'Name', 'Role', 'Last Login', 'Status', ''].map((h, i) => (
+                <th
+                  key={i}
+                  className="px-4 py-3 text-left font-medium"
+                  style={{ color: P.textMuted }}
+                >
+                  {h}
+                </th>
+              ))}
             </tr>
           </thead>
           <tbody>
@@ -126,8 +124,7 @@ export default function UsersPage() {
                         u.role === 'Super Admin'
                           ? 'rgba(76,124,255,0.12)'
                           : 'rgba(255,255,255,0.06)',
-                      color:
-                        u.role === 'Super Admin' ? P.blue : P.textMuted,
+                      color: u.role === 'Super Admin' ? P.blue : P.textMuted,
                       border: `1px solid ${u.role === 'Super Admin' ? 'rgba(76,124,255,0.2)' : 'rgba(255,255,255,0.08)'}`,
                     }}
                   >
@@ -148,8 +145,7 @@ export default function UsersPage() {
                     />
                     <span
                       style={{
-                        color:
-                          u.status === 'active' ? P.success : P.textFaint,
+                        color: u.status === 'active' ? P.success : P.textFaint,
                       }}
                     >
                       {u.name === 'Arvin Reyes'
@@ -163,7 +159,7 @@ export default function UsersPage() {
                     onClick={() =>
                       fireToast(
                         'User management not implemented. — areyes',
-                        'error'
+                        'error',
                       )
                     }
                     className="rounded-sm px-3 py-1.5 text-[10px]"

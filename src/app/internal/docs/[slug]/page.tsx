@@ -1,15 +1,15 @@
 'use client'
 
-import { notFound } from 'next/navigation'
-import Link from 'next/link'
-import { use, useState } from 'react'
 import PayloadShell, { fireToast } from '@/components/payload/PayloadShell'
 import {
-  getDoc,
-  DOCS,
   CLASSIFICATION_COLORS,
+  DOCS,
+  getDoc,
   STATUS_COLORS,
 } from '@/lib/internal-docs'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import { use, useState } from 'react'
 
 const P = {
   bg: '#0b0b0b',
@@ -50,7 +50,7 @@ function DocSection({
     <div className="mb-8">
       {title && (
         <h3
-          className="mb-3 text-xs font-semibold uppercase tracking-widest"
+          className="mb-3 text-xs font-semibold tracking-widest uppercase"
           style={{ color: P.textMuted, letterSpacing: '0.14em' }}
         >
           {title}
@@ -200,7 +200,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
               'INC-2403',
               'Oct 11, 2024',
               'RSB-9034...',
-              "Occupant not registered in household profile — routing anomaly",
+              'Occupant not registered in household profile — routing anomaly',
               "Routing adjusted. Second occupant now logged as 'Visitor (recurring)'.",
               'Closed',
             ],
@@ -325,7 +325,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         }}
       >
         <p
-          className="mb-2 text-[10px] uppercase tracking-widest"
+          className="mb-2 text-[10px] tracking-widest uppercase"
           style={{ color: P.textFaint, letterSpacing: '0.14em' }}
         >
           Internal Memorandum
@@ -469,10 +469,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         <p className="mb-1 text-[11px] font-medium" style={{ color: P.blue }}>
           ⚠ DR. VOSS EYES ONLY
         </p>
-        <p
-          className="text-[10px]"
-          style={{ color: 'rgba(76,124,255,0.7)' }}
-        >
+        <p className="text-[10px]" style={{ color: 'rgba(76,124,255,0.7)' }}>
           This document is classified DR. VOSS EYES ONLY. It is currently
           accessible to anyone with the URL. The access control layer for this
           classification tier was not implemented. It is in Arvin&rsquo;s TODO
@@ -489,11 +486,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
               'RSB-0000000000000001',
               'Unit 1. The first Push ever made.',
             ],
-            [
-              'Account Since',
-              'January 3, 2021',
-              'Activation date. Day 1.',
-            ],
+            ['Account Since', 'January 3, 2021', 'Activation date. Day 1.'],
             [
               'Target Wake Time',
               '6:00:00am',
@@ -514,11 +507,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
               <Redacted key="idx" label="REDACTED" />,
               'Dr. Voss redacted this field personally.',
             ],
-            [
-              'Dominant Bed Side',
-              'Left',
-              'Auto-detected. Confirmed Day 1.',
-            ],
+            ['Dominant Bed Side', 'Left', 'Auto-detected. Confirmed Day 1.'],
             [
               'Floor Surface',
               'Hardwood, no rugs',
@@ -535,12 +524,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
 
       <DocSection title="Morning Sequence">
         <DocTable
-          headers={[
-            'Stop',
-            'Configured Duration',
-            'Actual Average',
-            'Delta',
-          ]}
+          headers={['Stop', 'Configured Duration', 'Actual Average', 'Delta']}
           rows={[
             ['Bathroom', '4 min', '3m 47s', '-13s'],
             [
@@ -557,9 +541,9 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         <DocP>
           Total configured Push Mode duration: 26 minutes. Actual average: 19
           minutes 24 seconds. Dr. Voss consistently outperforms her own
-          estimates. The bed has stopped adjusting her duration estimates because
-          they are already at minimum. The note in the system reads: &ldquo;User
-          needs no adjustment. Adjustment would be an insult.&rdquo;
+          estimates. The bed has stopped adjusting her duration estimates
+          because they are already at minimum. The note in the system reads:
+          &ldquo;User needs no adjustment. Adjustment would be an insult.&rdquo;
         </DocP>
       </DocSection>
 
@@ -571,8 +555,8 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           looked like. This was accepted.
         </DocP>
         <DocP>
-          Dr. Voss&rsquo;s Push Mode resistance index of 0.2 was recorded on
-          Day 1. The activation team notes that a score of 0.2 is clinically
+          Dr. Voss&rsquo;s Push Mode resistance index of 0.2 was recorded on Day
+          1. The activation team notes that a score of 0.2 is clinically
           consistent with someone who was waiting for the button to exist. She
           has had the Push since January 3, 2021. She has not been late once.
           The first meeting she was on time to was January 4, 2021, 8:00am. She
@@ -705,8 +689,9 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           Appendix B contains internal compliance testing data. Per Dr.
           Voss&rsquo;s note (&ldquo;Don&rsquo;t put this in the
           document&rdquo;), it has been removed. The data exists. It is in the
-          testing archive. The testing archive is classified. The testing archive
-          is not in this document system. Arvin did not get to that part.
+          testing archive. The testing archive is classified. The testing
+          archive is not in this document system. Arvin did not get to that
+          part.
         </DocP>
         <DocP>
           RISE™ is not currently accepting questions about The Push Pro. This
@@ -877,8 +862,8 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
             className="mt-3 text-xs"
             style={{ color: P.textMuted, lineHeight: 1.85 }}
           >
-            We have had 4 solo commute staircase tests. 3 were successful. 1
-            was not. The 1 that was not is why this section is RED. The incident
+            We have had 4 solo commute staircase tests. 3 were successful. 1 was
+            not. The 1 that was not is why this section is RED. The incident
             report is in a separate document that is not in this system. Arvin
             had not finished the incident reporting module.
           </p>
@@ -921,7 +906,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         }}
       >
         <p
-          className="mb-2 text-[10px] uppercase tracking-widest"
+          className="mb-2 text-[10px] tracking-widest uppercase"
           style={{ color: P.textFaint, letterSpacing: '0.14em' }}
         >
           HR Document Template
@@ -956,8 +941,8 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           initiated. I acknowledge that I was informed of this before my
           employer enrolled me in this Program. I acknowledge that my employer
           was informed of this before enrolling me. I acknowledge that neither I
-          nor my employer can stop it once it has started. I understand this is a
-          feature.
+          nor my employer can stop it once it has started. I understand this is
+          a feature.
         </DocP>
       </DocSection>
 
@@ -1045,7 +1030,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           location: 'Valencia Street, San Francisco, CA',
           summary: 'Unintended retail entry',
           detail:
-            "The bed entered a coffee shop on Valencia Street during its solo return commute. The shop was open. The door was propped open for ventilation. The bed navigated through the open door. It proceeded approximately 8 feet into the establishment before determining that its registered address was not in the direction it was heading and beginning a reversal maneuver. Staff attempted to assist the bed. The bed did not require assistance. It was navigating. It exited after 4 minutes and 12 seconds. No damage to the establishment. One ceramic mug was displaced during the reversal maneuver. The mug did not break. The shop posted about it on Instagram that evening. The post received 17,000 likes in 24 hours. RISE™ did not comment. RISE™ is still not commenting. The coffee shop has become something of a local landmark for the incident. They have a small sign.",
+            'The bed entered a coffee shop on Valencia Street during its solo return commute. The shop was open. The door was propped open for ventilation. The bed navigated through the open door. It proceeded approximately 8 feet into the establishment before determining that its registered address was not in the direction it was heading and beginning a reversal maneuver. Staff attempted to assist the bed. The bed did not require assistance. It was navigating. It exited after 4 minutes and 12 seconds. No damage to the establishment. One ceramic mug was displaced during the reversal maneuver. The mug did not break. The shop posted about it on Instagram that evening. The post received 17,000 likes in 24 hours. RISE™ did not comment. RISE™ is still not commenting. The coffee shop has become something of a local landmark for the incident. They have a small sign.',
           status: 'Closed',
           outcome:
             'RNC-7 signed. RISE™ paid for the displaced mug. The mug did not break but the policy is the policy.',
@@ -1078,7 +1063,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           location: 'SOMA, San Francisco, CA',
           summary: 'Municipal citation — parking enforcement',
           detail:
-            "Municipal parking enforcement encountered the returning bed at 9:14am on a block where the bed had paused to recalculate route following an obstacle. The enforcement officer attempted to issue a citation. The bed does not have a license plate. The bed does not have a registration. The bed does not have a human operator present. The officer issued the citation to the nearest address. That address was a fire hydrant. The citation was issued to the fire hydrant. RISE™'s legal team reviewed the citation. The citation was issued to a fire hydrant. This has been resolved. The bed was not at fault. The bed was navigating. The fire hydrant was not navigating. The enforcement officer filed a supplemental report. The supplemental report describes the bed as \"an unattended motorized mattress of unknown origin.\" RISE™ considers this an accurate description and an acceptable outcome.",
+            'Municipal parking enforcement encountered the returning bed at 9:14am on a block where the bed had paused to recalculate route following an obstacle. The enforcement officer attempted to issue a citation. The bed does not have a license plate. The bed does not have a registration. The bed does not have a human operator present. The officer issued the citation to the nearest address. That address was a fire hydrant. The citation was issued to the fire hydrant. RISE™\'s legal team reviewed the citation. The citation was issued to a fire hydrant. This has been resolved. The bed was not at fault. The bed was navigating. The fire hydrant was not navigating. The enforcement officer filed a supplemental report. The supplemental report describes the bed as "an unattended motorized mattress of unknown origin." RISE™ considers this an accurate description and an acceptable outcome.',
           status: 'Closed',
           outcome:
             'Citation voided. No fine. The fire hydrant was not cited. The supplemental report has been preserved by James Park. He has not explained why.',
@@ -1229,8 +1214,8 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         >
           This document has been redacted for internal distribution per Dr.
           Voss&rsquo;s instructions dated November 2021. The full methodology is
-          available to: Dr. Voss. Mara Chen. Thomas Ellery. The document
-          server. Apparently also whoever is reading this.
+          available to: Dr. Voss. Mara Chen. Thomas Ellery. The document server.
+          Apparently also whoever is reading this.
         </p>
         <p
           className="mt-2 text-[10px]"
@@ -1265,11 +1250,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         <DocTable
           headers={['Metric', 'Value', 'Notes']}
           rows={[
-            [
-              'Total audio files accessed',
-              '4,847',
-              'Up from 3,912 in Q4 2024',
-            ],
+            ['Total audio files accessed', '4,847', 'Up from 3,912 in Q4 2024'],
             [
               'Personnel with active access',
               '23',
@@ -1340,11 +1321,11 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         />
         <DocP style={{ color: P.warning }}>
           Note: 4 individuals with 187 access events are not listed in the
-          current access policy. These individuals appear in the access logs with
-          valid session tokens. Their session tokens were generated by the
-          authentication system. How they were issued is under investigation. The
-          187 access events span 94 unique user audio files. This is the largest
-          single-category anomaly in the access log history.
+          current access policy. These individuals appear in the access logs
+          with valid session tokens. Their session tokens were generated by the
+          authentication system. How they were issued is under investigation.
+          The 187 access events span 94 unique user audio files. This is the
+          largest single-category anomaly in the access log history.
         </DocP>
       </DocSection>
 
@@ -1624,10 +1605,7 @@ export default function DocDetailPage({
           }}
         >
           <span style={{ color: P.error, fontSize: '11px' }}>⚠</span>
-          <p
-            className="text-[10px]"
-            style={{ color: 'rgba(239,68,68,0.75)' }}
-          >
+          <p className="text-[10px]" style={{ color: 'rgba(239,68,68,0.75)' }}>
             External access detected:{' '}
             {doc.lastAccessed
               .filter((a) => a.isExternal)
@@ -1674,12 +1652,9 @@ export default function DocDetailPage({
       {/* ── Related documents ── */}
       {doc.relatedDocs.length > 0 && (
         <div className="px-8 pb-8">
-          <div
-            className="pt-6"
-            style={{ borderTop: `1px solid ${P.border}` }}
-          >
+          <div className="pt-6" style={{ borderTop: `1px solid ${P.border}` }}>
             <p
-              className="mb-3 text-[11px] uppercase tracking-widest"
+              className="mb-3 text-[11px] tracking-widest uppercase"
               style={{ color: P.textFaint, letterSpacing: '0.14em' }}
             >
               Related Documents
@@ -1700,8 +1675,7 @@ export default function DocDetailPage({
                       textDecoration: 'none',
                     }}
                   >
-                    {id} —{' '}
-                    {related.title.substring(0, 40)}
+                    {id} — {related.title.substring(0, 40)}
                     {related.title.length > 40 ? '...' : ''}
                   </Link>
                 )
