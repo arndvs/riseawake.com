@@ -1,5 +1,6 @@
 'use client'
 
+import { daysSinceArvin } from '@/lib/internal-time'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -654,7 +655,7 @@ export default function PayloadShell({
                     className="text-[9px]"
                     style={{ color: P.textFaint, opacity: 0.6 }}
                   >
-                    Last deployed Aug 12, 2024
+                    Last deployed Aug 12, 2024 ({daysSinceArvin()}d ago)
                   </p>
                 </div>
               </div>

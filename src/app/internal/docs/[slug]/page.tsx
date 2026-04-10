@@ -1,6 +1,7 @@
 'use client'
 
 import PayloadShell, { fireToast } from '@/components/payload/PayloadShell'
+import type { AccessEntry } from '@/lib/internal-docs'
 import {
   CLASSIFICATION_COLORS,
   DOCS,
@@ -1489,6 +1490,16 @@ export default function DocDetailPage({
   const [editing, setEditing] = useState(false)
   const content = DOCUMENT_CONTENT[doc.slug]
 
+  // Inject the viewer as a live access entry — you ARE the security breach
+  const accessLog: AccessEntry[] = [
+    ...doc.lastAccessed,
+    {
+      name: 'Unknown (public access)',
+      time: 'just now',
+      isExternal: true,
+    },
+  ]
+
   const handleSave = () => {
     setEditing(false)
     fireToast('Document saved successfully.')
@@ -1595,26 +1606,24 @@ export default function DocDetailPage({
         </div>
       </div>
 
-      {/* ── Access log warning if external IP ── */}
-      {doc.lastAccessed.some((a) => a.isExternal) && (
-        <div
-          className="flex items-center gap-3 px-6 py-2"
-          style={{
-            background: 'rgba(239,68,68,0.06)',
-            borderBottom: '1px solid rgba(239,68,68,0.15)',
-          }}
-        >
-          <span style={{ color: P.error, fontSize: '11px' }}>⚠</span>
-          <p className="text-[10px]" style={{ color: 'rgba(239,68,68,0.75)' }}>
-            External access detected:{' '}
-            {doc.lastAccessed
-              .filter((a) => a.isExternal)
-              .map((a) => `${a.name} (${a.time})`)
-              .join(', ')}{' '}
-            · IT has been notified
-          </p>
-        </div>
-      )}
+      {/* ── Access log warning — always visible now (you are the breach) ── */}
+      <div
+        className="flex items-center gap-3 px-6 py-2"
+        style={{
+          background: 'rgba(239,68,68,0.06)',
+          borderBottom: '1px solid rgba(239,68,68,0.15)',
+        }}
+      >
+        <span style={{ color: P.error, fontSize: '11px' }}>⚠</span>
+        <p className="text-[10px]" style={{ color: 'rgba(239,68,68,0.75)' }}>
+          External access detected:{' '}
+          {accessLog
+            .filter((a) => a.isExternal)
+            .map((a) => `${a.name} (${a.time})`)
+            .join(', ')}{' '}
+          · IT has been notified
+        </p>
+      </div>
 
       {/* ── Document body ── */}
       <div className="max-w-4xl px-8 py-8">
