@@ -1,6 +1,7 @@
 'use client'
 
 import { daysSinceArvin } from '@/lib/internal-time'
+import { useBreachRecord } from '@/lib/internal-tracker'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -480,6 +481,7 @@ export default function PayloadShell({
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [session, setSession] = useState<RiseSession | null>(null)
   const visitorIp = useVisitorIp()
+  const [breach] = useBreachRecord()
 
   // Restore session from sessionStorage (survives navigation, not tab close)
   useEffect(() => {
@@ -540,9 +542,16 @@ export default function PayloadShell({
             </strong>{' '}
             · Authorized personnel only ·{' '}
             {visitorIp
-              ? `Access from ${visitorIp} — just now · `
-              : ''}
-            Your session is being recorded
+              ? `Access from ${visitorIp} — just now`
+              : 'Your session is being recorded'}
+            {breach.docs.length > 0 && (
+              <>
+                {' · '}
+                {breach.docs.length} document{breach.docs.length !== 1 ? 's' : ''} accessed
+                {' · '}
+                IT notified {breach.itNotifications} time{breach.itNotifications !== 1 ? 's' : ''}
+              </>
+            )}
           </p>
           {session ? (
             <button
