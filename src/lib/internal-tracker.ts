@@ -49,15 +49,15 @@ function saveBreachRecord(record: BreachRecord): void {
  * Called on the index page so the IP is captured immediately on arrival.
  */
 export function recordVisitorIp(ip: string | null): void {
-    if (!ip) return
+  if (!ip) return
 
-    const record = getBreachRecord()
+  const record = getBreachRecord()
 
-    record.ip = ip
+  record.ip = ip
 
-    if (!record.firstSeen) record.firstSeen = Date.now()
+  if (!record.firstSeen) record.firstSeen = Date.now()
 
-    saveBreachRecord(record)
+  saveBreachRecord(record)
 }
 
 export function recordDocVisit(
@@ -113,17 +113,17 @@ export function useBreachRecord(): [BreachRecord, () => void] {
  * Returns null if not authenticated.
  */
 export function getSessionDisplayName(): string | null {
-    if (typeof window === 'undefined') return null
+  if (typeof window === 'undefined') return null
 
-    try {
-        const raw = sessionStorage.getItem(SESSION_KEY)
-        if (!raw) return null
+  try {
+    const raw = sessionStorage.getItem(SESSION_KEY)
+    if (!raw) return null
 
-        const session = JSON.parse(raw) as { displayName: string }
-        return session.displayName ?? null
-    } catch {
-        return null
-    }
+    const session = JSON.parse(raw) as { displayName: string }
+    return session.displayName ?? null
+  } catch {
+    return null
+  }
 }
 
 /**
@@ -131,44 +131,52 @@ export function getSessionDisplayName(): string | null {
  * Re-checks on storage events so login/logout in PayloadShell propagates.
  */
 export function useSessionName(): string | null {
-    const [name, setName] = useState<string | null>(null)
+  const [name, setName] = useState<string | null>(null)
 
-    useEffect(() => {
-        setName(getSessionDisplayName())
+  useEffect(() => {
+    setName(getSessionDisplayName())
 
-        const onStorage = () => setName(getSessionDisplayName())
+    const onStorage = () => setName(getSessionDisplayName())
 
-        window.addEventListener('storage', onStorage)
-        // sessionStorage doesn't fire 'storage' in the same tab, so also
-        // poll on a short interval to catch in-tab login/logout.
-        const interval = setInterval(onStorage, 500)
-        return () => {
-            window.removeEventListener('storage', onStorage)
-            clearInterval(interval)
-        }
-    }, [])
+    window.addEventListener('storage', onStorage)
+    // sessionStorage doesn't fire 'storage' in the same tab, so also
+    // poll on a short interval to catch in-tab login/logout.
+    const interval = setInterval(onStorage, 500)
+    return () => {
+      window.removeEventListener('storage', onStorage)
+      clearInterval(interval)
+    }
+  }, [])
 
-    return name
+  return name
 }
 
 /**
  * The display label for the current visitor in access logs.
  * Returns session name when authenticated, otherwise the raw IP or fallback.
  */
-export function visitorDisplayName(ip: string | null, sessionName: string | null): string {
-    if (sessionName)
-        return sessionName
+export function visitorDisplayName(
+  ip: string | null,
+  sessionName: string | null,
+): string {
+  if (sessionName) return sessionName
 
-    return ip ?? 'Unknown (public access)'
+  return ip ?? 'Unknown (public access)'
 }
 
 /**
  * Build the escalation text for in-content breach notes.
  * Tone adapts: 1-2 docs factual, 3-5 resigned, 6+ deeply resigned.
  */
-export function breachNarrative(record: BreachRecord, currentDocId: string, sessionName?: string | null): string {
+export function breachNarrative(
+  record: BreachRecord,
+  currentDocId: string,
+  sessionName?: string | null,
+): string {
   const identity = sessionName ?? record.ip ?? 'Unknown IP'
-  const identityLabel = sessionName ? `user ${identity} (${record.ip})` : `IP ${identity}`
+  const identityLabel = sessionName
+    ? `user ${identity} (${record.ip})`
+    : `IP ${identity}`
   const count = record.docs.length
   const ids = record.docs.map((d) => d.id)
   const notifications = record.itNotifications
@@ -181,7 +189,8 @@ export function breachNarrative(record: BreachRecord, currentDocId: string, sess
   const idList =
     otherIds.length <= 4
       ? otherIds.join(', ') + ', and this document'
-      : otherIds.slice(0, 4).join(', ') + `, and ${otherIds.length - 4} other document${otherIds.length - 4 === 1 ? '' : 's'}`
+      : otherIds.slice(0, 4).join(', ') +
+        `, and ${otherIds.length - 4} other document${otherIds.length - 4 === 1 ? '' : 's'}`
 
   const notifText =
     notifications === 1

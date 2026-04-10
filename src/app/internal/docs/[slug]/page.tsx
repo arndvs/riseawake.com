@@ -1,6 +1,9 @@
 'use client'
 
-import PayloadShell, { fireToast, useVisitorIp } from '@/components/payload/PayloadShell'
+import PayloadShell, {
+  fireToast,
+  useVisitorIp,
+} from '@/components/payload/PayloadShell'
 import type { AccessEntry } from '@/lib/internal-docs'
 import {
   CLASSIFICATION_COLORS,
@@ -170,11 +173,7 @@ function BreachNote({ docId }: { docId: string }) {
   const [breach] = useBreachRecord()
   const sessionName = useSessionName()
   const text = breachNarrative(breach, docId, sessionName)
-  return (
-    <DocP style={{ color: 'rgba(239,68,68,0.8)' }}>
-      {text}
-    </DocP>
-  )
+  return <DocP style={{ color: 'rgba(239,68,68,0.8)' }}>{text}</DocP>
 }
 
 // ─── The 9 documents + secret 10th ─────────────────────────────────────────
@@ -913,20 +912,19 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         </div>
 
         <p
-          className="mb-2 mt-6 text-[10px] font-semibold tracking-widest uppercase"
+          className="mt-6 mb-2 text-[10px] font-semibold tracking-widest uppercase"
           style={{ color: P.textFaint, letterSpacing: '0.14em' }}
         >
           The Physics of Uncontrolled Descent
         </p>
         <DocP>
-          A RISE™ Move bed descending a standard residential staircase
-          (7.5-inch rise, 10-inch tread, 12 steps) must manage approximately 90
-          inches of vertical drop across roughly 120 inches of horizontal
-          travel. During attended transit, the occupant&rsquo;s body weight —
-          typically 120–250 lbs distributed across the sleep surface — acts as
-          ballast, lowering the system&rsquo;s center of gravity and creating a
-          stabilizing inertia that resists rotational forces at each step
-          transition.
+          A RISE™ Move bed descending a standard residential staircase (7.5-inch
+          rise, 10-inch tread, 12 steps) must manage approximately 90 inches of
+          vertical drop across roughly 120 inches of horizontal travel. During
+          attended transit, the occupant&rsquo;s body weight — typically 120–250
+          lbs distributed across the sleep surface — acts as ballast, lowering
+          the system&rsquo;s center of gravity and creating a stabilizing
+          inertia that resists rotational forces at each step transition.
         </DocP>
         <DocP>
           Remove the occupant for the solo return commute and you remove that
@@ -937,22 +935,22 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         </DocP>
 
         <p
-          className="mb-2 mt-6 text-[10px] font-semibold tracking-widest uppercase"
+          className="mt-6 mb-2 text-[10px] font-semibold tracking-widest uppercase"
           style={{ color: P.error, letterSpacing: '0.14em' }}
         >
           Failure Mode 1 — Forward Topple (The Test 4 Problem)
         </p>
         <DocP>
           The bed&rsquo;s momentum during step-to-step transition exceeds the
-          restoring torque available from the base architecture. The unit pitches
-          past its recovery angle and cascades down the remaining steps as an
-          uncontrolled falling object. This is what happened in Test 4. This is
-          the outcome Dr. Voss referenced. An uncontrolled 80–120 lb object
-          falling down a staircase is not a product. It is a liability.
+          restoring torque available from the base architecture. The unit
+          pitches past its recovery angle and cascades down the remaining steps
+          as an uncontrolled falling object. This is what happened in Test 4.
+          This is the outcome Dr. Voss referenced. An uncontrolled 80–120 lb
+          object falling down a staircase is not a product. It is a liability.
         </DocP>
 
         <p
-          className="mb-2 mt-6 text-[10px] font-semibold tracking-widest uppercase"
+          className="mt-6 mb-2 text-[10px] font-semibold tracking-widest uppercase"
           style={{ color: P.error, letterSpacing: '0.14em' }}
         >
           Failure Mode 2 — User-Present Descent Override
@@ -968,7 +966,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         </DocP>
 
         <p
-          className="mb-2 mt-6 text-[10px] font-semibold tracking-widest uppercase"
+          className="mt-6 mb-2 text-[10px] font-semibold tracking-widest uppercase"
           style={{ color: P.textFaint, letterSpacing: '0.14em' }}
         >
           Why Braking Is Not Sufficient
@@ -1015,7 +1013,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         />
 
         <p
-          className="mb-2 mt-6 text-[10px] font-semibold tracking-widest uppercase"
+          className="mt-6 mb-2 text-[10px] font-semibold tracking-widest uppercase"
           style={{ color: P.textFaint, letterSpacing: '0.14em' }}
         >
           The Compounding Problem
@@ -1032,14 +1030,14 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         <DocP>
           This is why 3 of 4 tests succeeded. The margin between success and
           failure is narrow, and which side the system lands on depends on
-          initial conditions that vary between runs: carpet compression, humidity
-          affecting surface friction, the exact angle at which the unit entered
-          the first step, micro-vibrations from the self-making
+          initial conditions that vary between runs: carpet compression,
+          humidity affecting surface friction, the exact angle at which the unit
+          entered the first step, micro-vibrations from the self-making
           mechanism&rsquo;s last motor position.
         </DocP>
 
         <p
-          className="mb-2 mt-6 text-[10px] font-semibold tracking-widest uppercase"
+          className="mt-6 mb-2 text-[10px] font-semibold tracking-widest uppercase"
           style={{ color: P.warning, letterSpacing: '0.14em' }}
         >
           The Attended Descent Problem (User Safety)
@@ -1099,7 +1097,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         </DocP>
 
         <p
-          className="mb-2 mt-6 text-[10px] font-semibold tracking-widest uppercase"
+          className="mt-6 mb-2 text-[10px] font-semibold tracking-widest uppercase"
           style={{ color: P.textFaint, letterSpacing: '0.14em' }}
         >
           What Solving This Looks Like
@@ -1899,9 +1897,11 @@ export default function DocDetailPage({
           {breach.docs.length > 0 && (
             <>
               {' · '}
-              {breach.docs.length} document{breach.docs.length !== 1 ? 's' : ''} accessed
+              {breach.docs.length} document{breach.docs.length !== 1 ? 's' : ''}{' '}
+              accessed
               {' · '}
-              IT notified {breach.itNotifications} time{breach.itNotifications !== 1 ? 's' : ''}
+              IT notified {breach.itNotifications} time
+              {breach.itNotifications !== 1 ? 's' : ''}
             </>
           )}
         </p>

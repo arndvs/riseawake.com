@@ -105,7 +105,7 @@ function SecurityAlert({ ip }: { ip: string }) {
 
   return (
     <div
-      className="pointer-events-auto fixed right-6 top-6 z-[9999] w-[380px] rounded-sm"
+      className="pointer-events-auto fixed top-6 right-6 z-[9999] w-[380px] rounded-sm"
       style={{
         background: P.elevation100,
         border: `1px solid rgba(239,68,68,0.25)`,
@@ -163,8 +163,8 @@ function SecurityAlert({ ip }: { ip: string }) {
           </p>
         </div>
         <p className="text-[10px]" style={{ color: P.textFaint }}>
-          This IP is not recognized as internal RISE™ infrastructure.
-          IT security has been notified. Access has not been restricted.
+          This IP is not recognized as internal RISE™ infrastructure. IT
+          security has been notified. Access has not been restricted.
         </p>
       </div>
     </div>
@@ -640,9 +640,11 @@ export default function PayloadShell({
             {breach.docs.length > 0 && (
               <>
                 {' · '}
-                {breach.docs.length} document{breach.docs.length !== 1 ? 's' : ''} accessed
+                {breach.docs.length} document
+                {breach.docs.length !== 1 ? 's' : ''} accessed
                 {' · '}
-                IT notified {breach.itNotifications} time{breach.itNotifications !== 1 ? 's' : ''}
+                IT notified {breach.itNotifications} time
+                {breach.itNotifications !== 1 ? 's' : ''}
               </>
             )}
           </p>
@@ -755,9 +757,7 @@ export default function PayloadShell({
 
           <div
             className="flex cursor-pointer items-center gap-2"
-            onClick={() =>
-              session ? handleLogout() : setLoginOpen(true)
-            }
+            onClick={() => (session ? handleLogout() : setLoginOpen(true))}
           >
             <div className="hidden text-right sm:block">
               <p className="text-[11px]" style={{ color: P.text }}>
@@ -769,7 +769,10 @@ export default function PayloadShell({
             </div>
             <div
               className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-medium"
-              style={{ background: session ? P.warning : P.blue, color: session ? '#000' : 'white' }}
+              style={{
+                background: session ? P.warning : P.blue,
+                color: session ? '#000' : 'white',
+              }}
             >
               {session ? session.initials : 'EV'}
             </div>
@@ -885,10 +888,7 @@ export default function PayloadShell({
       </div>
 
       {loginOpen && (
-        <LoginModal
-          onClose={() => setLoginOpen(false)}
-          onLogin={handleLogin}
-        />
+        <LoginModal onClose={() => setLoginOpen(false)} onLogin={handleLogin} />
       )}
       {createOpen && <CreateModal onClose={() => setCreateOpen(false)} />}
       {visitorIp && <SecurityAlert ip={visitorIp} />}

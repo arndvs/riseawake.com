@@ -1,9 +1,17 @@
 'use client'
 
-import PayloadShell, { fireToast, useVisitorIp } from '@/components/payload/PayloadShell'
+import PayloadShell, {
+  fireToast,
+  useVisitorIp,
+} from '@/components/payload/PayloadShell'
 import type { InternalDoc } from '@/lib/internal-docs'
 import { CLASSIFICATION_COLORS, DOCS, STATUS_COLORS } from '@/lib/internal-docs'
-import { recordVisitorIp, useBreachRecord, useSessionName, visitorDisplayName } from '@/lib/internal-tracker'
+import {
+  recordVisitorIp,
+  useBreachRecord,
+  useSessionName,
+  visitorDisplayName,
+} from '@/lib/internal-tracker'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
