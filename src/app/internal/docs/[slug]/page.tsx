@@ -1,6 +1,6 @@
 'use client'
 
-import PayloadShell, { fireToast } from '@/components/payload/PayloadShell'
+import PayloadShell, { fireToast, useVisitorIp } from '@/components/payload/PayloadShell'
 import type { AccessEntry } from '@/lib/internal-docs'
 import {
   CLASSIFICATION_COLORS,
@@ -1489,12 +1489,13 @@ export default function DocDetailPage({
   const sts = STATUS_COLORS[doc.status]
   const [editing, setEditing] = useState(false)
   const content = DOCUMENT_CONTENT[doc.slug]
+  const visitorIp = useVisitorIp()
 
   // Inject the viewer as a live access entry — you ARE the security breach
   const accessLog: AccessEntry[] = [
     ...doc.lastAccessed,
     {
-      name: 'Unknown (public access)',
+      name: visitorIp ?? 'Unknown (public access)',
       time: 'just now',
       isExternal: true,
     },

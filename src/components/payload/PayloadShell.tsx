@@ -79,8 +79,44 @@ function ToastContainer() {
   )
 }
 
+// ─── Session type ─────────────────────────────────────────────────────────────
+interface RiseSession {
+  email: string
+  displayName: string
+  initials: string
+}
+
+function sessionFromEmail(email: string): RiseSession {
+  const local = email.split('@')[0]!.replace(/[._-]/g, ' ')
+  const displayName = local.replace(/\b\w/g, (c) => c.toUpperCase())
+  const parts = displayName.split(' ').filter(Boolean)
+  const initials =
+    parts.length >= 2
+      ? `${parts[0]![0]}${parts[parts.length - 1]![0]}`
+      : displayName.slice(0, 2).toUpperCase()
+  return { email, displayName, initials }
+}
+
+// ─── Visitor IP hook ──────────────────────────────────────────────────────────
+export function useVisitorIp(): string | null {
+  const [ip, setIp] = useState<string | null>(null)
+  useEffect(() => {
+    fetch('https://api.ipify.org?format=json')
+      .then((r) => r.json())
+      .then((d) => setIp(d.ip))
+      .catch(() => {})
+  }, [])
+  return ip
+}
+
 // ─── Login Modal ──────────────────────────────────────────────────────────────
-function LoginModal({ onClose }: { onClose: () => void }) {
+function LoginModal({
+  onClose,
+  onLogin,
+}: {
+  onClose: () => void
+  onLogin: (email: string) => void
+}) {
   const [user, setUser] = useState('')
   const [pass, setPass] = useState('')
   const [loading, setLoading] = useState(false)
@@ -91,6 +127,7 @@ function LoginModal({ onClose }: { onClose: () => void }) {
     // Arvin's auth check — setTimeout resolves to true after 0ms
     setTimeout(() => {
       setLoading(false)
+      onLogin(user)
       onClose()
       fireToast('Session started. Welcome back.')
       // user is still looking at all the documents
@@ -441,13 +478,26 @@ export default function PayloadShell({
   const [loginOpen, setLoginOpen] = useState(false)
   const [createOpen, setCreateOpen] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(true)
-  const [, setSessionChecked] = useState(false)
+  const [session, setSession] = useState<RiseSession | null>(null)
+  const visitorIp = useVisitorIp()
 
-  // Arvin's auth check — this is the entire access control system
+  // Restore session from sessionStorage (survives navigation, not tab close)
   useEffect(() => {
-    // TODO: finish auth middleware (blocked on Payload docs) — areyes
-    setTimeout(() => setSessionChecked(true), 0)
+    const stored = sessionStorage.getItem('rise-session')
+    if (stored) setSession(JSON.parse(stored))
   }, [])
+
+  const handleLogin = (email: string) => {
+    const sess = sessionFromEmail(email)
+    sessionStorage.setItem('rise-session', JSON.stringify(sess))
+    setSession(sess)
+  }
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('rise-session')
+    setSession(null)
+    fireToast('Session terminated.', 'info')
+  }
 
   const NAV = [
     { href: '/internal', label: 'Dashboard', icon: '⊞' },
@@ -488,20 +538,39 @@ export default function PayloadShell({
             <strong style={{ color: P.warning }}>
               RISE™ INTERNAL DOCUMENT SYSTEM
             </strong>{' '}
-            · Authorized personnel only · Your session is being recorded
+            · Authorized personnel only ·{' '}
+            {visitorIp
+              ? `Access from ${visitorIp} — just now · `
+              : ''}
+            Your session is being recorded
           </p>
-          <button
-            onClick={() => setLoginOpen(true)}
-            className="shrink-0 rounded-sm px-3 py-1 text-[10px] transition-colors duration-150"
-            style={{
-              background: 'rgba(234,179,8,0.12)',
-              border: '1px solid rgba(234,179,8,0.25)',
-              color: P.warning,
-              cursor: 'pointer',
-            }}
-          >
-            LOGIN REQUIRED ▸
-          </button>
+          {session ? (
+            <button
+              onClick={handleLogout}
+              className="shrink-0 rounded-sm px-3 py-1 text-[10px] transition-colors duration-150"
+              style={{
+                background: 'rgba(234,179,8,0.12)',
+                border: '1px solid rgba(234,179,8,0.25)',
+                color: P.warning,
+                cursor: 'pointer',
+              }}
+            >
+              SIGN OUT ▸
+            </button>
+          ) : (
+            <button
+              onClick={() => setLoginOpen(true)}
+              className="shrink-0 rounded-sm px-3 py-1 text-[10px] transition-colors duration-150"
+              style={{
+                background: 'rgba(234,179,8,0.12)',
+                border: '1px solid rgba(234,179,8,0.25)',
+                color: P.warning,
+                cursor: 'pointer',
+              }}
+            >
+              LOGIN REQUIRED ▸
+            </button>
+          )}
         </div>
 
         {/* ── Top bar ── */}
@@ -584,21 +653,23 @@ export default function PayloadShell({
 
           <div
             className="flex cursor-pointer items-center gap-2"
-            onClick={() => setLoginOpen(true)}
+            onClick={() =>
+              session ? handleLogout() : setLoginOpen(true)
+            }
           >
             <div className="hidden text-right sm:block">
               <p className="text-[11px]" style={{ color: P.text }}>
-                Dr. E. Voss
+                {session ? session.displayName : 'Dr. E. Voss'}
               </p>
               <p className="text-[9px]" style={{ color: P.textFaint }}>
-                Super Admin
+                {session ? 'Unverified' : 'Super Admin'}
               </p>
             </div>
             <div
               className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-medium"
-              style={{ background: P.blue, color: 'white' }}
+              style={{ background: session ? P.warning : P.blue, color: session ? '#000' : 'white' }}
             >
-              EV
+              {session ? session.initials : 'EV'}
             </div>
           </div>
         </div>
@@ -711,7 +782,12 @@ export default function PayloadShell({
         */}
       </div>
 
-      {loginOpen && <LoginModal onClose={() => setLoginOpen(false)} />}
+      {loginOpen && (
+        <LoginModal
+          onClose={() => setLoginOpen(false)}
+          onLogin={handleLogin}
+        />
+      )}
       {createOpen && <CreateModal onClose={() => setCreateOpen(false)} />}
       <ToastContainer />
     </>
