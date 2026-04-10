@@ -80,6 +80,97 @@ function ToastContainer() {
   )
 }
 
+// ─── Security alert (shown once per session when IP resolves) ─────────────────
+function SecurityAlert({ ip }: { ip: string }) {
+  const [visible, setVisible] = useState(false)
+  const [dismissed, setDismissed] = useState(false)
+
+  useEffect(() => {
+    const key = 'rise-security-alert-shown'
+    if (sessionStorage.getItem(key)) return
+    sessionStorage.setItem(key, '1')
+
+    // Delay slightly so the page renders first — feels like a system notification arriving
+    const showTimer = setTimeout(() => setVisible(true), 1200)
+    const hideTimer = setTimeout(() => setDismissed(true), 8000)
+    return () => {
+      clearTimeout(showTimer)
+      clearTimeout(hideTimer)
+    }
+  }, [])
+
+  if (!visible || dismissed) return null
+
+  const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
+
+  return (
+    <div
+      className="pointer-events-auto fixed right-6 top-6 z-[9999] w-[380px] rounded-sm"
+      style={{
+        background: P.elevation100,
+        border: `1px solid rgba(239,68,68,0.25)`,
+        borderLeft: `3px solid ${P.error}`,
+        boxShadow: '0 12px 40px rgba(0,0,0,0.7)',
+        animation: 'payloadToastIn 0.3s ease',
+      }}
+    >
+      <div
+        className="flex items-center justify-between px-4 py-2.5"
+        style={{ borderBottom: `1px solid ${P.border}` }}
+      >
+        <div className="flex items-center gap-2">
+          <span style={{ color: P.error, fontSize: '11px' }}>⚠</span>
+          <span
+            className="text-[11px] font-semibold"
+            style={{ color: P.error }}
+          >
+            SECURITY ALERT
+          </span>
+        </div>
+        <button
+          onClick={() => setDismissed(true)}
+          className="text-[10px]"
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            color: P.textFaint,
+          }}
+        >
+          ✕
+        </button>
+      </div>
+      <div className="px-4 py-3">
+        <p className="mb-2 text-[11px]" style={{ color: P.text }}>
+          Access from an unrecognized IP address detected on the RISE™ Internal
+          Document System.
+        </p>
+        <div
+          className="mb-2 rounded-sm px-3 py-2"
+          style={{ background: P.elevation200 }}
+        >
+          <p
+            className="font-mono text-[10px]"
+            style={{ color: 'rgba(239,68,68,0.9)' }}
+          >
+            IP: {ip}
+          </p>
+          <p
+            className="mt-1 font-mono text-[10px] leading-snug"
+            style={{ color: P.textFaint }}
+          >
+            UA: {ua.length > 80 ? `${ua.slice(0, 80)}…` : ua}
+          </p>
+        </div>
+        <p className="text-[10px]" style={{ color: P.textFaint }}>
+          This IP is not recognized as internal RISE™ infrastructure.
+          IT security has been notified. Access has not been restricted.
+        </p>
+      </div>
+    </div>
+  )
+}
+
 // ─── Session type ─────────────────────────────────────────────────────────────
 interface RiseSession {
   email: string
@@ -798,6 +889,7 @@ export default function PayloadShell({
         />
       )}
       {createOpen && <CreateModal onClose={() => setCreateOpen(false)} />}
+      {visitorIp && <SecurityAlert ip={visitorIp} />}
       <ToastContainer />
     </>
   )
