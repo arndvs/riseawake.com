@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { siteUrl } from '@/sanity/env'
 
 /**
  * RISE™ Robots Configuration
@@ -21,7 +22,6 @@ import type { MetadataRoute } from 'next'
  * — RISE™ Web Infrastructure
  */
 export default function robots(): MetadataRoute.Robots {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://riseawake.com'
 
   return {
     rules: [

@@ -1,11 +1,10 @@
 import { EasterEggs } from '@/components/easter-eggs'
 import { SanityLive } from '@/sanity/live'
 import { revalidateSyncTags } from '@/sanity/revalidateSyncTags'
+import { siteUrl } from '@/sanity/env'
 import '@/styles/tailwind.css'
 import type { Metadata } from 'next'
 import { DM_Sans, DM_Serif_Display } from 'next/font/google'
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://riseawake.com'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],

@@ -1,7 +1,6 @@
 import { client } from '@/sanity/client'
+import { siteUrl } from '@/sanity/env'
 import { defineQuery } from 'next-sanity'
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://riseawake.com'
 
 const SITEMAP_POSTS_QUERY = defineQuery(`*[
   _type == "post"
