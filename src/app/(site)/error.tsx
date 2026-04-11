@@ -2,12 +2,7 @@
 
 import { Logo } from '@/components/logo'
 
-export default function Error({
-    reset,
-}: {
-    error: Error & { digest?: string }
-    reset: () => void
-}) {
+export default function Error({ reset }: { reset: () => void }) {
     return (
         <main className="flex min-h-[80vh] flex-col items-center justify-center px-6 text-center">
             <Logo className="mb-10 h-7" />

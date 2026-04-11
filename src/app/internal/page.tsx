@@ -1,11 +1,19 @@
 'use client'
 
-import PayloadShell, { fireToast } from '@/components/payload/PayloadShell'
+import PayloadShell, {
+  fireToast,
+  useVisitorIp,
+} from '@/components/payload/PayloadShell'
 import type { InternalDoc } from '@/lib/internal-docs'
 import { CLASSIFICATION_COLORS, DOCS, STATUS_COLORS } from '@/lib/internal-docs'
-import { useBreachRecord } from '@/lib/internal-tracker'
+import {
+  recordVisitorIp,
+  useBreachRecord,
+  useSessionName,
+  visitorDisplayName,
+} from '@/lib/internal-tracker'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const P = {
   bg: '#0b0b0b',
@@ -29,8 +37,17 @@ export default function InternalIndexPage() {
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc')
   const [selected, setSelected] = useState<Set<string>>(new Set())
   const [filterClass, setFilterClass] = useState<string>('All')
-  const [breach] = useBreachRecord()
+  const visitorIp = useVisitorIp()
+  const [breach, refreshBreach] = useBreachRecord()
+  const sessionName = useSessionName()
+  const visitorLabel = visitorDisplayName(breach.ip, sessionName)
   const visitedDocIds = new Set(breach.docs.map((d) => d.id))
+
+  // Capture visitor IP on index page arrival — before they open any doc
+  useEffect(() => {
+    recordVisitorIp(visitorIp)
+    refreshBreach()
+  }, [visitorIp, refreshBreach])
 
   const filtered = DOCS.filter(
     (d) =>
@@ -380,7 +397,7 @@ export default function InternalIndexPage() {
                               className="font-mono text-[10px]"
                               style={{ color: 'rgba(239,68,68,0.6)' }}
                             >
-                              ⚠ {breach.ip}, just now
+                              ⚠ {visitorLabel}, just now
                             </p>
                           )}
                         </div>
@@ -398,7 +415,7 @@ export default function InternalIndexPage() {
                             className="font-mono text-[10px]"
                             style={{ color: 'rgba(239,68,68,0.8)' }}
                           >
-                            ⚠ {breach.ip}, just now
+                            ⚠ {visitorLabel}, just now
                           </p>
                         </div>
                       ) : lastHuman ? (

@@ -1,6 +1,9 @@
 'use client'
 
-import PayloadShell, { fireToast, useVisitorIp } from '@/components/payload/PayloadShell'
+import PayloadShell, {
+  fireToast,
+  useVisitorIp,
+} from '@/components/payload/PayloadShell'
 import type { AccessEntry } from '@/lib/internal-docs'
 import {
   CLASSIFICATION_COLORS,
@@ -12,6 +15,8 @@ import {
   breachNarrative,
   recordDocVisit,
   useBreachRecord,
+  useSessionName,
+  visitorDisplayName,
 } from '@/lib/internal-tracker'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -166,12 +171,9 @@ function StatusBadge({ status }: { status: string }) {
 
 function BreachNote({ docId }: { docId: string }) {
   const [breach] = useBreachRecord()
-  const text = breachNarrative(breach, docId)
-  return (
-    <DocP style={{ color: 'rgba(239,68,68,0.8)' }}>
-      {text}
-    </DocP>
-  )
+  const sessionName = useSessionName()
+  const text = breachNarrative(breach, docId, sessionName)
+  return <DocP style={{ color: 'rgba(239,68,68,0.8)' }}>{text}</DocP>
 }
 
 // ─── The 9 documents + secret 10th ─────────────────────────────────────────
@@ -887,6 +889,268 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         </div>
       </DocSection>
 
+      <DocSection title="Section 4.1 — Controlled Descent Failure Analysis">
+        <div
+          className="mb-4 rounded-sm p-5"
+          style={{
+            background: 'rgba(239,68,68,0.04)',
+            border: '1px solid rgba(239,68,68,0.10)',
+          }}
+        >
+          <p className="mb-3 text-xs font-medium" style={{ color: P.error }}>
+            Classification: Safety-Critical
+          </p>
+          <p
+            className="text-xs"
+            style={{ color: P.textMuted, lineHeight: 1.85 }}
+          >
+            The distinction between &ldquo;can descend stairs&rdquo; and
+            &ldquo;can descend stairs safely&rdquo; is the entire problem. Three
+            of four solo commute tests completed descent. The fourth is the
+            reason this section exists.
+          </p>
+        </div>
+
+        <p
+          className="mt-6 mb-2 text-[10px] font-semibold tracking-widest uppercase"
+          style={{ color: P.textFaint, letterSpacing: '0.14em' }}
+        >
+          The Physics of Uncontrolled Descent
+        </p>
+        <DocP>
+          A RISE™ Move bed descending a standard residential staircase (7.5-inch
+          rise, 10-inch tread, 12 steps) must manage approximately 90 inches of
+          vertical drop across roughly 120 inches of horizontal travel. During
+          attended transit, the occupant&rsquo;s body weight — typically 120–250
+          lbs distributed across the sleep surface — acts as ballast, lowering
+          the system&rsquo;s center of gravity and creating a stabilizing
+          inertia that resists rotational forces at each step transition.
+        </DocP>
+        <DocP>
+          Remove the occupant for the solo return commute and you remove that
+          ballast. The bed&rsquo;s unloaded center of gravity sits significantly
+          higher relative to the stair nose contact point. At each step
+          transition, the system must pitch forward to reach the next tread.
+          Without occupant mass dampening that pitch, two failure modes emerge.
+        </DocP>
+
+        <p
+          className="mt-6 mb-2 text-[10px] font-semibold tracking-widest uppercase"
+          style={{ color: P.error, letterSpacing: '0.14em' }}
+        >
+          Failure Mode 1 — Forward Topple (The Test 4 Problem)
+        </p>
+        <DocP>
+          The bed&rsquo;s momentum during step-to-step transition exceeds the
+          restoring torque available from the base architecture. The unit
+          pitches past its recovery angle and cascades down the remaining steps
+          as an uncontrolled falling object. This is what happened in Test 4.
+          This is the outcome Dr. Voss referenced. An uncontrolled 80–120 lb
+          object falling down a staircase is not a product. It is a liability.
+        </DocP>
+
+        <p
+          className="mt-6 mb-2 text-[10px] font-semibold tracking-widest uppercase"
+          style={{ color: P.error, letterSpacing: '0.14em' }}
+        >
+          Failure Mode 2 — User-Present Descent Override
+        </p>
+        <DocP>
+          During attended descent (user walking alongside or ahead), the
+          bed&rsquo;s braking system must modulate speed to never exceed the
+          user&rsquo;s walking pace on stairs. If the system&rsquo;s descent
+          rate outpaces the user — even momentarily — the bed becomes a pushing
+          force from behind. On stairs, a push from behind is a fall risk. This
+          has occurred in testing. The user was not injured. The test was
+          stopped. The near-miss was documented.
+        </DocP>
+
+        <p
+          className="mt-6 mb-2 text-[10px] font-semibold tracking-widest uppercase"
+          style={{ color: P.textFaint, letterSpacing: '0.14em' }}
+        >
+          Why Braking Is Not Sufficient
+        </p>
+        <DocP>
+          The intuitive solution — &ldquo;just brake harder&rdquo; — creates its
+          own failure cascade. Aggressive braking on a pitched surface (stair
+          descent angle ranges from 30° to 37° on standard residential stairs)
+          generates lateral forces at the contact points. On carpet, this
+          produces acceptable friction. On hardwood, tile, or
+          runner-over-hardwood (common in residential settings), aggressive
+          braking can initiate a slide. A sliding bed on a staircase is Failure
+          Mode 1 with extra steps.
+        </DocP>
+        <DocP>
+          The system needs modulated, continuous descent control — not
+          stop-start braking. This is closer to an anti-lock braking problem
+          than a simple brake problem. Each architecture candidate handles this
+          differently:
+        </DocP>
+        <DocTable
+          headers={[
+            'Architecture',
+            'Descent Control Approach',
+            'Current Limitation',
+          ]}
+          rows={[
+            [
+              'ARCH-A (Tracked)',
+              'Continuous track contact across multiple treads distributes load',
+              'Track surface wear on hardwood is a durability and cosmetic concern',
+            ],
+            [
+              'ARCH-B (Articulated legs)',
+              'Per-leg force control allows active balance correction',
+              'Control loop latency — current 340ms step-verification is too slow for real-time balance',
+            ],
+            [
+              'ARCH-C (Hybrid caster + deploy)',
+              'Deploys secondary contact points during descent',
+              'Deployment mechanism adds 1.2 seconds per step — unacceptable for 12-step descent time',
+            ],
+          ]}
+        />
+
+        <p
+          className="mt-6 mb-2 text-[10px] font-semibold tracking-widest uppercase"
+          style={{ color: P.textFaint, letterSpacing: '0.14em' }}
+        >
+          The Compounding Problem
+        </p>
+        <DocP>
+          Stair descent instability is not linear. Each step transition that is
+          slightly off-nominal feeds forward into the next transition. By step 6
+          or 7 of a 12-step descent, small errors in pitch angle, contact
+          timing, or speed have compounded into a state that the control system
+          was not designed to recover from. The system does not fail on step 1.
+          It fails on step 8, 9, or 10 — when the accumulated error exceeds the
+          recovery envelope.
+        </DocP>
+        <DocP>
+          This is why 3 of 4 tests succeeded. The margin between success and
+          failure is narrow, and which side the system lands on depends on
+          initial conditions that vary between runs: carpet compression,
+          humidity affecting surface friction, the exact angle at which the unit
+          entered the first step, micro-vibrations from the self-making
+          mechanism&rsquo;s last motor position.
+        </DocP>
+
+        <p
+          className="mt-6 mb-2 text-[10px] font-semibold tracking-widest uppercase"
+          style={{ color: P.warning, letterSpacing: '0.14em' }}
+        >
+          The Attended Descent Problem (User Safety)
+        </p>
+        <DocP>
+          Even when the solo commute is set aside, the attended descent presents
+          its own unresolved safety concern:
+        </DocP>
+        <div
+          className="mb-4 rounded-sm p-4"
+          style={{
+            background: P.elevation100,
+            border: `1px solid ${P.border}`,
+          }}
+        >
+          <p
+            className="mb-2 text-xs"
+            style={{ color: P.textMuted, lineHeight: 1.85 }}
+          >
+            1. User exits bed on the upper floor.
+          </p>
+          <p
+            className="mb-2 text-xs"
+            style={{ color: P.textMuted, lineHeight: 1.85 }}
+          >
+            2. User begins walking down the stairs.
+          </p>
+          <p
+            className="mb-2 text-xs"
+            style={{ color: P.textMuted, lineHeight: 1.85 }}
+          >
+            3. Bed follows, descending behind the user.
+          </p>
+          <p
+            className="text-xs"
+            style={{ color: P.textMuted, lineHeight: 1.85 }}
+          >
+            4. Bed&rsquo;s descent rate must be precisely matched to or slower
+            than the user&rsquo;s pace — at all times, on every step.
+          </p>
+        </div>
+        <DocP>
+          If the user stumbles, pauses, or slows unexpectedly, the bed must
+          detect this and arrest its own descent within one step transition
+          (approximately 0.4 seconds at normal stair-walking pace). Current
+          sensor-to-brake response time is 340ms. That leaves a 60ms margin.
+          This is not enough margin for a safety-critical system where the
+          consequence of failure is a 100+ lb object striking a person from
+          behind on a staircase.
+        </DocP>
+        <DocP>
+          The VNS step-verification latency target of sub-200ms exists
+          specifically because of this scenario. At 200ms sensor-to-brake, the
+          margin becomes 200ms — still tight, but within range of what
+          automotive safety systems consider acceptable for active collision
+          avoidance.
+        </DocP>
+
+        <p
+          className="mt-6 mb-2 text-[10px] font-semibold tracking-widest uppercase"
+          style={{ color: P.textFaint, letterSpacing: '0.14em' }}
+        >
+          What Solving This Looks Like
+        </p>
+        <div
+          className="mb-4 rounded-sm p-4"
+          style={{
+            background: P.elevation100,
+            border: `1px solid ${P.border}`,
+          }}
+        >
+          <p
+            className="mb-3 text-xs"
+            style={{ color: P.text, lineHeight: 1.85 }}
+          >
+            The solo commute descent is solved when:
+          </p>
+          <p
+            className="mb-2 text-xs"
+            style={{ color: P.textMuted, lineHeight: 1.85 }}
+          >
+            <strong style={{ color: P.text }}>1.</strong> The selected
+            architecture (ARCH-A, B, or C) can complete a 12-step unattended
+            descent 100 times consecutively without a single topple event — not
+            75 of 100, not 99 of 100. One hundred of one hundred. The acceptable
+            failure rate for an autonomous heavy object descending a staircase
+            inside someone&rsquo;s home is zero.
+          </p>
+          <p
+            className="mb-2 text-xs"
+            style={{ color: P.textMuted, lineHeight: 1.85 }}
+          >
+            <strong style={{ color: P.text }}>2.</strong> The attended descent
+            braking response achieves sub-200ms latency with verified real-world
+            testing across all supported stair surface types (carpet, hardwood,
+            tile, vinyl, runner-over-hardwood).
+          </p>
+          <p
+            className="text-xs"
+            style={{ color: P.textMuted, lineHeight: 1.85 }}
+          >
+            <strong style={{ color: P.text }}>3.</strong> The system includes a
+            mechanical failsafe — independent of software — that physically
+            prevents forward pitch past the recovery angle. Software fails. The
+            failsafe cannot be software.
+          </p>
+        </div>
+        <DocP style={{ color: 'rgba(239,68,68,0.7)', fontStyle: 'italic' }}>
+          None of these three conditions are met today. This is why the timeline
+          section says what it says.
+        </DocP>
+      </DocSection>
+
       <DocSection title="Section 5 — Timeline">
         <DocP>
           There is no timeline. This is accurate. Dr. Voss has reviewed this
@@ -1490,6 +1754,8 @@ export default function DocDetailPage({
   const content = DOCUMENT_CONTENT[doc.slug]
   const visitorIp = useVisitorIp()
   const [breach, refreshBreach] = useBreachRecord()
+  const sessionName = useSessionName()
+  const visitorLabel = visitorDisplayName(visitorIp, sessionName)
 
   // Record this doc visit in localStorage — the breach grows
   useEffect(() => {
@@ -1501,7 +1767,7 @@ export default function DocDetailPage({
   const accessLog: AccessEntry[] = [
     ...doc.lastAccessed,
     {
-      name: visitorIp ?? 'Unknown (public access)',
+      name: visitorLabel,
       time: 'just now',
       isExternal: true,
     },
@@ -1631,9 +1897,11 @@ export default function DocDetailPage({
           {breach.docs.length > 0 && (
             <>
               {' · '}
-              {breach.docs.length} document{breach.docs.length !== 1 ? 's' : ''} accessed
+              {breach.docs.length} document{breach.docs.length !== 1 ? 's' : ''}{' '}
+              accessed
               {' · '}
-              IT notified {breach.itNotifications} time{breach.itNotifications !== 1 ? 's' : ''}
+              IT notified {breach.itNotifications} time
+              {breach.itNotifications !== 1 ? 's' : ''}
             </>
           )}
         </p>

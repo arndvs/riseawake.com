@@ -139,7 +139,7 @@ const DOC_SEEDS: DocSeed[] = [
     relatedDocs: ['DOC-004'],
     summary:
       "Project status dashboard for the RISE™ Move. Solo commute stair navigation: RED. No timeline. Engineering team's note on the hard part.",
-    wordCount: 934,
+    wordCount: 1847,
   },
   {
     id: 'DOC-006',
@@ -224,8 +224,8 @@ const ACCESS_PATTERNS: Record<string, AccessPattern> = {
   'DOC-002': {
     // Archived doc — access times should feel old, not recent
     staff: [
-      { name: 'T. Ellery', role: 'CFO', baseMinutes: 20160 },     // ~2 weeks
-      { name: 'M. Chen', role: 'CPO', baseMinutes: 30240 },        // ~3 weeks
+      { name: 'T. Ellery', role: 'CFO', baseMinutes: 20160 }, // ~2 weeks
+      { name: 'M. Chen', role: 'CPO', baseMinutes: 30240 }, // ~3 weeks
     ],
     externals: [],
   },
@@ -233,9 +233,7 @@ const ACCESS_PATTERNS: Record<string, AccessPattern> = {
     staff: [],
     externals: [{ ip: '203.0.113.47' }],
     // Arvin's access is a lore date — fixed forever
-    fixed: [
-      { name: 'A. Reyes', role: 'Developer', time: 'Aug 12, 2024' },
-    ],
+    fixed: [{ name: 'A. Reyes', role: 'Developer', time: 'Aug 12, 2024' }],
   },
   'DOC-004': {
     staff: [
@@ -252,102 +250,94 @@ const ACCESS_PATTERNS: Record<string, AccessPattern> = {
     externals: [{ ip: '198.51.100.22' }],
   },
   'DOC-006': {
-    staff: [
-      { name: 'S. Williams', role: 'HR Director', baseMinutes: 2880 },
-    ],
+    staff: [{ name: 'S. Williams', role: 'HR Director', baseMinutes: 2880 }],
     externals: [],
   },
   'DOC-007': {
-    staff: [
-      { name: 'J. Park', role: 'General Counsel', baseMinutes: 720 },
-    ],
+    staff: [{ name: 'J. Park', role: 'General Counsel', baseMinutes: 720 }],
     externals: [{ ip: '203.0.113.47' }, { ip: '192.0.2.91' }],
   },
   'DOC-008': {
     staff: [
-      { name: 'Dr. E. Voss', role: 'CEO', baseMinutes: 43200 },   // ~30 days
+      { name: 'Dr. E. Voss', role: 'CEO', baseMinutes: 43200 }, // ~30 days
     ],
     externals: [],
   },
   'DOC-009': {
     staff: [],
     externals: [{ ip: '203.0.113.47' }],
-    fixed: [
-      { name: 'IT Security (auto)', time: 'Feb 1, 2025' },
-    ],
+    fixed: [{ name: 'IT Security (auto)', time: 'Feb 1, 2025' }],
   },
 }
 
 // ─── Dynamic lastUpdated resolution ─────────────────────────────────────────
 
 function resolveDynamicLastUpdated(seed: DocSeed): string {
-    if (seed.lastUpdated !== 'DYNAMIC')
-        return seed.lastUpdated
+  if (seed.lastUpdated !== 'DYNAMIC') return seed.lastUpdated
 
-    switch (seed.id) {
-        case 'DOC-003':
-            return `Auto-updated daily · ${todayFormatted()}`
-        case 'DOC-005':
-            return recentDate(14, 'DOC-005-updated')
-        case 'DOC-007':
-            return currentMonthYear()
-        case 'DOC-008':
-            return `Quarterly · ${lastQuarterEnd()}`
-        default:
-            return todayFormatted()
-    }
+  switch (seed.id) {
+    case 'DOC-003':
+      return `Auto-updated daily · ${todayFormatted()}`
+    case 'DOC-005':
+      return recentDate(14, 'DOC-005-updated')
+    case 'DOC-007':
+      return currentMonthYear()
+    case 'DOC-008':
+      return `Quarterly · ${lastQuarterEnd()}`
+    default:
+      return todayFormatted()
+  }
 }
 
 // ─── Build live docs array ──────────────────────────────────────────────────
 
 function buildAccessLog(docId: string): AccessEntry[] {
-    const pattern = ACCESS_PATTERNS[docId]
+  const pattern = ACCESS_PATTERNS[docId]
 
-    if (!pattern)
-        return []
+  if (!pattern) return []
 
-    const entries: AccessEntry[] = []
+  const entries: AccessEntry[] = []
 
-    // Fixed entries first (lore dates like Arvin's)
-    if (pattern.fixed) {
-        for (const f of pattern.fixed) {
-            entries.push({
-                name: f.name,
-                role: f.role,
-                time: f.time,
-                isExternal: f.isExternal,
-            })
-        }
+  // Fixed entries first (lore dates like Arvin's)
+  if (pattern.fixed) {
+    for (const f of pattern.fixed) {
+      entries.push({
+        name: f.name,
+        role: f.role,
+        time: f.time,
+        isExternal: f.isExternal,
+      })
     }
+  }
 
-    // Dynamic staff access times
-    for (const s of pattern.staff) {
-        entries.push({
-            name: s.name,
-            role: s.role,
-            time: staffAccessTime(docId, s.name, s.baseMinutes),
-        })
-    }
+  // Dynamic staff access times
+  for (const s of pattern.staff) {
+    entries.push({
+      name: s.name,
+      role: s.role,
+      time: staffAccessTime(docId, s.name, s.baseMinutes),
+    })
+  }
 
-    // External IP access — always recent, always unsettling
-    for (const ext of pattern.externals) {
-        entries.push({
-            name: ext.ip,
-            time: externalIpTime(docId, ext.ip),
-            isExternal: true,
-        })
-    }
+  // External IP access — always recent, always unsettling
+  for (const ext of pattern.externals) {
+    entries.push({
+      name: ext.ip,
+      time: externalIpTime(docId, ext.ip),
+      isExternal: true,
+    })
+  }
 
-    return entries
+  return entries
 }
 
 export function getDocs(): InternalDoc[] {
-    return DOC_SEEDS.map((seed) => ({
-        ...seed,
-        isPublic: true,
-        lastUpdated: resolveDynamicLastUpdated(seed),
-        lastAccessed: buildAccessLog(seed.id),
-    }))
+  return DOC_SEEDS.map((seed) => ({
+    ...seed,
+    isPublic: true,
+    lastUpdated: resolveDynamicLastUpdated(seed),
+    lastAccessed: buildAccessLog(seed.id),
+  }))
 }
 
 // Keep a static export for backward compatibility (used by imports that
