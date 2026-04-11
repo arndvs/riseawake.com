@@ -272,7 +272,7 @@ function LoginModal({
               type="email"
               value={user}
               onChange={(e) => setUser(e.target.value)}
-              placeholder="name@riseco.online"
+              placeholder="name@riseawake.com"
               required
               className="w-full rounded-sm px-3 py-2.5 text-xs"
               style={{
@@ -873,7 +873,7 @@ export default function PayloadShell({
 
         {/*
           Last commit: feat: add document list view and auth middleware (WIP)
-          Author: areyes@riseco.online
+          Author: areyes@riseawake.com
           Date: Mon Aug 12 09:43:22 2024 -0700
 
           TODO:

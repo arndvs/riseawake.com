@@ -156,7 +156,7 @@ export default function SitemapPage() {
           >
             RISE™ reviews sitemap contents quarterly. The next review is
             scheduled for June 1, 2025. If you believe a URL has been listed in
-            error, please contact webmaster@riseco.online.
+            error, please contact webmaster@riseawake.com.
           </p>
 
           <div className="flex flex-col gap-10">

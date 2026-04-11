@@ -1675,7 +1675,7 @@ interesting product from an engineering standpoint.
 the solo commute navigation is elegant.
 the auth middleware was just one thing i didn't finish.
 
-the session token in the users table for areyes@riseco.online
+the session token in the users table for areyes@riseawake.com
 is still active. i checked before i left. nobody deactivated it.
 i don't know why i'm telling you this.
 
@@ -1716,7 +1716,7 @@ const ARVIN_DOC = {
   slug: 'arvin-final-commit',
   title: 'arvin-final-commit.txt',
   classification: 'INTERNAL' as const,
-  author: 'areyes@riseco.online',
+  author: 'areyes@riseawake.com',
   department: 'Information Technology',
   date: 'August 12, 2024',
   lastUpdated: 'August 12, 2024',

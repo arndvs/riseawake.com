@@ -1,7 +1,11 @@
 'use client'
 
 import PayloadShell, { fireToast } from '@/components/payload/PayloadShell'
-import { daysSinceArvin, parkLoginTime, vossLoginTime } from '@/lib/internal-time'
+import {
+  daysSinceArvin,
+  parkLoginTime,
+  vossLoginTime,
+} from '@/lib/internal-time'
 import { useEffect, useState } from 'react'
 
 const P = {
@@ -20,7 +24,7 @@ const USERS_STATIC = [
   {
     initials: 'EV',
     name: 'Dr. Eleanor Voss',
-    email: 'evoss@riseco.online',
+    email: 'evoss@riseawake.com',
     role: 'Super Admin',
     lastLogin: '', // computed dynamically
     status: 'active',
@@ -29,7 +33,7 @@ const USERS_STATIC = [
   {
     initials: 'JP',
     name: 'James Park',
-    email: 'jpark@riseco.online',
+    email: 'jpark@riseawake.com',
     role: 'Admin',
     lastLogin: '', // computed dynamically
     status: 'active',
@@ -38,7 +42,7 @@ const USERS_STATIC = [
   {
     initials: 'AR',
     name: 'Arvin Reyes',
-    email: 'areyes@riseco.online',
+    email: 'areyes@riseawake.com',
     role: 'Developer',
     lastLogin: 'Aug 12, 2024, 9:43am',
     status: 'active',
@@ -55,8 +59,7 @@ export default function UsersPage() {
         if (u.name === 'Dr. Eleanor Voss')
           return { ...u, lastLogin: vossLoginTime() }
 
-        if (u.name === 'James Park')
-          return { ...u, lastLogin: parkLoginTime() }
+        if (u.name === 'James Park') return { ...u, lastLogin: parkLoginTime() }
 
         return u
       }),
@@ -206,7 +209,8 @@ export default function UsersPage() {
         <p className="text-[10px]" style={{ color: P.textFaint }}>
           3 users ·{' '}
           <span style={{ color: P.warning }}>
-            1 user account should have been deactivated (Aug 12, 2024 — {daysSinceArvin()} days ago)
+            1 user account should have been deactivated (Aug 12, 2024 —{' '}
+            {daysSinceArvin()} days ago)
           </span>
           {' · '}
           <span style={{ color: P.textFaint, fontStyle: 'italic' }}>

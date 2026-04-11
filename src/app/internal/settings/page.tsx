@@ -272,9 +272,15 @@ export default function SettingsPage() {
                 ['Database', 'Not connected (hardcoded data)'],
                 ['Storage', 'Not connected'],
                 ['Auth Middleware', 'Not implemented'],
-                ['Last Deployed', `August 12, 2024 (${daysSinceArvin()} days ago)`],
-                ['Deployed By', 'areyes@riseco.online'],
-                ['Next Planned Deployment', `Next sprint (date TBD) — ${sprintsSinceArvin()} sprints overdue`],
+                [
+                  'Last Deployed',
+                  `August 12, 2024 (${daysSinceArvin()} days ago)`,
+                ],
+                ['Deployed By', 'areyes@riseawake.com'],
+                [
+                  'Next Planned Deployment',
+                  `Next sprint (date TBD) — ${sprintsSinceArvin()} sprints overdue`,
+                ],
                 [
                   'Known Issues',
                   "See Arvin's TODO comments throughout codebase",
