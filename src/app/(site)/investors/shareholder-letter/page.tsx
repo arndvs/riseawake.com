@@ -11,7 +11,7 @@ The solution, it turned out, was simpler than I expected: remove the decision.`,
   },
   {
     heading: 'The Numbers',
-    body: `FY2024 revenue reached $89.4 million, a 218% increase year-over-year. Gross margins held at 68%. We shipped 47,000 Push units against a waitlist of 340,000. We ended the year with 312 employees, up from 48 in 2021.
+    body: `FY2024 revenue reached $89.4 million, a 134% increase year-over-year. Gross margins held at 68%. We shipped 47,000 Push units against a waitlist of 340,000. We ended the year with 312 employees, up from 48 in 2021.
 
 The waitlist deserves a comment. 340,000 people are waiting for a product that, by their own description in our research interviews, they are slightly afraid of. They want it anyway. RISE™ considers this the most important data point in our investor materials.
 

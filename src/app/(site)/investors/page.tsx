@@ -5,7 +5,7 @@ import {
 import { Link } from '@/components/link'
 
 const METRICS = [
-  { stat: '$89.4M', label: 'FY2024 Revenue', note: '+218% year-over-year' },
+  { stat: '$89.4M', label: 'FY2024 Revenue', note: '+134% year-over-year' },
   {
     stat: '340,000',
     label: 'Active Waitlist',

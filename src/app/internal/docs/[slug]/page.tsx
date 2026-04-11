@@ -1614,6 +1614,729 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
     </DocBody>
   ),
 
+  // ─── DOC-010: Headline Swipe File ────────────────────────────────────────
+  'push-mode-headline-swipe-file': (
+    <DocBody>
+      <DocSection title="Engagement">
+        <DocP>This document was produced by an external consultant engaged by the Growth Marketing team in Q3 2023. The consultant was briefed on Push Mode, the PM-1 remote, the RISE™ brand positioning, and the target customer profile. The consultant produced this document within 72 hours. The invoice for this document has not been paid. Accounts payable is aware.</DocP>
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Note from Dr. M. Chen, CPO: I want to be clear that several of these headlines do not reflect RISE™&apos;s brand voice and will never be used. I am keeping this document because the underlying analysis is useful and because I want Legal to have reviewed everything. — MC, Sep 21 2023</DocP>
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Note from J. Park, General Counsel: I have reviewed. Please see flagged items. Do not publish headlines marked [LEGAL HOLD]. Do not share this document externally. — JP</DocP>
+      </DocSection>
+
+      <DocSection title="Methodology">
+        <DocP>Headlines generated using the Halbert direct response framework. Core equation: Interest = Curiosity + Big Promise. Target market: men 35–55, urban professionals, high compliance anxiety, productivity-oriented. Unique mechanism positioned as autonomous morning routing technology. All headlines tested against specificity, credibility, juxtaposition, and curiosity criteria.</DocP>
+      </DocSection>
+
+      <DocSection title="Category 1 — Pure Benefit Headlines">
+        <DocTable
+          headers={['#', 'Headline', 'Status']}
+          rows={[
+            ['1', 'The Bed That Gets You To Your Desk By 8:47am — Without Setting A Single Alarm', '✓ Approved'],
+            ['2', 'Wake Up Broken. Arrive Early. Every Time. The 98% Compliance Rate No One Talks About.', '✓ Approved'],
+            ['3', 'Your Morning Routine Is Broken. This Fixes It. Permanently. Without Your Permission.', '✓ Approved'],
+            ['4', 'How To Add 47 Productive Minutes To Every Workday Without Touching Your Phone', '✓ Approved'],
+            ['5', 'The Smart Bed That\'s Made Itself, Straightened Your Pillow, And Put You In The Car — Before You\'re Fully Awake', '✓ Approved'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Category 2 — Curiosity + Authority Headlines">
+        <DocTable
+          headers={['#', 'Headline', 'Status']}
+          rows={[
+            ['6', 'Stanford Sleep Researchers REVEAL: The Reason Your Morning Willpower Always Fails (And The Autonomous System That Bypasses It Entirely)', '✓ Approved'],
+            ['7', 'CEO Of A $200M Company ADMITS: The Real Reason He Hasn\'t Been Late To A Meeting In 3 Years Has Nothing To Do With Discipline', '✓ Approved'],
+            ['8', 'Behavioral Scientists CONFIRM: The Human Brain Is Physiologically Incapable Of Consistent Morning Compliance — Except Under One Specific Condition', '✓ Approved'],
+            ['9', 'NASA Engineers Once Studied This Problem. A Smart Bed Company Solved It. Duke University Has The Data.', '✓ Approved'],
+            ['10', 'The Productivity Consultant Who Charged $15,000/Day REVEALS: The Only Morning System That Actually Works (And Why He Uses It Himself)', '✓ Approved'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Category 3 — Newsworthy / Juxtaposition Headlines">
+        <DocTable
+          headers={['#', 'Headline', 'Status']}
+          rows={[
+            ['11', 'The Same Bed That Rolled A Hungover Man To His 9am Presentation — And He Delivered The Best Pitch Of His Career', '✓ Approved'],
+            ['12', 'She Thought She Bought Him A Fancy Mattress. Two Months Later, She Promoted Him.', <span key="12n" style={{ color: P.warning }}>⚠ LEGAL HOLD — implied causation</span>],
+            ['13', '340,000 People Are On The Waitlist For A Bed With No Off Switch. Here\'s Why They\'re Not Trying To Get Off It.', '✓ Approved'],
+            ['14', 'The Productivity Tool That Works While You\'re Still Asleep — And Keeps Working When You Stop Trying', '✓ Approved'],
+            ['15', 'A Man With A Hangover Got To The Office Before His Boss. The Bed Did Not Care About The Hangover.', '✓ Approved'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Category 4 — First-Person Success Stories">
+        <DocTable
+          headers={['#', 'Headline', 'Status']}
+          rows={[
+            ['16', 'I Pressed One Button On A Tuesday. I Haven\'t Been Late Since. That Was 14 Months Ago.', '✓ Approved'],
+            ['17', 'I Didn\'t Need More Willpower. I Needed Something That Didn\'t Ask For It.', '✓ Approved'],
+            ['18', 'I Used To Snooze 4 Times. Now My Bed Doesn\'t Have A Snooze. I Made VP In June.', '✓ Approved'],
+            ['19', 'My Wife Bought This Bed To Help Me. She Didn\'t Tell Me There Was No Off Switch. I Would Have Said No. I\'m Glad She Didn\'t.', <span key="19n" style={{ color: P.warning }}>⚠ LEGAL HOLD — consent framing</span>],
+            ['20', 'The Morning I Realized I Wasn\'t Choosing To Get Up Anymore — And Why I Stopped Caring', '✓ Approved'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Category 5 — Third-Person Stories">
+        <DocTable
+          headers={['#', 'Headline', 'Status']}
+          rows={[
+            ['21', 'A Software Engineer Who Hadn\'t Been On Time In 11 Years Got Promoted Twice After Pressing One Button', '✓ Approved'],
+            ['22', 'She Bought It For Her Husband. Six Weeks Later, He Was Running Meetings She Used To Run.', <span key="22n" style={{ color: P.warning }}>⚠ LEGAL HOLD — gender framing review</span>],
+            ['23', 'The Hollywood Actor Who Swore He\'d Never Use Productivity Tech — Until His Publicist Called His Bed And Asked What She Was Missing', '✓ Approved'],
+            ['24', 'A Man Who Had Failed Every Morning Routine For A Decade Finally Found One That Didn\'t Require Him To Try', '✓ Approved'],
+            ['25', 'The 58-Year-Old Who Outperformed The 26-Year-Old At The Same Company. His Bed Left At 7:52am. That Was The Difference.', '✓ Approved'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Category 6 — Social Status / Comparison Headlines">
+        <DocTable
+          headers={['#', 'Headline', 'Status']}
+          rows={[
+            ['26', 'What Will Your Colleagues Think When You\'re Already At Your Desk While They\'re Still Fighting Their Snooze Button?', '✓ Approved'],
+            ['27', 'The Bed Your Boss Probably Already Has (And The Reason He Never Mentions It)', '✓ Approved'],
+            ['28', 'While You\'re Negotiating With Your Alarm Clock, 340,000 People On The Waitlist Are Getting Ready To Stop Negotiating Entirely', '✓ Approved'],
+            ['29', 'No Willpower Required. No App Subscription. No Negotiating With Yourself At 6am. Just A Button And What Happens Next.', '✓ Approved'],
+            ['30', 'The Last Morning Routine You\'ll Ever Have To Choose To Start', '✓ Approved'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Legal Notes">
+        <DocP>Headlines #12, #19, and #22 are on LEGAL HOLD pending review of implied causation, consent framing, and gender representation respectively. Do not use in any external-facing materials until cleared. — J. Park</DocP>
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Additional note: Headline #19 (&ldquo;My Wife Bought This Bed... I Would Have Said No. I&apos;m Glad She Didn&apos;t.&rdquo;) was flagged as potentially the most effective in the set by the consultant and simultaneously as the most legally problematic by this office. We are aware of the tension. The headline will not be used. — JP</DocP>
+      </DocSection>
+
+      <DocSection title="Consultant's Final Note">
+        <DocP style={{ fontStyle: 'italic', color: P.textMuted }}>&ldquo;I have written headlines for supplements, financial services, survival gear, and one very memorable campaign for a political figure I was asked not to name. I have never written for a product like this. Most products need headlines because the product alone can&apos;t close the sale. Push Mode doesn&apos;t need a headline. It needs someone to tell the customer what they&apos;re buying before they realize they already want it. These headlines do that. The product does the rest. You have something genuinely unusual here. I would use #17, #20, and #30 in that order. I would also recommend paying my invoice.&rdquo;</DocP>
+        <DocP style={{ color: P.textFaint, fontSize: '11px' }}>— External Consultant, September 14, 2023. Invoice #INV-2023-0847. Amount: $18,500. Status: Unpaid.</DocP>
+      </DocSection>
+    </DocBody>
+  ),
+
+  // ─── DOC-011: Buyer Agenda Matrix ─────────────────────────────────────────
+  'push-mode-buying-agenda-matrix': (
+    <DocBody>
+      <DocSection title="Overview">
+        <DocP>This analysis applies the seven-agenda buying psychology framework to the Push Mode customer. Each agenda is scored across four criteria: Relevance to product, Emotional Intensity, Likelihood of Driving Action, and Product Fit. Potential conflicts between agendas are identified and conflict resolution strategies are proposed for marketing and communications.</DocP>
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Commissioned by Growth Marketing, Q3 2023. Reviewed by CPO and CEO. Status: Under Review pending CEO follow-up meeting.</DocP>
+      </DocSection>
+
+      <DocSection title="Target Buyer Profile — Summary">
+        <DocTable
+          headers={['Dimension', 'Profile']}
+          rows={[
+            ['Primary Demographic', 'Men and women, 32–58, urban/suburban, professional or managerial'],
+            ['Core Problem', 'Chronic morning compliance failure despite high motivation to change'],
+            ['Emotional State', 'Frustrated with self, skeptical of willpower-based solutions, secretly relieved to outsource'],
+            ['Relationship to Product', 'Wants to be the kind of person who gets up. Has stopped believing they are that person.'],
+            ['Key Tension', 'Desires autonomy, resents needing help, will quietly accept help if the help doesn\'t ask permission'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Agenda Scoring Matrix">
+        <DocTable
+          headers={['Agenda', 'Relevance (1–5)', 'Intensity (1–5)', 'Action Likelihood (1–5)', 'Product Fit (1–5)', 'Total', 'Conflict Risk']}
+          rows={[
+            ['#1 The Protector', '3', '3', '3', '3', '12', 'Low'],
+            ['#2 The Warrior', '5', '5', '5', '5', '20', 'Medium'],
+            ['#3 The Lover', '4', '4', '4', '4', '16', 'High'],
+            ['#4 The Nurturer', '2', '2', '2', '2', '8', 'Low'],
+            ['#5 The Mourner', '4', '4', '3', '3', '14', 'High'],
+            ['#6 The Jester', '1', '1', '1', '1', '4', 'N/A'],
+            ['#7 The Doctor', '3', '3', '3', '3', '12', 'Low'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Agenda Analysis">
+        <DocP><strong style={{ color: P.text }}>#2 THE WARRIOR — Score: 20/20 (Primary Agenda)</strong></DocP>
+        <DocP>Push Mode is a Warrior product. The customer who buys Push Mode is not buying comfort. They are buying a system that will force them to perform. The Warrior agenda is driven by a desire to assert dominance — specifically, dominance over the self. The Push Mode customer has identified their own morning behavior as an obstacle to their goals and is willing to purchase a mechanism that removes their own agency to overcome it.</DocP>
+        <DocP>Messaging should speak directly to this: the product is not a mattress. It is a performance system. The customer is not buying sleep comfort. They are buying compliance with their own ambitions. The button is not a convenience. It is a commitment.</DocP>
+
+        <DocP><strong style={{ color: P.text }}>#3 THE LOVER — Score: 16/20 (Secondary Agenda, High Conflict Risk)</strong></DocP>
+        <DocP>The Lover agenda is present and significant, but creates the most dangerous conflict in the matrix. Push Mode buyers frequently cite spousal influence in purchase decisions. The desire to be perceived as capable, productive, and reliable by a partner is a strong motivating force. However, the Lover agenda conflicts sharply with the Warrior agenda when the product&apos;s mechanism is foregrounded.</DocP>
+        <DocP>Recommended resolution: Lead with Warrior, allow Lover to operate in the background. Testimonials framed as &ldquo;my partner noticed&rdquo; rather than &ldquo;my partner made me&rdquo; preserve both agendas without triggering conflict.</DocP>
+
+        <DocP><strong style={{ color: P.text }}>#5 THE MOURNER — Score: 14/20 (Unexpected Significance)</strong></DocP>
+        <DocP style={{ color: P.warning }}>Note: The Mourner score was the most surprising finding in this analysis and prompted the CEO follow-up meeting request.</DocP>
+        <DocP>The Mourner agenda is driven by loss and a desire to return to a former self. A significant segment of Push Mode&apos;s actual customer base is experiencing what the consultant described as &ldquo;productivity grief&rdquo; — a specific form of loss characterized by the gap between who the customer used to be and who they have become. For these customers, Push Mode is not aspirational. It is restorative.</DocP>
+        <DocP>This agenda is high-conflict with the Warrior because Mourner motivation is retrospective while Warrior motivation is prospective. Recommended strategy: segment Mourner-coded messaging to retargeting campaigns and email sequences for lapsed leads. Do not lead with it in acquisition.</DocP>
+
+        <DocP><strong style={{ color: P.text }}>#1 THE PROTECTOR — Score: 12/20</strong></DocP>
+        <DocP>Lower than expected but present. Some customers are motivated by the fear that continued non-compliance will have professional or relational consequences. Useful as a secondary pressure in messaging but should not be primary.</DocP>
+
+        <DocP><strong style={{ color: P.text }}>#7 THE DOCTOR — Score: 12/20</strong></DocP>
+        <DocP>Present in customers who frame their morning failures as symptoms of a systemic problem. Push Mode satisfies the Doctor agenda by offering a definitive, engineered solution. The 98% compliance rate functions as clinical evidence for this segment.</DocP>
+
+        <DocP><strong style={{ color: P.text }}>#4 THE NURTURER — Score: 8/20 (Low Priority)</strong></DocP>
+        <DocP>Weak signal. Some customers frame their purchase as being for their family. Useful for specific audience segments but does not reflect the primary motivation for most Push Mode buyers.</DocP>
+
+        <DocP><strong style={{ color: P.text }}>#6 THE JESTER — Score: 4/20 (Actively Counterproductive)</strong></DocP>
+        <DocP>Do not activate. Push Mode is not a funny product in its own marketing. The humor is a byproduct of the customer&apos;s relationship with it after purchase. Jester activation in acquisition is a conversion killer for this audience.</DocP>
+      </DocSection>
+
+      <DocSection title="Summary Recommendations">
+        <DocTable
+          headers={['Priority', 'Agenda', 'Use In']}
+          rows={[
+            ['Primary', 'Warrior', 'All acquisition messaging, hero copy, homepage'],
+            ['Secondary', 'Lover', 'Testimonials, social proof, retargeting'],
+            ['Tertiary', 'Mourner', 'Email nurture, lapsed lead retargeting only'],
+            ['Supporting', 'Protector + Doctor', 'Comparison messaging, FAQ, objection handling'],
+            ['Suppress', 'Jester', 'Nowhere in acquisition — organic only post-purchase'],
+            ['Low priority', 'Nurturer', 'Specific audience segments only'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Note on the CEO Follow-Up Meeting">
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Dr. Voss requested a follow-up meeting after reviewing the Mourner analysis. Specifically, she asked the consultant to elaborate on the concept of &ldquo;productivity grief&rdquo; and its relationship to the product&apos;s value proposition. The meeting has not yet been scheduled. Growth Marketing is coordinating. — Dr. M. Chen, CPO, October 2, 2023</DocP>
+      </DocSection>
+    </DocBody>
+  ),
+
+  // ─── DOC-012: Attention Cluster & Reptilian Trigger Mapping ───────────────
+  'push-mode-attention-cluster-analysis': (
+    <DocBody>
+      <DocSection title="Legal Hold Notice">
+        <DocP style={{ color: P.error }}>This document is AWAITING LEGAL REVIEW. Sections 3 (Dominance Trigger Mapping) and 5 (Recommended Activation Language) have been flagged by General Counsel. Do not distribute. Do not use language from Section 5 in any external materials until cleared. — J. Park, General Counsel</DocP>
+      </DocSection>
+
+      <DocSection title="Executive Summary">
+        <DocP>This analysis maps the attention clusters and reptilian brain triggers activated by Push Mode and its marketing. Push Mode activates six core reptilian triggers in a configuration that the consultant has not encountered in any other consumer product. The marketing&apos;s job is not to manufacture triggers. It is to not suppress them.</DocP>
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>The consultant&apos;s exact words: &ldquo;This is a marketer&apos;s dream. The product does everything I would normally have to lie about.&rdquo; This statement has been included for accuracy and is not an endorsement. — Dr. M. Chen</DocP>
+      </DocSection>
+
+      <DocSection title="The Six Reptilian Triggers — Push Mode Mapping">
+        <DocP><strong style={{ color: P.text }}>Trigger 1: Survival</strong></DocP>
+        <DocP>Push Mode activates survival instinct not through physical danger but through professional and social consequence. The customer&apos;s latent fear — that continued non-compliance will cost them their job, their status, or their self-concept — is the survival signal. The product&apos;s 98% compliance rate is the resolution.</DocP>
+
+        <DocP><strong style={{ color: P.text }}>Trigger 2: Dominance</strong></DocP>
+        <DocP style={{ color: P.warning }}>⚠ SECTION UNDER LEGAL REVIEW — see flagged note below.</DocP>
+        <DocP>Dominance is the most powerful reptilian trigger for the Push Mode demographic. The product allows the customer to assert dominance over their own behavior. The customer does not have to exercise willpower. They purchase dominance over themselves.</DocP>
+        <DocP style={{ color: P.error, fontSize: '11px' }}>Legal flag: &ldquo;Competitive framing of this type may activate aggressive emotional states that create purchase regret and elevated return rates. Recommend softening before use.&rdquo; — J. Park</DocP>
+
+        <DocP><strong style={{ color: P.text }}>Trigger 3: Reproduction</strong></DocP>
+        <DocP>Desirability and sexual status operate as reptilian triggers in a large portion of the Push Mode demographic. Testimonials referencing partner response activate this cluster without explicit framing. The trigger is present and should be used sparingly and indirectly.</DocP>
+
+        <DocP><strong style={{ color: P.text }}>Trigger 4: Pain Avoidance</strong></DocP>
+        <DocP>The reptilian brain prioritizes avoiding pain over acquiring gain. Push Mode&apos;s pain avoidance trigger is the elimination of the morning negotiation. Pain avoidance messaging: &ldquo;The negotiation ends the moment you press the button.&rdquo;</DocP>
+
+        <DocP><strong style={{ color: P.text }}>Trigger 5: Novelty</strong></DocP>
+        <DocP style={{ color: P.warning }}>⚠ SECTION UNDER LEGAL REVIEW — see flagged note below.</DocP>
+        <DocP>Push Mode is a novel stimulus in the truest sense: no existing mental category accommodates &ldquo;a bed that rolls you to work.&rdquo; The novelty trigger sustains attention long enough for the rational brain to construct a justification for the purchase the reptilian brain has already made.</DocP>
+        <DocP style={{ color: P.error, fontSize: '11px' }}>Legal flag: &ldquo;Claims of categorical uniqueness may be subject to challenge if competitors can demonstrate similar products. Recommend adding qualifying language.&rdquo; — J. Park</DocP>
+
+        <DocP><strong style={{ color: P.text }}>Trigger 6: Control / Loss of Control</strong></DocP>
+        <DocP>This is the most unusual trigger. Most products that activate control triggers do so by offering the customer more control. Push Mode activates the control trigger by offering the customer less. The reptilian brain, paradoxically, experiences relief when a threat to control is resolved by surrendering control to a trusted external system. Never frame the absence of an off switch as a loss. Frame it as a transfer to a more competent authority.</DocP>
+      </DocSection>
+
+      <DocSection title="Attention Cluster Summary">
+        <DocTable
+          headers={['Cluster', 'Primary Trigger', 'Activation Method', 'Legal Status']}
+          rows={[
+            ['Morning Failure Cost', 'Survival', 'Consequence framing in problem identification', '✓ Clear'],
+            ['Self-Dominance', 'Dominance', 'Competitive self-comparison language', '⚠ Under Review'],
+            ['Desirability Uplift', 'Reproduction', 'Indirect partner/social response framing', '✓ Clear'],
+            ['Pain Elimination', 'Pain Avoidance', 'Negotiation-ending language', '✓ Clear'],
+            ['Categorical Impossibility', 'Novelty', 'Anti-category positioning', '⚠ Under Review'],
+            ['Authority Transfer', 'Control', 'Off switch as feature framing', '✓ Clear'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Legal Review Status">
+        <DocP>Sections 2 and 5 are under review. Resolution pending scheduled meeting between CPO and General Counsel. Meeting has not been scheduled.</DocP>
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>The meeting between CPO and General Counsel has not occurred as of the date of this document&apos;s last update. The document remains on hold. — Growth Marketing, February 2025</DocP>
+      </DocSection>
+    </DocBody>
+  ),
+
+  // ─── DOC-013: StoryBrand SB7 Playbook ────────────────────────────────────
+  'push-mode-storybrand-playbook': (
+    <DocBody>
+      <DocSection title="Engagement Context">
+        <DocP>This document represents the completed StoryBrand BrandScript for Push Mode, developed using the SB7 framework. Each section includes the finalized messaging direction and the rationale for each decision.</DocP>
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Legal reviewed and approved Sections 1–6. Section 7 (Avoiding Failure) remains under separate legal review. — J. Park, General Counsel, November 10, 2023</DocP>
+      </DocSection>
+
+      <DocSection title="SB7 Element 1 — The Hero (Customer)">
+        <DocTable
+          headers={['Dimension', 'Push Mode Application']}
+          rows={[
+            ['Who is the hero?', 'A capable, motivated professional who knows they should be getting up earlier and cannot make themselves do it reliably.'],
+            ['What does the hero want?', 'To be the version of themselves that gets up, shows up, and follows through — without the daily negotiation.'],
+            ['Story gap', 'Current: loses 20–40 minutes every morning to the snooze-negotiation cycle. Desired: arrives early, prepared, with the morning already handled.'],
+            ['One-sentence desire statement', '"I want to be someone who gets up when I say I will."'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="SB7 Element 2 — The Problem">
+        <DocTable
+          headers={['Problem Type', 'Push Mode Application']}
+          rows={[
+            ['The Villain', 'The snooze button. Not metaphorically — literally the snooze button.'],
+            ['External Problem', 'The alarm goes off. The customer does not get up. They are late, rushed, or start the day feeling like they already failed.'],
+            ['Internal Problem', 'They feel like a person who can\'t be trusted to follow through on their own intentions.'],
+            ['Philosophical Problem', 'A person should be able to decide to get up and get up. The fact that they cannot is a fundamental unfairness.'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="SB7 Element 3 — The Guide (RISE™)">
+        <DocTable
+          headers={['Guide Dimension', 'Push Mode Application']}
+          rows={[
+            ['Empathy statement', 'We know you\'ve tried. The alarm apps. The accountability partners. You\'re not the problem. The system is.'],
+            ['Authority demonstration', '98% compliance rate. 340,000-person waitlist. The product doesn\'t lecture — it delivers.'],
+            ['Guide positioning', 'RISE™ does not compete with the customer\'s willpower. RISE™ replaces the moment where willpower is required.'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="SB7 Element 4 — The Plan">
+        <DocTable
+          headers={['Step', 'Name', 'Description']}
+          rows={[
+            ['1', 'Press RISE.', 'One button. Push Mode initializes. The system takes responsibility for what happens next.'],
+            ['2', 'Trust the process.', 'Push Mode routes you through your morning. You don\'t manage it. You participate in it.'],
+            ['3', 'Arrive.', 'Every time. On your own terms — which are now enforced by something more reliable than intention.'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="SB7 Element 5 — The Call to Action">
+        <DocTable
+          headers={['CTA Type', 'Language', 'Placement']}
+          rows={[
+            ['Primary (Direct)', 'Join the Waitlist', 'Homepage hero, product page, nav bar'],
+            ['Primary variant', 'Activate Push Mode', 'Post-purchase activation flow'],
+            ['Transitional', 'See How It Works', 'Homepage below-fold, comparison section'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="SB7 Element 6 — Success">
+        <DocTable
+          headers={['Success Dimension', 'Description']}
+          rows={[
+            ['Immediate success', 'You are at your desk at the time you said you would be. Without negotiating.'],
+            ['30-day success', 'The negotiation is gone. You stopped having the argument with yourself. You don\'t know exactly when it stopped.'],
+            ['Identity success', 'You become the person who gets up. The bed changed the behavior. The behavior changed the self-concept.'],
+            ['Relationship success', 'People around you notice before you say anything. Your partner notices. Your colleagues notice.'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="SB7 Element 7 — Avoiding Failure">
+        <DocP style={{ color: P.error }}>⚠ THIS SECTION IS UNDER LEGAL REVIEW. Do not use this language in any external-facing materials until J. Park has cleared it.</DocP>
+        <DocTable
+          headers={['Failure Dimension', 'Description']}
+          rows={[
+            ['The ongoing cost', 'Every morning that starts with the snooze negotiation costs approximately 20 minutes of actual time and an unknown amount of self-regard.'],
+            ['The compounding cost', 'Morning compliance failure compounds. The person who cannot get up on time builds a self-concept around that failure.'],
+            ['What they lose', 'They lose the version of themselves they decided to be when they set the alarm. Every morning.'],
+          ]}
+        />
+        <DocP style={{ color: P.warning }}>Legal hold note (J. Park): The &ldquo;compounding self-concept failure&rdquo; language may be read as exploiting psychological vulnerability. Recommend revision before use.</DocP>
+        <DocP style={{ color: P.textFaint, fontSize: '11px' }}>The call between CPO and Legal regarding Section 7 has not occurred. Section 7 remains on hold. — Growth Marketing, February 2025</DocP>
+      </DocSection>
+
+      <DocSection title="BrandScript — One Page Summary">
+        <DocTable
+          headers={['SB7 Element', 'Push Mode BrandScript']}
+          rows={[
+            ['Hero', 'A capable professional who can\'t reliably make themselves get up when they intend to.'],
+            ['Problem (Villain)', 'The snooze button. The daily override of human intention.'],
+            ['Guide', 'RISE™ — we built something that doesn\'t ask for your willpower.'],
+            ['Plan', '1. Press RISE. 2. Trust the process. 3. Arrive.'],
+            ['CTA', 'Join the Waitlist. / Activate Push Mode.'],
+            ['Success', 'You become someone who gets up. It became automatic.'],
+            ['Failure', '⚠ Under legal review — see Section 7.'],
+          ]}
+        />
+      </DocSection>
+    </DocBody>
+  ),
+
+  // ─── DOC-014: Brand Identity Suite ────────────────────────────────────────
+  'push-mode-brand-identity-suite': (
+    <DocBody>
+      <DocSection title="Document Status">
+        <DocP>This document contains the RISE™ Mission Statement, Vision Statement, and WHY (Golden Circle). Dr. Voss reviewed the document on November 22, 2023 and returned it with two annotations. Both annotations are reproduced verbatim below. The document remains in review status.</DocP>
+      </DocSection>
+
+      <DocSection title="Brand WHY Statement (Golden Circle)">
+        <DocP><strong style={{ color: P.text }}>Formula: &ldquo;To _______ so that _______.&rdquo;</strong></DocP>
+        <DocP>Draft 3 (returned with annotation): <span style={{ color: P.text, fontWeight: 500 }}>&ldquo;To replace the one moment every day where most people fail themselves so that they stop failing themselves in that moment and, over time, in others.&rdquo;</span></DocP>
+        <div style={{ background: 'rgba(42,92,219,0.06)', border: '1px solid rgba(42,92,219,0.15)', borderRadius: '4px', padding: '16px', margin: '16px 0' }}>
+          <DocP style={{ color: 'rgba(76,124,255,0.9)', fontSize: '11px', marginBottom: '4px' }}>⚑ CEO Annotation — November 22, 2023</DocP>
+          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>&ldquo;Close. &lsquo;Fail themselves&rsquo; is too soft. What we&apos;re replacing is not failure. It is the architecture of a certain kind of morning that produces a certain kind of person. The WHY isn&apos;t about fixing failure. It&apos;s about building something. Name that. — EV&rdquo;</DocP>
+        </div>
+        <DocP>Draft 4 (current, pending approval): <span style={{ color: P.text, fontWeight: 500 }}>&ldquo;To make the first act of every day an act of integrity so that the person who arrives at work is the person who decided to arrive.&rdquo;</span></DocP>
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Status: Submitted to Dr. Voss for approval November 28, 2023. Response not yet received.</DocP>
+      </DocSection>
+
+      <DocSection title="Mission Statement">
+        <DocP style={{ fontSize: '15px', color: P.text, lineHeight: 2, paddingLeft: '16px', borderLeft: '2px solid rgba(255,255,255,0.1)', marginLeft: '8px' }}>
+          &ldquo;RISE™ builds products that replace the one moment every day where most people fail themselves. We do this by designing systems that take the customer&apos;s original decision more seriously than their in-the-moment preference — and by being honest, in the fine print and everywhere else, about exactly what that means.&rdquo;
+        </DocP>
+        <div style={{ background: 'rgba(42,92,219,0.06)', border: '1px solid rgba(42,92,219,0.15)', borderRadius: '4px', padding: '16px', margin: '16px 0' }}>
+          <DocP style={{ color: 'rgba(76,124,255,0.9)', fontSize: '11px', marginBottom: '4px' }}>⚑ CEO Annotation — November 22, 2023</DocP>
+          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>&ldquo;The &lsquo;fail themselves&rsquo; language again. We are not a product about failure. We are a product about the gap between intention and outcome. The mission statement should say what we build, not what we fix. — EV&rdquo;</DocP>
+        </div>
+      </DocSection>
+
+      <DocSection title="Vision Statement">
+        <DocP style={{ fontSize: '15px', color: P.text, lineHeight: 2, paddingLeft: '16px', borderLeft: '2px solid rgba(255,255,255,0.1)', marginLeft: '8px' }}>
+          &ldquo;We imagine a world where the first act of the day is reliable — where the person who said they would get up gets up, and the gap between intention and outcome in the morning becomes something that used to exist.&rdquo;
+        </DocP>
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>The vision statement was not annotated by Dr. Voss. The CPO has interpreted this as approval. No explicit approval has been given.</DocP>
+      </DocSection>
+
+      <DocSection title="Brand Writeprint — Voice & Style Guidelines">
+        <DocTable
+          headers={['Trait', 'Strength', 'Description']}
+          rows={[
+            ['Deadpan sincerity', '10/10', 'Every statement is meant. The humor emerges from the gap between what is said and what it implies.'],
+            ['Declarative sentence structure', '9/10', 'Short sentences. Subject-verb-object. No hedging.'],
+            ['Compressed irony', '8/10', 'The copy acknowledges what the product does not do without apologizing for it.'],
+            ['Specificity as trust signal', '8/10', '98% compliance rate. 340,000 waitlist. 4.7 stars. The specificity is not marketing. It is evidence.'],
+            ['Institutional calm under absurd conditions', '9/10', 'The bed follows you to work. RISE™ reports this in the same register it uses for quarterly earnings.'],
+          ]}
+        />
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Writeprint nickname (consultant&apos;s designation): &ldquo;The Coroner&apos;s Report.&rdquo; Accurate. Precise. Professionally indifferent to the implications of what it is describing.</DocP>
+      </DocSection>
+    </DocBody>
+  ),
+
+  // ─── DOC-015: Blog Creation Process Playbook ────────────────────────────
+  'content-marketing-blog-playbook': (
+    <DocBody>
+      <DocSection title="Document Context">
+        <DocP>This playbook was adapted from the external consultant&apos;s standard blog content process and applied to RISE™ Content Marketing without modification. Team annotations are reproduced inline.</DocP>
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Note: The consultant confirmed that this playbook was originally developed for a regional pest control chain and a B2B accounting software company. It has been applied to RISE™ without modification.</DocP>
+      </DocSection>
+
+      <DocSection title="Process Timeline">
+        <DocTable
+          headers={['Phase', 'Duration', 'Responsible', 'RISE™ Note']}
+          rows={[
+            ['Topic Research & Ideation', '3–5 days', 'Content Strategist', ''],
+            ['Content Brief Creation', '1–2 days', 'Content Strategist', ''],
+            ['Client Approval (Brief)', '1–3 days', 'Account Manager', '⚠ See annotations'],
+            ['Draft Writing', '3–7 days', 'Content Writer', ''],
+            ['Internal Review', '1–2 days', 'Content Editor', ''],
+            ['Client Review', '2–5 days', 'Account Manager', '⚠ See annotations'],
+            ['Revisions', '1–3 days', 'Content Writer', ''],
+            ['Final Approval', '1–2 days', 'Client', '⚠ See annotations'],
+            ['Publication & Promotion', '1–2 days', 'Digital Marketing', ''],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Phase 6 — Client Review">
+        <DocP><strong style={{ color: P.text }}>Process:</strong> Account Manager reviews draft before client submission. Submits to client. Collects and consolidates feedback.</DocP>
+        <div style={{ background: 'rgba(42,92,219,0.06)', border: '1px solid rgba(42,92,219,0.15)', borderRadius: '4px', padding: '14px', margin: '12px 0' }}>
+          <DocP style={{ color: 'rgba(76,124,255,0.9)', fontSize: '11px', marginBottom: '4px' }}>⚑ Team Annotation — Account Manager</DocP>
+          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>Dr. Voss provides feedback in one of four modes:</DocP>
+          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>Mode 1: Single word. &ldquo;No.&rdquo; or &ldquo;Yes.&rdquo; If &ldquo;Yes&rdquo; — publish.</DocP>
+          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>Mode 2: A single annotation on the introduction. Rewrite the opening paragraph until the first claim is a fact, not an argument.</DocP>
+          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>Mode 3: Silence. No response within 5 business days. Escalate to Dr. M. Chen.</DocP>
+          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>Mode 4: She rewrites a section herself and returns the doc. If this happens, use her version. Do not modify it.</DocP>
+        </div>
+        <div style={{ background: 'rgba(234,179,8,0.06)', border: '1px solid rgba(234,179,8,0.15)', borderRadius: '4px', padding: '14px', margin: '12px 0' }}>
+          <DocP style={{ color: P.warning, fontSize: '11px', marginBottom: '4px' }}>⚠ Separate Annotation — Content Writer</DocP>
+          <DocP style={{ color: 'rgba(234,179,8,0.75)', fontStyle: 'italic', fontSize: '12px' }}>Mode 4 has happened twice. Both times her version was shorter than ours. The second time she removed the entire paragraph and wrote one sentence: &ldquo;The alarm goes off. You have a choice. You pressed the button. The choice is gone.&rdquo; We have not attempted to rewrite introductions since.</DocP>
+        </div>
+      </DocSection>
+
+      <DocSection title="Quality Standards">
+        <DocTable
+          headers={['Standard', 'Specification', 'RISE™ Implementation']}
+          rows={[
+            ['Headlines', 'Attention-grabbing, include primary keyword', 'Headlines are factual statements. They do not grab. They land.'],
+            ['Length', '1,200–2,000 words', 'Current average: 847 words. The playbook\'s word count standard has not been formally revised.'],
+            ['SEO', 'Primary keyword in title, meta, URL, first para, H2', '\'Autonomous morning routine\' has no search volume because we invented the category. We are ranked first for it.'],
+            ['CTA', 'Clear call-to-action at conclusion', 'Join the Waitlist. Always. The product is still out of stock.'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Success Metrics">
+        <DocTable
+          headers={['Metric', 'Target', 'RISE™ Note']}
+          rows={[
+            ['Average time on page', '> 3 minutes', 'Current average: 4:12. The posts are short. People read them slowly. We do not know why.'],
+            ['Keyword rankings', 'Improvement over time', 'Ranking #1 for \'Push Mode compliance rate,\' \'autonomous morning bed,\' and \'bed with no off switch.\' We are the only result for most of these.'],
+            ['Conversion to waitlist', 'Tracked', 'The blog contributes an estimated 4–7% of new waitlist signups. The product is still out of stock.'],
+          ]}
+        />
+      </DocSection>
+    </DocBody>
+  ),
+
+  // ─── DOC-016: Customer Avatar Canvas ─────────────────────────────────────
+  'push-mode-customer-avatar-canvas': (
+    <DocBody>
+      <DocSection title="Section 1 — Avatar / Persona">
+        <DocTable
+          headers={['Field', 'Entry']}
+          rows={[
+            ['Avatar name', 'David K.'],
+            ['Age range', '34–52'],
+            ['Occupation', 'Manager, Director, or Senior IC. White-collar. Outcome-accountable.'],
+            ['Income level', '$95,000–$180,000'],
+            ['Primary goals in life', 'To be reliable. To be the version of himself that shows up. To stop losing the mornings.'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Section 3 — Before State">
+        <DocP><strong style={{ color: P.text }}>Average Day (Before State):</strong></DocP>
+        <DocTable
+          headers={['Time of Day', 'Reality']}
+          rows={[
+            ['6:15am', 'Alarm. Snooze.'],
+            ['6:24am', 'Second alarm. Consideration. Snooze.'],
+            ['6:33–6:47am', 'Third through fifth alarm. Growing awareness that the morning is gone. Decision to get up framed as a decision. It is not a decision. It is a concession.'],
+            ['7:40am', 'Actually up. The shower is rushed. The coffee is taken in a travel mug.'],
+            ['8:52am', 'At desk. Technically on time, depending on how you define on time. He defines it generously.'],
+          ]}
+        />
+        <DocP><strong style={{ color: P.text }}>Good vs. Evil (Before State):</strong></DocP>
+        <DocTable
+          headers={['Category', 'David K.\'s Perspective']}
+          rows={[
+            ['What he believes is right', 'Getting up when you say you will. Not requiring external systems.'],
+            ['What he believes is wrong', 'Excuses. The snooze button. Being the kind of person who needs help with this.'],
+            ['His moral compass re: this product', 'He finds the product interesting. He is ambivalent about needing it. He will not tell most people he has it.'],
+          ]}
+        />
+        <div style={{ background: 'rgba(42,92,219,0.06)', border: '1px solid rgba(42,92,219,0.15)', borderRadius: '4px', padding: '14px', margin: '12px 0' }}>
+          <DocP style={{ color: 'rgba(76,124,255,0.9)', fontSize: '11px', marginBottom: '4px' }}>⚑ CEO Annotation — Dr. E. Voss, November 1, 2023</DocP>
+          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>&ldquo;The Good vs. Evil section is the most important section in this document. The customer believes it is wrong to need help with this. That belief is why he has not bought it yet. That belief is also why, once he has it and it works, he will not return it. The product does not tell him he is weak. The product tells him the snooze button is a hardware problem that has a hardware solution.&rdquo;</DocP>
+        </div>
+      </DocSection>
+
+      <DocSection title="Section 9 — Marketing Message Development">
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>This section was completed by the consultant, reviewed by Dr. Voss, and returned with revisions. Both versions are preserved below.</DocP>
+        <DocP><strong style={{ color: P.text }}>Consultant&apos;s Draft (struck through by CEO):</strong></DocP>
+        <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '4px', padding: '14px', margin: '8px 0', borderLeft: '2px solid rgba(255,255,255,0.08)' }}>
+          <DocP style={{ color: P.textFaint, textDecoration: 'line-through', fontSize: '12px' }}>Primary Message: &ldquo;Stop fighting your mornings. Let RISE™ handle them.&rdquo;</DocP>
+        </div>
+        <div style={{ background: 'rgba(42,92,219,0.06)', border: '1px solid rgba(42,92,219,0.15)', borderRadius: '4px', padding: '14px', margin: '12px 0' }}>
+          <DocP style={{ color: 'rgba(76,124,255,0.9)', fontSize: '11px', marginBottom: '4px' }}>⚑ CEO Revision — Dr. E. Voss, November 1, 2023</DocP>
+          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>&ldquo;Do not tell David to stop fighting. He is not fighting. He is losing a small daily argument with a piece of consumer hardware. He needs to be told the argument is already over and he already won it by pressing a button the night before. Rewrite.&rdquo;</DocP>
+        </div>
+        <DocP><strong style={{ color: P.text }}>Dr. Voss&apos;s Revised Version (approved, in use):</strong></DocP>
+        <div style={{ background: 'rgba(255,255,255,0.04)', borderRadius: '4px', padding: '14px', margin: '8px 0', borderLeft: '2px solid rgba(255,255,255,0.12)' }}>
+          <DocP style={{ color: P.text, fontSize: '13px' }}>Primary Message: &ldquo;You already made the decision. We just make sure it holds.&rdquo;</DocP>
+          <DocP style={{ color: P.textMuted, fontSize: '12px' }}>Supporting: The alarm is set. The intention is real. Push Mode is what happens between the intention and the morning.</DocP>
+        </div>
+      </DocSection>
+    </DocBody>
+  ),
+
+  // ─── DOC-017: Value Journey Worksheet ────────────────────────────────────
+  'push-mode-value-journey-worksheet': (
+    <DocBody>
+      <DocSection title="Stage 1 — AWARE">
+        <DocTable
+          headers={['Channel', 'Status', 'Notes']}
+          rows={[
+            ['Organic search', 'Active', 'We rank first. We are the only result for most of these. We invented the category.'],
+            ['Press coverage', 'Active', 'Bloomberg, Wired, TechCrunch, The Guardian. All inbound. No PR spend.'],
+            ['Word of mouth', 'Active', 'Unusual pattern: customers do not tell people they have Push Mode. They arrive on time and colleagues eventually ask.'],
+            ['Paid advertising', 'Inactive', 'The waitlist is 340,000. Paid acquisition would be adding to a list we cannot fulfill.'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Stage 4 — CONVERT">
+        <DocTable
+          headers={['Reality', 'Notes']}
+          rows={[
+            ['Current conversion path', 'Waitlist → email notification when in stock → purchase window. The product is currently out of stock.'],
+            ['Conversion rate (when in stock)', '67% of waitlist members completed purchase within 72 hours. The consultant called it the highest intent-to-purchase rate he had seen in 14 years.'],
+            ['Entry-point offers', 'There are none. There is one product. It is sold out. The waitlist is the offer.'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Stage 5 — EXCITE">
+        <DocTable
+          headers={['Element', 'Notes']}
+          rows={[
+            ['The activation process', '12 stages. 45–90 minutes. Not designed to be convenient. Designed to be thorough.'],
+            ['Push Mode: first morning', '94% of customers who complete first morning complete the second. The first morning is the retention event.'],
+            ['The self-made bed', 'Disproportionately meaningful per user interviews. The thing that makes them tell their partner.'],
+            ['The solo commute', 'Some customers discover the bed has returned home before they do. Reactions documented in DOC-007.'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Stage 6 — ASCEND">
+        <DocTable
+          headers={['Upsell Path', 'Status']}
+          rows={[
+            ['The Push Pro', 'Acknowledged internally. No public details. See DOC-004.'],
+            ['The RISE™ Move', 'In development. No timeline. See DOC-005.'],
+          ]}
+        />
+        <div style={{ background: 'rgba(42,92,219,0.06)', border: '1px solid rgba(42,92,219,0.15)', borderRadius: '4px', padding: '14px', margin: '12px 0' }}>
+          <DocP style={{ color: 'rgba(76,124,255,0.9)', fontSize: '11px', marginBottom: '4px' }}>⚑ Consultant Note</DocP>
+          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>The Ascend stage is the weakest stage in the RISE™ value journey. There is currently no clear path to increase customer value after the initial purchase. This is a revenue risk that RISE™ has not addressed.</DocP>
+        </div>
+      </DocSection>
+
+      <DocSection title="Journey Gaps Analysis">
+        <DocTable
+          headers={['Gap', 'Priority', 'Constraint']}
+          rows={[
+            ['Ascend stage has no upsell path', 'High', 'No products available to upsell.'],
+            ['Promote stage not activated', 'Medium', 'Product is out of stock.'],
+            ['Convert stage ends at waitlist registration', 'Critical', 'Resolution: manufacture more units. Not within marketing\'s control.'],
+          ]}
+        />
+      </DocSection>
+    </DocBody>
+  ),
+
+  // ─── DOC-018: Sub-Testimonial & Social Proof Strategy ───────────────────
+  'push-mode-sub-testimonial-strategy': (
+    <DocBody>
+      <DocSection title="Document Context">
+        <DocP>This document outlines the social proof and testimonial strategy for Push Mode. It addresses a fundamental challenge: the product has excellent traditional testimonials that perform poorly, and the reasons are structurally interesting. The sub-testimonial framework is proposed as the primary proof mechanism.</DocP>
+      </DocSection>
+
+      <DocSection title="The Problem with Push Mode Testimonials">
+        <DocTable
+          headers={['Issue', 'Explanation']}
+          rows={[
+            ['Market saturation', 'Every product has reviews. 4.7 stars is common enough to be ignored.'],
+            ['Understated testimonials', 'Customers write accurate ones, not exciting ones. Example: \'It works. I don\'t know how to explain it beyond that.\''],
+            ['Psychological/private benefit', 'The most significant outcome is the resolution of the internal morning argument. Customers don\'t review that.'],
+            ['Mourner agenda (see DOC-011)', 'The most resonant testimonials are too personal to write in a review.'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="The Sub-Testimonial Framework">
+        <DocP>Sub-testimonials are third-party authoritative citations formatted as proof elements. They carry the visual weight of a testimonial without the credibility vulnerability of a personal claim.</DocP>
+        <DocTable
+          headers={['Mechanism', 'Source Type', 'Status']}
+          rows={[
+            ['Morning compliance failure rate', 'Behavioral science — sleep inertia research', 'Sources identified, not yet formatted'],
+            ['Snooze button as hardware problem', 'Cognitive science — decision fatigue literature', 'Sources identified, not yet formatted'],
+            ['98% compliance rate', 'Internal RISE™ data', 'Active — used in all current copy'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Compliance Framing">
+        <DocP style={{ color: P.error }}>⚠ THIS SECTION IS UNDER LEGAL REVIEW. Do not implement without J. Park clearance.</DocP>
+        <div style={{ background: 'rgba(234,179,8,0.06)', border: '1px solid rgba(234,179,8,0.15)', borderRadius: '4px', padding: '14px', margin: '12px 0' }}>
+          <DocP style={{ color: P.warning, fontSize: '11px', marginBottom: '4px' }}>⚠ Legal Note — J. Park, General Counsel</DocP>
+          <DocP style={{ color: 'rgba(234,179,8,0.75)', fontStyle: 'italic', fontSize: '12px' }}>The sub-testimonial framework is legally sound in principle. The compliance risk is in execution: a sub-testimonial that implies the research results will be replicated by the customer&apos;s use of the product is a testimonial in disguise. I am reviewing the proposed examples. — JP, November 8, 2023</DocP>
+          <DocP style={{ color: 'rgba(234,179,8,0.6)', fontSize: '11px', fontStyle: 'italic' }}>Legal review response not yet received as of this document&apos;s last update. — Growth Marketing, February 2025</DocP>
+        </div>
+      </DocSection>
+
+      <DocSection title="Summary Recommendation">
+        <DocP>Move the current testimonial section from the product page to the Help/FAQ page. Replace with three sub-testimonials formatted consistently with the current testimonial treatment.</DocP>
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Dr. Voss response: &ldquo;Yes. Do the sleep inertia one first.&rdquo; Implementation pending legal clearance. — Growth Marketing, November 15, 2023</DocP>
+      </DocSection>
+    </DocBody>
+  ),
+
+  // ─── DOC-019: Proof of Concept Validation ────────────────────────────────
+  'push-mode-proof-of-concept-validation': (
+    <DocBody>
+      <DocSection title="Document Context">
+        <DocTable
+          headers={['Field', 'Entry']}
+          rows={[
+            ['Prepared for', 'Investor Relations — Pre-IPO Due Diligence Package'],
+            ['Date', 'January 9, 2024'],
+            ['Market status', 'Product launched 2021. Currently out of stock. Waitlist: 340,000.'],
+          ]}
+        />
+        <div style={{ background: 'rgba(42,92,219,0.06)', border: '1px solid rgba(42,92,219,0.15)', borderRadius: '4px', padding: '14px', margin: '12px 0' }}>
+          <DocP style={{ color: 'rgba(76,124,255,0.9)', fontSize: '11px', marginBottom: '4px' }}>⚑ Consultant Note</DocP>
+          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>This document was requested by investor relations as part of the pre-IPO due diligence package. Push Mode launched in 2021 and has three years of market data. This document has been completed as a retrospective validation summary rather than a prospective validation study.</DocP>
+        </div>
+      </DocSection>
+
+      <DocSection title="Section 1 — Validation Criteria">
+        <DocTable
+          headers={['Criterion', 'Threshold', 'Push Mode Actual', 'Status']}
+          rows={[
+            ['Customer interest', '15% of engaged visitors', '34% of engaged visitors', '✓ Exceeded'],
+            ['Waitlist volume', '500 signups validates concept', '340,000 signups', '✓ Exceeded'],
+            ['Compliance rate', '60% functional; 80% strong', '98%', '✓ Exceeded'],
+            ['Customer satisfaction', 'NPS > 50', '4.7 stars / 2,847 reviews', '✓ Indicator positive'],
+            ['Press coverage', '1 major outlet', 'Bloomberg, Wired, TechCrunch, NYT, The Guardian, The Atlantic', '✓ Exceeded'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Section 3 — Product Functionality Testing">
+        <DocTable
+          headers={['Function', 'Performance', 'Note']}
+          rows={[
+            ['Push Mode initiation', '100% — button press initiates correctly', 'No known failure cases'],
+            ['Morning routing sequence', '98% completion rate', '2% incomplete due to environmental obstacles'],
+            ['Autonomous return', 'Functional — documented in DOC-007', 'Several incidents documented. None constitute product failure.'],
+            ['Self-making mechanism', 'Functional', 'Sheet tensioning and pillow restoration operate as designed'],
+            ['Push Mode termination', 'N/A — not a supported function', 'There is no off switch. This is the product working correctly.'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Section 6 — Feedback Analysis">
+        <DocTable
+          headers={['Rank', 'Issue', 'Frequency', 'Status']}
+          rows={[
+            ['1', 'Staircase navigation — not supported', '34% of users mention stairs', 'RISE™ Move in development. See DOC-005.'],
+            ['2', 'Solo commute: some users find it startling', '11%', 'Working as intended.'],
+            ['3', 'Activation process: 12 stages feels lengthy', '18%', 'Intentional.'],
+            ['4', 'No off switch — some users want one', '9%', 'Not available. Not planned. This is the product.'],
+            ['5', 'Pillow node sometimes runs during the night', '7%', 'Under investigation. IT is aware.'],
+          ]}
+        />
+      </DocSection>
+
+      <DocSection title="Section 9 — Validation Summary">
+        <DocTable
+          headers={['Framework Criterion', 'Push Mode Status']}
+          rows={[
+            ['Customer willingness to purchase', '✓ Confirmed — 340,000 waitlist; 67% purchase within 72h'],
+            ['Product functionality', '✓ Confirmed — 3 years of market data; 98% compliance rate'],
+            ['Customer expectations met', '✓ Confirmed — 4.7 stars, 2,847 reviews'],
+            ['Positive emotional response', '✓ Confirmed — first morning retention rate: 94%'],
+            ['Differentiation recognized', '✓ Confirmed — total category differentiation'],
+            ['Economic model viable', '✓ Confirmed (details in investor package)'],
+          ]}
+        />
+        <DocP style={{ fontSize: '14px', color: P.text, lineHeight: 2, paddingLeft: '16px', borderLeft: '2px solid rgba(255,255,255,0.1)', marginLeft: '8px' }}>
+          Push Mode has validated proof of product concept. The validation is retrospective. The 340,000-person waitlist is the validation. The 98% compliance rate is the validation.
+        </DocP>
+        <div style={{ background: 'rgba(42,92,219,0.06)', border: '1px solid rgba(42,92,219,0.15)', borderRadius: '4px', padding: '14px', margin: '12px 0' }}>
+          <DocP style={{ color: 'rgba(76,124,255,0.9)', fontSize: '11px', marginBottom: '4px' }}>⚑ Final Consultant Note</DocP>
+          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>In 16 years of product validation work, this is the first retroactive proof of concept document I have been asked to prepare. It is also the clearest validation I have documented. If this does not constitute proof of concept, the concept of proof of concept requires revision.</DocP>
+          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>Invoice #INV-2024-0012. Amount: $9,500. Status: Please advise.</DocP>
+        </div>
+      </DocSection>
+    </DocBody>
+  ),
+
   'arvin-final-commit': (
     <DocBody>
       <div
@@ -1712,7 +2435,7 @@ while i worked here. the push mode helped. i mean that sincerely.`}
 // ─── Secret document — not in DOCS registry ─────────────────────────────────
 
 const ARVIN_DOC = {
-  id: 'DOC-010',
+  id: 'DOC-099',
   slug: 'arvin-final-commit',
   title: 'arvin-final-commit.txt',
   classification: 'INTERNAL' as const,
