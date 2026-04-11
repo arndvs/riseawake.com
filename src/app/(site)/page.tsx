@@ -1,10 +1,12 @@
 import { Link } from '@/components/link'
-import type { Metadata } from 'next'
+import { createMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
+export const metadata = createMetadata({
+  title: 'RISE™ — Smart Adjustable Base',
   description:
     'For People Who Need A Little Push. The RISE™ Smart Adjustable Base.',
-}
+  path: '/',
+})
 
 function BedIcon({ status }: { status: string }) {
   const isDiscontinued = status === 'discontinued'

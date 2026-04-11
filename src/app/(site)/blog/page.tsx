@@ -20,14 +20,15 @@ import {
 } from 'lucide-react'
 import { clsx } from 'clsx'
 import dayjs from 'dayjs'
-import type { Metadata } from 'next'
+import { createMetadata } from '@/lib/metadata'
 import { notFound } from 'next/navigation'
 
-export const metadata: Metadata = {
+export const metadata = createMetadata({
   title: 'Blog',
   description:
     'Updates, observations, and communications from RISE™ Technologies.',
-}
+  path: '/blog',
+})
 
 const postsPerPage = 5
 
