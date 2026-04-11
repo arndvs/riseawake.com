@@ -21,14 +21,16 @@ import type { MetadataRoute } from 'next'
  * — RISE™ Web Infrastructure
  */
 export default function robots(): MetadataRoute.Robots {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://riseawake.com'
+
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/internal/', '/remote/', '/studio/'],
+        disallow: ['/internal/', '/remote/', '/studio/', '/api/'],
       },
     ],
-    sitemap: 'https://riseawake.com/sitemap.xml',
+    sitemap: `${siteUrl}/sitemap.xml`,
   }
 }
