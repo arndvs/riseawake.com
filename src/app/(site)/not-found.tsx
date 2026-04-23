@@ -1,3 +1,4 @@
+import { Button } from '@/components/button'
 import { Link } from '@/components/link'
 import { Logo } from '@/components/logo'
 
@@ -14,12 +15,9 @@ export default function NotFound() {
             <p className="mt-4 max-w-md text-base text-foreground-secondary">
                 The page you&rsquo;re looking for doesn&rsquo;t exist, or has been moved.
             </p>
-            <Link
-                href="/"
-                className="mt-8 inline-block rounded-full bg-foreground px-6 py-2.5 text-xs font-medium uppercase tracking-widest text-page transition-colors hover:bg-foreground/80"
-            >
+            <Button variant="primary" className="mt-8" href="/">
                 Back to Home
-            </Link>
+            </Button>
         </main>
     )
 }

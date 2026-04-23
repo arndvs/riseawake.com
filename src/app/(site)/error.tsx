@@ -1,5 +1,6 @@
 'use client'
 
+import { Button } from '@/components/button'
 import { Logo } from '@/components/logo'
 
 export default function Error({ reset }: { reset: () => void }) {
@@ -15,12 +16,9 @@ export default function Error({ reset }: { reset: () => void }) {
             <p className="mt-4 max-w-md text-base text-foreground-secondary">
                 An unexpected error occurred. Please try again.
             </p>
-            <button
-                onClick={reset}
-                className="mt-8 inline-block cursor-pointer rounded-full bg-foreground px-6 py-2.5 text-xs font-medium uppercase tracking-widest text-page transition-colors hover:bg-foreground/80"
-            >
+            <Button variant="primary" className="mt-8" onClick={reset}>
                 Try Again
-            </button>
+            </Button>
         </main>
     )
 }

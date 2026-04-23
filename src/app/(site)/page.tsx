@@ -1,3 +1,4 @@
+import { Button } from '@/components/button'
 import { Link } from '@/components/link'
 import { createMetadata } from '@/lib/metadata'
 
@@ -252,18 +253,12 @@ export default function Home() {
 
               <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
                 <div className="flex flex-col items-center gap-3 sm:flex-row">
-                  <Link
-                    href="/products/push"
-                    className="whitespace-nowrap rounded-sm bg-accent px-8 py-3.5 text-xs font-medium uppercase tracking-[0.16em] text-white transition-all duration-300 hover:bg-accent-hover"
-                  >
+                  <Button variant="cta" href="/products/push">
                     Join the Waitlist
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="whitespace-nowrap rounded-sm border border-edge px-8 py-3.5 text-xs font-medium uppercase tracking-[0.16em] text-foreground-muted transition-all duration-300 hover:text-foreground-secondary"
-                  >
+                  </Button>
+                  <Button variant="outline" href="/about">
                     Our Story
-                  </Link>
+                  </Button>
                 </div>
                 <p className="hidden max-w-70 text-right text-xs italic leading-relaxed text-foreground-muted md:block">
                   For People Who Need A Little Push.
@@ -474,12 +469,9 @@ export default function Home() {
               <br />
               Push Mode will be available to you soon.
             </p>
-            <Link
-              href="/products/push"
-              className="inline-block rounded-sm bg-accent px-10 py-4 text-xs font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-accent-hover"
-            >
+            <Button variant="cta" size="lg" href="/products/push">
               Join the Waitlist
-            </Link>
+            </Button>
           </div>
         </section>
       </main>

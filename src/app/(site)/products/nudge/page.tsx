@@ -1,3 +1,4 @@
+import { Button } from '@/components/button'
 import { Link } from '@/components/link'
 
 const SPECS = [
@@ -244,12 +245,9 @@ export default function NudgePage() {
                   remains available. For a more effective solution, we recommend
                   The Push.
                 </p>
-                <Link
-                  href="/products/push"
-                  className="inline-block rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-widest text-white uppercase transition-colors hover:bg-accent-hover"
-                >
+                <Button variant="cta" href="/products/push">
                   Upgrade to The Push →
-                </Link>
+                </Button>
               </div>
 
               <p className="text-center text-[10px] leading-relaxed text-foreground-muted/30">
@@ -335,12 +333,9 @@ export default function NudgePage() {
             navigation, and the knowledge that the decision has been made for
             you.
           </p>
-          <Link
-            href="/products/push"
-            className="inline-block rounded-sm bg-accent px-10 py-4 text-xs font-medium tracking-[0.16em] text-white uppercase transition-colors hover:bg-accent-hover"
-          >
+          <Button variant="primary" size="lg" href="/products/push">
             View The Push
-          </Link>
+          </Button>
         </div>
       </section>
 

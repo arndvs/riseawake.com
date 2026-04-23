@@ -1,3 +1,4 @@
+import { Button } from '@/components/button'
 import { Link } from '@/components/link'
 
 type TimelineEntry = {
@@ -334,12 +335,9 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
           }`}
         >
           {isCurrent ? (
-            <Link
-              href="/products/push"
-              className="inline-block rounded-sm bg-accent px-5 py-2.5 text-xs font-medium tracking-widest text-white uppercase transition-colors hover:bg-accent-hover"
-            >
+            <Button variant="cta" size="sm" href="/products/push">
               Join the Waitlist →
-            </Link>
+            </Button>
           ) : entry.product === 'RISE™ Move' ? (
             <div className="flex items-center gap-4">
               <p className="text-xs text-foreground-muted italic">
@@ -587,12 +585,9 @@ export default function AboutPage() {
           <p className="mb-12 text-sm leading-relaxed text-foreground-muted/60">
             The Push is currently out of stock. Join the waitlist.
           </p>
-          <Link
-            href="/products/push"
-            className="inline-block rounded-sm bg-accent px-10 py-4 text-xs font-medium tracking-[0.16em] text-white uppercase transition-colors hover:bg-accent-hover"
-          >
+          <Button variant="cta" size="lg" href="/products/push">
             Join the Waitlist
-          </Link>
+          </Button>
         </div>
       </section>
 
