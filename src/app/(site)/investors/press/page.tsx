@@ -95,7 +95,7 @@ export default function InvestorPressPage() {
             <h1 className="mb-4 font-display text-section tracking-tight text-foreground">
               What they&rsquo;re saying.
             </h1>
-            <p className="max-w-xl text-sm leading-loose text-foreground-muted">
+            <p className="max-w-xl text-body text-foreground-muted">
               Selected coverage from FY2024. RISE™ includes all significant
               coverage, including coverage that raises questions. We are
               confident in our answers. The answers are in the documentation.
@@ -116,7 +116,7 @@ export default function InvestorPressPage() {
                     {item.date}
                   </p>
                 </div>
-                <p className="mb-4 flex-1 text-sm leading-loose text-foreground-muted italic">
+                <p className="mb-4 flex-1 text-body text-foreground-muted italic">
                   &ldquo;{item.quote}&rdquo;
                 </p>
                 {item.stars && (

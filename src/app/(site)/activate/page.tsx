@@ -414,13 +414,13 @@ export default function ActivatePage() {
           <h1 className="mb-6 font-display text-display leading-tight tracking-tight text-foreground">
             Activate Your Push.
           </h1>
-          <p className="mb-4 max-w-xl text-sm leading-loose text-foreground-muted">
+          <p className="mb-4 max-w-xl text-body text-foreground-muted">
             Before Push Mode can operate, the bed needs to know everything. Your
             spaces, your sequence, your habits, your schedule, your GPS
             coordinates, and your honest assessment of how resistant you are to
             mornings.
           </p>
-          <p className="mb-16 max-w-xl text-sm leading-loose text-foreground-muted/60 italic">
+          <p className="mb-16 max-w-xl text-body text-foreground-muted/60 italic">
             Activation takes 45–90 minutes. RISE™ recommends completing it
             before your first intended Push Mode morning. The bed will operate
             on default settings until then. Most users find the default settings
@@ -817,7 +817,7 @@ export default function ActivatePage() {
                 Everything the bed needs to know.
               </span>
             </h2>
-            <p className="text-sm leading-relaxed text-foreground-muted">
+            <p className="text-body text-foreground-muted">
               Each stage configures a different aspect of your morning. Progress
               is saved between stages. You may pause and return. The bed will be
               here.
@@ -1041,7 +1041,7 @@ export default function ActivatePage() {
             <br />
             <span className="text-foreground-muted">when you are.</span>
           </h2>
-          <p className="mb-12 text-sm leading-relaxed text-foreground-muted">
+          <p className="mb-12 text-body text-foreground-muted">
             Enter your serial number above to begin. Activation takes 45–90
             minutes. Your progress is saved. You may pause between stages. The
             bed will wait.

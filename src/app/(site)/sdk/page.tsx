@@ -138,12 +138,12 @@ export default function SDKPage() {
           <p className="mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-foreground-secondary">
             The professional toolkit for accessing RISE™ Standard Metric data.
           </p>
-          <p className="mx-auto mb-3 max-w-xl text-sm leading-relaxed text-foreground-muted">
+          <p className="mx-auto mb-3 max-w-xl text-body text-foreground-muted">
             The RISE™ Standard Metric (.rsm) format is a proprietary data
             architecture designed for precision, security, and longitudinal
             integrity.
           </p>
-          <p className="mx-auto mb-16 max-w-xl text-sm leading-relaxed text-accent/70 italic">
+          <p className="mx-auto mb-16 max-w-xl text-body text-accent/70 italic">
             DataKit SDK is the only tool capable of reading it.
           </p>
 
@@ -184,7 +184,7 @@ export default function SDKPage() {
             <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
               Choose your tier.
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-foreground-muted">
+            <p className="mt-4 text-body text-foreground-muted">
               All tiers require a RISE™ Standard Data Package (RSDP) to be
               useful.{' '}
               <Link href="/data-request" className="text-accent/60 underline">
@@ -378,7 +378,7 @@ export default function SDKPage() {
                 <DialogTitle className="mb-4 font-display text-2xl text-foreground">
                   Before You Purchase
                 </DialogTitle>
-                <p className="mb-6 text-sm leading-relaxed text-foreground-secondary">
+                <p className="mb-6 text-body text-foreground-secondary">
                   DataKit SDK is designed exclusively for use with RISE™
                   Standard Data Packages (.rsm format). Have you received your
                   RSDP?

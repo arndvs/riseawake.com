@@ -126,7 +126,7 @@ export default function AnnualReportPage() {
             <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
               1. Executive Summary
             </h2>
-            <p className="mb-4 text-sm leading-loose text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-muted">
               FY2024 was RISE™&rsquo;s strongest year on record and, we believe,
               the year the adjustable base market ceased to be the relevant
               frame of reference for what we do. Revenue reached $89.4M,
@@ -134,7 +134,7 @@ export default function AnnualReportPage() {
               active users reached 98%. The waitlist reached 340,000. We shipped
               47,000 units.
             </p>
-            <p className="text-sm leading-loose text-foreground-muted">
+            <p className="text-body text-foreground-muted">
               These numbers tell a story about product-market fit. The deeper
               story is about what happens when 47,000 people stop making a
               decision every morning and start simply executing one they made
@@ -225,7 +225,7 @@ export default function AnnualReportPage() {
             <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
               3. Business Overview
             </h2>
-            <p className="mb-4 text-sm leading-loose text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-muted">
               RISE™ manufactures and operates the RISE™ Smart Adjustable Base —
               a platform consisting of the Push hardware, Push Mode software,
               self-making mechanism, and autonomous navigation system. The
@@ -233,7 +233,7 @@ export default function AnnualReportPage() {
               companion products, and no optional features. Push Mode is not
               optional.
             </p>
-            <p className="text-sm leading-loose text-foreground-muted">
+            <p className="text-body text-foreground-muted">
               The self-making mechanism — a sheet tensioning system and single
               pneumatic pillow node that operate during Push Mode — is the
               product&rsquo;s most underappreciated feature from a financial
@@ -247,14 +247,14 @@ export default function AnnualReportPage() {
             <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
               4. Market Opportunity
             </h2>
-            <p className="mb-4 text-sm leading-loose text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-muted">
               RISE™ does not size its opportunity against the adjustable bed
               market ($15B globally) or the sleep economy ($432B). These are the
               wrong reference frames. RISE™ addresses the productivity loss
               market: the estimated $4.2 trillion in annual global economic
               output lost to inadequate morning routines.
             </p>
-            <p className="mb-4 text-sm leading-loose text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-muted">
               By our calculation, each Push Mode user recovers an average of 34
               minutes of productive morning time per day relative to their
               pre-Push baseline. Across 47,000 active users, this represents
@@ -299,7 +299,7 @@ export default function AnnualReportPage() {
                   <h3 className="mb-3 text-xs font-medium tracking-[0.14em] text-foreground-secondary uppercase">
                     {r.title}
                   </h3>
-                  <p className="text-sm leading-loose text-foreground-muted">
+                  <p className="text-body text-foreground-muted">
                     {r.body}
                   </p>
                 </div>
@@ -311,14 +311,14 @@ export default function AnnualReportPage() {
             <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
               5a. Growth Strategy — Vertical Navigation
             </h2>
-            <p className="mb-4 text-sm leading-loose text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-muted">
               RISE™&rsquo;s current platform is optimized for flat-surface
               residential environments. We are aware of this constraint.
               Approximately 34% of US residential housing stock involves
               multi-story navigation. We have not addressed this market. We
               intend to.
             </p>
-            <p className="mb-4 text-sm leading-loose text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-muted">
               Our R&D team has been developing next-generation vertical
               navigation infrastructure since Q3 2022. In February 2025, we
               confirmed the existence of this program publicly under the name{' '}
@@ -331,7 +331,7 @@ export default function AnnualReportPage() {
               recurring Vertical Navigation Services subscription. We confirmed
               that current Push owners will receive no preferential pricing.
             </p>
-            <p className="text-sm leading-loose text-foreground-muted">
+            <p className="text-body text-foreground-muted">
               We are not disclosing timeline, price, form factor, or any
               specification beyond the above. Multi-story residences represent a
               meaningful expansion of our addressable market. We are not

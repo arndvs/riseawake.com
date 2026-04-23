@@ -63,7 +63,7 @@ export default function LegalHubPage() {
           <h1 className="mb-6 font-display text-display tracking-tight text-foreground">
             Legal Documents
           </h1>
-          <p className="mb-4 max-w-xl text-sm leading-loose text-foreground-muted">
+          <p className="mb-4 max-w-xl text-body text-foreground-muted">
             RISE™ maintains six primary legal documents governing the use of its
             products and services. All documents are version 4.2, updated March
             1, 2025.

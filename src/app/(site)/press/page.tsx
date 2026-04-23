@@ -54,7 +54,7 @@ export default function PressPage() {
           <h1 className="mb-6 font-display text-display tracking-tight text-foreground">
             Press Releases
           </h1>
-          <p className="mb-4 max-w-xl text-sm leading-loose text-foreground-muted">
+          <p className="mb-4 max-w-xl text-body text-foreground-muted">
             Official communications from RISE™ Technologies, Inc.
           </p>
           <p className="mb-16 text-xs leading-relaxed text-foreground-muted/50">
@@ -89,7 +89,7 @@ export default function PressPage() {
                     {r.date}
                   </span>
                 </div>
-                <h2 className="mb-3 text-sm leading-relaxed font-medium text-foreground-secondary">
+                <h2 className="mb-3 text-body font-medium text-foreground-secondary">
                   {r.headline}
                 </h2>
                 <p className="mb-4 text-xs leading-relaxed text-foreground-muted">

@@ -42,7 +42,7 @@ export default function MoveAnnouncementPage() {
             </p>
           </div>
 
-          <div className="mb-14 space-y-5 text-sm leading-loose text-foreground-muted">
+          <div className="mb-14 space-y-5 text-body text-foreground-muted">
             <p>
               RISE™ Technologies, Inc. today confirmed that its research and
               development team is actively developing a next-generation smart

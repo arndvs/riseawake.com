@@ -87,7 +87,7 @@ export default function FinancialsPage() {
             <h1 className="mb-4 font-display text-section tracking-tight text-foreground">
               Financials & Data
             </h1>
-            <p className="max-w-xl text-sm leading-loose text-foreground-muted">
+            <p className="max-w-xl text-body text-foreground-muted">
               FY2024 key performance indicators. All figures unaudited. Push
               Mode compliance data independently verified by RISE™ Internal
               Analytics.

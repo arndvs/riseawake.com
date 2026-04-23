@@ -219,18 +219,18 @@ export default function PushPage() {
 
               <div className="mb-8 h-px bg-edge-subtle" />
 
-              <p className="mb-6 text-sm leading-relaxed text-foreground-secondary">
+              <p className="mb-6 text-body text-foreground-secondary">
                 The RISE Push is the product that answered the question the
                 Nudge couldn&rsquo;t:{' '}
                 <em>what if the bed simply handled it?</em>
               </p>
-              <p className="mb-6 text-sm leading-relaxed text-foreground-secondary">
+              <p className="mb-6 text-body text-foreground-secondary">
                 Push Mode activates on your schedule. The base rises to
                 vertical. You are delivered, with quiet and unhurried precision,
                 through each stage of your morning routine — bathroom, closet,
                 kitchen, departure — until you are where you need to be.
               </p>
-              <p className="mb-10 text-sm leading-relaxed text-foreground-muted">
+              <p className="mb-10 text-body text-foreground-muted">
                 While this is happening, the bed is also making itself. Slowly.
                 One wrinkle at a time. It will be ready when you return. It has
                 already decided to be.
@@ -319,7 +319,7 @@ export default function PushPage() {
                 <h3 className="mb-4 text-sm font-medium text-foreground-secondary">
                   {f.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-foreground-muted">
+                <p className="text-body text-foreground-muted">
                   {f.body}
                 </p>
               </div>
@@ -340,13 +340,13 @@ export default function PushPage() {
                 <br />
                 <span className="text-foreground-muted">No exceptions.</span>
               </h2>
-              <p className="mb-6 text-sm leading-relaxed text-foreground-secondary">
+              <p className="mb-6 text-body text-foreground-secondary">
                 The PM-1 remote has one button. The button does one thing.
                 Pressing it a second time confirms the input. There is no third
                 option. Push Mode does not offer a snooze. It does not offer a
                 delay. It offers the morning.
               </p>
-              <p className="text-sm leading-relaxed text-foreground-muted">
+              <p className="text-body text-foreground-muted">
                 Fine print on the remote reverse:{' '}
                 <em>
                   &ldquo;Push Mode cannot be manually interrupted once
@@ -424,7 +424,7 @@ export default function PushPage() {
               will be available to you soon.
             </span>
           </h2>
-          <p className="mb-10 text-sm leading-relaxed text-foreground-muted">
+          <p className="mb-10 text-body text-foreground-muted">
             We&rsquo;ll be in touch when The Push is back in stock.
           </p>
           <button

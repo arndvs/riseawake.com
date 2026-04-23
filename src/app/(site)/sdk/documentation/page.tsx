@@ -174,7 +174,7 @@ export default function SDKDocsPage() {
                 {section.title}
               </h2>
               {section.content ? (
-                <div className="text-sm leading-8 whitespace-pre-line text-foreground-muted">
+                <div className="text-body whitespace-pre-line text-foreground-muted">
                   {section.content}
                 </div>
               ) : (

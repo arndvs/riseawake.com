@@ -192,13 +192,13 @@ export default function MeetingMinutesPage() {
                   <p className="mb-2 text-[10px] tracking-widest text-foreground-muted/60">
                     Q — {item.questioner}
                   </p>
-                  <p className="mb-4 text-sm leading-relaxed text-foreground-secondary italic">
+                  <p className="mb-4 text-body text-foreground-secondary italic">
                     &ldquo;{item.q}&rdquo;
                   </p>
                   <p className="mb-2 text-[10px] tracking-widest text-accent">
                     A — {item.respondent}
                   </p>
-                  <p className="text-sm leading-loose text-foreground-muted">
+                  <p className="text-body text-foreground-muted">
                     {item.a}
                   </p>
                 </div>

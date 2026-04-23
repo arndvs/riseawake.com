@@ -121,7 +121,7 @@ export default function InvestorsPage() {
                   <span className="mt-0.5 shrink-0 text-[10px] text-foreground-muted">
                     {n.date}
                   </span>
-                  <span className="flex-1 text-sm leading-relaxed text-foreground-secondary">
+                  <span className="flex-1 text-body text-foreground-secondary">
                     {n.headline}
                   </span>
                   <span className="shrink-0 rounded-xl border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] text-accent">

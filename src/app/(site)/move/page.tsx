@@ -149,7 +149,7 @@ export default function MovePage() {
                 {CONFIRMING.map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 text-sm leading-relaxed text-foreground-secondary"
+                    className="flex items-start gap-3 text-body text-foreground-secondary"
                   >
                     <span className="mt-1 shrink-0 text-foreground-muted">
                       —
@@ -167,7 +167,7 @@ export default function MovePage() {
                 {NOT_CONFIRMING.map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 text-sm leading-relaxed text-foreground-muted italic"
+                    className="flex items-start gap-3 text-body text-foreground-muted italic"
                   >
                     <span className="mt-1 shrink-0 text-foreground-muted/40">
                       —
@@ -189,7 +189,7 @@ export default function MovePage() {
           <h2 className="mb-10 font-display text-3xl tracking-tight text-foreground-secondary md:text-4xl">
             The stairs problem.
           </h2>
-          <div className="space-y-4 text-sm leading-loose text-foreground-muted">
+          <div className="space-y-4 text-body text-foreground-muted">
             <p>
               The RISE™ Push operates on casters. Casters are wheels. Wheels and
               stairs are a fundamental mechanical incompatibility that no amount
@@ -239,7 +239,7 @@ export default function MovePage() {
           <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-secondary md:text-4xl">
             Vertical Navigation Services.
           </h2>
-          <p className="mb-6 text-sm leading-loose text-foreground-muted">
+          <p className="mb-6 text-body text-foreground-muted">
             Staircase navigation in both directions requires real-time spatial
             mapping, dynamic load calculation, step-by-step surface
             verification, and continuous telemetry during vertical transitions.
@@ -247,7 +247,7 @@ export default function MovePage() {
             feature. RISE™ will pass this cost to the user as a monthly Vertical
             Navigation Services subscription.
           </p>
-          <p className="mb-6 text-sm leading-loose text-foreground-muted">
+          <p className="mb-6 text-body text-foreground-muted">
             Without the subscription, the Move operates as a flat-surface bed.
             With it, staircase navigation — in both directions — is available.
           </p>
@@ -334,13 +334,13 @@ export default function MovePage() {
           <p className="mb-3 text-xs font-medium text-foreground-secondary">
             A note for current Push owners.
           </p>
-          <p className="mb-3 text-sm leading-loose text-foreground-muted">
+          <p className="mb-3 text-body text-foreground-muted">
             Your Push is not being discontinued. It is not being replaced. It
             will continue to operate exactly as it was designed to operate, on
             flat surfaces, at the compliance rate you have come to expect,
             indefinitely.
           </p>
-          <p className="mb-3 text-sm leading-loose text-foreground-muted">
+          <p className="mb-3 text-body text-foreground-muted">
             The Move is a different product. It addresses a different
             constraint. If you have stairs and wish to address them, the Move
             will be available for purchase at the standard price when it is
@@ -365,7 +365,7 @@ export default function MovePage() {
           <h2 className="mb-4 font-display text-3xl tracking-tight text-foreground-secondary">
             We&rsquo;ll tell you when we&rsquo;re ready.
           </h2>
-          <p className="mb-10 text-sm leading-relaxed text-foreground-muted">
+          <p className="mb-10 text-body text-foreground-muted">
             No timeline. No price. No further details.
             <br />
             Just a list. You may be on it.

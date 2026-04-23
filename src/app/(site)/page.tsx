@@ -150,7 +150,7 @@ function ProductCard({
         <p className="mb-6 text-sm italic text-accent/75">
           &ldquo;{tagline}&rdquo;
         </p>
-        <p className="mb-10 text-sm leading-relaxed text-foreground-secondary">
+        <p className="mb-10 text-body text-foreground-secondary">
           {description}
         </p>
 
@@ -189,7 +189,7 @@ export default function Home() {
                 </span>
               </h1>
 
-              <p className="mx-auto max-w-lg text-sm font-light leading-relaxed text-foreground-muted md:text-base">
+              <p className="mx-auto max-w-lg text-body font-light text-foreground-muted">
                 The bed that gets you up. Whether you&rsquo;re ready or not.
               </p>
             </div>
@@ -289,7 +289,7 @@ export default function Home() {
               <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
                 From Nudge to Push.
               </h2>
-              <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-foreground-muted">
+              <p className="mx-auto mt-4 max-w-md text-body text-foreground-muted">
                 A decade of research into the science of not wanting to get up.
               </p>
             </div>
@@ -353,7 +353,7 @@ export default function Home() {
                   <h3 className="mb-4 text-sm font-medium uppercase tracking-widest text-foreground-secondary">
                     {item.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-foreground-muted">
+                  <p className="text-body text-foreground-muted">
                     {item.body}
                   </p>
                 </div>
@@ -416,7 +416,7 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                  <p className="mb-8 text-sm italic leading-relaxed text-foreground-secondary">
+                  <p className="mb-8 text-body italic text-foreground-secondary">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div>
@@ -464,7 +464,7 @@ export default function Home() {
               <br />
               snooze long enough.
             </h2>
-            <p className="mb-12 text-sm leading-relaxed text-foreground-muted">
+            <p className="mb-12 text-body text-foreground-muted">
               The Push is currently out of stock. Join the waitlist.
               <br />
               Push Mode will be available to you soon.

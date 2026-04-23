@@ -87,7 +87,7 @@ export default function HelpPage() {
             <br />
             <span className="text-foreground-muted">to help you adapt.</span>
           </h1>
-          <p className="max-w-xl text-sm leading-relaxed text-foreground-muted">
+          <p className="max-w-xl text-body text-foreground-muted">
             If you are reading this, Push Mode is likely already running. We
             understand. Most questions resolve themselves by the time you reach
             the office. For everything else, we are here.
@@ -185,7 +185,7 @@ export default function HelpPage() {
                     maxHeight: openFaq === i ? '300px' : '0',
                   }}
                 >
-                  <p className="px-6 pb-6 text-sm leading-relaxed text-foreground-secondary">
+                  <p className="px-6 pb-6 text-body text-foreground-secondary">
                     {item.a}
                   </p>
                 </div>
@@ -280,7 +280,7 @@ export default function HelpPage() {
             <h2 className="mb-4 font-display text-4xl tracking-tight text-foreground md:text-5xl">
               Get in touch.
             </h2>
-            <p className="text-sm leading-relaxed text-foreground-muted">
+            <p className="text-body text-foreground-muted">
               Our support team responds within 2–3 business days. If Push Mode
               has already started, we respectfully suggest finishing your
               morning first.
@@ -391,7 +391,7 @@ export default function HelpPage() {
               <p className="mb-4 font-display text-3xl tracking-tight text-foreground">
                 Message received.
               </p>
-              <p className="text-sm leading-relaxed text-foreground-muted">
+              <p className="text-body text-foreground-muted">
                 We&rsquo;ll be in touch within 2–3 business days.
                 <br />
                 We trust Push Mode has taken care of the rest.

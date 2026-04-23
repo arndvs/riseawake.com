@@ -63,7 +63,7 @@ export default function VisionPage() {
               Every morning, approximately 4.2 billion people intend to get up
               earlier than they do.
             </p>
-            <p className="mb-4 text-sm leading-loose text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-muted">
               The gap between that intention and what actually happens — measured
               in aggregate across the global workforce — represents the single
               largest source of untapped human potential on Earth. It is larger
@@ -71,7 +71,7 @@ export default function VisionPage() {
               productivity gains of electricity. It has never been addressed,
               because until now, it has never been possible to address it.
             </p>
-            <p className="text-sm italic leading-loose text-foreground-secondary">
+            <p className="text-body italic text-foreground-secondary">
               RISE™ intends to close that gap entirely. Not reduce it. Close it.
             </p>
           </div>
@@ -91,7 +91,7 @@ export default function VisionPage() {
             <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground">
               Push Mode in Every Bedroom.
             </h2>
-            <div className="space-y-4 text-sm leading-loose text-foreground-muted">
+            <div className="space-y-4 text-body text-foreground-muted">
               <p>
                 By 2030, RISE™ projects 2 million Push units in active global
                 use, with Push Mode available across 47 countries. The RISE™
@@ -122,7 +122,7 @@ export default function VisionPage() {
               </p>
             </div>
             <div className="mt-8 rounded-xl border border-edge-subtle bg-surface-inset p-5">
-              <p className="text-sm italic leading-loose text-foreground-muted">
+              <p className="text-body italic text-foreground-muted">
                 &ldquo;By 2030, we expect Push Mode to be as unremarkable as the
                 alarm clock — present in bedrooms, expected by employers,
                 understood to be simply part of how mornings work.&rdquo;
@@ -145,7 +145,7 @@ export default function VisionPage() {
             <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-secondary">
               The Platform.
             </h2>
-            <div className="space-y-4 text-sm leading-loose text-foreground-muted">
+            <div className="space-y-4 text-body text-foreground-muted">
               <p>
                 RISE™ is not a bed company. The 10-year vision makes this
                 explicit. Push Mode becomes a platform: third-party integrations
@@ -189,7 +189,7 @@ export default function VisionPage() {
               </p>
             </div>
             <div className="mt-8 rounded-xl border border-edge-subtle bg-surface-inset p-5">
-              <p className="text-sm italic leading-loose text-foreground-muted">
+              <p className="text-body italic text-foreground-muted">
                 &ldquo;We have spent ten years asking what happens when people
                 get up on time. The data is beginning to tell us. The answer is
                 better than we expected, and we expected a great deal.&rdquo;
@@ -212,7 +212,7 @@ export default function VisionPage() {
             <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-muted">
               A World That Starts on Time.
             </h2>
-            <div className="space-y-4 text-sm leading-loose text-foreground-muted/80">
+            <div className="space-y-4 text-body text-foreground-muted/80">
               <p>
                 Push Mode is infrastructure. The question in 2045 is not whether
                 you have it — it is which tier. RISE™ operates across five
@@ -256,7 +256,7 @@ export default function VisionPage() {
               </p>
             </div>
             <div className="mt-8 rounded-xl border border-edge-subtle/60 bg-surface-inset p-6">
-              <p className="text-sm italic leading-loose text-foreground-muted/70">
+              <p className="text-body italic text-foreground-muted/70">
                 &ldquo;We are sometimes asked what RISE™ looks like in 2045. The
                 honest answer is that we do not know precisely — the world
                 changes, products evolve, categories that do not yet exist will
