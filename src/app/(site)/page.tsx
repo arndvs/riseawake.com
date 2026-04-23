@@ -124,7 +124,7 @@ function ProductCard({
 }) {
   return (
     <Link href={href} className="group block">
-      <div className="h-full rounded-xl border border-edge bg-surface p-10 md:p-14">
+      <div className="h-full rounded-xl border border-edge bg-surface p-10 transition-all duration-300 group-hover:border-accent/25 group-hover:shadow-lg md:p-14">
         <div className="mb-10 flex items-center justify-between">
           <span
             className={`rounded-xl px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.16em] ${

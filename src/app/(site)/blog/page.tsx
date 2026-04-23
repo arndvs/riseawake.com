@@ -47,7 +47,7 @@ async function FeaturedPosts() {
           {featuredPosts.map((post) => (
             <div
               key={post.slug}
-              className="relative flex flex-col rounded-3xl bg-surface p-2 shadow-card ring-1 ring-edge"
+              className="relative flex flex-col rounded-3xl bg-surface p-2 shadow-card ring-1 ring-edge transition-all duration-300 hover:shadow-lg hover:ring-accent/25"
             >
               {post.mainImage && (
                 <img

@@ -269,7 +269,7 @@ export default function SecurityPage() {
             {CERTIFICATIONS.map((cert) => (
               <div
                 key={cert.name}
-                className="flex flex-col rounded-xl border border-edge-subtle bg-surface-alt p-7"
+                className="flex flex-col rounded-xl border border-edge-subtle bg-surface-alt p-7 transition-all duration-300 hover:border-accent/20 hover:shadow-md"
               >
                 <div className="mb-5 flex items-start justify-between gap-3">
                   <ShieldIcon className="h-10 w-10 shrink-0" />
@@ -336,7 +336,7 @@ export default function SecurityPage() {
             {FEATURES.map((feature) => (
               <div
                 key={feature.title}
-                className="flex flex-col rounded-xl border border-edge-subtle bg-surface-alt p-7"
+                className="flex flex-col rounded-xl border border-edge-subtle bg-surface-alt p-7 transition-all duration-300 hover:border-accent/20 hover:shadow-md"
               >
                 <div className="mb-4">
                   <LockIcon className="h-6 w-6" />

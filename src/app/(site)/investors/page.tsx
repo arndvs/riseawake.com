@@ -141,10 +141,10 @@ export default function InvestorsPage() {
                 <Link
                   key={q.href}
                   href={q.href}
-                  className={`group block rounded-xl border p-6 ${
+                  className={`group block rounded-xl border p-6 transition-all duration-300 hover:shadow-md ${
                     q.accent
-                      ? 'border-accent/20 bg-accent/6'
-                      : 'border-edge-subtle bg-surface-alt'
+                      ? 'border-accent/20 bg-accent/6 hover:border-accent/35'
+                      : 'border-edge-subtle bg-surface-alt hover:border-accent/20'
                   }`}
                 >
                   <h3

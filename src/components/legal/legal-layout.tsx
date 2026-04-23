@@ -113,7 +113,7 @@ export function LegalLayout({
         </aside>
 
         <main className="max-w-3xl min-w-0 flex-1">
-          <h1 className="mb-2 font-display text-[clamp(2rem,4vw,3rem)] tracking-tight text-foreground">
+          <h1 className="mb-2 font-display text-subsection tracking-tight text-foreground">
             {title}
           </h1>
           <p className="mb-10 text-xs text-foreground-muted/50">

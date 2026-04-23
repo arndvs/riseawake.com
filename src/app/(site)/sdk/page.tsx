@@ -294,7 +294,7 @@ export default function SDKPage() {
             {FEATURES.map((f, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-edge bg-surface-alt p-7"
+                className="rounded-xl border border-edge bg-surface-alt p-7 transition-all duration-300 hover:border-accent/20 hover:shadow-md"
               >
                 <h3 className="mb-3 text-sm font-medium text-foreground-secondary">
                   {f.title}
