@@ -53,7 +53,7 @@ export function Footer() {
                 href="/move"
                 className="text-xs text-accent/50 transition-colors duration-200 hover:text-accent"
               >
-                RISE™ Move{' '}
+                RISE Move{' '}
                 <span className="text-[10px] text-accent/30">
                   — In Development
                 </span>
@@ -131,12 +131,12 @@ export function Footer() {
         <div className="flex flex-col items-start justify-between gap-4 border-t border-edge-subtle pt-8 md:flex-row md:items-center">
           <div className="flex items-center gap-6">
             <p className="text-[11px] text-foreground-muted">
-              &copy; {year} RISE™ Technologies, Inc. All rights reserved.
+              &copy; {year} RISE Technologies, Inc. All rights reserved.
             </p>
             <FooterLink href="/sitemap">Sitemap</FooterLink>
           </div>
           <p className="max-w-md text-left text-[11px] text-foreground-muted/60 md:text-right">
-            RISE™ is not responsible for productivity gains, lifestyle
+            RISE is not responsible for productivity gains, lifestyle
             improvements, career advancement, relationship outcomes, or
             existential reckonings resulting from Push Mode. Results may exceed
             expectations.

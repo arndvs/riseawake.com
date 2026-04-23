@@ -23,11 +23,11 @@ const dmSerifDisplay = DM_Serif_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    template: '%s — RISE™',
-    default: 'RISE™ — Smart Adjustable Base',
+    template: '%s — RISE',
+    default: 'RISE — Smart Adjustable Base',
   },
   description:
-    'For People Who Need A Little Push. The RISE™ Smart Adjustable Base.',
+    'For People Who Need A Little Push. The RISE Smart Adjustable Base.',
   alternates: {
     canonical: siteUrl,
     types: {
@@ -35,16 +35,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'RISE™ — Smart Adjustable Base',
+    title: 'RISE — Smart Adjustable Base',
     description: 'For People Who Need A Little Push.',
     url: siteUrl,
-    siteName: 'RISE™',
+    siteName: 'RISE',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RISE™ — Smart Adjustable Base',
+    title: 'RISE — Smart Adjustable Base',
     description: 'For People Who Need A Little Push.',
   },
   robots: {

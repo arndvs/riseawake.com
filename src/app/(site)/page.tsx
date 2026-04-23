@@ -5,7 +5,7 @@ import { createMetadata } from '@/lib/metadata'
 export const metadata = createMetadata({
   title: 'Smart Adjustable Base',
   description:
-    'For People Who Need A Little Push. The RISE™ Smart Adjustable Base.',
+    'For People Who Need A Little Push. The RISE Smart Adjustable Base.',
   path: '/',
 })
 
@@ -223,7 +223,7 @@ export default function Home() {
                 <div className="pointer-events-none absolute top-4 left-4 flex items-center gap-2">
                   <div className="size-1.5 animate-glow-pulse rounded-full bg-accent" />
                   <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-foreground-secondary">
-                    RISE™
+                    RISE
                   </span>
                 </div>
                 <div className="pointer-events-none absolute top-4 right-4">

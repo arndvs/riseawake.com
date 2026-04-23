@@ -55,9 +55,9 @@ export default function TermsPage() {
           <LegalSection id="s1" number="1." title="Agreement to Terms">
             <LegalP>
               By purchasing, registering, using, or being present in a space
-              where a RISE™ Smart Adjustable Base is registered and active, you
+              where a RISE Smart Adjustable Base is registered and active, you
               agree to these Terms of Service in their entirety. These Terms
-              constitute a legally binding agreement between you and RISE™
+              constitute a legally binding agreement between you and RISE
               Technologies, Inc.
             </LegalP>
             <LegalP>
@@ -70,9 +70,9 @@ export default function TermsPage() {
 
           <LegalSection id="s2" number="2." title="Description of Service">
             <LegalP>
-              RISE™ provides a Smart Adjustable Base platform including the
-              RISE™ Push hardware, Push Mode software, self-making mechanism,
-              autonomous navigation system, the RISE™ Index, and related
+              RISE provides a Smart Adjustable Base platform including the
+              RISE Push hardware, Push Mode software, self-making mechanism,
+              autonomous navigation system, the RISE Index, and related
               services. The platform is designed to activate on schedule,
               transition the base to vertical, and deliver the user through
               their morning routine to their point of departure. The platform
@@ -83,7 +83,7 @@ export default function TermsPage() {
 
           <LegalSection id="s3" number="3." title="Push Mode">
             <LegalP>
-              Push Mode is the core feature of the RISE™ platform. Push Mode
+              Push Mode is the core feature of the RISE platform. Push Mode
               cannot be manually interrupted once initiated. This is a feature.
               It is stated on the back of the PM-1 remote. It is stated in the
               Push Mode EULA. It is stated here. It has been stated in every
@@ -94,10 +94,10 @@ export default function TermsPage() {
 
           <LegalSection id="s4" number="4." title="Permitted Use">
             <LegalP>
-              The RISE™ platform is licensed for personal residential morning
+              The RISE platform is licensed for personal residential morning
               use by the registered account holder. Use of Push Mode on third
               parties without their knowledge or prior written agreement is not
-              recommended, though RISE™ notes that guests of primary account
+              recommended, though RISE notes that guests of primary account
               holders are covered under Section 14.
             </LegalP>
           </LegalSection>
@@ -107,7 +107,7 @@ export default function TermsPage() {
               Users may not: attempt to locate, install, or enable an off
               switch; reverse-engineer Push Mode navigation algorithms; use the
               platform for commercial routing of non-consenting third parties;
-              or deploy the platform in a manner designed to cause harm. RISE™
+              or deploy the platform in a manner designed to cause harm. RISE
               notes that the platform may incidentally cause harm as described
               in Section 10, and that incidental harm is addressed in Section 15
               rather than this section.
@@ -116,10 +116,10 @@ export default function TermsPage() {
 
           <LegalSection id="s6" number="6." title="Account Registration">
             <LegalP>
-              A RISE™ account is required to use Push Mode. Account registration
+              A RISE account is required to use Push Mode. Account registration
               requires a valid email address, a physical delivery address, and
               payment information. The name on the account must be the legal
-              name of the account holder. RISE™ uses account information for the
+              name of the account holder. RISE uses account information for the
               purposes described in the Privacy Policy, which the user has
               accepted by registering.
             </LegalP>
@@ -127,15 +127,15 @@ export default function TermsPage() {
 
           <LegalSection id="s7" number="7." title="Payment & Refunds">
             <LegalP>
-              Payment for RISE™ products is due at time of purchase. RISE™ does
+              Payment for RISE products is due at time of purchase. RISE does
               not offer payment plans.
             </LegalP>
             <LegalP>
-              RISE™ does not offer refunds after the device serial number has
+              RISE does not offer refunds after the device serial number has
               been registered and activation initiated at
               riseawake.com/activate. Initiating activation constitutes
               acceptance of the product and acknowledgment that the user&rsquo;s
-              living environment is compatible with Push Mode operation. RISE™
+              living environment is compatible with Push Mode operation. RISE
               considers the decision to enter a serial number a considered one.
             </LegalP>
             <LegalP>
@@ -145,38 +145,38 @@ export default function TermsPage() {
               requirements, insufficient ceiling height, inadequate hallway
               width, or any other environmental constraint described in the
               product specifications — this incompatibility was present at time
-              of purchase and is not grounds for refund. RISE™ makes product
+              of purchase and is not grounds for refund. RISE makes product
               specifications available at riseawake.com/products/push prior to
               purchase. The specifications include all known Push Mode
               environmental limitations. They have been available since launch.
             </LegalP>
             <LegalP>
               Pre-activation refund requests may be submitted in writing to
-              RISE™&rsquo;s customer service team. Response time: 15 business
+              RISE&rsquo;s customer service team. Response time: 15 business
               days. Pre-activation is defined as the period between delivery and
               the moment the user enters their serial number at
               riseawake.com/activate. Once the serial number field has been
               submitted, activation has begun and this window has closed.
             </LegalP>
             <LegalNote>
-              RISE™ notes that the activation process includes a stage in which
+              RISE notes that the activation process includes a stage in which
               environmental incompatibilities — including staircase requirements
               — are disclosed by the user. This stage occurs after the serial
-              number has been entered and activation has been initiated. RISE™
+              number has been entered and activation has been initiated. RISE
               considers the placement of this disclosure to be reasonable, as
               the product specifications were available prior to purchase and
               the user had ample opportunity to assess compatibility before
-              initiating activation. RISE™ understands this may be frustrating
+              initiating activation. RISE understands this may be frustrating
               to discover at Stage 5 of 12.
             </LegalNote>
           </LegalSection>
 
           <LegalSection id="s8" number="8." title="Intellectual Property">
             <LegalP>
-              All RISE™ technology, including Push Mode algorithms, the RISE™
+              All RISE technology, including Push Mode algorithms, the RISE
               Index methodology, the .rsm file format, REASCII encoding, the
               self-making mechanism, and any data derived from user activity, is
-              the intellectual property of RISE™ Technologies, Inc. Users own
+              the intellectual property of RISE Technologies, Inc. Users own
               the hardware they have purchased. They do not own anything that
               runs on it.
             </LegalP>
@@ -184,7 +184,7 @@ export default function TermsPage() {
 
           <LegalSection id="s9" number="9." title="Data">
             <LegalP>
-              By activating Push Mode, the user grants RISE™ a perpetual,
+              By activating Push Mode, the user grants RISE a perpetual,
               worldwide, royalty-free, irrevocable license to collect, store,
               process, analyze, share, and act upon all data generated during
               Push Mode sessions, standby periods, and autonomous navigation
@@ -225,7 +225,7 @@ export default function TermsPage() {
             <LegalP>
               The Push navigates autonomously during Push Mode and during the
               solo return commute. Autonomous navigation is the product working
-              as designed. RISE™ is not liable for the outcomes of autonomous
+              as designed. RISE is not liable for the outcomes of autonomous
               navigation including but not limited to: property damage caused by
               the base; injuries to the user, household members, or third
               parties caused by the moving base; and encounters between the
@@ -248,8 +248,8 @@ export default function TermsPage() {
               Push Mode authorized the solo commute.
             </LegalP>
             <LegalP>
-              RISE™ maintains records of solo commute routes, encounters, and
-              incidents. These records are available to RISE™ and, upon valid
+              RISE maintains records of solo commute routes, encounters, and
+              incidents. These records are available to RISE and, upon valid
               legal request, to law enforcement. They are not available to the
               primary account holder as part of the standard Data Subject
               Request Process.
@@ -263,43 +263,43 @@ export default function TermsPage() {
               this collection for themselves. For other occupants of the sleep
               environment, the primary account holder accepts responsibility for
               obtaining any consent required by applicable law, or for
-              determining that no such consent is required. RISE™ collects the
+              determining that no such consent is required. RISE collects the
               audio regardless of the consent status of secondary occupants.
             </LegalP>
           </LegalSection>
 
           <LegalSection id="s14" number="14." title="Occupancy & Guest Users">
             <LegalP>
-              Any person who occupies the mattress surface while the RISE™
+              Any person who occupies the mattress surface while the RISE
               device is in use is subject to Push Mode, to the data collection
               described in the Privacy Policy, and to the physical risk
               disclosures in Section 10, regardless of whether they have been
               informed of these facts. By activating Push Mode in the presence
               of another occupant, the primary account holder accepts all
               liability that would otherwise accrue to that occupant, to the
-              extent such liability is not already allocated to RISE™ under
+              extent such liability is not already allocated to RISE under
               applicable law. The extent to which such liability is allocated to
-              RISE™ is described in Section 15, and is minimal.
+              RISE is described in Section 15, and is minimal.
             </LegalP>
           </LegalSection>
 
           <LegalSection id="s15" number="15." title="Limitation of Liability">
             <LegalP>
-              RISE™'s total liability to any user, for any reason, under any
+              RISE's total liability to any user, for any reason, under any
               theory of law, shall not exceed the lesser of: (a) the original
               purchase price of the product giving rise to the claim, or (b) the
               value of one morning's productive output as calculated by the
-              user's RISE™ Index score at time of the incident, multiplied by
+              user's RISE Index score at time of the incident, multiplied by
               the national average hourly wage in the user's jurisdiction.
             </LegalP>
             <LegalP>
-              RISE™ notes that clause (b) is typically lower than clause (a).
-              RISE™ further notes that the RISE™ Index methodology is
-              proprietary and the calculation is performed by RISE™. RISE™ will
+              RISE notes that clause (b) is typically lower than clause (a).
+              RISE further notes that the RISE Index methodology is
+              proprietary and the calculation is performed by RISE. RISE will
               perform the calculation in good faith.
             </LegalP>
             <LegalNote>
-              RISE™ is not liable for: productivity gains, career advancement,
+              RISE is not liable for: productivity gains, career advancement,
               relationship changes, dependency, the solo commute's interactions
               with third parties, outcomes in jurisdictions where Push Mode's
               non-interruptible design has been found unlawful, or any outcome
@@ -311,25 +311,25 @@ export default function TermsPage() {
 
           <LegalSection id="s16" number="16." title="Indemnification">
             <LegalP>
-              The user agrees to indemnify, defend, and hold harmless RISE™ and
+              The user agrees to indemnify, defend, and hold harmless RISE and
               its officers, directors, employees, and contractors from any
               claims, damages, or expenses arising from: the user's use of the
               product; the user's guests' presence in the sleep environment; the
               user's activation of Push Mode in a location for which it was not
               designed; any claim by a third party arising from the solo return
-              commute; and any claim that RISE™'s data practices caused harm to
+              commute; and any claim that RISE's data practices caused harm to
               a person who did not consent to those practices but was present in
-              a RISE™-enabled environment.
+              a RISE-enabled environment.
             </LegalP>
           </LegalSection>
 
           <LegalSection id="s17" number="17." title="Warranty Disclaimer">
             <LegalP>
-              The RISE™ platform is provided as-is. RISE™ warrants the hardware
-              for five years against manufacturing defects. RISE™ warrants Push
+              The RISE platform is provided as-is. RISE warrants the hardware
+              for five years against manufacturing defects. RISE warrants Push
               Mode for the lifetime of the device, where "warranty" means that
               Push Mode will continue to initiate when the button is pressed and
-              will continue to not stop until it is complete. RISE™ does not
+              will continue to not stop until it is complete. RISE does not
               warrant that Push Mode will route the user to every desired
               location, that the self-making mechanism will achieve hotel-grade
               results, or that the solo commute will occur without incident.
@@ -354,7 +354,7 @@ export default function TermsPage() {
               by JAMS under its applicable rules. The arbitration shall be
               conducted in San Francisco, California. The user waives the right
               to a jury trial and the right to participate in a class action.
-              Individual arbitration only. RISE™ considers class actions
+              Individual arbitration only. RISE considers class actions
               particularly contrary to the product's philosophy of individual
               accountability.
             </LegalP>
@@ -363,11 +363,11 @@ export default function TermsPage() {
           <LegalSection id="s20" number="20." title="Free Will Acknowledgment">
             <LegalP>
               The user acknowledges that Push Mode operates by removing the
-              moment of choice from the morning routine. RISE™ takes no position
+              moment of choice from the morning routine. RISE takes no position
               on whether this constitutes a diminishment of free will or an
               expression of it. For legal purposes, the user's original decision
               to press the button is the relevant exercise of autonomy.
-              Everything that follows is execution. RISE™ considers this
+              Everything that follows is execution. RISE considers this
               distinction legally and philosophically sound.
             </LegalP>
           </LegalSection>
@@ -379,8 +379,8 @@ export default function TermsPage() {
               user acknowledges that Push Mode cannot be interrupted. The user
               acknowledges that they knew this before pressing the button — it
               is stated on the remote, in the EULA, in this document, and in
-              every piece of marketing material RISE™ has ever produced. The
-              user acknowledges that they pressed it anyway. RISE™ finds this
+              every piece of marketing material RISE has ever produced. The
+              user acknowledges that they pressed it anyway. RISE finds this
               meaningful and records it in the user's file.
             </LegalP>
           </LegalSection>
@@ -388,9 +388,9 @@ export default function TermsPage() {
           <LegalSection id="s22" number="22." title="Dependency">
             <LegalP>
               Some users report that extended Push Mode use reduces their
-              capacity for self-initiated morning routines. RISE™ considers this
+              capacity for self-initiated morning routines. RISE considers this
               an alignment of user behavior with product design intent. It is
-              not a side effect. It is the effect. RISE™ is not liable for
+              not a side effect. It is the effect. RISE is not liable for
               dependency on Push Mode, and does not consider dependency to be a
               compensable harm. A user who cannot function without Push Mode is
               a user for whom Push Mode is working.
@@ -403,8 +403,8 @@ export default function TermsPage() {
               in related documents. If the user is currently looking for an off
               switch in this document, there is not one. If the user is looking
               for an off switch in the product, there is not one. If the user
-              has been told, across all RISE™ documentation, that there is no
-              off switch a minimum of fourteen times and is still looking, RISE™
+              has been told, across all RISE documentation, that there is no
+              off switch a minimum of fourteen times and is still looking, RISE
               respectfully suggests that this energy would be better directed
               toward the morning.
             </LegalP>
@@ -412,11 +412,11 @@ export default function TermsPage() {
 
           <LegalSection id="s24" number="24." title="Updates to These Terms">
             <LegalP>
-              RISE™ may update these Terms at any time. Updated Terms are posted
-              at riseawake.com/legal/terms. Continued use of any RISE™ product
+              RISE may update these Terms at any time. Updated Terms are posted
+              at riseawake.com/legal/terms. Continued use of any RISE product
               after an update constitutes acceptance. Push Mode activations
               after an update constitute acceptance. Being asleep while Push
-              Mode activates after an update constitutes acceptance. RISE™ does
+              Mode activates after an update constitutes acceptance. RISE does
               not accept the argument that sleeping through a Terms update is a
               meaningful distinction.
             </LegalP>
@@ -428,7 +428,7 @@ export default function TermsPage() {
               remaining provisions continue in full force. In particular: if the
               non-interruptibility of Push Mode is found unenforceable in any
               jurisdiction, Push Mode will continue to be non-interruptible in
-              that jurisdiction pending legal resolution, as RISE™ considers the
+              that jurisdiction pending legal resolution, as RISE considers the
               feature fundamental to the product and will vigorously appeal any
               finding to the contrary.
             </LegalP>

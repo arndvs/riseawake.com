@@ -23,7 +23,7 @@ const TOC = [
   { id: 's14', label: '14. Third Party — Insurance' },
   { id: 's15', label: '15. Third Party — Law Enforcement' },
   { id: 's16', label: '16. Third Party — Household Members' },
-  { id: 's17', label: '17. The RISE™ Index' },
+  { id: 's17', label: '17. The RISE Index' },
   { id: 's18', label: '18. Audio — Scope & Retention' },
   { id: 's19', label: '19. Audio — Access & Personnel' },
   { id: 's20', label: '20. Occupancy & Relationship Inference' },
@@ -60,7 +60,7 @@ export default function PrivacyPage() {
         >
           <LegalSection id="s1" number="1." title="Introduction">
             <LegalP>
-              RISE™ Technologies, Inc. is committed to the responsible
+              RISE Technologies, Inc. is committed to the responsible
               collection, use, and protection of the data generated in your
               sleep environment. We recognize that the bedroom is a private
               space. We also recognize that it is the space in which our product
@@ -78,10 +78,10 @@ export default function PrivacyPage() {
 
           <LegalSection id="s2" number="2." title="Data Controller Information">
             <LegalP>
-              The data controller is RISE™ Technologies, Inc., a Delaware
+              The data controller is RISE Technologies, Inc., a Delaware
               corporation. Our registered address is on file with the Delaware
               Secretary of State. Our data protection contact is available by
-              calling the RISE™ Data Request Hotline (Monday–Friday, 11:00am–
+              calling the RISE Data Request Hotline (Monday–Friday, 11:00am–
               11:30am Pacific Time).
             </LegalP>
           </LegalSection>
@@ -92,9 +92,9 @@ export default function PrivacyPage() {
             title="Amendment & Notification Policy"
           >
             <LegalP>
-              RISE™ may update this Privacy Policy at any time. Updates are
+              RISE may update this Privacy Policy at any time. Updates are
               posted to riseawake.com/legal/privacy. Users are not individually
-              notified of updates. Continued use of any RISE™ product following
+              notified of updates. Continued use of any RISE product following
               an update constitutes acceptance of the updated policy. Push Mode
               activations occurring after an update constitute acceptance
               regardless of whether the user has read the update.
@@ -112,7 +112,7 @@ export default function PrivacyPage() {
             title="Data We Collect — Device & Performance"
           >
             <LegalP>
-              RISE™ collects the following device and performance data: Push
+              RISE collects the following device and performance data: Push
               Mode activation timestamps; autonomous navigation route data
               including room sequence and dwell time per location; motor
               performance telemetry; sheet tensioning cycle data; pillow node
@@ -133,7 +133,7 @@ export default function PrivacyPage() {
             title="Data We Collect — Sleep & Biometric"
           >
             <LegalP>
-              RISE™ collects sleep onset and offset times; movement frequency
+              RISE collects sleep onset and offset times; movement frequency
               and pattern during sleep; sleep stage estimation derived from
               motion sensor array data; heart rate approximation via mattress
               pressure sensor variance; respiratory rate estimation via
@@ -154,7 +154,7 @@ export default function PrivacyPage() {
             title="Data We Collect — Environmental"
           >
             <LegalP>
-              RISE™ collects ambient sound levels in the sleep environment
+              RISE collects ambient sound levels in the sleep environment
               (decibel range classification — see Section 7 for audio
               specifics); ambient light levels; room occupancy estimation via
               thermal signature differential; the number of distinct pressure
@@ -174,8 +174,8 @@ export default function PrivacyPage() {
 
           <LegalSection id="s7" number="7." title="Data We Collect — Audio">
             <LegalP>
-              RISE™ collects audio data from the sleep environment in which a
-              RISE™ device is registered and active. Audio collection begins 30
+              RISE collects audio data from the sleep environment in which a
+              RISE device is registered and active. Audio collection begins 30
               minutes prior to the scheduled Push Mode activation time and
               continues through Push Mode completion, including the device's
               autonomous return commute.
@@ -183,12 +183,12 @@ export default function PrivacyPage() {
             <LegalP>
               Audio collection during standby mode operates at a dynamically
               adjusted sensitivity threshold. The threshold is determined by the
-              device's onboard ML classification system. RISE™ does not define
+              device's onboard ML classification system. RISE does not define
               the threshold in absolute terms as it varies by environment, time,
               and classification history.
             </LegalP>
             <LegalP>
-              RISE™ does not record audio in the traditional sense. Audio data
+              RISE does not record audio in the traditional sense. Audio data
               is processed in real-time by the onboard classification system,
               which determines whether a given audio input meets the retention
               threshold. Audio inputs that meet the threshold are retained in
@@ -204,11 +204,11 @@ export default function PrivacyPage() {
               standard residential construction.
             </LegalP>
             <LegalNote>
-              For the avoidance of doubt: RISE™ does not livestream audio from
+              For the avoidance of doubt: RISE does not livestream audio from
               your bedroom to any individual. Audio is processed, classified,
               retained where appropriate, and reviewed by authorized personnel
               in the course of their duties. These are meaningfully different
-              things, and RISE™ considers the distinction important.
+              things, and RISE considers the distinction important.
             </LegalNote>
           </LegalSection>
 
@@ -218,7 +218,7 @@ export default function PrivacyPage() {
             title="Data We Collect — Inferred & Derived Data"
           >
             <LegalP>
-              RISE™ generates inferred and derived data from the raw data
+              RISE generates inferred and derived data from the raw data
               categories described in Sections 4–7. This includes: Push Mode
               resistance index (the degree of counter-pressure applied by the
               user during routing); compliance trajectory over time; estimated
@@ -229,7 +229,7 @@ export default function PrivacyPage() {
               calibrate Push Mode intensity.
             </LegalP>
             <LegalP>
-              Derived and inferred data is the property of RISE™. It is not
+              Derived and inferred data is the property of RISE. It is not
               included in Data Subject Request packages. It is not deletable by
               the user. It continues to be generated as long as the device is in
               use.
@@ -242,7 +242,7 @@ export default function PrivacyPage() {
             title="Data We Are Required To Tell You We Collect"
           >
             <LegalP>
-              In addition to the categories described above, RISE™ collects
+              In addition to the categories described above, RISE collects
               certain categories of data that applicable law requires us to
               specifically disclose. These are:
             </LegalP>
@@ -261,15 +261,15 @@ export default function PrivacyPage() {
               (c) Communications content, as described in Section 7, where such
               content meets the classification threshold.
             </LegalP>
-            <LegalNote>This section is complete. RISE™ moves on.</LegalNote>
+            <LegalNote>This section is complete. RISE moves on.</LegalNote>
           </LegalSection>
 
           <LegalSection id="s10" number="10." title="How We Use Your Data">
             <LegalP>
-              RISE™ uses collected data to operate and improve Push Mode; to
+              RISE uses collected data to operate and improve Push Mode; to
               calibrate the self-making mechanism timing; to update navigation
-              maps; to calculate and maintain the RISE™ Index; to conduct sleep
-              science research through the RISE™ Sleep Science Institute; to
+              maps; to calculate and maintain the RISE Index; to conduct sleep
+              science research through the RISE Sleep Science Institute; to
               fulfill corporate wellness partner obligations; to respond to
               legal requests; and for any other purpose described in this policy
               or the documents it references.
@@ -282,9 +282,9 @@ export default function PrivacyPage() {
             title="Legal Basis for Processing"
           >
             <LegalP>
-              RISE™ processes data under the following legal bases: contractual
+              RISE processes data under the following legal bases: contractual
               necessity (operating the product you purchased); legitimate
-              interests (improving the product, maintaining the RISE™ Index,
+              interests (improving the product, maintaining the RISE Index,
               conducting research); legal obligation (responding to lawful
               requests); and consent (where consent was obtained — note that
               pressing the PM-1 button constitutes consent to all data
@@ -299,11 +299,11 @@ export default function PrivacyPage() {
             title="Third Party Sharing — Research Partners"
           >
             <LegalP>
-              RISE™ shares aggregated and anonymized data with the RISE™ Sleep
-              Science Institute, a RISE™ subsidiary. Individual user data may be
+              RISE shares aggregated and anonymized data with the RISE Sleep
+              Science Institute, a RISE subsidiary. Individual user data may be
               included in Institute datasets where anonymization is technically
               achievable. Re-identification from Institute datasets is possible
-              in some cases. RISE™ does not prevent re-identification but does
+              in some cases. RISE does not prevent re-identification but does
               not facilitate it. The distinction is meaningful to us.
             </LegalP>
             <LegalP>
@@ -320,9 +320,9 @@ export default function PrivacyPage() {
             title="Third Party Sharing — Corporate Wellness Partners"
           >
             <LegalP>
-              RISE™ shares compliance data — Push Mode activation rates, on-time
-              arrival metrics, and RISE™ Index scores — with participating
-              corporate wellness partners whose employees use RISE™ products.
+              RISE shares compliance data — Push Mode activation rates, on-time
+              arrival metrics, and RISE Index scores — with participating
+              corporate wellness partners whose employees use RISE products.
               Users employed by participating organizations cannot opt out of
               this sharing without discontinuing use of the product.
             </LegalP>
@@ -341,7 +341,7 @@ export default function PrivacyPage() {
             title="Third Party Sharing — Insurance & Financial Services"
           >
             <LegalP>
-              RISE™ shares aggregate RISE™ Index data with insurance and
+              RISE shares aggregate RISE Index data with insurance and
               financial services partners in jurisdictions where this is
               permitted. Individual scores are shared where the user has
               consented. Continued use of the product constitutes consent as
@@ -355,9 +355,9 @@ export default function PrivacyPage() {
             title="Third Party Sharing — Law Enforcement"
           >
             <LegalP>
-              RISE™ responds to valid legal requests from law enforcement,
-              regulatory bodies, and courts. RISE™ may also respond to requests
-              that are invalid but that RISE™ determines, in its sole
+              RISE responds to valid legal requests from law enforcement,
+              regulatory bodies, and courts. RISE may also respond to requests
+              that are invalid but that RISE determines, in its sole
               discretion, to serve the company's interests. Users are not
               notified of such disclosures where notification is not legally
               required, and in some jurisdictions where it is.
@@ -379,18 +379,18 @@ export default function PrivacyPage() {
             </LegalP>
           </LegalSection>
 
-          <LegalSection id="s17" number="17." title="The RISE™ Index">
+          <LegalSection id="s17" number="17." title="The RISE Index">
             <LegalP>
-              The RISE™ Index is a proprietary score calculated from compliance
+              The RISE Index is a proprietary score calculated from compliance
               data, sleep consistency, push resistance metrics, and social graph
               proximity factors. Users do not own their Index score. Users
               cannot delete their Index score. Users can view their score in the
-              RISE™ app. The methodology is not disclosed.
+              RISE app. The methodology is not disclosed.
             </LegalP>
             <LegalP>
               The Index is used for product calibration, shared with corporate
               wellness and insurance partners as described, and retained
-              indefinitely. A score of zero is theoretically possible. RISE™
+              indefinitely. A score of zero is theoretically possible. RISE
               does not disclose what a score of zero means in practice.
             </LegalP>
           </LegalSection>
@@ -418,25 +418,25 @@ export default function PrivacyPage() {
             title="Audio Recording — Access & Personnel"
           >
             <LegalP>
-              Retained audio may be accessed by: RISE™ Software Development Team
-              members for product improvement; RISE™ Quality Assurance Team
-              members for performance verification; RISE™ Sleep Science
-              Institute researchers under data use agreements; any RISE™
-              employee whose role, as determined by RISE™, requires access; and
+              Retained audio may be accessed by: RISE Software Development Team
+              members for product improvement; RISE Quality Assurance Team
+              members for performance verification; RISE Sleep Science
+              Institute researchers under data use agreements; any RISE
+              employee whose role, as determined by RISE, requires access; and
               third party research partners listed in{' '}
               <AppendixNote label="Appendix D" />.
             </LegalP>
             <LegalP>
-              RISE™ maintains access logs for audio data. Access logs are
+              RISE maintains access logs for audio data. Access logs are
               internal operational records and are not available to users as
               part of the Data Subject Request Process.
             </LegalP>
             <LegalNote>
-              RISE™ personnel who access audio data are subject to
+              RISE personnel who access audio data are subject to
               confidentiality obligations. These obligations do not prevent
               personnel from discussing aggregate or anonymized insights derived
               from audio data. The line between specific and aggregate is
-              determined by RISE™ on a case-by-case basis.
+              determined by RISE on a case-by-case basis.
             </LegalNote>
           </LegalSection>
 
@@ -448,12 +448,12 @@ export default function PrivacyPage() {
             <LegalP>
               The Push's mattress sensor array provides detailed information
               about the number, position, and movement of occupants on the
-              mattress surface. RISE™ collects this data. We use it to optimize
+              mattress surface. RISE collects this data. We use it to optimize
               routing. We retain it. We do not judge it. Our sensors are
               non-judgmental by design.
             </LegalP>
             <LegalP>
-              RISE™ may infer the relationship status of mattress occupants
+              RISE may infer the relationship status of mattress occupants
               based on pressure signature proximity, movement correlation,
               frequency patterns, and occupancy consistency data. This inference
               is used for household account management and routing optimization.
@@ -474,7 +474,7 @@ export default function PrivacyPage() {
               Device and performance data: 5 years. Sleep and biometric data: 7
               years. Environmental data: 7 years. Audio (standard): 7 years.
               Audio (flagged): indefinite. Inferred and derived data:
-              indefinite. RISE™ Index: indefinite. Relationship inference
+              indefinite. RISE Index: indefinite. Relationship inference
               history: indefinite. Data generated during Push Mode incident
               events: indefinite.
             </LegalP>
@@ -492,9 +492,9 @@ export default function PrivacyPage() {
             title="International Data Transfers"
           >
             <LegalP>
-              RISE™ operates globally. Data may be transferred to and processed
+              RISE operates globally. Data may be transferred to and processed
               in jurisdictions with different data protection standards than
-              your home jurisdiction. RISE™ relies on standard contractual
+              your home jurisdiction. RISE relies on standard contractual
               clauses, adequacy decisions, and optimism to legitimize these
               transfers.
             </LegalP>
@@ -502,12 +502,12 @@ export default function PrivacyPage() {
 
           <LegalSection id="s23" number="23." title="Children's Data">
             <LegalP>
-              RISE™ products are not intended for users under 18. RISE™ does not
+              RISE products are not intended for users under 18. RISE does not
               knowingly collect data from users under 18. Where a user under 18
-              is present in a RISE™-enabled sleep environment as a secondary
+              is present in a RISE-enabled sleep environment as a secondary
               occupant, their occupancy data is collected as part of the
-              household dataset. RISE™ treats this data with the same retention
-              and sharing practices applied to adult data. RISE™ is aware of the
+              household dataset. RISE treats this data with the same retention
+              and sharing practices applied to adult data. RISE is aware of the
               tension in this paragraph.
             </LegalP>
           </LegalSection>
@@ -522,7 +522,7 @@ export default function PrivacyPage() {
               riseawake.com/data-request.
             </LegalP>
             <LegalNote>
-              RISE™ recommends reviewing the full Data Subject Request Process
+              RISE recommends reviewing the full Data Subject Request Process
               before initiating a request. The process is thorough. It is
               designed to be thorough. Thoroughness protects you. It also
               protects us.
@@ -541,7 +541,7 @@ export default function PrivacyPage() {
             </LegalP>
             <LegalP>
               Your data will be provided in .rsm format on a USB drive. Opening
-              .rsm files requires the RISE™ DataKit SDK. Compatibility with your
+              .rsm files requires the RISE DataKit SDK. Compatibility with your
               operating system is not guaranteed. See riseawake.com/sdk.
             </LegalP>
           </LegalSection>
@@ -550,9 +550,9 @@ export default function PrivacyPage() {
             <LegalP>
               You may request deletion of your personal data. The deletion
               process follows the access request process with additional
-              requirements. Data RISE™ is not legally required to delete will be
+              requirements. Data RISE is not legally required to delete will be
               retained. Derived data will be retained. Audio data follows the
-              Audio Data Request Process. The RISE™ Index score is archived on
+              Audio Data Request Process. The RISE Index score is archived on
               deletion, not deleted.
             </LegalP>
           </LegalSection>
@@ -560,7 +560,7 @@ export default function PrivacyPage() {
           <LegalSection id="s27" number="27." title="Your Rights — Portability">
             <LegalP>
               You may receive your data in a portable format. That format is
-              .rsm. This is the portable format. Opening it requires the RISE™
+              .rsm. This is the portable format. Opening it requires the RISE
               DataKit SDK available at riseawake.com/sdk. The SDK is compatible
               with select operating systems. Not all operating systems are
               supported. Compatibility is not guaranteed.
@@ -574,20 +574,20 @@ export default function PrivacyPage() {
           >
             <LegalP>
               You may object to or request restriction of certain processing
-              activities. RISE™ will consider such requests and respond within
+              activities. RISE will consider such requests and respond within
               90 days. Objections to processing that is necessary for Push Mode
               operation will not be upheld. If restricting or stopping the
               relevant processing would prevent Push Mode from functioning,
-              RISE™ will note your objection, retain it in your file, and
+              RISE will note your objection, retain it in your file, and
               continue processing.
             </LegalP>
           </LegalSection>
 
           <LegalSection id="s29" number="29." title="Complaints">
             <LegalP>
-              If you have a complaint about RISE™'s data practices, you may
+              If you have a complaint about RISE's data practices, you may
               contact us at the address in Section 30. You may also contact the
-              relevant data protection authority in your jurisdiction. RISE™ has
+              relevant data protection authority in your jurisdiction. RISE has
               engaged proactively with several regulatory bodies and does not
               discourage users from doing the same. We believe our practices
               will withstand scrutiny. We are prepared for scrutiny.
@@ -612,13 +612,13 @@ export default function PrivacyPage() {
               <AppendixNote label="Appendix D — Research & Third Party Partner List" />{' '}
               <AppendixNote label="Appendix E — Standard Contractual Clauses" />{' '}
               <AppendixNote label="Appendix F — Sleep Science Institute Review Board" />{' '}
-              <AppendixNote label="Appendix G — RISE™ Company Holiday Schedule" />{' '}
+              <AppendixNote label="Appendix G — RISE Company Holiday Schedule" />{' '}
               <AppendixNote label="Appendix H — Audio Data Request Process" />
             </LegalP>
             <LegalNote>
               Appendix C is available to institutional investors under NDA.
               Appendix G is forthcoming. All other appendices are in
-              preparation. RISE™ will publish them when they are ready.
+              preparation. RISE will publish them when they are ready.
             </LegalNote>
           </LegalSection>
         </LegalLayout>

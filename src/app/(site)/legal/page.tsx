@@ -5,7 +5,7 @@ const DOCS = [
     title: 'Terms of Service',
     version: 'v4.2',
     sections: '25 sections',
-    desc: 'The foundational agreement governing your use of RISE™ products and services. Everything else refers back to this.',
+    desc: 'The foundational agreement governing your use of RISE products and services. Everything else refers back to this.',
     href: '/legal/terms',
     flag: null,
   },
@@ -13,7 +13,7 @@ const DOCS = [
     title: 'Privacy Policy',
     version: 'v4.2',
     sections: '31 sections',
-    desc: 'A comprehensive account of the data RISE™ collects, retains, shares, and acts upon. Includes audio, occupancy, and inferred behavioral data.',
+    desc: 'A comprehensive account of the data RISE collects, retains, shares, and acts upon. Includes audio, occupancy, and inferred behavioral data.',
     href: '/legal/privacy',
     flag: 'Includes audio recording disclosure',
   },
@@ -45,7 +45,7 @@ const DOCS = [
     title: 'General Disclaimer',
     version: 'v4.2',
     sections: '8 sections',
-    desc: 'Limitations of liability covering physical harm scenarios, the liability cap calculation, and the relationship between the liability cap and the RISE™ Index.',
+    desc: 'Limitations of liability covering physical harm scenarios, the liability cap calculation, and the relationship between the liability cap and the RISE Index.',
     href: '/legal/disclaimer',
     flag: 'Liability cap may be lower than expected',
   },
@@ -64,12 +64,12 @@ export default function LegalHubPage() {
             Legal Documents
           </h1>
           <p className="mb-4 max-w-xl text-body text-foreground-secondary">
-            RISE™ maintains six primary legal documents governing the use of its
+            RISE maintains six primary legal documents governing the use of its
             products and services. All documents are version 4.2, updated March
             1, 2025.
           </p>
           <p className="mb-16 text-xs italic leading-relaxed text-foreground-muted/50">
-            By using any RISE™ product or service, you have accepted all of the
+            By using any RISE product or service, you have accepted all of the
             following. We appreciate that you are reading them now. Most people
             do not.
           </p>
@@ -116,12 +116,12 @@ export default function LegalHubPage() {
           <div className="rounded-xl border border-edge-subtle bg-foreground/2 p-6">
             <p className="text-xs leading-loose text-foreground-muted">
               These documents cross-reference each other extensively. Reading
-              one document in full requires reading all of them. RISE™
+              one document in full requires reading all of them. RISE
               recommends beginning with the Terms of Service, then proceeding to
               the Privacy Policy, then the Push Mode EULA, then the Sleep &
               Environmental Data Policy, then the Autonomous Navigation
               Disclosure, and finally the General Disclaimer. This reading order
-              will take approximately 4–6 hours. RISE™ considers this time well
+              will take approximately 4–6 hours. RISE considers this time well
               spent. The alternative is not reading them, which you have already
               done, and which also constitutes acceptance.
             </p>

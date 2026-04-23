@@ -12,7 +12,7 @@ const SECTIONS = [
       { path: '/about', desc: 'Company history & product timeline' },
       { path: '/products/nudge', desc: 'The Nudge — discontinued' },
       { path: '/products/push', desc: 'The Push — sold out, waitlist' },
-      { path: '/move', desc: 'RISE™ Move — in development' },
+      { path: '/move', desc: 'RISE Move — in development' },
       { path: '/activate', desc: 'Device activation' },
       { path: '/help', desc: 'Support & FAQ' },
       { path: '/press', desc: 'Press releases' },
@@ -95,7 +95,7 @@ const SECTIONS = [
       },
       {
         path: '/internal/docs/rise-index-methodology',
-        desc: 'DOC-008 — RISE™ Index Methodology [RESTRICTED]',
+        desc: 'DOC-008 — RISE Index Methodology [RESTRICTED]',
       },
       {
         path: '/internal/docs/audio-data-access-log-summary',
@@ -138,7 +138,7 @@ export default function SitemapPage() {
             Last generated automatically: March 1, 2025
           </p>
           <p className="mb-16 text-xs italic text-foreground-muted/60">
-            RISE™ reviews sitemap contents quarterly. The next review is
+            RISE reviews sitemap contents quarterly. The next review is
             scheduled for June 1, 2025. If you believe a URL has been listed in
             error, please contact webmaster@riseawake.com.
           </p>
@@ -188,7 +188,7 @@ export default function SitemapPage() {
           <div className="mt-16 border-t border-edge-subtle pt-8">
             <p className="text-[10px] leading-[1.8] text-foreground-muted/60">
               This sitemap was generated automatically on March 1, 2025 by the
-              RISE™ site management system. RISE™ reviews sitemap contents
+              RISE site management system. RISE reviews sitemap contents
               quarterly. Quarterly reviews are scheduled and conducted by the IT
               team. The IT team has been notified that the Internal section of
               this sitemap contains routes that should not be publicly indexed.

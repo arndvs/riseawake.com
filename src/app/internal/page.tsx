@@ -110,7 +110,7 @@ export default function InternalIndexPage() {
   return (
     <PayloadShell
       breadcrumb={[
-        { label: 'RISE™ Internal', href: '/internal' },
+        { label: 'RISE Internal', href: '/internal' },
         { label: 'Documents' },
       ]}
       title="Documents"

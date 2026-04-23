@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Legal Documents',
   description:
-    'RISE™ legal documents. Terms of Service, Privacy Policy, Push Mode EULA, and more.',
+    'RISE legal documents. Terms of Service, Privacy Policy, Push Mode EULA, and more.',
 }
 
 export default function LegalRootLayout({

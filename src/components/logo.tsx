@@ -59,7 +59,7 @@ export function Logo({ className }: { className?: string }) {
         fontWeight="500"
         letterSpacing="0.22em"
       >
-        RISE™
+        RISE
       </text>
     </svg>
   )

@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'General Disclaimer',
   description:
-    'RISE™ General Disclaimer. Version 4.2. Limitations of liability covering physical harm scenarios, the liability cap calculation, and the RISE™ Index.',
+    'RISE General Disclaimer. Version 4.2. Limitations of liability covering physical harm scenarios, the liability cap calculation, and the RISE Index.',
 }
 
 export default function DisclaimerLayout({

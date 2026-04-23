@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description:
-    'RISE™ Terms of Service. Version 4.2. The foundational agreement governing your use of RISE™ products and services.',
+    'RISE Terms of Service. Version 4.2. The foundational agreement governing your use of RISE products and services.',
 }
 
 export default function TermsLayout({

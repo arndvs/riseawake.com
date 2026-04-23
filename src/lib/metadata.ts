@@ -26,7 +26,7 @@ export function createMetadata({ title, description, path, openGraph, robots, no
             title,
             description,
             url,
-            siteName: 'RISE™',
+            siteName: 'RISE',
             locale: 'en_US',
             type: 'website',
             ...openGraph,

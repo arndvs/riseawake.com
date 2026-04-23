@@ -20,7 +20,7 @@ const TIERS = [
       '.rsm file reading (read-only)',
       'Sleep metrics viewer',
       'Push Mode session timeline',
-      'RISE™ Index score display',
+      'RISE Index score display',
       'Basic data category browser',
     ],
     limitations: [
@@ -80,11 +80,11 @@ const TIERS = [
 const FEATURES = [
   {
     title: '.rsm File Reading',
-    body: 'Open and navigate your RISE™ Standard Metric data files. The only tool capable of doing this. See your sleep metrics, Push Mode session logs, navigation route data, and all other data categories in your RSDP. Audio .rsma files require DataKit Pro.',
+    body: 'Open and navigate your RISE Standard Metric data files. The only tool capable of doing this. See your sleep metrics, Push Mode session logs, navigation route data, and all other data categories in your RSDP. Audio .rsma files require DataKit Pro.',
   },
   {
-    title: 'RISE™ Index Viewer',
-    body: 'View your RISE™ Index score and score history. Trend visualization included. The methodology behind your score is not displayed. The score components are not displayed. The score is displayed. This is what is available.',
+    title: 'RISE Index Viewer',
+    body: 'View your RISE Index score and score history. Trend visualization included. The methodology behind your score is not displayed. The score components are not displayed. The score is displayed. This is what is available.',
   },
   {
     title: 'Session Timeline',
@@ -96,11 +96,11 @@ const FEATURES = [
   },
   {
     title: 'Secure Local Processing',
-    body: 'All data processing occurs locally on your device. DataKit SDK does not transmit your personal data to RISE™ servers during normal operation. License verification, crash reporting, and telemetry are exceptions to this. See EULA Section 31 and Section 44.',
+    body: 'All data processing occurs locally on your device. DataKit SDK does not transmit your personal data to RISE servers during normal operation. License verification, crash reporting, and telemetry are exceptions to this. See EULA Section 31 and Section 44.',
   },
   {
     title: 'Export to .rsm-x',
-    body: 'Export your data to .rsm-x — the RISE™ extended format. Compatible with DataKit SDK 2.0 and above. Export to standard formats such as CSV or JSON is not currently supported. This feature is under consideration for a future release.',
+    body: 'Export your data to .rsm-x — the RISE extended format. Compatible with DataKit SDK 2.0 and above. Export to standard formats such as CSV or JSON is not currently supported. This feature is under consideration for a future release.',
   },
 ]
 
@@ -129,17 +129,17 @@ export default function SDKPage() {
           <div className="mb-8 inline-flex items-center gap-2 rounded-xl border border-accent/15 bg-accent/8 px-3 py-1.5">
             <div className="h-1.5 w-1.5 rounded-full bg-accent/80" />
             <span className="text-[10px] tracking-[0.18em] text-accent/80 uppercase">
-              RISE™ Developer Platform
+              RISE Developer Platform
             </span>
           </div>
           <h1 className="mb-6 font-display text-hero leading-none tracking-tight text-foreground-strong">
             DataKit SDK
           </h1>
           <p className="mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-foreground-secondary">
-            The professional toolkit for accessing RISE™ Standard Metric data.
+            The professional toolkit for accessing RISE Standard Metric data.
           </p>
           <p className="mx-auto mb-3 max-w-xl text-body text-foreground-secondary">
-            The RISE™ Standard Metric (.rsm) format is a proprietary data
+            The RISE Standard Metric (.rsm) format is a proprietary data
             architecture designed for precision, security, and longitudinal
             integrity.
           </p>
@@ -152,9 +152,9 @@ export default function SDKPage() {
               System Compatibility
             </p>
             <p className="text-xs leading-relaxed text-foreground-muted">
-              RISE™ DataKit SDK is compatible with select operating systems and
+              RISE DataKit SDK is compatible with select operating systems and
               hardware configurations. Due to the proprietary nature of the .rsm
-              format and the security requirements of the RISE™ data
+              format and the security requirements of the RISE data
               infrastructure, compatibility cannot be guaranteed across all
               environments. Not all operating systems are supported. Not all
               versions of supported operating systems are supported.
@@ -185,7 +185,7 @@ export default function SDKPage() {
               Choose your tier.
             </h2>
             <p className="mt-4 text-body text-foreground-secondary">
-              All tiers require a RISE™ Standard Data Package (RSDP) to be
+              All tiers require a RISE Standard Data Package (RSDP) to be
               useful.{' '}
               <Link href="/data-request" className="text-accent/60 underline">
                 Request your data first.
@@ -318,7 +318,7 @@ export default function SDKPage() {
           </h2>
           <div className="rounded-xl border border-edge-subtle bg-surface-inset p-6 font-mono text-xs leading-8 text-foreground-secondary">
             <p className="text-accent/70">
-              RISE™ Standard Metric Format (.rsm)
+              RISE Standard Metric Format (.rsm)
             </p>
             <p className="text-foreground-muted/50">
               Specification v2.3 — Internal Reference
@@ -341,7 +341,7 @@ export default function SDKPage() {
             </p>
             <br />
             <p>Endianness: varies by firmware version</p>
-            <p>Character encoding: RISE™ Extended ASCII (REASCII)</p>
+            <p>Character encoding: RISE Extended ASCII (REASCII)</p>
             <p>Compression ratio: approximately 4:1 (varies)</p>
             <p>Encryption: AES-256 (key management: proprietary)</p>
             <br />
@@ -379,7 +379,7 @@ export default function SDKPage() {
                   Before You Purchase
                 </DialogTitle>
                 <p className="mb-6 text-body text-foreground-secondary">
-                  DataKit SDK is designed exclusively for use with RISE™
+                  DataKit SDK is designed exclusively for use with RISE
                   Standard Data Packages (.rsm format). Have you received your
                   RSDP?
                 </p>

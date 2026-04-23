@@ -4,7 +4,7 @@ import { createMetadata } from '@/lib/metadata'
 export const metadata = createMetadata({
   title: 'Security',
   description:
-    'How RISE™ protects your data, your privacy, and your morning routine. Certifications, compliance, and infrastructure.',
+    'How RISE protects your data, your privacy, and your morning routine. Certifications, compliance, and infrastructure.',
   path: '/security',
 })
 
@@ -35,15 +35,15 @@ const CERTIFICATIONS = [
     name: 'HIPAA',
     status: 'Applicable',
     detail:
-      'RISE™ has implemented applicable security policies and procedures to ensure compliance with all applicable rules and regulations.',
+      'RISE has implemented applicable security policies and procedures to ensure compliance with all applicable rules and regulations.',
     footnote:
-      'For compliance purposes, RISE™ considers itself a Business Associate. BAA template: Awaiting Legal Review.',
+      'For compliance purposes, RISE considers itself a Business Associate. BAA template: Awaiting Legal Review.',
   },
   {
     name: 'GDPR',
     status: 'Acknowledged',
     detail:
-      'RISE™ acknowledges the General Data Protection Regulation and has taken steps to understand its requirements.',
+      'RISE acknowledges the General Data Protection Regulation and has taken steps to understand its requirements.',
     footnote:
       'Data Protection Officer appointment: Pending. DPA template drafted Q2 2023.',
   },
@@ -51,7 +51,7 @@ const CERTIFICATIONS = [
     name: 'CCPA / CPRA',
     status: 'Noted',
     detail:
-      'RISE™ is aware of the California Consumer Privacy Act and its amendments. A compliance review has been initiated.',
+      'RISE is aware of the California Consumer Privacy Act and its amendments. A compliance review has been initiated.',
     footnote: 'Review initiated: March 2024. Current status: Initiated.',
   },
 ]
@@ -62,21 +62,21 @@ const FEATURES = [
   {
     title: 'Enterprise-Grade Encryption',
     description:
-      'All data transmitted between your RISE™ base and our cloud infrastructure is protected using 256-bit SSL/TLS encryption — the same standard used by leading financial institutions. Data at rest is encrypted using AES-256 with keys managed through our internal key management service.',
+      'All data transmitted between your RISE base and our cloud infrastructure is protected using 256-bit SSL/TLS encryption — the same standard used by leading financial institutions. Data at rest is encrypted using AES-256 with keys managed through our internal key management service.',
     footnote:
       'SSL certificate last renewed: August 11, 2024. Key rotation last completed: August 12, 2024.',
   },
   {
     title: 'Cloud Infrastructure',
     description:
-      'RISE™ operates entirely on Amazon Web Services (AWS), leveraging industry-leading infrastructure security, redundancy, and compliance certifications. Our team follows best practices and internal guidelines to ensure safety and durability of all customer data.',
+      'RISE operates entirely on Amazon Web Services (AWS), leveraging industry-leading infrastructure security, redundancy, and compliance certifications. Our team follows best practices and internal guidelines to ensure safety and durability of all customer data.',
     footnote:
       'Infrastructure configuration last reviewed: August 2024. Reviewer: A. Reyes.',
   },
   {
     title: 'Continuous Monitoring',
     description:
-      'Our IT Security team monitors access events across all RISE™ systems around the clock. Every anomalous access attempt triggers an automated notification. Our team has been notified of 100% of flagged events and maintains full awareness of all ongoing access patterns.',
+      'Our IT Security team monitors access events across all RISE systems around the clock. Every anomalous access attempt triggers an automated notification. Our team has been notified of 100% of flagged events and maintains full awareness of all ongoing access patterns.',
     footnote: 'The team is aware. The team has been aware.',
   },
   {
@@ -89,7 +89,7 @@ const FEATURES = [
   {
     title: 'Web Application Firewall',
     description:
-      'RISE™ leverages the latest in WAF technologies to detect and mitigate denial-of-service attacks and other malicious traffic patterns before they impact the platform. All API calls are monitored and analyzed in real time.',
+      'RISE leverages the latest in WAF technologies to detect and mitigate denial-of-service attacks and other malicious traffic patterns before they impact the platform. All API calls are monitored and analyzed in real time.',
     footnote:
       'WAF rules last updated: July 2024. Update cadence: As needed.',
   },
@@ -110,7 +110,7 @@ const FEATURES = [
   {
     title: 'Incident Response',
     description:
-      'RISE™ maintains a documented incident response plan with a target response time SLA of less than 4 hours. All incidents are logged, categorized, and tracked through resolution. Our Q4 2024 resolution rate was 91%.',
+      'RISE maintains a documented incident response plan with a target response time SLA of less than 4 hours. All incidents are logged, categorized, and tracked through resolution. Our Q4 2024 resolution rate was 91%.',
     footnote:
       'Remaining 9% of incidents have been monitored since Q3 2022. Monitoring continues.',
   },
@@ -217,11 +217,11 @@ export default function SecurityPage() {
             Security
           </p>
           <h1 className="mb-6 font-display text-display tracking-tight text-foreground-strong">
-            Security at RISE™
+            Security at RISE
           </h1>
           <p className="mb-6 max-w-2xl text-base leading-loose text-foreground-secondary">
             Trust is the foundation of everything we build. When you invite
-            RISE™ into your bedroom, your morning routine, and your commute,
+            RISE into your bedroom, your morning routine, and your commute,
             you&rsquo;re trusting us with more than data — you&rsquo;re trusting
             us with the first and last moments of your day. We take that
             seriously.
@@ -261,7 +261,7 @@ export default function SecurityPage() {
             Industry-Recognized Standards
           </h2>
           <p className="mb-14 max-w-xl text-body text-foreground-secondary">
-            RISE™ is committed to achieving and maintaining compliance with the
+            RISE is committed to achieving and maintaining compliance with the
             security frameworks that matter most to our customers.
           </p>
 
@@ -328,7 +328,7 @@ export default function SecurityPage() {
           </h2>
           <p className="mb-14 max-w-xl text-body text-foreground-secondary">
             From encryption in transit to access controls at rest, every layer
-            of the RISE™ platform is designed with security as a first
+            of the RISE platform is designed with security as a first
             principle.
           </p>
 
@@ -366,7 +366,7 @@ export default function SecurityPage() {
             Certification Progress
           </h2>
           <p className="mb-14 max-w-xl text-body text-foreground-secondary">
-            RISE™ is actively pursuing industry certifications across multiple
+            RISE is actively pursuing industry certifications across multiple
             security and compliance frameworks. All programs are on track.
           </p>
 
@@ -405,7 +405,7 @@ export default function SecurityPage() {
             Progress percentages are approximate and reflect internal
             milestones. Milestone definitions were established at program
             initiation and have not been revised. Timeline estimates are not
-            provided. RISE™ is committed to completing all certifications.
+            provided. RISE is committed to completing all certifications.
           </p>
         </div>
       </section>
@@ -426,7 +426,7 @@ export default function SecurityPage() {
                 Data Retention
               </h3>
               <p className="mb-4 text-xs leading-relaxed text-foreground-muted">
-                RISE™ retains personal data only as long as necessary for
+                RISE retains personal data only as long as necessary for
                 operational purposes and in accordance with applicable
                 regulations. Retention periods are defined per data category
                 and reviewed periodically.
@@ -443,7 +443,7 @@ export default function SecurityPage() {
               </h3>
               <p className="mb-4 text-xs leading-relaxed text-foreground-muted">
                 We collect only the data required to deliver, improve, and
-                secure the RISE™ experience. This includes pressure sensor
+                secure the RISE experience. This includes pressure sensor
                 telemetry, environmental audio classification, occupancy
                 patterns, navigation logs, and relationship inference data.
               </p>
@@ -458,7 +458,7 @@ export default function SecurityPage() {
                 Third-Party Audits
               </h3>
               <p className="mb-4 text-xs leading-relaxed text-foreground-muted">
-                RISE™ engages independent auditors on an annual basis to
+                RISE engages independent auditors on an annual basis to
                 evaluate the effectiveness of our security controls,
                 infrastructure resilience, and data handling practices.
               </p>
@@ -496,7 +496,7 @@ export default function SecurityPage() {
             Dedicated Security Operations
           </h2>
           <p className="mb-14 max-w-2xl text-body text-foreground-secondary">
-            Our IT Security team is the backbone of RISE™&rsquo;s security
+            Our IT Security team is the backbone of RISE&rsquo;s security
             posture. Every flagged event is acknowledged. Every anomalous
             access pattern is noted. The team maintains continuous awareness
             of all security-relevant activity across the platform.
@@ -550,7 +550,7 @@ export default function SecurityPage() {
                 Bug Bounty Program
               </h2>
               <p className="mb-6 text-body text-foreground-secondary">
-                RISE™ welcomes responsible security disclosure from researchers
+                RISE welcomes responsible security disclosure from researchers
                 and the broader security community. We value the contributions
                 of independent researchers in helping us maintain the integrity
                 of our platform.
@@ -605,13 +605,13 @@ export default function SecurityPage() {
         <div className="mx-auto max-w-5xl">
           <div className="rounded-xl border border-edge-subtle bg-foreground/2 p-6">
             <p className="text-xs leading-loose text-foreground-muted">
-              RISE™ is committed to the security and privacy of our
+              RISE is committed to the security and privacy of our
               customers&rsquo; data. This page represents our current security
               posture and ongoing compliance efforts as of the date of last
               update. Certification statuses, compliance progress, and
               infrastructure details are provided for informational purposes
               and may not reflect the most current state of any given program.
-              RISE™ makes no warranties, express or implied, regarding the
+              RISE makes no warranties, express or implied, regarding the
               completeness or timeliness of any certification process. For the
               most current information, please visit our Trust Center.
             </p>

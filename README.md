@@ -1,6 +1,6 @@
 # riseawake.com
 
-Website for RISE Technologies, Inc. — makers of the RISE™ Push. 
+Website for RISE Technologies, Inc. — makers of the RISE Push. 
 
 *Push Mode cannot be manually interrupted. This is a feature, not a limitation.*
 
@@ -44,13 +44,13 @@ Manage content via Sanity Studio at
 
 ## Products
 
-- [RISE™ Push](https://riseawake.com/push) — Smart Adjustable Base
-- [RISE™ Move](https://riseawake.com/move) — Coming soon
+- [RISE Push](https://riseawake.com/push) — Smart Adjustable Base
+- [RISE Move](https://riseawake.com/move) — Coming soon
 
 
 
 Why riseawake.com?
-It's a complete thought. "Rise awake" — the act of waking up and rising, combined. It's what the product does to you, stated as a brand promise rather than a product description.  The tone is perfectly RISE™. Earnest. Slightly commanding. Not a question — not "wake up better" or "try waking up." A statement. Rise. Awake. 
+It's a complete thought. "Rise awake" — the act of waking up and rising, combined. It's what the product does to you, stated as a brand promise rather than a product description.  The tone is perfectly RISE. Earnest. Slightly commanding. Not a question — not "wake up better" or "try waking up." A statement. Rise. Awake. 
 
 Other options have been either product-literal (risebed.tech) or category-descriptive (risemorning.io) (risepush.io). riseawake.com is aspirational — which is exactly how RISE Technologies talks about itself.
 

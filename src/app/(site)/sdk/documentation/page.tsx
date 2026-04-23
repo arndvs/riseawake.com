@@ -29,15 +29,15 @@ Appendix B is available to Enterprise customers.`,
   },
   {
     title: '3. License Activation',
-    content: `Launch DataKit SDK. You will be prompted to activate your license. Enter your license key exactly as provided — the key is case-sensitive and contains no ambiguous characters, though several characters may appear similar depending on your display font. If activation fails, ensure your internet connection is active and that your firewall is not blocking RISE™ license servers.
+    content: `Launch DataKit SDK. You will be prompted to activate your license. Enter your license key exactly as provided — the key is case-sensitive and contains no ambiguous characters, though several characters may appear similar depending on your display font. If activation fails, ensure your internet connection is active and that your firewall is not blocking RISE license servers.
 
-A list of RISE™ license server IP addresses for firewall configuration is available upon written request to the RISE™ Developer Support team. Response time: 15 business days.
+A list of RISE license server IP addresses for firewall configuration is available upon written request to the RISE Developer Support team. Response time: 15 business days.
 
 The SDK phones home on every launch for license verification. This is disclosed in the EULA, Section 31. It cannot be disabled.`,
   },
   {
     title: '4. Opening Your First .rsm File',
-    content: `Once activated, select File > Open and navigate to your .rsm file. .rsm files are typically located on the USB drive delivered with your RISE™ Standard Data Package. If the USB drive is not recognized by your system, ensure your operating system is compatible with the DataKit SDK.
+    content: `Once activated, select File > Open and navigate to your .rsm file. .rsm files are typically located on the USB drive delivered with your RISE Standard Data Package. If the USB drive is not recognized by your system, ensure your operating system is compatible with the DataKit SDK.
 
 The Compatibility Matrix is available to registered DataKit SDK customers.
 
@@ -56,13 +56,13 @@ Allow 4–8 minutes for initial file loading on non-recommended hardware configu
 — Environmental Data
 — Navigation Route Data
 — Push Mode Session Logs
-— RISE™ Index History
+— RISE Index History
 — Occupancy Data (currently unavailable — see Known Issues)
 — Relationship Inference Data (access varies by package tier)
 — Audio Classification Results (Pro and Enterprise only)
 — Restricted Categories (visible as "Restricted" — DataKit Enterprise required)
 
-Categories marked Restricted contain data RISE™ collects but is not currently providing access to. The categories exist. Their contents are not available at this time.`,
+Categories marked Restricted contain data RISE collects but is not currently providing access to. The categories exist. Their contents are not available at this time.`,
   },
   {
     title: '7. API Reference',
@@ -78,7 +78,7 @@ Enterprise customers may submit API reference questions to the Developer Support
 
 — Application may take 4–8 minutes to load on some systems. This is expected behavior.
 
-— The RISE™ Index Viewer may display a score of 0 on first launch. This resolves after the application has been open for 24 hours. Do not close the application during this period.
+— The RISE Index Viewer may display a score of 0 on first launch. This resolves after the application has been open for 24 hours. Do not close the application during this period.
 
 — Audio files (.rsma) opened in DataKit Pro may play at incorrect speeds on certain hardware. The playback speed control is located in the View menu (DataKit Pro v1.4.2 and above). Version 1.4.2 release date: not yet available.
 
@@ -94,7 +94,7 @@ Support email: developer-support@riseawake.com
 Response time: 15 business days
 Enterprise: 15 business days (prioritized)
 
-When contacting support, please include: your license key, DataKit SDK version number, your operating system name and version (if unsupported, this information updates the Compatibility Matrix), a detailed description of the issue, and your RISE™ account number.
+When contacting support, please include: your license key, DataKit SDK version number, your operating system name and version (if unsupported, this information updates the Compatibility Matrix), a detailed description of the issue, and your RISE account number.
 
 Support tickets submitted without all required information will be closed and the customer asked to resubmit. This resets the 15 business day response clock.`,
   },
@@ -188,7 +188,7 @@ export default function SDKDocsPage() {
 
           <div className="mt-12 rounded-xl border border-edge-subtle bg-foreground/2 p-6">
             <p className="text-xs leading-8 text-foreground-muted">
-              This documentation is provided as-is. RISE™ makes no warranty that
+              This documentation is provided as-is. RISE makes no warranty that
               following these instructions will result in successful SDK
               operation. Compatibility with your specific operating system
               configuration cannot be confirmed without the Compatibility
