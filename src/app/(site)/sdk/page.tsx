@@ -132,7 +132,7 @@ export default function SDKPage() {
               RISE™ Developer Platform
             </span>
           </div>
-          <h1 className="mb-6 font-display text-hero leading-none tracking-tight text-foreground">
+          <h1 className="mb-6 font-display text-hero leading-none tracking-tight text-foreground-strong">
             DataKit SDK
           </h1>
           <p className="mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-foreground-secondary">
@@ -210,14 +210,14 @@ export default function SDKPage() {
                     </span>
                   </div>
                 )}
-                <h3 className="mb-1 font-display text-2xl text-foreground">
+                <h3 className="mb-1 font-display text-2xl text-foreground-strong">
                   {tier.name}
                 </h3>
                 <p className="mb-6 text-xs text-foreground-muted italic">
                   {tier.tagline}
                 </p>
                 <div className="mb-6">
-                  <span className="font-display text-[2.5rem] tracking-tight text-foreground">
+                  <span className="font-display text-[2.5rem] tracking-tight text-foreground-strong">
                     {tier.price}
                   </span>
                   <span className="ml-2 text-xs text-foreground-muted">
@@ -286,7 +286,7 @@ export default function SDKPage() {
             <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Features
             </p>
-            <h2 className="font-display text-4xl tracking-tight text-foreground">
+            <h2 className="font-display text-4xl tracking-tight text-foreground-strong">
               What DataKit does.
             </h2>
           </div>
@@ -313,7 +313,7 @@ export default function SDKPage() {
           <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
             Technical Reference
           </p>
-          <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground">
+          <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-strong">
             The .rsm Format
           </h2>
           <div className="rounded-xl border border-edge-subtle bg-surface-inset p-6 font-mono text-xs leading-8 text-foreground-secondary">
@@ -375,7 +375,7 @@ export default function SDKPage() {
           <DialogPanel className="w-full max-w-md rounded-xl border border-edge bg-surface p-8">
             {hasRSDP === null ? (
               <>
-                <DialogTitle className="mb-4 font-display text-2xl text-foreground">
+                <DialogTitle className="mb-4 font-display text-2xl text-foreground-strong">
                   Before You Purchase
                 </DialogTitle>
                 <p className="mb-6 text-body text-foreground-secondary">
@@ -406,7 +406,7 @@ export default function SDKPage() {
               </>
             ) : hasRSDP === false ? (
               <>
-                <DialogTitle className="mb-4 font-display text-xl text-foreground">
+                <DialogTitle className="mb-4 font-display text-xl text-foreground-strong">
                   Complete Your Data Request First
                 </DialogTitle>
                 <p className="mb-4 text-xs leading-relaxed text-foreground-secondary">
@@ -459,7 +459,7 @@ export default function SDKPage() {
               </>
             ) : (
               <>
-                <DialogTitle className="mb-4 font-display text-xl text-foreground">
+                <DialogTitle className="mb-4 font-display text-xl text-foreground-strong">
                   SDK Developer Waitlist
                 </DialogTitle>
                 <p className="mb-6 text-xs leading-relaxed text-foreground-secondary">

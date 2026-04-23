@@ -92,7 +92,7 @@ export default function InvestorPressPage() {
             <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Press & Coverage
             </p>
-            <h1 className="mb-4 font-display text-section tracking-tight text-foreground">
+            <h1 className="mb-4 font-display text-section tracking-tight text-foreground-strong">
               What they&rsquo;re saying.
             </h1>
             <p className="max-w-xl text-body text-foreground-muted">

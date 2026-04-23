@@ -70,7 +70,7 @@ export default function ShareholderLetterPage() {
             <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
               Shareholder Letter
             </p>
-            <h1 className="mb-2 font-display text-section tracking-tight text-foreground">
+            <h1 className="mb-2 font-display text-section tracking-tight text-foreground-strong">
               FY2024 Annual Letter
             </h1>
             <p className="text-xs text-foreground-muted/60">
@@ -100,7 +100,7 @@ export default function ShareholderLetterPage() {
             <p className="mb-1 text-sm italic text-foreground-secondary">
               With conviction,
             </p>
-            <p className="mb-1 font-display text-2xl text-foreground">
+            <p className="mb-1 font-display text-2xl text-foreground-strong">
               Dr. Eleanor Voss
             </p>
             <p className="mb-1 text-xs text-foreground-muted">

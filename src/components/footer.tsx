@@ -13,7 +13,7 @@ function FooterLink(props: React.ComponentPropsWithoutRef<typeof Link>) {
   return (
     <Link
       {...props}
-      className="text-xs text-foreground-secondary transition-colors duration-200 hover:text-foreground"
+      className="text-xs text-foreground-secondary transition-colors duration-200 hover:text-foreground-strong"
     />
   )
 }

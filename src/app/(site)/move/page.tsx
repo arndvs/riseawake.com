@@ -63,7 +63,7 @@ export default function MovePage() {
             <p className="mb-3 text-xs tracking-[0.22em] text-foreground-muted/50 uppercase">
               RISE™
             </p>
-            <h1 className="font-display text-[clamp(5rem,18vw,14rem)] leading-none tracking-tight text-foreground">
+            <h1 className="font-display text-[clamp(5rem,18vw,14rem)] leading-none tracking-tight text-foreground-strong">
               Move.
             </h1>
           </div>

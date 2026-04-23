@@ -27,7 +27,7 @@ function DesktopNav() {
         <Link
           key={href}
           href={href}
-          className="text-xs font-medium uppercase tracking-widest text-foreground-secondary transition-colors duration-200 hover:text-foreground"
+          className="text-xs font-medium uppercase tracking-widest text-foreground-secondary transition-colors duration-200 hover:text-foreground-strong"
         >
           {label}
         </Link>
@@ -62,7 +62,7 @@ function MobileNav() {
           <Link
             key={href}
             href={href}
-            className="text-sm font-medium uppercase tracking-widest text-foreground-secondary transition-colors hover:text-foreground"
+            className="text-sm font-medium uppercase tracking-widest text-foreground-secondary transition-colors hover:text-foreground-strong"
           >
             {label}
           </Link>

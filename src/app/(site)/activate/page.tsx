@@ -411,7 +411,7 @@ export default function ActivatePage() {
           <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Device Activation
           </p>
-          <h1 className="mb-6 font-display text-display leading-tight tracking-tight text-foreground">
+          <h1 className="mb-6 font-display text-display leading-tight tracking-tight text-foreground-strong">
             Activate Your Push.
           </h1>
           <p className="mb-4 max-w-xl text-body text-foreground-muted">
@@ -435,7 +435,7 @@ export default function ActivatePage() {
                     <path d="M2 10L8.5 16.5L22 3" stroke="var(--color-accent)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <p className="mb-3 font-display text-3xl tracking-tight text-foreground">
+                <p className="mb-3 font-display text-3xl tracking-tight text-foreground-strong">
                   Push Mode activated.
                 </p>
                 <p className="mb-2 text-xs leading-relaxed text-foreground-muted">
@@ -467,7 +467,7 @@ export default function ActivatePage() {
                 {configStep === 0 && (
                   <div>
                     <p className="mb-1 text-xs tracking-[0.16em] text-foreground-muted uppercase">Stage 01</p>
-                    <h3 className="mb-6 font-display text-2xl tracking-tight text-foreground">Your Profile</h3>
+                    <h3 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">Your Profile</h3>
 
                     <div className="mb-8">
                       <p className="mb-4 text-xs font-medium text-foreground-secondary">Sleep Position</p>
@@ -550,7 +550,7 @@ export default function ActivatePage() {
                 {configStep === 1 && (
                   <div>
                     <p className="mb-1 text-xs tracking-[0.16em] text-foreground-muted uppercase">Stage 02</p>
-                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground">Push Mode Calibration</h3>
+                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground-strong">Push Mode Calibration</h3>
                     <p className="mb-10 text-xs leading-relaxed text-foreground-muted">
                       Adjust the intensity to match your morning requirements. The system will finalize calibration based on your profile data.
                     </p>
@@ -581,7 +581,7 @@ export default function ActivatePage() {
                 {configStep === 2 && (
                   <div>
                     <p className="mb-1 text-xs tracking-[0.16em] text-foreground-muted uppercase">Stage 03</p>
-                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground">Morning Sequence</h3>
+                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground-strong">Morning Sequence</h3>
                     <p className="mb-8 text-xs leading-relaxed text-foreground-muted">
                       Arrange your morning stops in preferred order. The bed will navigate these sequentially.
                     </p>
@@ -616,7 +616,7 @@ export default function ActivatePage() {
                 {configStep === 3 && (
                   <div>
                     <p className="mb-1 text-xs tracking-[0.16em] text-foreground-muted uppercase">Stage 04</p>
-                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground">Review & Activate</h3>
+                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground-strong">Review & Activate</h3>
                     <p className="mb-8 text-xs leading-relaxed text-foreground-muted">
                       Acknowledge each statement below. All eight are required. Activation cannot be undone.
                     </p>
@@ -1036,7 +1036,7 @@ export default function ActivatePage() {
           <p className="mb-8 text-eyebrow text-foreground-muted uppercase">
             Ready?
           </p>
-          <h2 className="mb-6 font-display text-section leading-tight tracking-tight text-foreground">
+          <h2 className="mb-6 font-display text-section leading-tight tracking-tight text-foreground-strong">
             The bed is ready
             <br />
             <span className="text-foreground-muted">when you are.</span>

@@ -10,7 +10,7 @@ export default function Error({ reset }: { reset: () => void }) {
             <p className="text-xs font-medium uppercase tracking-[0.16em] text-foreground-muted">
                 Error
             </p>
-            <h1 className="mt-3 text-display font-display tracking-tight text-foreground">
+            <h1 className="mt-3 text-display font-display tracking-tight text-foreground-strong">
                 Something went wrong
             </h1>
             <p className="mt-4 max-w-md text-base text-foreground-secondary">

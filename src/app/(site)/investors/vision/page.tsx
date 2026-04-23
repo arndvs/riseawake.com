@@ -47,7 +47,7 @@ export default function VisionPage() {
             <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
               RISE™ Technologies, Inc.
             </p>
-            <h1 className="mb-4 font-display text-display leading-[1.1] tracking-tight text-foreground">
+            <h1 className="mb-4 font-display text-display leading-[1.1] tracking-tight text-foreground-strong">
               The Morning After:
               <br />A 20-Year Vision for
               <br />
@@ -78,7 +78,7 @@ export default function VisionPage() {
 
           <div className="mb-20">
             <div className="mb-8 flex items-baseline gap-4">
-              <span className="font-display text-[5rem] leading-none tracking-tighter text-foreground">
+              <span className="font-display text-[5rem] leading-none tracking-tighter text-foreground-strong">
                 5
               </span>
               <div>
@@ -88,7 +88,7 @@ export default function VisionPage() {
                 <p className="text-sm text-accent">2026 — 2030</p>
               </div>
             </div>
-            <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground">
+            <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-strong">
               Push Mode in Every Bedroom.
             </h2>
             <div className="space-y-4 text-body text-foreground-muted">

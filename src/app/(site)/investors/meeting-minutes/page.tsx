@@ -121,7 +121,7 @@ export default function MeetingMinutesPage() {
             <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Official Record
             </p>
-            <h1 className="mb-2 font-display text-section tracking-tight text-foreground">
+            <h1 className="mb-2 font-display text-section tracking-tight text-foreground-strong">
               Annual General Meeting
             </h1>
             <p className="text-xs text-foreground-muted/60">

@@ -144,7 +144,7 @@ function ProductCard({
           <BedIcon status={status} />
         </div>
 
-        <h3 className="mb-3 font-display text-4xl tracking-tight text-foreground">
+        <h3 className="mb-3 font-display text-4xl tracking-tight text-foreground-strong">
           {name}
         </h3>
         <p className="mb-6 text-sm italic text-accent/75">
@@ -156,7 +156,7 @@ function ProductCard({
 
         <div className="flex items-center justify-between border-t border-edge pt-6">
           <span className="text-xs text-foreground-muted">{detail}</span>
-          <span className="text-xs font-medium uppercase tracking-widest text-foreground-secondary transition-colors duration-300 group-hover:text-foreground">
+          <span className="text-xs font-medium uppercase tracking-widest text-foreground-secondary transition-colors duration-300 group-hover:text-foreground-strong">
             View →
           </span>
         </div>
@@ -182,7 +182,7 @@ export default function Home() {
                 <div className="h-px w-12 bg-accent/50" />
               </div>
 
-              <h1 className="mb-4 font-display text-hero leading-none text-foreground">
+              <h1 className="mb-4 font-display text-hero leading-none text-foreground-strong">
                 Rise.{' '}
                 <span className="text-transparent [-webkit-text-stroke:1px_var(--color-foreground-muted)]">
                   Inevitably.
@@ -270,7 +270,7 @@ export default function Home() {
 
         <section className="border-t border-edge-subtle px-6 py-32">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="font-display text-display leading-relaxed tracking-tight text-foreground">
+            <p className="font-display text-display leading-relaxed tracking-tight text-foreground-strong">
               Most mornings, you need more than an alarm.
               <br />
               <span className="text-foreground-muted">
@@ -442,7 +442,7 @@ export default function Home() {
               { stat: '∞', label: 'Snooze prevention' },
             ].map((s, i) => (
               <div key={i} className="text-center">
-                <p className="mb-2 font-display text-display text-foreground">
+                <p className="mb-2 font-display text-display text-foreground-strong">
                   {s.stat}
                 </p>
                 <p className="text-xs uppercase tracking-widest text-foreground-muted">
@@ -459,7 +459,7 @@ export default function Home() {
             <p className="mb-8 text-eyebrow uppercase text-foreground-muted">
               Ready?
             </p>
-            <h2 className="mb-8 font-display text-display leading-tight tracking-tight text-foreground">
+            <h2 className="mb-8 font-display text-display leading-tight tracking-tight text-foreground-strong">
               You&rsquo;ve been hitting
               <br />
               snooze long enough.

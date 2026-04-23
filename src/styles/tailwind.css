@@ -7,6 +7,7 @@
   --color-surface-inset: var(--surface-inset);
 
   --color-foreground: var(--foreground);
+  --color-foreground-strong: var(--foreground-strong);
   --color-foreground-secondary: var(--foreground-secondary);
   --color-foreground-muted: var(--foreground-muted);
 
@@ -68,6 +69,7 @@
     --surface-inset: #EBEBED;
 
     --foreground: #1D1D1F;
+    --foreground-strong: #111111;
     --foreground-secondary: #6E6E73;
     --foreground-muted: #AEAEB2;
 
@@ -94,7 +96,8 @@
     --surface-alt: #2C2C2E;
     --surface-inset: #3A3A3C;
 
-    --foreground: #F5F5F7;
+    --foreground: #E8E8EC;
+    --foreground-strong: #F5F5F7;
     --foreground-secondary: #98989D;
     --foreground-muted: #636366;
 

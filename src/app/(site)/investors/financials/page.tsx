@@ -84,7 +84,7 @@ export default function FinancialsPage() {
             <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
               Key Metrics
             </p>
-            <h1 className="mb-4 font-display text-section tracking-tight text-foreground">
+            <h1 className="mb-4 font-display text-section tracking-tight text-foreground-strong">
               Financials & Data
             </h1>
             <p className="max-w-xl text-body text-foreground-muted">
@@ -100,7 +100,7 @@ export default function FinancialsPage() {
                 <p className="mb-1 text-eyebrow uppercase text-foreground-muted">
                   Revenue Growth
                 </p>
-                <p className="font-display text-3xl text-foreground">
+                <p className="font-display text-3xl text-foreground-strong">
                   $89.4M{' '}
                   <span className="text-base text-accent">FY2024</span>
                 </p>
@@ -294,7 +294,7 @@ export default function FinancialsPage() {
                 <p className="mb-1 text-eyebrow uppercase text-foreground-muted">
                   Net Promoter Score Trend
                 </p>
-                <p className="font-display text-3xl text-foreground">
+                <p className="font-display text-3xl text-foreground-strong">
                   71{' '}
                   <span className="text-base text-foreground-muted">
                     Q3 2024

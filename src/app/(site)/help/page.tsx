@@ -82,7 +82,7 @@ export default function HelpPage() {
           <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Support
           </p>
-          <h1 className="mb-6 font-display text-hero leading-none text-foreground">
+          <h1 className="mb-6 font-display text-hero leading-none text-foreground-strong">
             We&rsquo;re here
             <br />
             <span className="text-foreground-muted">to help you adapt.</span>
@@ -204,7 +204,7 @@ export default function HelpPage() {
             <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Warranty
             </p>
-            <h2 className="font-display text-4xl tracking-tight text-foreground">
+            <h2 className="font-display text-4xl tracking-tight text-foreground-strong">
               Coverage Details
             </h2>
           </div>
@@ -388,7 +388,7 @@ export default function HelpPage() {
               <div className="mx-auto mb-6 flex size-12 items-center justify-center rounded-full border border-accent/25 bg-accent/10">
                 <span className="text-lg text-accent">✓</span>
               </div>
-              <p className="mb-4 font-display text-3xl tracking-tight text-foreground">
+              <p className="mb-4 font-display text-3xl tracking-tight text-foreground-strong">
                 Message received.
               </p>
               <p className="text-body text-foreground-muted">

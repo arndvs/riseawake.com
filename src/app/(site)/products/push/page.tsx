@@ -209,7 +209,7 @@ export default function PushPage() {
                 </span>
               </div>
 
-              <h1 className="mb-2 font-display text-display text-foreground">
+              <h1 className="mb-2 font-display text-display text-foreground-strong">
                 The Push
               </h1>
               <p className="mb-8 text-sm italic text-accent/75">
@@ -368,7 +368,7 @@ export default function PushPage() {
             <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
               Specifications
             </p>
-            <h2 className="font-display text-4xl tracking-tight text-foreground">
+            <h2 className="font-display text-4xl tracking-tight text-foreground-strong">
               Technical Details
             </h2>
           </div>

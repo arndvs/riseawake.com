@@ -24,7 +24,7 @@ export default function TrustCenterPage() {
         </span>
       </div>
 
-      <h1 className="font-display text-display tracking-tight text-foreground">
+      <h1 className="font-display text-display tracking-tight text-foreground-strong">
         Trust Center
       </h1>
 
@@ -44,7 +44,7 @@ export default function TrustCenterPage() {
         <p className="text-eyebrow uppercase text-foreground-muted">
           Expected Launch
         </p>
-        <p className="mt-2 font-display text-subsection tracking-tight text-foreground">
+        <p className="mt-2 font-display text-subsection tracking-tight text-foreground-strong">
           Q4 2024
         </p>
       </div>
@@ -52,7 +52,7 @@ export default function TrustCenterPage() {
       <div className="mt-10 flex flex-wrap justify-center gap-4">
         <Link
           href="/security"
-          className="inline-flex items-center gap-2 rounded-full border border-edge px-6 py-3 text-xs font-medium text-foreground-secondary transition-colors duration-200 hover:text-foreground"
+          className="inline-flex items-center gap-2 rounded-full border border-edge px-6 py-3 text-xs font-medium text-foreground-secondary transition-colors duration-200 hover:text-foreground-strong"
         >
           <span aria-hidden="true">←</span>
           Back to Security

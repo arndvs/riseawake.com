@@ -174,14 +174,14 @@ export default async function BlogPost({
                     },
                     marks: {
                       strong: ({ children }) => (
-                        <strong className="font-semibold text-foreground">
+                        <strong className="font-semibold text-foreground-strong">
                           {children}
                         </strong>
                       ),
                       code: ({ children }) => (
                         <>
                           <span aria-hidden>`</span>
-                          <code className="text-[15px]/8 font-semibold text-foreground">
+                          <code className="text-[15px]/8 font-semibold text-foreground-strong">
                             {children}
                           </code>
                           <span aria-hidden>`</span>

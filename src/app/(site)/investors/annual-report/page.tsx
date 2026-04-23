@@ -114,7 +114,7 @@ export default function AnnualReportPage() {
             <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Annual Report
             </p>
-            <h1 className="mb-2 font-display text-section tracking-tight text-foreground">
+            <h1 className="mb-2 font-display text-section tracking-tight text-foreground-strong">
               FY2024 Annual Report
             </h1>
             <p className="text-xs text-foreground-muted/60">
@@ -123,7 +123,7 @@ export default function AnnualReportPage() {
           </div>
 
           <section className="mb-14">
-            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
+            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">
               1. Executive Summary
             </h2>
             <p className="mb-4 text-body text-foreground-muted">
@@ -143,7 +143,7 @@ export default function AnnualReportPage() {
           </section>
 
           <section className="mb-14">
-            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
+            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">
               2. Financial Highlights
             </h2>
             <div className="overflow-x-auto">
@@ -210,7 +210,7 @@ export default function AnnualReportPage() {
                   key={s.label}
                   className="rounded-xl border border-edge-subtle bg-surface-alt p-5 text-center"
                 >
-                  <p className="mb-1 font-display text-2xl text-foreground">
+                  <p className="mb-1 font-display text-2xl text-foreground-strong">
                     {s.stat}
                   </p>
                   <p className="text-[10px] tracking-[0.14em] text-foreground-muted uppercase">
@@ -222,7 +222,7 @@ export default function AnnualReportPage() {
           </section>
 
           <section className="mb-14">
-            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
+            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">
               3. Business Overview
             </h2>
             <p className="mb-4 text-body text-foreground-muted">
@@ -244,7 +244,7 @@ export default function AnnualReportPage() {
           </section>
 
           <section className="mb-14">
-            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
+            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">
               4. Market Opportunity
             </h2>
             <p className="mb-4 text-body text-foreground-muted">
@@ -280,7 +280,7 @@ export default function AnnualReportPage() {
           </section>
 
           <section className="mb-14">
-            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
+            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">
               5. Risk Factors
             </h2>
             <p className="mb-6 text-xs leading-loose text-foreground-muted/60">
@@ -308,7 +308,7 @@ export default function AnnualReportPage() {
           </section>
 
           <section className="mb-14">
-            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
+            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">
               5a. Growth Strategy — Vertical Navigation
             </h2>
             <p className="mb-4 text-body text-foreground-muted">
@@ -346,7 +346,7 @@ export default function AnnualReportPage() {
           </section>
 
           <section className="mb-14">
-            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
+            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">
               6. Leadership & Governance
             </h2>
             <div className="grid gap-4 md:grid-cols-2">

@@ -29,7 +29,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(next.value)}
-      className="flex size-8 items-center justify-center rounded-lg text-foreground-secondary transition-colors duration-200 hover:text-foreground"
+      className="flex size-8 items-center justify-center rounded-lg text-foreground-secondary transition-colors duration-200 hover:text-foreground-strong"
       aria-label={`Switch to ${next.label} theme`}
       title={`Current: ${current.label}. Click for ${next.label}`}
     >

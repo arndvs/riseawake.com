@@ -386,7 +386,7 @@ export default function AboutPage() {
           <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
             About RISE™
           </p>
-          <h1 className="mb-8 font-display text-hero leading-none text-foreground">
+          <h1 className="mb-8 font-display text-hero leading-none text-foreground-strong">
             Twelve years.
             <br />
             <span className="text-foreground-muted">One conclusion.</span>
@@ -574,7 +574,7 @@ export default function AboutPage() {
           <p className="mb-8 text-eyebrow text-foreground-muted uppercase">
             The Result
           </p>
-          <h2 className="mb-8 font-display text-display leading-tight tracking-tight text-foreground">
+          <h2 className="mb-8 font-display text-display leading-tight tracking-tight text-foreground-strong">
             Twelve years of failure
             <br />
             <span className="text-foreground-muted">taught us one thing.</span>
