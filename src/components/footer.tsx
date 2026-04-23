@@ -76,6 +76,7 @@ export function Footer() {
             <FooterHeading>Platform</FooterHeading>
             <div className="flex flex-col gap-3">
               <FooterLink href="/data-request">Data Request</FooterLink>
+              <FooterLink href="/security">Security</FooterLink>
               <FooterLink href="/sdk">Developer SDK</FooterLink>
               <FooterLink href="/sdk/documentation">SDK Docs</FooterLink>
             </div>

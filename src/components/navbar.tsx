@@ -8,6 +8,7 @@ import {
 import { Menu, X } from 'lucide-react'
 import { Link } from './link'
 import { Logo } from './logo'
+import { ThemeToggle } from './theme-toggle'
 
 const links = [
   { href: '/about', label: 'Our Story' },
@@ -33,10 +34,11 @@ function DesktopNav() {
       ))}
       <Link
         href="/products/push"
-        className="rounded-pill bg-accent px-5 py-2.5 text-xs font-medium uppercase tracking-widest text-white transition-colors duration-200 hover:bg-accent-hover"
+        className="rounded-pill bg-accent px-5 py-2.5 text-xs font-medium uppercase tracking-widest text-accent-on transition-colors duration-200 hover:bg-accent-hover"
       >
         Shop Now
       </Link>
+      <ThemeToggle />
     </nav>
   )
 }
@@ -67,10 +69,13 @@ function MobileNav() {
         ))}
         <Link
           href="/products/push"
-          className="rounded-pill bg-accent px-5 py-3 text-center text-sm font-medium uppercase tracking-widest text-white transition-colors hover:bg-accent-hover"
+          className="rounded-pill bg-accent px-5 py-3 text-center text-sm font-medium uppercase tracking-widest text-accent-on transition-colors hover:bg-accent-hover"
         >
           Shop Now
         </Link>
+        <div className="flex items-center justify-center">
+          <ThemeToggle />
+        </div>
       </div>
     </DisclosurePanel>
   )

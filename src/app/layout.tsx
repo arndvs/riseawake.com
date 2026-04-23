@@ -5,6 +5,7 @@ import { siteUrl } from '@/sanity/env'
 import '@/styles/tailwind.css'
 import type { Metadata } from 'next'
 import { DM_Sans, DM_Serif_Display } from 'next/font/google'
+import { ThemeProvider } from 'next-themes'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -60,11 +61,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${dmSerifDisplay.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${dmSerifDisplay.variable}`} suppressHydrationWarning>
       <body className="bg-page text-foreground antialiased">
-        {children}
-        <EasterEggs />
-        <SanityLive revalidateSyncTags={revalidateSyncTags} />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+          <EasterEggs />
+          <SanityLive revalidateSyncTags={revalidateSyncTags} />
+        </ThemeProvider>
       </body>
     </html>
   )
