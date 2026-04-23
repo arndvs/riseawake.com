@@ -263,7 +263,7 @@ export default function NudgePage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Technology
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground/75 md:text-5xl">
@@ -292,7 +292,7 @@ export default function NudgePage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Specifications
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground/75">
@@ -320,7 +320,7 @@ export default function NudgePage() {
 
       <section className="border-t border-edge-subtle px-6 py-32 text-center">
         <div className="mx-auto max-w-xl">
-          <p className="mb-8 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-8 text-eyebrow text-foreground-muted uppercase">
             The Next Step
           </p>
           <h2 className="mb-6 font-display text-4xl tracking-tight text-foreground md:text-5xl">

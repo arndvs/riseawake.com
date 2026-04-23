@@ -128,7 +128,7 @@ export default function MovePage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-4xl">
           <div className="mb-14 text-center">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Disclosure
             </p>
             <h2 className="font-display text-3xl tracking-tight text-foreground-secondary md:text-4xl">
@@ -183,7 +183,7 @@ export default function MovePage() {
 
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-3xl">
-          <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
             Context
           </p>
           <h2 className="mb-10 font-display text-3xl tracking-tight text-foreground-secondary md:text-4xl">
@@ -233,7 +233,7 @@ export default function MovePage() {
 
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-24">
         <div className="mx-auto max-w-3xl">
-          <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
             Pricing Structure
           </p>
           <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-secondary md:text-4xl">

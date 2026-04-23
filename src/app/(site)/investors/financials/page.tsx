@@ -81,7 +81,7 @@ export default function FinancialsPage() {
       <section className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 pt-8">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
               Key Metrics
             </p>
             <h1 className="mb-4 font-display text-section tracking-tight text-foreground">
@@ -97,7 +97,7 @@ export default function FinancialsPage() {
           <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
             <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
               <div>
-                <p className="mb-1 text-xs uppercase tracking-[0.16em] text-foreground-muted">
+                <p className="mb-1 text-eyebrow uppercase text-foreground-muted">
                   Revenue Growth
                 </p>
                 <p className="font-display text-3xl text-foreground">
@@ -155,7 +155,7 @@ export default function FinancialsPage() {
 
           <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
             <div className="mb-6">
-              <p className="mb-1 text-xs uppercase tracking-[0.16em] text-foreground-muted">
+              <p className="mb-1 text-eyebrow uppercase text-foreground-muted">
                 Waitlist vs. Units Shipped
               </p>
               <p className="text-sm text-foreground-muted">
@@ -223,7 +223,7 @@ export default function FinancialsPage() {
 
           <div className="mb-10 grid gap-6 md:grid-cols-2">
             <div className="rounded-xl border border-edge-subtle bg-surface-alt p-8">
-              <p className="mb-6 text-xs uppercase tracking-[0.16em] text-foreground-muted">
+              <p className="mb-6 text-eyebrow uppercase text-foreground-muted">
                 Unit Economics
               </p>
               <div className="flex flex-col gap-4">
@@ -253,7 +253,7 @@ export default function FinancialsPage() {
             </div>
 
             <div className="rounded-xl border border-edge-subtle bg-surface-alt p-8">
-              <p className="mb-6 text-xs uppercase tracking-[0.16em] text-foreground-muted">
+              <p className="mb-6 text-eyebrow uppercase text-foreground-muted">
                 Push Mode Compliance
               </p>
               <div className="mb-6 flex items-end gap-6">
@@ -291,7 +291,7 @@ export default function FinancialsPage() {
           <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
             <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
               <div>
-                <p className="mb-1 text-xs uppercase tracking-[0.16em] text-foreground-muted">
+                <p className="mb-1 text-eyebrow uppercase text-foreground-muted">
                   Net Promoter Score Trend
                 </p>
                 <p className="font-display text-3xl text-foreground">
@@ -343,7 +343,7 @@ export default function FinancialsPage() {
           </div>
 
           <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
-            <p className="mb-2 text-xs uppercase tracking-[0.16em] text-foreground-muted">
+            <p className="mb-2 text-eyebrow uppercase text-foreground-muted">
               Geographic Presence
             </p>
             <p className="mb-6 text-sm text-foreground-muted">

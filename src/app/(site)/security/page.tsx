@@ -213,7 +213,7 @@ export default function SecurityPage() {
       {/* ── Hero ── */}
       <section className="px-6 pt-40 pb-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-5 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-5 text-eyebrow uppercase text-foreground-muted">
             Security
           </p>
           <h1 className="mb-6 font-display text-display tracking-tight text-foreground">
@@ -254,7 +254,7 @@ export default function SecurityPage() {
       {/* ── Certification Badges ── */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
             Compliance & Certifications
           </p>
           <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground">
@@ -296,7 +296,7 @@ export default function SecurityPage() {
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-24">
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-col items-center text-center">
-            <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
               Reliability
             </p>
             <h2 className="mb-2 font-display text-hero tracking-tight text-foreground">
@@ -320,7 +320,7 @@ export default function SecurityPage() {
       {/* ── Security Features Grid ── */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
             Infrastructure
           </p>
           <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground">
@@ -359,7 +359,7 @@ export default function SecurityPage() {
       {/* ── Compliance Progress ── */}
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
             Progress
           </p>
           <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground">
@@ -413,7 +413,7 @@ export default function SecurityPage() {
       {/* ── Data Handling ── */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
             Data Practices
           </p>
           <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground">
@@ -489,7 +489,7 @@ export default function SecurityPage() {
       {/* ── Security Team & Contact ── */}
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
             Our Team
           </p>
           <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground">
@@ -543,7 +543,7 @@ export default function SecurityPage() {
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-10 md:grid-cols-2">
             <div>
-              <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+              <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
                 Responsible Disclosure
               </p>
               <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground">
@@ -570,7 +570,7 @@ export default function SecurityPage() {
             </div>
 
             <div>
-              <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+              <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
                 Contact
               </p>
               <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground">

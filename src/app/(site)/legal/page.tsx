@@ -57,7 +57,7 @@ export default function LegalHubPage() {
 
       <section className="px-6 pt-40 pb-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-5 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-5 text-eyebrow uppercase text-foreground-muted">
             Legal
           </p>
           <h1 className="mb-6 font-display text-display tracking-tight text-foreground">

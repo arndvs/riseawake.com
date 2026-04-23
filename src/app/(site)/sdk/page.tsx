@@ -178,7 +178,7 @@ export default function SDKPage() {
       <section className="border-t border-edge-subtle px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-14 text-center">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Pricing
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -283,7 +283,7 @@ export default function SDKPage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 text-center">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Features
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground">
@@ -310,7 +310,7 @@ export default function SDKPage() {
 
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-16">
         <div className="mx-auto max-w-4xl">
-          <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
             Technical Reference
           </p>
           <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground">

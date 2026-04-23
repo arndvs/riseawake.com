@@ -283,7 +283,7 @@ export default function Home() {
         <section className="px-6 py-24">
           <div className="mx-auto max-w-7xl">
             <div className="mb-16 text-center">
-              <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+              <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
                 The Product Line
               </p>
               <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -320,7 +320,7 @@ export default function Home() {
         <section className="border-t border-edge-subtle px-6 py-32">
           <div className="mx-auto max-w-6xl">
             <div className="mb-20 text-center">
-              <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+              <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
                 Push Mode
               </p>
               <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -365,7 +365,7 @@ export default function Home() {
         <section className="px-6 py-32">
           <div className="mx-auto max-w-6xl">
             <div className="mb-16 text-center">
-              <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+              <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
                 Customer Outcomes
               </p>
               <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -456,7 +456,7 @@ export default function Home() {
         <section className="relative overflow-hidden px-6 py-40 text-center">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
           <div className="relative z-10 mx-auto max-w-2xl">
-            <p className="mb-8 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-8 text-eyebrow uppercase text-foreground-muted">
               Ready?
             </p>
             <h2 className="mb-8 font-display text-display leading-tight tracking-tight text-foreground">

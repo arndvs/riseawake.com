@@ -83,7 +83,7 @@ export default function InvestorsPage() {
       <section className="px-6 pt-24 pb-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 pt-8">
-            <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
               Investor Relations
             </p>
             <h1 className="font-display text-display leading-[1.05] tracking-tight text-foreground">
@@ -109,7 +109,7 @@ export default function InvestorsPage() {
           </div>
 
           <div className="mb-20">
-            <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
               Latest
             </p>
             <div className="flex flex-col gap-3">
@@ -133,7 +133,7 @@ export default function InvestorsPage() {
           </div>
 
           <div className="mb-20">
-            <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
               Resources
             </p>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -170,7 +170,7 @@ export default function InvestorsPage() {
           </div>
 
           <div className="rounded-xl border border-edge-subtle bg-surface-alt p-8">
-            <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
               Investor Relations Contact
             </p>
             <div className="grid gap-8 md:grid-cols-2">

@@ -111,7 +111,7 @@ export default function AnnualReportPage() {
       <article className="px-6 py-16">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 pt-8">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Annual Report
             </p>
             <h1 className="mb-2 font-display text-section tracking-tight text-foreground">

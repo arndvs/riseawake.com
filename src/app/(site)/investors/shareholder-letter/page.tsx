@@ -67,7 +67,7 @@ export default function ShareholderLetterPage() {
                 Officer
               </p>
             </div>
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
               Shareholder Letter
             </p>
             <h1 className="mb-2 font-display text-section tracking-tight text-foreground">

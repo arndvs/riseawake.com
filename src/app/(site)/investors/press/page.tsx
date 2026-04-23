@@ -89,7 +89,7 @@ export default function InvestorPressPage() {
       <section className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 pt-8">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Press & Coverage
             </p>
             <h1 className="mb-4 font-display text-section tracking-tight text-foreground">

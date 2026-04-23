@@ -116,7 +116,7 @@ export default function SDKDocsPage() {
             <span className="text-foreground-secondary">Documentation</span>
           </div>
 
-          <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
             DataKit SDK
           </p>
           <h1 className="mb-2 font-display text-display tracking-tight text-foreground">

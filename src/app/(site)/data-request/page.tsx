@@ -211,7 +211,7 @@ export default function DataRequestPage() {
     <main>
       <section className="px-6 pt-40 pb-16">
         <div className="mx-auto max-w-4xl">
-          <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Your Rights
           </p>
           <h1 className="mb-6 font-display text-display leading-tight tracking-tight text-foreground">

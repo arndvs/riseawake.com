@@ -299,7 +299,7 @@ export default function PushPage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
               Technology
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -332,7 +332,7 @@ export default function PushPage() {
         <div className="mx-auto max-w-6xl">
           <div className="grid items-center gap-16 md:grid-cols-2">
             <div>
-              <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+              <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
                 Push Mode
               </p>
               <h2 className="mb-8 font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -365,7 +365,7 @@ export default function PushPage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
               Specifications
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground">
@@ -414,7 +414,7 @@ export default function PushPage() {
       <section className="relative overflow-hidden border-t border-edge-subtle px-6 py-32 text-center">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
         <div className="relative z-10 mx-auto max-w-xl">
-          <p className="mb-8 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-8 text-eyebrow uppercase text-foreground-muted">
             Join the Waitlist
           </p>
           <h2 className="mb-6 font-display text-4xl tracking-tight text-foreground md:text-5xl">

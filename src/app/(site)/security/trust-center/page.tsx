@@ -41,7 +41,7 @@ export default function TrustCenterPage() {
       </p>
 
       <div className="mt-10 rounded-xl border border-edge-subtle bg-surface-alt px-8 py-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-foreground-muted">
+        <p className="text-eyebrow uppercase text-foreground-muted">
           Expected Launch
         </p>
         <p className="mt-2 font-display text-subsection tracking-tight text-foreground">

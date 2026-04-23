@@ -408,7 +408,7 @@ export default function ActivatePage() {
       <section className="relative overflow-hidden px-6 pt-40 pb-16">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-accent)_0%,transparent_70%)] opacity-[0.07]" />
         <div className="mx-auto max-w-3xl">
-          <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Device Activation
           </p>
           <h1 className="mb-6 font-display text-display leading-tight tracking-tight text-foreground">
@@ -807,7 +807,7 @@ export default function ActivatePage() {
       <section className="border-t border-edge-subtle px-6 py-20">
         <div className="mx-auto max-w-3xl">
           <div className="mb-12">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               What to expect
             </p>
             <h2 className="mb-4 font-display text-3xl tracking-tight text-foreground md:text-4xl">
@@ -896,7 +896,7 @@ export default function ActivatePage() {
 
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-20">
         <div className="mx-auto max-w-3xl">
-          <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
             What activation collects
           </p>
           <h2 className="mb-10 font-display text-3xl tracking-tight text-foreground-secondary">
@@ -1033,7 +1033,7 @@ export default function ActivatePage() {
 
       <section className="border-t border-edge-subtle px-6 py-32 text-center">
         <div className="mx-auto max-w-xl">
-          <p className="mb-8 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-8 text-eyebrow text-foreground-muted uppercase">
             Ready?
           </p>
           <h2 className="mb-6 font-display text-section leading-tight tracking-tight text-foreground">

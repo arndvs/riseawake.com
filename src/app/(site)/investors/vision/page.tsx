@@ -44,7 +44,7 @@ export default function VisionPage() {
               publication. Forward-looking statements are subject to risks and
               uncertainties. Results will exceed expectations.
             </p>
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
               RISE™ Technologies, Inc.
             </p>
             <h1 className="mb-4 font-display text-display leading-[1.1] tracking-tight text-foreground">
@@ -82,7 +82,7 @@ export default function VisionPage() {
                 5
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-foreground-muted">
+                <p className="text-eyebrow uppercase text-foreground-muted">
                   Year Vision
                 </p>
                 <p className="text-sm text-accent">2026 — 2030</p>
@@ -136,7 +136,7 @@ export default function VisionPage() {
                 10
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-foreground-muted">
+                <p className="text-eyebrow uppercase text-foreground-muted">
                   Year Vision
                 </p>
                 <p className="text-sm text-accent/70">2026 — 2035</p>
@@ -203,7 +203,7 @@ export default function VisionPage() {
                 20
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-foreground-muted/60">
+                <p className="text-eyebrow uppercase text-foreground-muted/60">
                   Year Vision
                 </p>
                 <p className="text-sm text-accent/50">2026 — 2045</p>
@@ -279,7 +279,7 @@ export default function VisionPage() {
           </div>
 
           <div className="border-t border-edge-subtle pt-8">
-            <p className="mb-6 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-6 text-eyebrow uppercase text-foreground-muted">
               Vision Update Log
             </p>
             <div className="flex flex-col gap-px bg-edge-subtle/30">

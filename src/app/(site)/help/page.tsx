@@ -79,7 +79,7 @@ export default function HelpPage() {
             <span className="text-foreground-secondary">Support</span>
           </div>
 
-          <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Support
           </p>
           <h1 className="mb-6 font-display text-hero leading-none text-foreground">
@@ -142,7 +142,7 @@ export default function HelpPage() {
       <section id="faq" className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-4xl">
           <div className="mb-14">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               FAQ
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -201,7 +201,7 @@ export default function HelpPage() {
       >
         <div className="mx-auto max-w-4xl">
           <div className="mb-12">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Warranty
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground">
@@ -274,7 +274,7 @@ export default function HelpPage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-4xl">
           <div className="mb-14">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Contact
             </p>
             <h2 className="mb-4 font-display text-4xl tracking-tight text-foreground md:text-5xl">
