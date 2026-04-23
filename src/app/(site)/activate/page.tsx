@@ -283,7 +283,7 @@ function SequenceItem({ item, index, total, onMoveUp, onMoveDown }: {
   onMoveDown: () => void
 }) {
   return (
-    <div className="flex items-center gap-4 rounded-sm border border-edge bg-surface-alt p-4">
+    <div className="flex items-center gap-4 rounded-xl border border-edge bg-surface-alt p-4">
       <span className="shrink-0 font-mono text-xs text-accent/40">{String(index + 1).padStart(2, '0')}</span>
       <div className="flex-1">
         <p className="text-sm font-medium text-foreground-secondary">{item.label}</p>
@@ -319,7 +319,7 @@ function ConfiguratorStepIndicator({ step, total }: { step: number; total: numbe
         <div key={i} className="flex items-center gap-3">
           <div className={`flex size-8 items-center justify-center rounded-full text-xs font-medium transition-all duration-500 ${
             i < step ? 'bg-accent/15 text-accent' :
-            i === step ? 'bg-accent text-white' :
+            i === step ? 'bg-accent text-accent-on' :
             'bg-foreground/5 text-foreground-muted/40'
           }`}>
             {i < step ? (
@@ -408,26 +408,26 @@ export default function ActivatePage() {
       <section className="relative overflow-hidden px-6 pt-40 pb-16">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-accent)_0%,transparent_70%)] opacity-[0.07]" />
         <div className="mx-auto max-w-3xl">
-          <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Device Activation
           </p>
-          <h1 className="mb-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-tight tracking-tight text-foreground">
+          <h1 className="mb-6 font-display text-display leading-tight tracking-tight text-foreground-strong">
             Activate Your Push.
           </h1>
-          <p className="mb-4 max-w-xl text-sm leading-loose text-foreground-muted">
+          <p className="mb-4 max-w-xl text-body text-foreground-secondary">
             Before Push Mode can operate, the bed needs to know everything. Your
             spaces, your sequence, your habits, your schedule, your GPS
             coordinates, and your honest assessment of how resistant you are to
             mornings.
           </p>
-          <p className="mb-16 max-w-xl text-sm leading-loose text-foreground-muted/60 italic">
+          <p className="mb-16 max-w-xl text-body text-foreground-secondary/60 italic">
             Activation takes 45–90 minutes. RISE™ recommends completing it
             before your first intended Push Mode morning. The bed will operate
             on default settings until then. Most users find the default settings
             inadequate.
           </p>
 
-          <div ref={configTopRef} className="mb-6 rounded-sm border border-edge bg-surface-alt p-8">
+          <div ref={configTopRef} className="mb-6 rounded-xl border border-edge bg-surface-alt p-8">
             {formState === 'activated' ? (
               <div className="py-12 text-center">
                 <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-accent/10">
@@ -435,7 +435,7 @@ export default function ActivatePage() {
                     <path d="M2 10L8.5 16.5L22 3" stroke="var(--color-accent)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <p className="mb-3 font-display text-3xl tracking-tight text-foreground">
+                <p className="mb-3 font-display text-3xl tracking-tight text-foreground-strong">
                   Push Mode activated.
                 </p>
                 <p className="mb-2 text-xs leading-relaxed text-foreground-muted">
@@ -467,7 +467,7 @@ export default function ActivatePage() {
                 {configStep === 0 && (
                   <div>
                     <p className="mb-1 text-xs tracking-[0.16em] text-foreground-muted uppercase">Stage 01</p>
-                    <h3 className="mb-6 font-display text-2xl tracking-tight text-foreground">Your Profile</h3>
+                    <h3 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">Your Profile</h3>
 
                     <div className="mb-8">
                       <p className="mb-4 text-xs font-medium text-foreground-secondary">Sleep Position</p>
@@ -476,7 +476,7 @@ export default function ActivatePage() {
                           <button
                             key={pos.id}
                             onClick={() => setSleepPosition(pos.id)}
-                            className={`cursor-pointer rounded-sm border p-4 text-left transition-all duration-200 ${
+                            className={`cursor-pointer rounded-xl border p-4 text-left transition-all duration-200 ${
                               sleepPosition === pos.id
                                 ? 'border-accent/40 bg-accent/5'
                                 : 'border-edge bg-surface'
@@ -496,7 +496,7 @@ export default function ActivatePage() {
                           <button
                             key={side.id}
                             onClick={() => setBedSide(side.id)}
-                            className={`flex-1 cursor-pointer rounded-sm border px-4 py-3 text-center text-sm transition-all duration-200 ${
+                            className={`flex-1 cursor-pointer rounded-xl border px-4 py-3 text-center text-sm transition-all duration-200 ${
                               bedSide === side.id
                                 ? 'border-accent/40 bg-accent/5 font-medium text-foreground'
                                 : 'border-edge bg-surface text-foreground-secondary'
@@ -540,7 +540,7 @@ export default function ActivatePage() {
                     <button
                       onClick={handleNextStep}
                       disabled={!sleepPosition || !bedSide}
-                      className="w-full cursor-pointer rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-white uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-30"
+                      className="w-full cursor-pointer rounded-full bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-accent-on uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-30"
                     >
                       Continue to Calibration →
                     </button>
@@ -550,7 +550,7 @@ export default function ActivatePage() {
                 {configStep === 1 && (
                   <div>
                     <p className="mb-1 text-xs tracking-[0.16em] text-foreground-muted uppercase">Stage 02</p>
-                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground">Push Mode Calibration</h3>
+                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground-strong">Push Mode Calibration</h3>
                     <p className="mb-10 text-xs leading-relaxed text-foreground-muted">
                       Adjust the intensity to match your morning requirements. The system will finalize calibration based on your profile data.
                     </p>
@@ -558,7 +558,7 @@ export default function ActivatePage() {
                     <IntensityDial value={intensityValue} onRelease={handleIntensityRelease} />
 
                     {intensitySnapped && (
-                      <div className="mt-12 rounded-sm border border-edge bg-foreground/3 p-4">
+                      <div className="mt-12 rounded-xl border border-edge bg-foreground/3 p-4">
                         <p className="text-xs leading-relaxed text-foreground-muted">
                           Push Mode intensity is calibrated automatically based on your profile, sleep position, and self-assessed morning resistance ({resistance}/10).
                           Manual adjustment is not available at this time.
@@ -571,7 +571,7 @@ export default function ActivatePage() {
 
                     <button
                       onClick={handleNextStep}
-                      className="mt-8 w-full cursor-pointer rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-white uppercase transition-all duration-300"
+                      className="mt-8 w-full cursor-pointer rounded-full bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-accent-on uppercase transition-all duration-300"
                     >
                       Continue to Morning Sequence →
                     </button>
@@ -581,7 +581,7 @@ export default function ActivatePage() {
                 {configStep === 2 && (
                   <div>
                     <p className="mb-1 text-xs tracking-[0.16em] text-foreground-muted uppercase">Stage 03</p>
-                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground">Morning Sequence</h3>
+                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground-strong">Morning Sequence</h3>
                     <p className="mb-8 text-xs leading-relaxed text-foreground-muted">
                       Arrange your morning stops in preferred order. The bed will navigate these sequentially.
                     </p>
@@ -606,7 +606,7 @@ export default function ActivatePage() {
 
                     <button
                       onClick={handleNextStep}
-                      className="mt-8 w-full cursor-pointer rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-white uppercase transition-all duration-300"
+                      className="mt-8 w-full cursor-pointer rounded-full bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-accent-on uppercase transition-all duration-300"
                     >
                       Continue to Review →
                     </button>
@@ -616,12 +616,12 @@ export default function ActivatePage() {
                 {configStep === 3 && (
                   <div>
                     <p className="mb-1 text-xs tracking-[0.16em] text-foreground-muted uppercase">Stage 04</p>
-                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground">Review & Activate</h3>
+                    <h3 className="mb-2 font-display text-2xl tracking-tight text-foreground-strong">Review & Activate</h3>
                     <p className="mb-8 text-xs leading-relaxed text-foreground-muted">
                       Acknowledge each statement below. All eight are required. Activation cannot be undone.
                     </p>
 
-                    <div className="mb-8 rounded-sm border border-edge bg-foreground/2 p-5">
+                    <div className="mb-8 rounded-xl border border-edge bg-foreground/2 p-5">
                       <p className="mb-1 text-xs font-medium text-foreground-secondary">Configuration Summary</p>
                       <div className="mt-3 flex flex-col gap-1.5 text-xs text-foreground-muted">
                         <p>Serial: <span className="font-mono text-foreground-secondary">{serial.trim().toUpperCase()}</span></p>
@@ -634,7 +634,7 @@ export default function ActivatePage() {
 
                     <div className="flex flex-col gap-3">
                       {ACKNOWLEDGMENTS.map((ack, i) => (
-                        <label key={i} className="flex cursor-pointer items-start gap-3 rounded-sm border border-edge bg-surface p-4 transition-colors duration-150">
+                        <label key={i} className="flex cursor-pointer items-start gap-3 rounded-xl border border-edge bg-surface p-4 transition-colors duration-150">
                           <input
                             type="checkbox"
                             checked={acknowledgments[i]}
@@ -653,7 +653,7 @@ export default function ActivatePage() {
                     <button
                       onClick={handleFinalActivation}
                       disabled={!allAcknowledged}
-                      className="mt-8 w-full cursor-pointer rounded-sm bg-accent px-6 py-4 text-xs font-medium tracking-[0.16em] text-white uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-30"
+                      className="mt-8 w-full cursor-pointer rounded-full bg-accent px-6 py-4 text-xs font-medium tracking-[0.16em] text-accent-on uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-30"
                     >
                       Activate Push Mode
                     </button>
@@ -678,7 +678,7 @@ export default function ActivatePage() {
                   located. Your device is ready for activation.
                 </p>
 
-                <div className="mb-6 rounded-sm border border-edge bg-foreground/3 p-5">
+                <div className="mb-6 rounded-xl border border-edge bg-foreground/3 p-5">
                   <p className="mb-3 text-xs font-medium text-foreground-secondary">
                     Refund Policy — Please Read
                   </p>
@@ -727,7 +727,7 @@ export default function ActivatePage() {
                   <button
                     onClick={handleBeginActivation}
                     disabled={!refundAcknowledged}
-                    className="cursor-pointer rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-white uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:bg-accent/30 disabled:text-white/30"
+                    className="cursor-pointer rounded-full bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-accent-on uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:bg-accent/30 disabled:text-accent-on/30"
                   >
                     Begin Activation
                   </button>
@@ -736,7 +736,7 @@ export default function ActivatePage() {
                       setFormState('idle')
                       setRefundAcknowledged(false)
                     }}
-                    className="cursor-pointer rounded-sm border border-edge bg-transparent px-6 py-3 text-xs font-medium tracking-[0.14em] text-foreground-muted uppercase"
+                    className="cursor-pointer rounded-full border border-edge bg-transparent px-6 py-3 text-xs font-medium tracking-[0.14em] text-foreground-muted uppercase"
                   >
                     Cancel
                   </button>
@@ -762,7 +762,7 @@ export default function ActivatePage() {
                     }}
                     placeholder="RSB-"
                     aria-label="Device serial number"
-                    className={`flex-1 rounded-sm border px-4 py-3 font-mono text-sm tracking-wider text-foreground transition-all duration-200 outline-none ${
+                    className={`flex-1 rounded-lg border px-4 py-3 font-mono text-sm tracking-wider text-foreground transition-all duration-200 outline-none ${
                       formState === 'invalid'
                         ? 'border-rise-error/40 bg-foreground/4'
                         : 'border-edge bg-foreground/4'
@@ -772,7 +772,7 @@ export default function ActivatePage() {
                   />
                   <button
                     type="submit"
-                    className="rounded-sm border-none bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] whitespace-nowrap text-white uppercase transition-all duration-300"
+                    className="rounded-full border-none bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] whitespace-nowrap text-accent-on uppercase transition-all duration-300"
                   >
                     Locate Device
                   </button>
@@ -807,7 +807,7 @@ export default function ActivatePage() {
       <section className="border-t border-edge-subtle px-6 py-20">
         <div className="mx-auto max-w-3xl">
           <div className="mb-12">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               What to expect
             </p>
             <h2 className="mb-4 font-display text-3xl tracking-tight text-foreground md:text-4xl">
@@ -817,7 +817,7 @@ export default function ActivatePage() {
                 Everything the bed needs to know.
               </span>
             </h2>
-            <p className="text-sm leading-relaxed text-foreground-muted">
+            <p className="text-body text-foreground-secondary">
               Each stage configures a different aspect of your morning. Progress
               is saved between stages. You may pause and return. The bed will be
               here.
@@ -828,7 +828,7 @@ export default function ActivatePage() {
             {STAGES.map((stage) => (
               <div
                 key={stage.number}
-                className={`rounded-sm border p-6 ${
+                className={`rounded-xl border p-6 ${
                   stage.flagged
                     ? 'border-edge-subtle bg-foreground/1.5'
                     : 'border-edge bg-surface-alt'
@@ -896,7 +896,7 @@ export default function ActivatePage() {
 
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-20">
         <div className="mx-auto max-w-3xl">
-          <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
             What activation collects
           </p>
           <h2 className="mb-10 font-display text-3xl tracking-tight text-foreground-secondary">
@@ -1033,22 +1033,22 @@ export default function ActivatePage() {
 
       <section className="border-t border-edge-subtle px-6 py-32 text-center">
         <div className="mx-auto max-w-xl">
-          <p className="mb-8 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-8 text-eyebrow text-foreground-muted uppercase">
             Ready?
           </p>
-          <h2 className="mb-6 font-display text-[clamp(2rem,5vw,3.5rem)] leading-tight tracking-tight text-foreground">
+          <h2 className="mb-6 font-display text-section leading-tight tracking-tight text-foreground-strong">
             The bed is ready
             <br />
             <span className="text-foreground-muted">when you are.</span>
           </h2>
-          <p className="mb-12 text-sm leading-relaxed text-foreground-muted">
+          <p className="mb-12 text-body text-foreground-secondary">
             Enter your serial number above to begin. Activation takes 45–90
             minutes. Your progress is saved. You may pause between stages. The
             bed will wait.
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="inline-block glow-btn cursor-pointer rounded-sm border-none bg-accent px-10 py-4 text-xs font-medium tracking-[0.16em] text-white uppercase"
+            className="inline-block glow-btn cursor-pointer rounded-full border-none bg-accent px-10 py-4 text-xs font-medium tracking-[0.16em] text-accent-on uppercase"
           >
             Begin Activation →
           </button>

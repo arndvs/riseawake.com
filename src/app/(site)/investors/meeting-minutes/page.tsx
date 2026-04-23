@@ -118,10 +118,10 @@ export default function MeetingMinutesPage() {
       <article className="px-6 py-16">
         <div className="mx-auto max-w-3xl">
           <div className="mb-12 pt-8">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Official Record
             </p>
-            <h1 className="mb-2 font-display text-[clamp(2rem,5vw,3.5rem)] tracking-tight text-foreground">
+            <h1 className="mb-2 font-display text-section tracking-tight text-foreground-strong">
               Annual General Meeting
             </h1>
             <p className="text-xs text-foreground-muted/60">
@@ -133,7 +133,7 @@ export default function MeetingMinutesPage() {
             {MEETING_DETAILS.map((item) => (
               <div
                 key={item.label}
-                className="flex justify-between rounded-sm border border-edge-subtle bg-surface-alt p-4"
+                className="flex justify-between rounded-xl border border-edge-subtle bg-surface-alt p-4"
               >
                 <span className="text-xs text-foreground-muted">
                   {item.label}
@@ -159,7 +159,7 @@ export default function MeetingMinutesPage() {
                     {r.title}
                   </span>
                   <span
-                    className={`shrink-0 rounded-sm border px-2 py-1 text-[10px] ${
+                    className={`shrink-0 rounded-xl border px-2 py-1 text-[10px] ${
                       r.result.startsWith('Defeated')
                         ? 'border-rise-error/12 bg-rise-error/8 text-rise-error/70'
                         : 'border-accent/12 bg-accent/8 text-accent'
@@ -187,18 +187,18 @@ export default function MeetingMinutesPage() {
               {QA.map((item, i) => (
                 <div
                   key={i}
-                  className="rounded-sm border border-edge-subtle bg-surface-alt p-6"
+                  className="rounded-xl border border-edge-subtle bg-surface-alt p-6"
                 >
                   <p className="mb-2 text-[10px] tracking-widest text-foreground-muted/60">
                     Q — {item.questioner}
                   </p>
-                  <p className="mb-4 text-sm leading-relaxed text-foreground-secondary italic">
+                  <p className="mb-4 text-body text-foreground-secondary italic">
                     &ldquo;{item.q}&rdquo;
                   </p>
                   <p className="mb-2 text-[10px] tracking-widest text-accent">
                     A — {item.respondent}
                   </p>
-                  <p className="text-sm leading-loose text-foreground-muted">
+                  <p className="text-body text-foreground-secondary">
                     {item.a}
                   </p>
                 </div>
@@ -227,7 +227,7 @@ export default function MeetingMinutesPage() {
             </div>
           </div>
 
-          <div className="rounded-sm border border-edge-subtle/60 bg-surface-inset p-4">
+          <div className="rounded-xl border border-edge-subtle/60 bg-surface-inset p-4">
             <p className="text-[10px] leading-loose text-foreground-muted">
               These minutes are a summary record of the Annual General Meeting
               of RISE™ Technologies, Inc. held March 14, 2025. They have been

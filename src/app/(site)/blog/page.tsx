@@ -20,14 +20,15 @@ import {
 } from 'lucide-react'
 import { clsx } from 'clsx'
 import dayjs from 'dayjs'
-import type { Metadata } from 'next'
+import { createMetadata } from '@/lib/metadata'
 import { notFound } from 'next/navigation'
 
-export const metadata: Metadata = {
+export const metadata = createMetadata({
   title: 'Blog',
   description:
     'Updates, observations, and communications from RISE™ Technologies.',
-}
+  path: '/blog',
+})
 
 const postsPerPage = 5
 
@@ -46,7 +47,7 @@ async function FeaturedPosts() {
           {featuredPosts.map((post) => (
             <div
               key={post.slug}
-              className="relative flex flex-col rounded-3xl bg-surface p-2 shadow-card ring-1 ring-edge"
+              className="relative flex flex-col rounded-3xl bg-surface p-2 shadow-card ring-1 ring-edge transition-all duration-300 hover:shadow-lg hover:ring-accent/25"
             >
               {post.mainImage && (
                 <img

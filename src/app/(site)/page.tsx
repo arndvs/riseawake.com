@@ -1,10 +1,13 @@
+import { Button } from '@/components/button'
 import { Link } from '@/components/link'
-import type { Metadata } from 'next'
+import { createMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
+export const metadata = createMetadata({
+  title: 'Smart Adjustable Base',
   description:
     'For People Who Need A Little Push. The RISE™ Smart Adjustable Base.',
-}
+  path: '/',
+})
 
 function BedIcon({ status }: { status: string }) {
   const isDiscontinued = status === 'discontinued'
@@ -121,10 +124,10 @@ function ProductCard({
 }) {
   return (
     <Link href={href} className="group block">
-      <div className="h-full rounded-sm border border-edge bg-surface p-10 md:p-14">
+      <div className="h-full rounded-xl border border-edge bg-surface p-10 transition-all duration-300 group-hover:border-accent/25 group-hover:shadow-lg md:p-14">
         <div className="mb-10 flex items-center justify-between">
           <span
-            className={`rounded-sm px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.16em] ${
+            className={`rounded-xl px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.16em] ${
               status === 'discontinued'
                 ? 'border border-edge bg-foreground/5 text-foreground-muted'
                 : 'border border-accent/20 bg-accent/10 text-accent'
@@ -137,23 +140,23 @@ function ProductCard({
           <span className="text-xs text-foreground-muted">{generation}</span>
         </div>
 
-        <div className="mb-10 flex h-40 w-full items-center justify-center rounded-sm border border-edge-subtle bg-foreground/2">
+        <div className="mb-10 flex h-40 w-full items-center justify-center rounded-xl border border-edge-subtle bg-foreground/2">
           <BedIcon status={status} />
         </div>
 
-        <h3 className="mb-3 font-display text-4xl tracking-tight text-foreground">
+        <h3 className="mb-3 font-display text-4xl tracking-tight text-foreground-strong">
           {name}
         </h3>
         <p className="mb-6 text-sm italic text-accent/75">
           &ldquo;{tagline}&rdquo;
         </p>
-        <p className="mb-10 text-sm leading-relaxed text-foreground-secondary">
+        <p className="mb-10 text-body text-foreground-secondary">
           {description}
         </p>
 
         <div className="flex items-center justify-between border-t border-edge pt-6">
           <span className="text-xs text-foreground-muted">{detail}</span>
-          <span className="text-xs font-medium uppercase tracking-widest text-foreground-secondary transition-colors duration-300 group-hover:text-foreground">
+          <span className="text-xs font-medium uppercase tracking-widest text-foreground-secondary transition-colors duration-300 group-hover:text-foreground-strong">
             View →
           </span>
         </div>
@@ -179,20 +182,20 @@ export default function Home() {
                 <div className="h-px w-12 bg-accent/50" />
               </div>
 
-              <h1 className="mb-4 font-display text-hero leading-none text-foreground">
+              <h1 className="mb-4 font-display text-hero leading-none text-foreground-strong">
                 Rise.{' '}
                 <span className="text-transparent [-webkit-text-stroke:1px_var(--color-foreground-muted)]">
                   Inevitably.
                 </span>
               </h1>
 
-              <p className="mx-auto max-w-lg text-sm font-light leading-relaxed text-foreground-muted md:text-base">
+              <p className="mx-auto max-w-lg text-body font-light text-foreground-muted">
                 The bed that gets you up. Whether you&rsquo;re ready or not.
               </p>
             </div>
 
             <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col">
-              <div className="relative aspect-video w-full overflow-hidden rounded-sm border border-edge bg-surface shadow-hero">
+              <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-edge bg-surface shadow-hero">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative flex items-center justify-center">
                     <div className="absolute size-25 animate-glow-pulse rounded-full border border-accent/35" />
@@ -224,7 +227,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="pointer-events-none absolute top-4 right-4">
-                  <span className="rounded-sm border border-edge bg-page/75 px-2.5 py-1 text-[10px] uppercase tracking-widest text-foreground-secondary">
+                  <span className="rounded-xl border border-edge bg-page/75 px-2.5 py-1 text-[10px] uppercase tracking-widest text-foreground-secondary">
                     Push Mode
                   </span>
                 </div>
@@ -250,18 +253,12 @@ export default function Home() {
 
               <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
                 <div className="flex flex-col items-center gap-3 sm:flex-row">
-                  <Link
-                    href="/products/push"
-                    className="whitespace-nowrap rounded-sm bg-accent px-8 py-3.5 text-xs font-medium uppercase tracking-[0.16em] text-white transition-all duration-300 hover:bg-accent-hover"
-                  >
+                  <Button variant="cta" href="/products/push">
                     Join the Waitlist
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="whitespace-nowrap rounded-sm border border-edge px-8 py-3.5 text-xs font-medium uppercase tracking-[0.16em] text-foreground-muted transition-all duration-300 hover:text-foreground-secondary"
-                  >
+                  </Button>
+                  <Button variant="outline" href="/about">
                     Our Story
-                  </Link>
+                  </Button>
                 </div>
                 <p className="hidden max-w-70 text-right text-xs italic leading-relaxed text-foreground-muted md:block">
                   For People Who Need A Little Push.
@@ -273,7 +270,7 @@ export default function Home() {
 
         <section className="border-t border-edge-subtle px-6 py-32">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="font-display text-display leading-relaxed tracking-tight text-foreground">
+            <p className="font-display text-display leading-relaxed tracking-tight text-foreground-strong">
               Most mornings, you need more than an alarm.
               <br />
               <span className="text-foreground-muted">
@@ -286,13 +283,13 @@ export default function Home() {
         <section className="px-6 py-24">
           <div className="mx-auto max-w-7xl">
             <div className="mb-16 text-center">
-              <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+              <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
                 The Product Line
               </p>
               <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
                 From Nudge to Push.
               </h2>
-              <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-foreground-muted">
+              <p className="mx-auto mt-4 max-w-md text-body text-foreground-secondary">
                 A decade of research into the science of not wanting to get up.
               </p>
             </div>
@@ -323,7 +320,7 @@ export default function Home() {
         <section className="border-t border-edge-subtle px-6 py-32">
           <div className="mx-auto max-w-6xl">
             <div className="mb-20 text-center">
-              <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+              <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
                 Push Mode
               </p>
               <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -356,7 +353,7 @@ export default function Home() {
                   <h3 className="mb-4 text-sm font-medium uppercase tracking-widest text-foreground-secondary">
                     {item.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-foreground-muted">
+                  <p className="text-body text-foreground-secondary">
                     {item.body}
                   </p>
                 </div>
@@ -368,7 +365,7 @@ export default function Home() {
         <section className="px-6 py-32">
           <div className="mx-auto max-w-6xl">
             <div className="mb-16 text-center">
-              <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+              <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
                 Customer Outcomes
               </p>
               <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -406,7 +403,7 @@ export default function Home() {
               ].map((t, i) => (
                 <div
                   key={i}
-                  className="rounded-sm border border-edge bg-surface p-8"
+                  className="rounded-xl border border-edge bg-surface p-8"
                 >
                   <div className="mb-6 flex gap-0.5" role="img" aria-label={`${t.stars} out of 5 stars`}>
                     {Array.from({ length: 5 }).map((_, s) => (
@@ -419,7 +416,7 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                  <p className="mb-8 text-sm italic leading-relaxed text-foreground-secondary">
+                  <p className="mb-8 text-body italic text-foreground-secondary">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div>
@@ -445,7 +442,7 @@ export default function Home() {
               { stat: '∞', label: 'Snooze prevention' },
             ].map((s, i) => (
               <div key={i} className="text-center">
-                <p className="mb-2 font-display text-display text-foreground">
+                <p className="mb-2 font-display text-display text-foreground-strong">
                   {s.stat}
                 </p>
                 <p className="text-xs uppercase tracking-widest text-foreground-muted">
@@ -459,25 +456,22 @@ export default function Home() {
         <section className="relative overflow-hidden px-6 py-40 text-center">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
           <div className="relative z-10 mx-auto max-w-2xl">
-            <p className="mb-8 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-8 text-eyebrow uppercase text-foreground-muted">
               Ready?
             </p>
-            <h2 className="mb-8 font-display text-display leading-tight tracking-tight text-foreground">
+            <h2 className="mb-8 font-display text-display leading-tight tracking-tight text-foreground-strong">
               You&rsquo;ve been hitting
               <br />
               snooze long enough.
             </h2>
-            <p className="mb-12 text-sm leading-relaxed text-foreground-muted">
+            <p className="mb-12 text-body text-foreground-secondary">
               The Push is currently out of stock. Join the waitlist.
               <br />
               Push Mode will be available to you soon.
             </p>
-            <Link
-              href="/products/push"
-              className="inline-block rounded-sm bg-accent px-10 py-4 text-xs font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-accent-hover"
-            >
+            <Button variant="cta" size="lg" href="/products/push">
               Join the Waitlist
-            </Link>
+            </Button>
           </div>
         </section>
       </main>

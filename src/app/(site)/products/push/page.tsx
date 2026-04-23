@@ -175,7 +175,7 @@ export default function PushPage() {
 
           <div className="grid items-start gap-16 md:grid-cols-2">
             <div>
-              <div className="mb-8 rounded-sm border border-accent/15 bg-accent/6 px-4 py-3 text-xs leading-relaxed text-foreground-secondary">
+              <div className="mb-8 rounded-xl border border-accent/15 bg-accent/6 px-4 py-3 text-xs leading-relaxed text-foreground-secondary">
                 <span className="font-medium text-accent">
                   Currently out of stock.
                 </span>{' '}
@@ -184,7 +184,7 @@ export default function PushPage() {
                 available to you.
               </div>
 
-              <div className="relative flex h-105 w-full items-center justify-center overflow-hidden rounded-sm border border-accent/12 bg-surface-alt">
+              <div className="relative flex h-105 w-full items-center justify-center overflow-hidden rounded-xl border border-accent/12 bg-surface-alt">
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_40%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
                 <PushBedIllustration />
                 <div className="absolute right-8 bottom-8">
@@ -204,12 +204,12 @@ export default function PushPage() {
 
             <div className="pt-2">
               <div className="mb-4">
-                <span className="rounded-sm border border-accent/20 bg-accent/10 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-accent">
+                <span className="rounded-xl border border-accent/20 bg-accent/10 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-accent">
                   Out of Stock
                 </span>
               </div>
 
-              <h1 className="mb-2 font-display text-display text-foreground">
+              <h1 className="mb-2 font-display text-display text-foreground-strong">
                 The Push
               </h1>
               <p className="mb-8 text-sm italic text-accent/75">
@@ -219,24 +219,24 @@ export default function PushPage() {
 
               <div className="mb-8 h-px bg-edge-subtle" />
 
-              <p className="mb-6 text-sm leading-relaxed text-foreground-secondary">
+              <p className="mb-6 text-body text-foreground-secondary">
                 The RISE Push is the product that answered the question the
                 Nudge couldn&rsquo;t:{' '}
                 <em>what if the bed simply handled it?</em>
               </p>
-              <p className="mb-6 text-sm leading-relaxed text-foreground-secondary">
+              <p className="mb-6 text-body text-foreground-secondary">
                 Push Mode activates on your schedule. The base rises to
                 vertical. You are delivered, with quiet and unhurried precision,
                 through each stage of your morning routine — bathroom, closet,
                 kitchen, departure — until you are where you need to be.
               </p>
-              <p className="mb-10 text-sm leading-relaxed text-foreground-muted">
+              <p className="mb-10 text-body text-foreground-secondary">
                 While this is happening, the bed is also making itself. Slowly.
                 One wrinkle at a time. It will be ready when you return. It has
                 already decided to be.
               </p>
 
-              <div className="mb-6 rounded-sm border border-edge bg-foreground/3 p-6">
+              <div className="mb-6 rounded-xl border border-edge bg-foreground/3 p-6">
                 {!submitted ? (
                   <>
                     <p className="mb-1 text-xs font-medium text-foreground-secondary">
@@ -257,12 +257,12 @@ export default function PushPage() {
                         placeholder="your@email.com"
                         aria-label="Email address"
                         required
-                        className="flex-1 rounded-sm border border-edge bg-foreground/5 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                        className="flex-1 rounded-lg border border-edge bg-foreground/5 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
                       />
                       <button
                         type="submit"
                         disabled={loading}
-                        className="whitespace-nowrap rounded-sm bg-accent px-6 py-3 text-xs font-medium uppercase tracking-widest text-white transition-all duration-300 hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
+                        className="whitespace-nowrap rounded-full bg-accent px-6 py-3 text-xs font-medium uppercase tracking-widest text-accent-on transition-all duration-300 hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         {loading ? '...' : 'Notify Me'}
                       </button>
@@ -299,7 +299,7 @@ export default function PushPage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
               Technology
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -311,15 +311,15 @@ export default function PushPage() {
             {FEATURES.map((f, i) => (
               <div
                 key={i}
-                className="rounded-sm border border-edge bg-surface-alt p-8"
+                className="rounded-xl border border-edge bg-surface-alt p-8"
               >
-                <div className="mb-5 flex size-10 items-center justify-center rounded-sm border border-accent/15 bg-accent/10">
+                <div className="mb-5 flex size-10 items-center justify-center rounded-xl border border-accent/15 bg-accent/10">
                   <span className="text-base text-accent/80">{f.icon}</span>
                 </div>
                 <h3 className="mb-4 text-sm font-medium text-foreground-secondary">
                   {f.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-foreground-muted">
+                <p className="text-body text-foreground-secondary">
                   {f.body}
                 </p>
               </div>
@@ -332,7 +332,7 @@ export default function PushPage() {
         <div className="mx-auto max-w-6xl">
           <div className="grid items-center gap-16 md:grid-cols-2">
             <div>
-              <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+              <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
                 Push Mode
               </p>
               <h2 className="mb-8 font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -340,13 +340,13 @@ export default function PushPage() {
                 <br />
                 <span className="text-foreground-muted">No exceptions.</span>
               </h2>
-              <p className="mb-6 text-sm leading-relaxed text-foreground-secondary">
+              <p className="mb-6 text-body text-foreground-secondary">
                 The PM-1 remote has one button. The button does one thing.
                 Pressing it a second time confirms the input. There is no third
                 option. Push Mode does not offer a snooze. It does not offer a
                 delay. It offers the morning.
               </p>
-              <p className="text-sm leading-relaxed text-foreground-muted">
+              <p className="text-body text-foreground-secondary">
                 Fine print on the remote reverse:{' '}
                 <em>
                   &ldquo;Push Mode cannot be manually interrupted once
@@ -365,10 +365,10 @@ export default function PushPage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
               Specifications
             </p>
-            <h2 className="font-display text-4xl tracking-tight text-foreground">
+            <h2 className="font-display text-4xl tracking-tight text-foreground-strong">
               Technical Details
             </h2>
           </div>
@@ -414,7 +414,7 @@ export default function PushPage() {
       <section className="relative overflow-hidden border-t border-edge-subtle px-6 py-32 text-center">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
         <div className="relative z-10 mx-auto max-w-xl">
-          <p className="mb-8 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-8 text-eyebrow uppercase text-foreground-muted">
             Join the Waitlist
           </p>
           <h2 className="mb-6 font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -424,12 +424,12 @@ export default function PushPage() {
               will be available to you soon.
             </span>
           </h2>
-          <p className="mb-10 text-sm leading-relaxed text-foreground-muted">
+          <p className="mb-10 text-body text-foreground-secondary">
             We&rsquo;ll be in touch when The Push is back in stock.
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="inline-block cursor-pointer rounded-sm bg-accent px-10 py-4 text-xs font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-accent-hover"
+            className="inline-block cursor-pointer rounded-full bg-accent px-10 py-4 text-xs font-medium uppercase tracking-[0.16em] text-accent-on transition-colors hover:bg-accent-hover"
           >
             Notify Me →
           </button>

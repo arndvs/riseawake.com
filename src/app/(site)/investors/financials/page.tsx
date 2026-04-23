@@ -81,26 +81,26 @@ export default function FinancialsPage() {
       <section className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 pt-8">
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
               Key Metrics
             </p>
-            <h1 className="mb-4 font-display text-[clamp(2rem,5vw,3.5rem)] tracking-tight text-foreground">
+            <h1 className="mb-4 font-display text-section tracking-tight text-foreground-strong">
               Financials & Data
             </h1>
-            <p className="max-w-xl text-sm leading-loose text-foreground-muted">
+            <p className="max-w-xl text-body text-foreground-secondary">
               FY2024 key performance indicators. All figures unaudited. Push
               Mode compliance data independently verified by RISE™ Internal
               Analytics.
             </p>
           </div>
 
-          <div className="mb-10 rounded-sm border border-edge-subtle bg-surface-alt p-8">
+          <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
             <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
               <div>
-                <p className="mb-1 text-xs uppercase tracking-[0.16em] text-foreground-muted">
+                <p className="mb-1 text-eyebrow uppercase text-foreground-muted">
                   Revenue Growth
                 </p>
-                <p className="font-display text-3xl text-foreground">
+                <p className="font-display text-3xl text-foreground-strong">
                   $89.4M{' '}
                   <span className="text-base text-accent">FY2024</span>
                 </p>
@@ -153,9 +153,9 @@ export default function FinancialsPage() {
             </ResponsiveContainer>
           </div>
 
-          <div className="mb-10 rounded-sm border border-edge-subtle bg-surface-alt p-8">
+          <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
             <div className="mb-6">
-              <p className="mb-1 text-xs uppercase tracking-[0.16em] text-foreground-muted">
+              <p className="mb-1 text-eyebrow uppercase text-foreground-muted">
                 Waitlist vs. Units Shipped
               </p>
               <p className="text-sm text-foreground-muted">
@@ -222,8 +222,8 @@ export default function FinancialsPage() {
           </div>
 
           <div className="mb-10 grid gap-6 md:grid-cols-2">
-            <div className="rounded-sm border border-edge-subtle bg-surface-alt p-8">
-              <p className="mb-6 text-xs uppercase tracking-[0.16em] text-foreground-muted">
+            <div className="rounded-xl border border-edge-subtle bg-surface-alt p-8">
+              <p className="mb-6 text-eyebrow uppercase text-foreground-muted">
                 Unit Economics
               </p>
               <div className="flex flex-col gap-4">
@@ -252,8 +252,8 @@ export default function FinancialsPage() {
               </p>
             </div>
 
-            <div className="rounded-sm border border-edge-subtle bg-surface-alt p-8">
-              <p className="mb-6 text-xs uppercase tracking-[0.16em] text-foreground-muted">
+            <div className="rounded-xl border border-edge-subtle bg-surface-alt p-8">
+              <p className="mb-6 text-eyebrow uppercase text-foreground-muted">
                 Push Mode Compliance
               </p>
               <div className="mb-6 flex items-end gap-6">
@@ -288,13 +288,13 @@ export default function FinancialsPage() {
             </div>
           </div>
 
-          <div className="mb-10 rounded-sm border border-edge-subtle bg-surface-alt p-8">
+          <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
             <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
               <div>
-                <p className="mb-1 text-xs uppercase tracking-[0.16em] text-foreground-muted">
+                <p className="mb-1 text-eyebrow uppercase text-foreground-muted">
                   Net Promoter Score Trend
                 </p>
-                <p className="font-display text-3xl text-foreground">
+                <p className="font-display text-3xl text-foreground-strong">
                   71{' '}
                   <span className="text-base text-foreground-muted">
                     Q3 2024
@@ -342,8 +342,8 @@ export default function FinancialsPage() {
             </ResponsiveContainer>
           </div>
 
-          <div className="mb-10 rounded-sm border border-edge-subtle bg-surface-alt p-8">
-            <p className="mb-2 text-xs uppercase tracking-[0.16em] text-foreground-muted">
+          <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
+            <p className="mb-2 text-eyebrow uppercase text-foreground-muted">
               Geographic Presence
             </p>
             <p className="mb-6 text-sm text-foreground-muted">
@@ -356,12 +356,12 @@ export default function FinancialsPage() {
               {ACTIVE_MARKETS.map((market) => (
                 <span
                   key={market}
-                  className="rounded-sm border border-accent/15 bg-accent/10 px-3 py-1.5 text-[10px] text-accent"
+                  className="rounded-xl border border-accent/15 bg-accent/10 px-3 py-1.5 text-[10px] text-accent"
                 >
                   {market}
                 </span>
               ))}
-              <span className="rounded-sm border border-edge-subtle bg-surface-inset px-3 py-1.5 text-[10px] text-foreground-muted/60">
+              <span className="rounded-xl border border-edge-subtle bg-surface-inset px-3 py-1.5 text-[10px] text-foreground-muted/60">
                 +75 planned
               </span>
             </div>
@@ -373,7 +373,7 @@ export default function FinancialsPage() {
             </p>
           </div>
 
-          <div className="rounded-sm border border-edge-subtle/60 bg-surface-inset p-4">
+          <div className="rounded-xl border border-edge-subtle/60 bg-surface-inset p-4">
             <p className="text-[10px] leading-loose text-foreground-muted">
               All figures unaudited. Push Mode compliance data independently
               verified by RISE™ Internal Analytics. Third-party verification

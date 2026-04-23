@@ -58,6 +58,10 @@ export default function InternalIndexPage() {
   ).sort((a, b) => {
     const av = a[sortKey] as string
     const bv = b[sortKey] as string
+    if (sortKey === 'date') {
+      const diff = new Date(av).getTime() - new Date(bv).getTime()
+      return sortDir === 'asc' ? diff : -diff
+    }
     return sortDir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av)
   })
 

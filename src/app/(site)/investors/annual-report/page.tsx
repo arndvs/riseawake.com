@@ -111,10 +111,10 @@ export default function AnnualReportPage() {
       <article className="px-6 py-16">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 pt-8">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Annual Report
             </p>
-            <h1 className="mb-2 font-display text-[clamp(2rem,5vw,3.5rem)] tracking-tight text-foreground">
+            <h1 className="mb-2 font-display text-section tracking-tight text-foreground-strong">
               FY2024 Annual Report
             </h1>
             <p className="text-xs text-foreground-muted/60">
@@ -123,10 +123,10 @@ export default function AnnualReportPage() {
           </div>
 
           <section className="mb-14">
-            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
+            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">
               1. Executive Summary
             </h2>
-            <p className="mb-4 text-sm leading-loose text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-secondary">
               FY2024 was RISE™&rsquo;s strongest year on record and, we believe,
               the year the adjustable base market ceased to be the relevant
               frame of reference for what we do. Revenue reached $89.4M,
@@ -134,7 +134,7 @@ export default function AnnualReportPage() {
               active users reached 98%. The waitlist reached 340,000. We shipped
               47,000 units.
             </p>
-            <p className="text-sm leading-loose text-foreground-muted">
+            <p className="text-body text-foreground-secondary">
               These numbers tell a story about product-market fit. The deeper
               story is about what happens when 47,000 people stop making a
               decision every morning and start simply executing one they made
@@ -143,7 +143,7 @@ export default function AnnualReportPage() {
           </section>
 
           <section className="mb-14">
-            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
+            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">
               2. Financial Highlights
             </h2>
             <div className="overflow-x-auto">
@@ -208,9 +208,9 @@ export default function AnnualReportPage() {
               ].map((s) => (
                 <div
                   key={s.label}
-                  className="rounded-sm border border-edge-subtle bg-surface-alt p-5 text-center"
+                  className="rounded-xl border border-edge-subtle bg-surface-alt p-5 text-center"
                 >
-                  <p className="mb-1 font-display text-2xl text-foreground">
+                  <p className="mb-1 font-display text-2xl text-foreground-strong">
                     {s.stat}
                   </p>
                   <p className="text-[10px] tracking-[0.14em] text-foreground-muted uppercase">
@@ -222,10 +222,10 @@ export default function AnnualReportPage() {
           </section>
 
           <section className="mb-14">
-            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
+            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">
               3. Business Overview
             </h2>
-            <p className="mb-4 text-sm leading-loose text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-secondary">
               RISE™ manufactures and operates the RISE™ Smart Adjustable Base —
               a platform consisting of the Push hardware, Push Mode software,
               self-making mechanism, and autonomous navigation system. The
@@ -233,7 +233,7 @@ export default function AnnualReportPage() {
               companion products, and no optional features. Push Mode is not
               optional.
             </p>
-            <p className="text-sm leading-loose text-foreground-muted">
+            <p className="text-body text-foreground-secondary">
               The self-making mechanism — a sheet tensioning system and single
               pneumatic pillow node that operate during Push Mode — is the
               product&rsquo;s most underappreciated feature from a financial
@@ -244,17 +244,17 @@ export default function AnnualReportPage() {
           </section>
 
           <section className="mb-14">
-            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
+            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">
               4. Market Opportunity
             </h2>
-            <p className="mb-4 text-sm leading-loose text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-secondary">
               RISE™ does not size its opportunity against the adjustable bed
               market ($15B globally) or the sleep economy ($432B). These are the
               wrong reference frames. RISE™ addresses the productivity loss
               market: the estimated $4.2 trillion in annual global economic
               output lost to inadequate morning routines.
             </p>
-            <p className="mb-4 text-sm leading-loose text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-secondary">
               By our calculation, each Push Mode user recovers an average of 34
               minutes of productive morning time per day relative to their
               pre-Push baseline. Across 47,000 active users, this represents
@@ -262,7 +262,7 @@ export default function AnnualReportPage() {
               median knowledge worker rates. We have addressed approximately 1%
               of our addressable market.
             </p>
-            <div className="rounded-sm border border-accent/12 bg-accent/5 p-5">
+            <div className="rounded-xl border border-accent/12 bg-accent/5 p-5">
               <p className="text-xs leading-loose text-foreground-muted">
                 <strong className="text-foreground-secondary">TAM:</strong> $4.2
                 trillion (global productivity loss attributable to morning
@@ -280,7 +280,7 @@ export default function AnnualReportPage() {
           </section>
 
           <section className="mb-14">
-            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
+            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">
               5. Risk Factors
             </h2>
             <p className="mb-6 text-xs leading-loose text-foreground-muted/60">
@@ -294,12 +294,12 @@ export default function AnnualReportPage() {
               {RISK_FACTORS.map((r, i) => (
                 <div
                   key={i}
-                  className="rounded-sm border border-edge-subtle bg-surface-alt p-6"
+                  className="rounded-xl border border-edge-subtle bg-surface-alt p-6"
                 >
                   <h3 className="mb-3 text-xs font-medium tracking-[0.14em] text-foreground-secondary uppercase">
                     {r.title}
                   </h3>
-                  <p className="text-sm leading-loose text-foreground-muted">
+                  <p className="text-body text-foreground-secondary">
                     {r.body}
                   </p>
                 </div>
@@ -308,17 +308,17 @@ export default function AnnualReportPage() {
           </section>
 
           <section className="mb-14">
-            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
+            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">
               5a. Growth Strategy — Vertical Navigation
             </h2>
-            <p className="mb-4 text-sm leading-loose text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-secondary">
               RISE™&rsquo;s current platform is optimized for flat-surface
               residential environments. We are aware of this constraint.
               Approximately 34% of US residential housing stock involves
               multi-story navigation. We have not addressed this market. We
               intend to.
             </p>
-            <p className="mb-4 text-sm leading-loose text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-secondary">
               Our R&D team has been developing next-generation vertical
               navigation infrastructure since Q3 2022. In February 2025, we
               confirmed the existence of this program publicly under the name{' '}
@@ -331,7 +331,7 @@ export default function AnnualReportPage() {
               recurring Vertical Navigation Services subscription. We confirmed
               that current Push owners will receive no preferential pricing.
             </p>
-            <p className="text-sm leading-loose text-foreground-muted">
+            <p className="text-body text-foreground-secondary">
               We are not disclosing timeline, price, form factor, or any
               specification beyond the above. Multi-story residences represent a
               meaningful expansion of our addressable market. We are not
@@ -346,14 +346,14 @@ export default function AnnualReportPage() {
           </section>
 
           <section className="mb-14">
-            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground">
+            <h2 className="mb-6 font-display text-2xl tracking-tight text-foreground-strong">
               6. Leadership & Governance
             </h2>
             <div className="grid gap-4 md:grid-cols-2">
               {LEADERSHIP.map((p) => (
                 <div
                   key={p.name}
-                  className="rounded-sm border border-edge-subtle bg-surface-alt p-6"
+                  className="rounded-xl border border-edge-subtle bg-surface-alt p-6"
                 >
                   <p className="mb-1 text-sm font-medium text-foreground-secondary">
                     {p.name}
@@ -367,7 +367,7 @@ export default function AnnualReportPage() {
             </div>
           </section>
 
-          <div className="rounded-sm border border-edge-subtle/60 bg-surface-inset p-4">
+          <div className="rounded-xl border border-edge-subtle/60 bg-surface-inset p-4">
             <p className="text-[10px] leading-loose text-foreground-muted">
               This annual report contains forward-looking statements. Actual
               results may differ materially. Financial figures are unaudited

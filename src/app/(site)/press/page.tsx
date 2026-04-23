@@ -48,13 +48,13 @@ export default function PressPage() {
 
       <section className="px-6 pt-40 pb-24">
         <div className="mx-auto max-w-4xl">
-          <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Press
           </p>
-          <h1 className="mb-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] tracking-tight text-foreground">
+          <h1 className="mb-6 font-display text-display tracking-tight text-foreground-strong">
             Press Releases
           </h1>
-          <p className="mb-4 max-w-xl text-sm leading-loose text-foreground-muted">
+          <p className="mb-4 max-w-xl text-body text-foreground-secondary">
             Official communications from RISE™ Technologies, Inc.
           </p>
           <p className="mb-16 text-xs leading-relaxed text-foreground-muted/50">
@@ -68,7 +68,7 @@ export default function PressPage() {
               <Link
                 key={i}
                 href={r.href}
-                className={`group block rounded-sm border p-7 no-underline ${
+                className={`group block rounded-xl border p-7 no-underline ${
                   r.featured
                     ? 'border-edge bg-foreground/3'
                     : 'border-edge-subtle bg-surface-alt'
@@ -76,11 +76,11 @@ export default function PressPage() {
               >
                 <div className="mb-3 flex flex-wrap items-start justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <span className="rounded-sm border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] text-accent/65">
+                    <span className="rounded-xl border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] text-accent/65">
                       {r.tag}
                     </span>
                     {r.featured && (
-                      <span className="rounded-sm border border-edge-subtle bg-foreground/4 px-2 py-1 text-[10px] text-foreground-muted">
+                      <span className="rounded-xl border border-edge-subtle bg-foreground/4 px-2 py-1 text-[10px] text-foreground-muted">
                         Latest
                       </span>
                     )}
@@ -89,7 +89,7 @@ export default function PressPage() {
                     {r.date}
                   </span>
                 </div>
-                <h2 className="mb-3 text-sm leading-relaxed font-medium text-foreground-secondary">
+                <h2 className="mb-3 text-body font-medium text-foreground-secondary">
                   {r.headline}
                 </h2>
                 <p className="mb-4 text-xs leading-relaxed text-foreground-muted">

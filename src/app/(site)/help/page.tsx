@@ -79,21 +79,21 @@ export default function HelpPage() {
             <span className="text-foreground-secondary">Support</span>
           </div>
 
-          <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Support
           </p>
-          <h1 className="mb-6 font-display text-hero leading-none text-foreground">
+          <h1 className="mb-6 font-display text-hero leading-none text-foreground-strong">
             We&rsquo;re here
             <br />
             <span className="text-foreground-muted">to help you adapt.</span>
           </h1>
-          <p className="max-w-xl text-sm leading-relaxed text-foreground-muted">
+          <p className="max-w-xl text-body text-foreground-secondary">
             If you are reading this, Push Mode is likely already running. We
             understand. Most questions resolve themselves by the time you reach
             the office. For everything else, we are here.
           </p>
 
-          <div className="mt-8 inline-flex items-center gap-3 rounded-sm border border-accent/12 bg-accent/6 px-4 py-3">
+          <div className="mt-8 inline-flex items-center gap-3 rounded-xl border border-accent/12 bg-accent/6 px-4 py-3">
             <div className="animate-glow-pulse size-1.5 rounded-full bg-accent/80" />
             <p className="text-xs text-foreground-secondary">
               You were referred here from the RISE™ PM-1 remote.{' '}
@@ -125,7 +125,7 @@ export default function HelpPage() {
             <a
               key={i}
               href={item.href}
-              className="block rounded-sm border border-edge bg-surface-alt p-6 no-underline transition-colors hover:border-edge-strong"
+              className="block rounded-xl border border-edge bg-surface-alt p-6 no-underline transition-colors hover:border-edge-strong"
             >
               <h3 className="mb-2 text-sm font-medium text-foreground-secondary">
                 {item.title}
@@ -142,7 +142,7 @@ export default function HelpPage() {
       <section id="faq" className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-4xl">
           <div className="mb-14">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               FAQ
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -154,7 +154,7 @@ export default function HelpPage() {
             {FAQ.map((item, i) => (
               <div
                 key={i}
-                className="overflow-hidden rounded-sm border border-edge bg-surface-alt"
+                className="overflow-hidden rounded-xl border border-edge bg-surface-alt"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -185,7 +185,7 @@ export default function HelpPage() {
                     maxHeight: openFaq === i ? '300px' : '0',
                   }}
                 >
-                  <p className="px-6 pb-6 text-sm leading-relaxed text-foreground-secondary">
+                  <p className="px-6 pb-6 text-body text-foreground-secondary">
                     {item.a}
                   </p>
                 </div>
@@ -201,10 +201,10 @@ export default function HelpPage() {
       >
         <div className="mx-auto max-w-4xl">
           <div className="mb-12">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Warranty
             </p>
-            <h2 className="font-display text-4xl tracking-tight text-foreground">
+            <h2 className="font-display text-4xl tracking-tight text-foreground-strong">
               Coverage Details
             </h2>
           </div>
@@ -236,13 +236,13 @@ export default function HelpPage() {
             ].map((plan, i) => (
               <div
                 key={i}
-                className="rounded-sm border border-edge bg-foreground/3 p-8"
+                className="rounded-xl border border-edge bg-foreground/3 p-8"
               >
                 <div className="mb-6 flex items-start justify-between">
                   <h3 className="text-sm font-medium text-foreground-secondary">
                     {plan.title}
                   </h3>
-                  <span className="rounded-sm border border-accent/15 bg-accent/10 px-3 py-1 text-xs text-accent/80">
+                  <span className="rounded-xl border border-accent/15 bg-accent/10 px-3 py-1 text-xs text-accent/80">
                     {plan.period}
                   </span>
                 </div>
@@ -274,13 +274,13 @@ export default function HelpPage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-4xl">
           <div className="mb-14">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Contact
             </p>
             <h2 className="mb-4 font-display text-4xl tracking-tight text-foreground md:text-5xl">
               Get in touch.
             </h2>
-            <p className="text-sm leading-relaxed text-foreground-muted">
+            <p className="text-body text-foreground-secondary">
               Our support team responds within 2–3 business days. If Push Mode
               has already started, we respectfully suggest finishing your
               morning first.
@@ -301,7 +301,7 @@ export default function HelpPage() {
                   onChange={(e) =>
                     setFormState({ ...formState, name: e.target.value })
                   }
-                  className="rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                  className="rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-accent/40"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -316,7 +316,7 @@ export default function HelpPage() {
                   onChange={(e) =>
                     setFormState({ ...formState, email: e.target.value })
                   }
-                  className="rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                  className="rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-accent/40"
                 />
               </div>
               <div className="flex flex-col gap-2 md:col-span-2">
@@ -330,7 +330,7 @@ export default function HelpPage() {
                     setFormState({ ...formState, subject: e.target.value })
                   }
                   required
-                  className={`rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-sm transition-all duration-200 outline-none focus:border-accent/40 ${
+                  className={`rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-sm transition-all duration-200 outline-none focus:border-accent/40 ${
                     formState.subject
                       ? 'text-foreground'
                       : 'text-foreground-muted'
@@ -366,7 +366,7 @@ export default function HelpPage() {
                   onChange={(e) =>
                     setFormState({ ...formState, message: e.target.value })
                   }
-                  className="resize-none rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                  className="resize-none rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-accent/40"
                 />
               </div>
               <div className="flex items-center justify-between md:col-span-2">
@@ -377,7 +377,7 @@ export default function HelpPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="rounded-sm bg-accent px-8 py-3 text-xs font-medium tracking-widest text-white uppercase transition-all duration-300 hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
+                  className="rounded-full bg-accent px-8 py-3 text-xs font-medium tracking-widest text-accent-on uppercase transition-all duration-300 hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {loading ? 'Sending...' : 'Send Message'}
                 </button>
@@ -388,10 +388,10 @@ export default function HelpPage() {
               <div className="mx-auto mb-6 flex size-12 items-center justify-center rounded-full border border-accent/25 bg-accent/10">
                 <span className="text-lg text-accent">✓</span>
               </div>
-              <p className="mb-4 font-display text-3xl tracking-tight text-foreground">
+              <p className="mb-4 font-display text-3xl tracking-tight text-foreground-strong">
                 Message received.
               </p>
-              <p className="text-sm leading-relaxed text-foreground-muted">
+              <p className="text-body text-foreground-secondary">
                 We&rsquo;ll be in touch within 2–3 business days.
                 <br />
                 We trust Push Mode has taken care of the rest.

@@ -272,7 +272,7 @@ function LoginModal({
               type="email"
               value={user}
               onChange={(e) => setUser(e.target.value)}
-              placeholder="name@riseco.online"
+              placeholder="name@riseawake.com"
               required
               className="w-full rounded-sm px-3 py-2.5 text-xs"
               style={{
@@ -577,7 +577,13 @@ export default function PayloadShell({
   // Restore session from sessionStorage (survives navigation, not tab close)
   useEffect(() => {
     const stored = sessionStorage.getItem('rise-session')
-    if (stored) setSession(JSON.parse(stored))
+    if (stored) {
+      try {
+        setSession(JSON.parse(stored))
+      } catch {
+        sessionStorage.removeItem('rise-session')
+      }
+    }
   }, [])
 
   const handleLogin = (email: string) => {
@@ -594,7 +600,7 @@ export default function PayloadShell({
 
   const NAV = [
     { href: '/internal', label: 'Dashboard', icon: '⊞' },
-    { href: '/internal', label: 'Documents', icon: '☰', count: 9 },
+    { href: '/internal', label: 'Documents', icon: '☰', count: 19 },
     { href: '/internal/media', label: 'Media', icon: '⊡', count: 0 },
     { href: '/internal/users', label: 'Users', icon: '◎', count: 3 },
     { href: '/internal/settings', label: 'Settings', icon: '⚙' },
@@ -873,7 +879,7 @@ export default function PayloadShell({
 
         {/*
           Last commit: feat: add document list view and auth middleware (WIP)
-          Author: areyes@riseco.online
+          Author: areyes@riseawake.com
           Date: Mon Aug 12 09:43:22 2024 -0700
 
           TODO:

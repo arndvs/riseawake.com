@@ -11,7 +11,7 @@ The solution, it turned out, was simpler than I expected: remove the decision.`,
   },
   {
     heading: 'The Numbers',
-    body: `FY2024 revenue reached $89.4 million, a 218% increase year-over-year. Gross margins held at 68%. We shipped 47,000 Push units against a waitlist of 340,000. We ended the year with 312 employees, up from 48 in 2021.
+    body: `FY2024 revenue reached $89.4 million, a 134% increase year-over-year. Gross margins held at 68%. We shipped 47,000 Push units against a waitlist of 340,000. We ended the year with 312 employees, up from 48 in 2021.
 
 The waitlist deserves a comment. 340,000 people are waiting for a product that, by their own description in our research interviews, they are slightly afraid of. They want it anyway. RISE™ considers this the most important data point in our investor materials.
 
@@ -55,7 +55,7 @@ export default function ShareholderLetterPage() {
       <article className="px-6 py-16">
         <div className="mx-auto max-w-3xl">
           <div className="mb-12 pt-8">
-            <div className="mb-8 rounded-sm border border-edge-subtle bg-surface-alt p-6">
+            <div className="mb-8 rounded-xl border border-edge-subtle bg-surface-alt p-6">
               <p className="mb-1 text-xs text-foreground-secondary">
                 RISE™ Technologies, Inc.
               </p>
@@ -67,10 +67,10 @@ export default function ShareholderLetterPage() {
                 Officer
               </p>
             </div>
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
               Shareholder Letter
             </p>
-            <h1 className="mb-2 font-display text-[clamp(2rem,5vw,3.5rem)] tracking-tight text-foreground">
+            <h1 className="mb-2 font-display text-section tracking-tight text-foreground-strong">
               FY2024 Annual Letter
             </h1>
             <p className="text-xs text-foreground-muted/60">
@@ -90,7 +90,7 @@ export default function ShareholderLetterPage() {
                   {section.heading}
                 </p>
               )}
-              <div className="whitespace-pre-line text-sm leading-loose text-foreground-muted">
+              <div className="whitespace-pre-line text-body text-foreground-secondary">
                 {section.body}
               </div>
             </div>
@@ -100,7 +100,7 @@ export default function ShareholderLetterPage() {
             <p className="mb-1 text-sm italic text-foreground-secondary">
               With conviction,
             </p>
-            <p className="mb-1 font-display text-2xl text-foreground">
+            <p className="mb-1 font-display text-2xl text-foreground-strong">
               Dr. Eleanor Voss
             </p>
             <p className="mb-1 text-xs text-foreground-muted">
@@ -109,7 +109,7 @@ export default function ShareholderLetterPage() {
             <p className="mb-8 text-xs text-foreground-muted/60">
               March 1, 2025 · San Francisco, California
             </p>
-            <div className="rounded-sm border border-accent/10 bg-accent/5 p-4">
+            <div className="rounded-xl border border-accent/10 bg-accent/5 p-4">
               <p className="text-[10px] leading-loose text-foreground-muted">
                 Dr. Voss wrote this letter at 6:47am. She has used the Push
                 every morning since 2021. She has not been late once. She does
@@ -118,7 +118,7 @@ export default function ShareholderLetterPage() {
             </div>
           </div>
 
-          <div className="mt-8 rounded-sm border border-edge-subtle/60 bg-surface-inset p-4">
+          <div className="mt-8 rounded-xl border border-edge-subtle/60 bg-surface-inset p-4">
             <p className="text-[10px] leading-loose text-foreground-muted">
               This letter contains forward-looking statements within the meaning
               of applicable securities laws. These statements involve risks and

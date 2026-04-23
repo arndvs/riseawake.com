@@ -3,6 +3,7 @@ import { Container } from '@/components/container'
 import { GradientBackground } from '@/components/gradient'
 import { Link } from '@/components/link'
 import { Heading, Subheading } from '@/components/text'
+import { createMetadata } from '@/lib/metadata'
 import { image } from '@/sanity/image'
 import { getAllPostSlugs, getPost } from '@/sanity/queries'
 import { ChevronLeft } from 'lucide-react'
@@ -21,9 +22,22 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
-  const { data: post } = await getPost((await params).slug)
+  const { slug } = await params
+  const { data: post } = await getPost(slug)
 
-  return post ? { title: post.title, description: post.excerpt } : {}
+  if (!post)
+    return {}
+
+  return createMetadata({
+    title: post.title ?? 'Blog Post',
+    description: post.excerpt ?? '',
+    path: `/blog/${slug}`,
+    openGraph: {
+      type: 'article',
+      publishedTime: post.publishedAt ?? undefined,
+      authors: post.author?.name ? [post.author.name] : undefined,
+    },
+  })
 }
 
 export default async function BlogPost({
@@ -160,14 +174,14 @@ export default async function BlogPost({
                     },
                     marks: {
                       strong: ({ children }) => (
-                        <strong className="font-semibold text-foreground">
+                        <strong className="font-semibold text-foreground-strong">
                           {children}
                         </strong>
                       ),
                       code: ({ children }) => (
                         <>
                           <span aria-hidden>`</span>
-                          <code className="text-[15px]/8 font-semibold text-foreground">
+                          <code className="text-[15px]/8 font-semibold text-foreground-strong">
                             {children}
                           </code>
                           <span aria-hidden>`</span>

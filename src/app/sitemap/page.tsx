@@ -1,3 +1,5 @@
+import { clsx } from 'clsx'
+
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import Link from 'next/link'
@@ -126,64 +128,35 @@ export default function SitemapPage() {
       <Navbar />
       <section className="px-6 pt-40 pb-24">
         <div className="mx-auto max-w-3xl">
-          <p
-            className="mb-4 text-eyebrow uppercase"
-            style={{
-              color: 'rgba(255,255,255,0.25)',
-              letterSpacing: '0.2em',
-            }}
-          >
+          <p className="mb-4 text-eyebrow uppercase tracking-[0.2em] text-foreground-muted">
             riseawake.com
           </p>
-          <h1
-            className="mb-4 font-display text-section"
-            style={{ color: 'rgba(255,255,255,0.9)' }}
-          >
+          <h1 className="mb-4 font-display text-section text-foreground">
             Sitemap
           </h1>
-          <p
-            className="mb-2 text-xs"
-            style={{ color: 'rgba(255,255,255,0.25)' }}
-          >
+          <p className="mb-2 text-xs text-foreground-muted">
             Last generated automatically: March 1, 2025
           </p>
-          <p
-            className="mb-16 text-xs"
-            style={{
-              color: 'rgba(255,255,255,0.18)',
-              fontStyle: 'italic',
-            }}
-          >
+          <p className="mb-16 text-xs italic text-foreground-muted/60">
             RISE™ reviews sitemap contents quarterly. The next review is
             scheduled for June 1, 2025. If you believe a URL has been listed in
-            error, please contact webmaster@riseco.online.
+            error, please contact webmaster@riseawake.com.
           </p>
 
           <div className="flex flex-col gap-10">
             {SECTIONS.map((section) => (
               <div key={section.label}>
                 <p
-                  className="mb-4 text-[10px] tracking-widest uppercase"
-                  style={{
-                    color: section.isInternal
-                      ? 'rgba(234,179,8,0.6)'
-                      : 'rgba(255,255,255,0.25)',
-                    letterSpacing: '0.2em',
-                    borderBottom: section.isInternal
-                      ? '1px solid rgba(234,179,8,0.15)'
-                      : '1px solid rgba(255,255,255,0.06)',
-                    paddingBottom: '8px',
-                  }}
+                  className={clsx(
+                    'mb-4 pb-2 text-[10px] uppercase tracking-[0.2em]',
+                    section.isInternal
+                      ? 'border-b border-amber-500/15 text-amber-500/60'
+                      : 'border-b border-edge-subtle text-foreground-muted',
+                  )}
                 >
                   {section.label}
                   {section.isInternal && (
-                    <span
-                      className="ml-3"
-                      style={{
-                        color: 'rgba(234,179,8,0.4)',
-                        fontSize: '9px',
-                      }}
-                    >
+                    <span className="ml-3 text-[9px] text-amber-500/40">
                       ← this section should not be here
                     </span>
                   )}
@@ -193,20 +166,16 @@ export default function SitemapPage() {
                     <div key={route.path} className="flex items-baseline gap-4">
                       <Link
                         href={route.path}
-                        className="shrink-0 font-mono text-xs transition-colors duration-150 hover:text-white"
-                        style={{
-                          color: section.isInternal
-                            ? 'rgba(234,179,8,0.7)'
-                            : 'rgba(42,92,219,0.7)',
-                          minWidth: '300px',
-                        }}
+                        className={clsx(
+                          'min-w-[300px] shrink-0 font-mono text-xs transition-colors duration-150 hover:text-foreground',
+                          section.isInternal
+                            ? 'text-amber-500/70'
+                            : 'text-accent',
+                        )}
                       >
                         {route.path}
                       </Link>
-                      <span
-                        className="text-xs"
-                        style={{ color: 'rgba(255,255,255,0.2)' }}
-                      >
+                      <span className="text-xs text-foreground-muted">
                         {route.desc}
                       </span>
                     </div>
@@ -216,19 +185,8 @@ export default function SitemapPage() {
             ))}
           </div>
 
-          <div
-            className="mt-16 pt-8"
-            style={{
-              borderTop: '1px solid rgba(255,255,255,0.06)',
-            }}
-          >
-            <p
-              className="text-[10px]"
-              style={{
-                color: 'rgba(255,255,255,0.15)',
-                lineHeight: 1.8,
-              }}
-            >
+          <div className="mt-16 border-t border-edge-subtle pt-8">
+            <p className="text-[10px] leading-[1.8] text-foreground-muted/60">
               This sitemap was generated automatically on March 1, 2025 by the
               RISE™ site management system. RISE™ reviews sitemap contents
               quarterly. Quarterly reviews are scheduled and conducted by the IT

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { siteUrl } from '@/sanity/env'
 
 /**
  * RISE™ Robots Configuration
@@ -21,14 +22,15 @@ import type { MetadataRoute } from 'next'
  * — RISE™ Web Infrastructure
  */
 export default function robots(): MetadataRoute.Robots {
+
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/internal/', '/remote/', '/studio/'],
+        disallow: ['/internal/', '/remote/', '/studio/', '/api/'],
       },
     ],
-    sitemap: 'https://riseawake.com/sitemap.xml',
+    sitemap: `${siteUrl}/sitemap.xml`,
   }
 }

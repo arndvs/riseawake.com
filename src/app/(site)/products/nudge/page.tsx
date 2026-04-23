@@ -1,3 +1,4 @@
+import { Button } from '@/components/button'
 import { Link } from '@/components/link'
 
 const SPECS = [
@@ -157,7 +158,7 @@ export default function NudgePage() {
 
           <div className="grid items-start gap-16 md:grid-cols-2">
             <div>
-              <div className="mb-8 rounded-sm border border-edge bg-foreground/3 px-4 py-3 text-xs leading-relaxed text-foreground-muted">
+              <div className="mb-8 rounded-xl border border-edge bg-foreground/3 px-4 py-3 text-xs leading-relaxed text-foreground-muted">
                 <span className="font-medium text-foreground-secondary">
                   This product has been discontinued.
                 </span>{' '}
@@ -179,13 +180,13 @@ export default function NudgePage() {
                 .
               </div>
 
-              <div className="relative flex h-105 w-full items-center justify-center overflow-hidden rounded-sm border border-edge bg-surface-alt">
+              <div className="relative flex h-105 w-full items-center justify-center overflow-hidden rounded-xl border border-edge bg-surface-alt">
                 <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-foreground/1 to-transparent" />
                 <NudgeBedIllustration />
                 <div
                   className="absolute inset-0 flex -rotate-12 items-center justify-center"
                 >
-                  <p className="rounded-sm border border-edge px-6 py-2 text-[10px] font-medium tracking-[0.3em] text-foreground/8 uppercase">
+                  <p className="rounded-xl border border-edge px-6 py-2 text-[10px] font-medium tracking-[0.3em] text-foreground/8 uppercase">
                     Discontinued
                   </p>
                 </div>
@@ -203,7 +204,7 @@ export default function NudgePage() {
 
             <div className="pt-2">
               <div className="mb-4">
-                <span className="rounded-sm border border-edge bg-foreground/5 px-3 py-1.5 text-[10px] font-medium tracking-[0.18em] text-foreground-muted uppercase">
+                <span className="rounded-xl border border-edge bg-foreground/5 px-3 py-1.5 text-[10px] font-medium tracking-[0.18em] text-foreground-muted uppercase">
                   Discontinued
                 </span>
               </div>
@@ -217,25 +218,25 @@ export default function NudgePage() {
 
               <div className="mb-8 h-px bg-edge-subtle" />
 
-              <p className="mb-6 text-sm leading-relaxed text-foreground-secondary">
+              <p className="mb-6 text-body text-foreground-secondary">
                 The original RISE smart adjustable base. The Nudge was the
                 product that asked the question no one had thought to ask:{' '}
                 <em>what if the bed was on your side?</em>
               </p>
-              <p className="mb-6 text-sm leading-relaxed text-foreground-secondary">
+              <p className="mb-6 text-body text-foreground-secondary">
                 Not against you. Not indifferent to you. <em>On your side</em> —
                 in the way that a friend who genuinely wants you to succeed
                 might be, which is to say: occasionally uncomfortable to be
                 around, but correct.
               </p>
-              <p className="mb-10 text-sm leading-relaxed text-foreground-muted">
+              <p className="mb-10 text-body text-foreground-secondary">
                 The Nudge never moved you anywhere. It simply made staying a
                 progressively active choice, until not staying became the path
                 of least resistance. A philosophy with a 74% reported morning
                 compliance rate. We later learned that 74% was not good enough.
               </p>
 
-              <div className="mb-6 rounded-sm border border-edge bg-foreground/3 p-6">
+              <div className="mb-6 rounded-xl border border-edge bg-foreground/3 p-6">
                 <p className="mb-2 text-xs font-medium text-foreground-secondary">
                   This product is no longer available.
                 </p>
@@ -244,12 +245,9 @@ export default function NudgePage() {
                   remains available. For a more effective solution, we recommend
                   The Push.
                 </p>
-                <Link
-                  href="/products/push"
-                  className="inline-block rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-widest text-white uppercase transition-colors hover:bg-accent-hover"
-                >
+                <Button variant="cta" href="/products/push">
                   Upgrade to The Push →
-                </Link>
+                </Button>
               </div>
 
               <p className="text-center text-[10px] leading-relaxed text-foreground-muted/30">
@@ -265,7 +263,7 @@ export default function NudgePage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Technology
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground/75 md:text-5xl">
@@ -277,12 +275,12 @@ export default function NudgePage() {
             {FEATURES.map((f, i) => (
               <div
                 key={i}
-                className="rounded-sm border border-edge bg-surface-alt p-8"
+                className="rounded-xl border border-edge bg-surface-alt p-8"
               >
                 <h3 className="mb-4 text-sm font-medium text-foreground-secondary">
                   {f.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-foreground-muted">
+                <p className="text-body text-foreground-secondary">
                   {f.body}
                 </p>
               </div>
@@ -294,7 +292,7 @@ export default function NudgePage() {
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Specifications
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground/75">
@@ -322,7 +320,7 @@ export default function NudgePage() {
 
       <section className="border-t border-edge-subtle px-6 py-32 text-center">
         <div className="mx-auto max-w-xl">
-          <p className="mb-8 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-8 text-eyebrow text-foreground-muted uppercase">
             The Next Step
           </p>
           <h2 className="mb-6 font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -330,17 +328,14 @@ export default function NudgePage() {
             <br />
             <span className="text-foreground-muted">It delivers.</span>
           </h2>
-          <p className="mb-10 text-sm leading-relaxed text-foreground-muted">
+          <p className="mb-10 text-body text-foreground-secondary">
             Everything the Nudge aspired to be, plus Push Mode, autonomous
             navigation, and the knowledge that the decision has been made for
             you.
           </p>
-          <Link
-            href="/products/push"
-            className="inline-block rounded-sm bg-accent px-10 py-4 text-xs font-medium tracking-[0.16em] text-white uppercase transition-colors hover:bg-accent-hover"
-          >
+          <Button variant="primary" size="lg" href="/products/push">
             View The Push
-          </Link>
+          </Button>
         </div>
       </section>
 

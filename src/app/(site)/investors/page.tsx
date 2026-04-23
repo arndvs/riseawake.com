@@ -5,7 +5,7 @@ import {
 import { Link } from '@/components/link'
 
 const METRICS = [
-  { stat: '$89.4M', label: 'FY2024 Revenue', note: '+218% year-over-year' },
+  { stat: '$89.4M', label: 'FY2024 Revenue', note: '+134% year-over-year' },
   {
     stat: '340,000',
     label: 'Active Waitlist',
@@ -83,10 +83,10 @@ export default function InvestorsPage() {
       <section className="px-6 pt-24 pb-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 pt-8">
-            <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
               Investor Relations
             </p>
-            <h1 className="font-display text-[clamp(2.5rem,6vw,5rem)] leading-[1.05] tracking-tight text-foreground">
+            <h1 className="font-display text-display leading-[1.05] tracking-tight text-foreground-strong">
               Redefining the $4.2 trillion
               <br />
               productivity gap.
@@ -109,22 +109,22 @@ export default function InvestorsPage() {
           </div>
 
           <div className="mb-20">
-            <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
               Latest
             </p>
             <div className="flex flex-col gap-3">
               {NEWS.map((n, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-6 rounded-sm border border-edge-subtle bg-surface-alt p-5"
+                  className="flex items-start gap-6 rounded-xl border border-edge-subtle bg-surface-alt p-5"
                 >
                   <span className="mt-0.5 shrink-0 text-[10px] text-foreground-muted">
                     {n.date}
                   </span>
-                  <span className="flex-1 text-sm leading-relaxed text-foreground-secondary">
+                  <span className="flex-1 text-body text-foreground-secondary">
                     {n.headline}
                   </span>
-                  <span className="shrink-0 rounded-sm border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] text-accent">
+                  <span className="shrink-0 rounded-xl border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] text-accent">
                     {n.tag}
                   </span>
                 </div>
@@ -133,7 +133,7 @@ export default function InvestorsPage() {
           </div>
 
           <div className="mb-20">
-            <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
               Resources
             </p>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -141,10 +141,10 @@ export default function InvestorsPage() {
                 <Link
                   key={q.href}
                   href={q.href}
-                  className={`group block rounded-sm border p-6 ${
+                  className={`group block rounded-xl border p-6 transition-all duration-300 hover:shadow-md ${
                     q.accent
-                      ? 'border-accent/20 bg-accent/6'
-                      : 'border-edge-subtle bg-surface-alt'
+                      ? 'border-accent/20 bg-accent/6 hover:border-accent/35'
+                      : 'border-edge-subtle bg-surface-alt hover:border-accent/20'
                   }`}
                 >
                   <h3
@@ -169,8 +169,8 @@ export default function InvestorsPage() {
             </div>
           </div>
 
-          <div className="rounded-sm border border-edge-subtle bg-surface-alt p-8">
-            <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <div className="rounded-xl border border-edge-subtle bg-surface-alt p-8">
+            <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
               Investor Relations Contact
             </p>
             <div className="grid gap-8 md:grid-cols-2">

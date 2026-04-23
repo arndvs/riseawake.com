@@ -89,13 +89,13 @@ export default function InvestorPressPage() {
       <section className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 pt-8">
-            <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Press & Coverage
             </p>
-            <h1 className="mb-4 font-display text-[clamp(2rem,5vw,3.5rem)] tracking-tight text-foreground">
+            <h1 className="mb-4 font-display text-section tracking-tight text-foreground-strong">
               What they&rsquo;re saying.
             </h1>
-            <p className="max-w-xl text-sm leading-loose text-foreground-muted">
+            <p className="max-w-xl text-body text-foreground-secondary">
               Selected coverage from FY2024. RISE™ includes all significant
               coverage, including coverage that raises questions. We are
               confident in our answers. The answers are in the documentation.
@@ -106,7 +106,7 @@ export default function InvestorPressPage() {
             {COVERAGE.map((item, i) => (
               <div
                 key={i}
-                className="flex flex-col rounded-sm border border-edge-subtle bg-surface-alt p-6"
+                className="flex flex-col rounded-xl border border-edge-subtle bg-surface-alt p-6"
               >
                 <div className="mb-4 flex items-start justify-between gap-3">
                   <p className="text-xs font-medium text-foreground-secondary">
@@ -116,7 +116,7 @@ export default function InvestorPressPage() {
                     {item.date}
                   </p>
                 </div>
-                <p className="mb-4 flex-1 text-sm leading-loose text-foreground-muted italic">
+                <p className="mb-4 flex-1 text-body text-foreground-secondary italic">
                   &ldquo;{item.quote}&rdquo;
                 </p>
                 {item.stars && (
@@ -146,7 +146,7 @@ export default function InvestorPressPage() {
             ))}
           </div>
 
-          <div className="mt-16 rounded-sm border border-edge-subtle/60 bg-surface-inset p-6">
+          <div className="mt-16 rounded-xl border border-edge-subtle/60 bg-surface-inset p-6">
             <p className="mb-3 text-xs leading-loose text-foreground-muted">
               <strong className="text-foreground-secondary">
                 Media inquiries:

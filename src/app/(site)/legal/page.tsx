@@ -57,13 +57,13 @@ export default function LegalHubPage() {
 
       <section className="px-6 pt-40 pb-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-5 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-5 text-eyebrow uppercase text-foreground-muted">
             Legal
           </p>
-          <h1 className="mb-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] tracking-tight text-foreground">
+          <h1 className="mb-6 font-display text-display tracking-tight text-foreground-strong">
             Legal Documents
           </h1>
-          <p className="mb-4 max-w-xl text-sm leading-loose text-foreground-muted">
+          <p className="mb-4 max-w-xl text-body text-foreground-secondary">
             RISE™ maintains six primary legal documents governing the use of its
             products and services. All documents are version 4.2, updated March
             1, 2025.
@@ -81,13 +81,13 @@ export default function LegalHubPage() {
                 href={doc.href}
                 className="group block no-underline"
               >
-                <div className="flex h-full flex-col rounded-sm border border-edge-subtle bg-surface-alt p-7">
+                <div className="flex h-full flex-col rounded-xl border border-edge-subtle bg-surface-alt p-7">
                   <div className="mb-4 flex items-start justify-between gap-3">
                     <h2 className="text-sm font-medium text-foreground-secondary">
                       {doc.title}
                     </h2>
                     <div className="flex shrink-0 items-center gap-2">
-                      <span className="rounded-sm border border-edge-subtle bg-foreground/4 px-2 py-0.5 text-[10px] text-foreground-muted/50">
+                      <span className="rounded-xl border border-edge-subtle bg-foreground/4 px-2 py-0.5 text-[10px] text-foreground-muted/50">
                         {doc.version}
                       </span>
                       <span className="text-[10px] text-foreground-muted/40">
@@ -99,7 +99,7 @@ export default function LegalHubPage() {
                     {doc.desc}
                   </p>
                   {doc.flag && (
-                    <p className="inline-block self-start rounded-sm border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] text-accent/70">
+                    <p className="inline-block self-start rounded-xl border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] text-accent/70">
                       {doc.flag}
                     </p>
                   )}
@@ -113,7 +113,7 @@ export default function LegalHubPage() {
             ))}
           </div>
 
-          <div className="rounded-sm border border-edge-subtle bg-foreground/2 p-6">
+          <div className="rounded-xl border border-edge-subtle bg-foreground/2 p-6">
             <p className="text-xs leading-loose text-foreground-muted">
               These documents cross-reference each other extensively. Reading
               one document in full requires reading all of them. RISE™

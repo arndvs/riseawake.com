@@ -211,15 +211,15 @@ export default function DataRequestPage() {
     <main>
       <section className="px-6 pt-40 pb-16">
         <div className="mx-auto max-w-4xl">
-          <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Your Rights
           </p>
-          <h1 className="mb-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-tight tracking-tight text-foreground">
+          <h1 className="mb-6 font-display text-display leading-tight tracking-tight text-foreground-strong">
             Data Subject
             <br />
             Request Process
           </h1>
-          <p className="mb-4 max-w-xl text-sm leading-8 text-foreground-muted">
+          <p className="mb-4 max-w-xl text-body text-foreground-secondary">
             RISE™ respects your right to access your personal data. We have
             designed a thorough process to ensure your request is handled with
             the care it deserves.
@@ -229,7 +229,7 @@ export default function DataRequestPage() {
             interests are not always aligned.
           </p>
 
-          <div className="mb-16 rounded-sm border border-accent/12 bg-accent/6 p-5">
+          <div className="mb-16 rounded-xl border border-accent/12 bg-accent/6 p-5">
             <div className="flex flex-wrap gap-8">
               {STATS.map((stat) => (
                 <div key={stat.label}>
@@ -273,7 +273,7 @@ export default function DataRequestPage() {
                         {step.title}
                       </h3>
                       {step.fee && (
-                        <span className="shrink-0 rounded-sm border border-accent/15 bg-accent/10 px-2 py-1 text-[10px] text-accent/80">
+                        <span className="shrink-0 rounded-xl border border-accent/15 bg-accent/10 px-2 py-1 text-[10px] text-accent/80">
                           {step.fee}
                         </span>
                       )}

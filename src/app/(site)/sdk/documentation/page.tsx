@@ -116,17 +116,17 @@ export default function SDKDocsPage() {
             <span className="text-foreground-secondary">Documentation</span>
           </div>
 
-          <p className="mb-4 text-xs tracking-[0.2em] text-foreground-muted uppercase">
+          <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
             DataKit SDK
           </p>
-          <h1 className="mb-2 font-display text-[clamp(2.5rem,5vw,4rem)] tracking-tight text-foreground">
+          <h1 className="mb-2 font-display text-display tracking-tight text-foreground-strong">
             Documentation
           </h1>
           <p className="mb-12 text-xs text-foreground-muted/60">
             SDK v1.4.1 · Documentation v1.2 · Last updated February 2025
           </p>
 
-          <div className="mb-12 rounded-sm border border-accent/15 bg-accent/6 p-4">
+          <div className="mb-12 rounded-xl border border-accent/15 bg-accent/6 p-4">
             <p className="text-xs leading-relaxed text-accent/75">
               <strong className="text-accent">Note:</strong> This documentation
               is available without a DataKit SDK license. Usefulness of this
@@ -174,7 +174,7 @@ export default function SDKDocsPage() {
                 {section.title}
               </h2>
               {section.content ? (
-                <div className="text-sm leading-8 whitespace-pre-line text-foreground-muted">
+                <div className="text-body whitespace-pre-line text-foreground-muted">
                   {section.content}
                 </div>
               ) : (

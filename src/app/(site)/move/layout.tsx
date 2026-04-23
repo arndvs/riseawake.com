@@ -1,10 +1,11 @@
-import type { Metadata } from 'next'
+import { createMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
-  title: 'RISE™ Move',
+export const metadata = createMetadata({
+  title: 'Move',
   description:
     'Next-generation vertical navigation. Stairs. Both directions. In development.',
-}
+  path: '/move',
+})
 
 export default function MoveLayout({
   children,

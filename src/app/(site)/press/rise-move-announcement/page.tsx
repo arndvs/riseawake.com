@@ -18,10 +18,10 @@ export default function MoveAnnouncementPage() {
 
           <div className="mb-12 border-b border-edge-subtle pb-8">
             <div className="mb-6 flex items-center gap-3">
-              <span className="rounded-sm border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] tracking-[0.14em] text-accent/65 uppercase">
+              <span className="rounded-xl border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] tracking-[0.14em] text-accent/65 uppercase">
                 Product
               </span>
-              <span className="rounded-sm border border-edge-subtle bg-foreground/3 px-2 py-1 text-[10px] tracking-[0.14em] text-foreground-muted uppercase">
+              <span className="rounded-xl border border-edge-subtle bg-foreground/3 px-2 py-1 text-[10px] tracking-[0.14em] text-foreground-muted uppercase">
                 Press Release
               </span>
             </div>
@@ -30,7 +30,7 @@ export default function MoveAnnouncementPage() {
               FOR IMMEDIATE RELEASE
             </p>
 
-            <h1 className="mb-6 font-display text-[clamp(1.8rem,4vw,3rem)] leading-snug tracking-tight text-foreground">
+            <h1 className="mb-6 font-display text-subsection leading-snug tracking-tight text-foreground-strong">
               RISE™ Technologies Confirms Next-Generation Vertical Navigation
               Platform in Development
             </h1>
@@ -42,7 +42,7 @@ export default function MoveAnnouncementPage() {
             </p>
           </div>
 
-          <div className="mb-14 space-y-5 text-sm leading-loose text-foreground-muted">
+          <div className="mb-14 space-y-5 text-body text-foreground-secondary">
             <p>
               RISE™ Technologies, Inc. today confirmed that its research and
               development team is actively developing a next-generation smart

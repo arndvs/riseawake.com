@@ -44,10 +44,10 @@ export default function VisionPage() {
               publication. Forward-looking statements are subject to risks and
               uncertainties. Results will exceed expectations.
             </p>
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
               RISE™ Technologies, Inc.
             </p>
-            <h1 className="mb-4 font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.1] tracking-tight text-foreground">
+            <h1 className="mb-4 font-display text-display leading-[1.1] tracking-tight text-foreground-strong">
               The Morning After:
               <br />A 20-Year Vision for
               <br />
@@ -59,11 +59,11 @@ export default function VisionPage() {
           </div>
 
           <div className="mb-20">
-            <p className="mb-6 font-display text-[clamp(1.4rem,3vw,2rem)] leading-snug tracking-tight text-foreground-secondary">
+            <p className="mb-6 font-display text-subsection leading-snug tracking-tight text-foreground-secondary">
               Every morning, approximately 4.2 billion people intend to get up
               earlier than they do.
             </p>
-            <p className="mb-4 text-sm leading-loose text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-secondary">
               The gap between that intention and what actually happens — measured
               in aggregate across the global workforce — represents the single
               largest source of untapped human potential on Earth. It is larger
@@ -71,27 +71,27 @@ export default function VisionPage() {
               productivity gains of electricity. It has never been addressed,
               because until now, it has never been possible to address it.
             </p>
-            <p className="text-sm italic leading-loose text-foreground-secondary">
+            <p className="text-body italic text-foreground-secondary">
               RISE™ intends to close that gap entirely. Not reduce it. Close it.
             </p>
           </div>
 
           <div className="mb-20">
             <div className="mb-8 flex items-baseline gap-4">
-              <span className="font-display text-[5rem] leading-none tracking-tighter text-foreground">
+              <span className="font-display text-[5rem] leading-none tracking-tighter text-foreground-strong">
                 5
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-foreground-muted">
+                <p className="text-eyebrow uppercase text-foreground-muted">
                   Year Vision
                 </p>
                 <p className="text-sm text-accent">2026 — 2030</p>
               </div>
             </div>
-            <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground">
+            <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-strong">
               Push Mode in Every Bedroom.
             </h2>
-            <div className="space-y-4 text-sm leading-loose text-foreground-muted">
+            <div className="space-y-4 text-body text-foreground-secondary">
               <p>
                 By 2030, RISE™ projects 2 million Push units in active global
                 use, with Push Mode available across 47 countries. The RISE™
@@ -121,8 +121,8 @@ export default function VisionPage() {
                 is also a contract.
               </p>
             </div>
-            <div className="mt-8 rounded-sm border border-edge-subtle bg-surface-inset p-5">
-              <p className="text-sm italic leading-loose text-foreground-muted">
+            <div className="mt-8 rounded-xl border border-edge-subtle bg-surface-inset p-5">
+              <p className="text-body italic text-foreground-muted">
                 &ldquo;By 2030, we expect Push Mode to be as unremarkable as the
                 alarm clock — present in bedrooms, expected by employers,
                 understood to be simply part of how mornings work.&rdquo;
@@ -136,7 +136,7 @@ export default function VisionPage() {
                 10
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-foreground-muted">
+                <p className="text-eyebrow uppercase text-foreground-muted">
                   Year Vision
                 </p>
                 <p className="text-sm text-accent/70">2026 — 2035</p>
@@ -145,7 +145,7 @@ export default function VisionPage() {
             <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-secondary">
               The Platform.
             </h2>
-            <div className="space-y-4 text-sm leading-loose text-foreground-muted">
+            <div className="space-y-4 text-body text-foreground-secondary">
               <p>
                 RISE™ is not a bed company. The 10-year vision makes this
                 explicit. Push Mode becomes a platform: third-party integrations
@@ -188,8 +188,8 @@ export default function VisionPage() {
                 ready to answer it yet. We are preparing to be ready.
               </p>
             </div>
-            <div className="mt-8 rounded-sm border border-edge-subtle bg-surface-inset p-5">
-              <p className="text-sm italic leading-loose text-foreground-muted">
+            <div className="mt-8 rounded-xl border border-edge-subtle bg-surface-inset p-5">
+              <p className="text-body italic text-foreground-muted">
                 &ldquo;We have spent ten years asking what happens when people
                 get up on time. The data is beginning to tell us. The answer is
                 better than we expected, and we expected a great deal.&rdquo;
@@ -203,7 +203,7 @@ export default function VisionPage() {
                 20
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-foreground-muted/60">
+                <p className="text-eyebrow uppercase text-foreground-muted/60">
                   Year Vision
                 </p>
                 <p className="text-sm text-accent/50">2026 — 2045</p>
@@ -212,7 +212,7 @@ export default function VisionPage() {
             <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-muted">
               A World That Starts on Time.
             </h2>
-            <div className="space-y-4 text-sm leading-loose text-foreground-muted/80">
+            <div className="space-y-4 text-body text-foreground-secondary/80">
               <p>
                 Push Mode is infrastructure. The question in 2045 is not whether
                 you have it — it is which tier. RISE™ operates across five
@@ -255,8 +255,8 @@ export default function VisionPage() {
                 seven courts. It will hold up in more.
               </p>
             </div>
-            <div className="mt-8 rounded-sm border border-edge-subtle/60 bg-surface-inset p-6">
-              <p className="text-sm italic leading-loose text-foreground-muted/70">
+            <div className="mt-8 rounded-xl border border-edge-subtle/60 bg-surface-inset p-6">
+              <p className="text-body italic text-foreground-muted/70">
                 &ldquo;We are sometimes asked what RISE™ looks like in 2045. The
                 honest answer is that we do not know precisely — the world
                 changes, products evolve, categories that do not yet exist will
@@ -273,13 +273,13 @@ export default function VisionPage() {
           </div>
 
           <div className="border-t border-edge-subtle py-20 text-center">
-            <p className="font-display text-[clamp(2rem,5vw,3.5rem)] tracking-tight text-foreground-secondary">
+            <p className="font-display text-section tracking-tight text-foreground-secondary">
               We are on schedule.
             </p>
           </div>
 
           <div className="border-t border-edge-subtle pt-8">
-            <p className="mb-6 text-xs uppercase tracking-[0.2em] text-foreground-muted">
+            <p className="mb-6 text-eyebrow uppercase text-foreground-muted">
               Vision Update Log
             </p>
             <div className="flex flex-col gap-px bg-edge-subtle/30">
