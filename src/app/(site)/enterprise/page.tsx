@@ -248,9 +248,9 @@ export default function EnterprisePage() {
           </h2>
 
           <div className="flex flex-col gap-6">
-            {CASE_STUDIES.map((cs, i) => (
+            {CASE_STUDIES.map((cs) => (
               <div
-                key={i}
+                key={cs.org}
                 className="rounded border border-edge bg-surface-alt p-8"
               >
                 <div className="mb-6 flex flex-wrap items-start justify-between gap-6">
@@ -351,20 +351,16 @@ export default function EnterprisePage() {
                     {tier.note}
                   </p>
                 )}
-                <button
-                  className={`w-full cursor-pointer rounded py-2.5 text-[11px] font-medium tracking-widest uppercase ${
+                <a
+                  href="mailto:enterprise@riseawake.com?subject=Enterprise%20Inquiry"
+                  className={`block w-full rounded py-2.5 text-center text-[11px] font-medium tracking-widest uppercase no-underline ${
                     tier.accent
                       ? 'bg-accent text-accent-on'
                       : 'bg-surface text-foreground-muted'
                   }`}
-                  onClick={() =>
-                    alert(
-                      'Enterprise inquiries: enterprise@riseawake.com. Include organization name, approximate headcount, and preferred pilot scope. A member of the corporate team will respond within 2 business days.',
-                    )
-                  }
                 >
                   {tier.price === 'Custom' ? 'Contact Us' : 'Request Pilot'}
-                </button>
+                </a>
               </div>
             ))}
           </div>
