@@ -18,10 +18,10 @@ export default function MoveAnnouncementPage() {
 
           <div className="mb-12 border-b border-edge-subtle pb-8">
             <div className="mb-6 flex items-center gap-3">
-              <span className="rounded-sm border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] tracking-[0.14em] text-accent/65 uppercase">
+              <span className="rounded-xl border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] tracking-[0.14em] text-accent/65 uppercase">
                 Product
               </span>
-              <span className="rounded-sm border border-edge-subtle bg-foreground/3 px-2 py-1 text-[10px] tracking-[0.14em] text-foreground-muted uppercase">
+              <span className="rounded-xl border border-edge-subtle bg-foreground/3 px-2 py-1 text-[10px] tracking-[0.14em] text-foreground-muted uppercase">
                 Press Release
               </span>
             </div>

@@ -55,7 +55,7 @@ export default function ShareholderLetterPage() {
       <article className="px-6 py-16">
         <div className="mx-auto max-w-3xl">
           <div className="mb-12 pt-8">
-            <div className="mb-8 rounded-sm border border-edge-subtle bg-surface-alt p-6">
+            <div className="mb-8 rounded-xl border border-edge-subtle bg-surface-alt p-6">
               <p className="mb-1 text-xs text-foreground-secondary">
                 RISE™ Technologies, Inc.
               </p>
@@ -109,7 +109,7 @@ export default function ShareholderLetterPage() {
             <p className="mb-8 text-xs text-foreground-muted/60">
               March 1, 2025 · San Francisco, California
             </p>
-            <div className="rounded-sm border border-accent/10 bg-accent/5 p-4">
+            <div className="rounded-xl border border-accent/10 bg-accent/5 p-4">
               <p className="text-[10px] leading-loose text-foreground-muted">
                 Dr. Voss wrote this letter at 6:47am. She has used the Push
                 every morning since 2021. She has not been late once. She does
@@ -118,7 +118,7 @@ export default function ShareholderLetterPage() {
             </div>
           </div>
 
-          <div className="mt-8 rounded-sm border border-edge-subtle/60 bg-surface-inset p-4">
+          <div className="mt-8 rounded-xl border border-edge-subtle/60 bg-surface-inset p-4">
             <p className="text-[10px] leading-loose text-foreground-muted">
               This letter contains forward-looking statements within the meaning
               of applicable securities laws. These statements involve risks and

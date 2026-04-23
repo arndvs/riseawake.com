@@ -61,7 +61,7 @@ export function IRMetricCard({
   note?: string
 }) {
   return (
-    <div className="rounded-sm border border-edge-subtle bg-surface-alt p-8">
+    <div className="rounded-xl border border-edge-subtle bg-surface-alt p-8">
       <p className="font-display text-[clamp(2rem,4vw,3rem)] tracking-tight text-foreground">
         {stat}
       </p>

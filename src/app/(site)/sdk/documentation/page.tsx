@@ -126,7 +126,7 @@ export default function SDKDocsPage() {
             SDK v1.4.1 · Documentation v1.2 · Last updated February 2025
           </p>
 
-          <div className="mb-12 rounded-sm border border-accent/15 bg-accent/6 p-4">
+          <div className="mb-12 rounded-xl border border-accent/15 bg-accent/6 p-4">
             <p className="text-xs leading-relaxed text-accent/75">
               <strong className="text-accent">Note:</strong> This documentation
               is available without a DataKit SDK license. Usefulness of this

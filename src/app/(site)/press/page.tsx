@@ -68,7 +68,7 @@ export default function PressPage() {
               <Link
                 key={i}
                 href={r.href}
-                className={`group block rounded-sm border p-7 no-underline ${
+                className={`group block rounded-xl border p-7 no-underline ${
                   r.featured
                     ? 'border-edge bg-foreground/3'
                     : 'border-edge-subtle bg-surface-alt'
@@ -76,11 +76,11 @@ export default function PressPage() {
               >
                 <div className="mb-3 flex flex-wrap items-start justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <span className="rounded-sm border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] text-accent/65">
+                    <span className="rounded-xl border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] text-accent/65">
                       {r.tag}
                     </span>
                     {r.featured && (
-                      <span className="rounded-sm border border-edge-subtle bg-foreground/4 px-2 py-1 text-[10px] text-foreground-muted">
+                      <span className="rounded-xl border border-edge-subtle bg-foreground/4 px-2 py-1 text-[10px] text-foreground-muted">
                         Latest
                       </span>
                     )}

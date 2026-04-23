@@ -268,7 +268,7 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
 
   if (entry.type === 'founding') {
     return (
-      <div className={`flex-1 rounded-sm border p-6 md:p-8 ${cardBg}`}>
+      <div className={`flex-1 rounded-xl border p-6 md:p-8 ${cardBg}`}>
         <h3 className="mb-4 font-display text-2xl text-foreground-secondary">
           {entry.headline}
         </h3>
@@ -280,7 +280,7 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
   }
 
   return (
-    <div className={`flex-1 rounded-sm border p-6 md:p-8 ${cardBg}`}>
+    <div className={`flex-1 rounded-xl border p-6 md:p-8 ${cardBg}`}>
       <div className="mb-4 flex flex-wrap items-start justify-between gap-4">
         <div className="flex flex-wrap items-center gap-3">
           {entry.product && (
@@ -298,7 +298,7 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
           )}
           {entry.status && (
             <span
-              className={`rounded-sm border px-2.5 py-1 text-[10px] tracking-widest uppercase ${
+              className={`rounded-xl border px-2.5 py-1 text-[10px] tracking-widest uppercase ${
                 isCurrent
                   ? 'border-accent/20 bg-accent/15 text-accent'
                   : isRedacted

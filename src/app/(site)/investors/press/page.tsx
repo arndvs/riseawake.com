@@ -106,7 +106,7 @@ export default function InvestorPressPage() {
             {COVERAGE.map((item, i) => (
               <div
                 key={i}
-                className="flex flex-col rounded-sm border border-edge-subtle bg-surface-alt p-6"
+                className="flex flex-col rounded-xl border border-edge-subtle bg-surface-alt p-6"
               >
                 <div className="mb-4 flex items-start justify-between gap-3">
                   <p className="text-xs font-medium text-foreground-secondary">
@@ -146,7 +146,7 @@ export default function InvestorPressPage() {
             ))}
           </div>
 
-          <div className="mt-16 rounded-sm border border-edge-subtle/60 bg-surface-inset p-6">
+          <div className="mt-16 rounded-xl border border-edge-subtle/60 bg-surface-inset p-6">
             <p className="mb-3 text-xs leading-loose text-foreground-muted">
               <strong className="text-foreground-secondary">
                 Media inquiries:

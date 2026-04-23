@@ -175,7 +175,7 @@ export default function PushPage() {
 
           <div className="grid items-start gap-16 md:grid-cols-2">
             <div>
-              <div className="mb-8 rounded-sm border border-accent/15 bg-accent/6 px-4 py-3 text-xs leading-relaxed text-foreground-secondary">
+              <div className="mb-8 rounded-xl border border-accent/15 bg-accent/6 px-4 py-3 text-xs leading-relaxed text-foreground-secondary">
                 <span className="font-medium text-accent">
                   Currently out of stock.
                 </span>{' '}
@@ -184,7 +184,7 @@ export default function PushPage() {
                 available to you.
               </div>
 
-              <div className="relative flex h-105 w-full items-center justify-center overflow-hidden rounded-sm border border-accent/12 bg-surface-alt">
+              <div className="relative flex h-105 w-full items-center justify-center overflow-hidden rounded-xl border border-accent/12 bg-surface-alt">
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_40%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
                 <PushBedIllustration />
                 <div className="absolute right-8 bottom-8">
@@ -204,7 +204,7 @@ export default function PushPage() {
 
             <div className="pt-2">
               <div className="mb-4">
-                <span className="rounded-sm border border-accent/20 bg-accent/10 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-accent">
+                <span className="rounded-xl border border-accent/20 bg-accent/10 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-accent">
                   Out of Stock
                 </span>
               </div>
@@ -236,7 +236,7 @@ export default function PushPage() {
                 already decided to be.
               </p>
 
-              <div className="mb-6 rounded-sm border border-edge bg-foreground/3 p-6">
+              <div className="mb-6 rounded-xl border border-edge bg-foreground/3 p-6">
                 {!submitted ? (
                   <>
                     <p className="mb-1 text-xs font-medium text-foreground-secondary">
@@ -257,12 +257,12 @@ export default function PushPage() {
                         placeholder="your@email.com"
                         aria-label="Email address"
                         required
-                        className="flex-1 rounded-sm border border-edge bg-foreground/5 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                        className="flex-1 rounded-lg border border-edge bg-foreground/5 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
                       />
                       <button
                         type="submit"
                         disabled={loading}
-                        className="whitespace-nowrap rounded-sm bg-accent px-6 py-3 text-xs font-medium uppercase tracking-widest text-white transition-all duration-300 hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
+                        className="whitespace-nowrap rounded-full bg-accent px-6 py-3 text-xs font-medium uppercase tracking-widest text-accent-on transition-all duration-300 hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         {loading ? '...' : 'Notify Me'}
                       </button>
@@ -311,9 +311,9 @@ export default function PushPage() {
             {FEATURES.map((f, i) => (
               <div
                 key={i}
-                className="rounded-sm border border-edge bg-surface-alt p-8"
+                className="rounded-xl border border-edge bg-surface-alt p-8"
               >
-                <div className="mb-5 flex size-10 items-center justify-center rounded-sm border border-accent/15 bg-accent/10">
+                <div className="mb-5 flex size-10 items-center justify-center rounded-xl border border-accent/15 bg-accent/10">
                   <span className="text-base text-accent/80">{f.icon}</span>
                 </div>
                 <h3 className="mb-4 text-sm font-medium text-foreground-secondary">
@@ -429,7 +429,7 @@ export default function PushPage() {
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="inline-block cursor-pointer rounded-sm bg-accent px-10 py-4 text-xs font-medium uppercase tracking-[0.16em] text-white transition-colors hover:bg-accent-hover"
+            className="inline-block cursor-pointer rounded-full bg-accent px-10 py-4 text-xs font-medium uppercase tracking-[0.16em] text-accent-on transition-colors hover:bg-accent-hover"
           >
             Notify Me →
           </button>

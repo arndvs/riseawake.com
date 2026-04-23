@@ -283,7 +283,7 @@ function SequenceItem({ item, index, total, onMoveUp, onMoveDown }: {
   onMoveDown: () => void
 }) {
   return (
-    <div className="flex items-center gap-4 rounded-sm border border-edge bg-surface-alt p-4">
+    <div className="flex items-center gap-4 rounded-xl border border-edge bg-surface-alt p-4">
       <span className="shrink-0 font-mono text-xs text-accent/40">{String(index + 1).padStart(2, '0')}</span>
       <div className="flex-1">
         <p className="text-sm font-medium text-foreground-secondary">{item.label}</p>
@@ -319,7 +319,7 @@ function ConfiguratorStepIndicator({ step, total }: { step: number; total: numbe
         <div key={i} className="flex items-center gap-3">
           <div className={`flex size-8 items-center justify-center rounded-full text-xs font-medium transition-all duration-500 ${
             i < step ? 'bg-accent/15 text-accent' :
-            i === step ? 'bg-accent text-white' :
+            i === step ? 'bg-accent text-accent-on' :
             'bg-foreground/5 text-foreground-muted/40'
           }`}>
             {i < step ? (
@@ -427,7 +427,7 @@ export default function ActivatePage() {
             inadequate.
           </p>
 
-          <div ref={configTopRef} className="mb-6 rounded-sm border border-edge bg-surface-alt p-8">
+          <div ref={configTopRef} className="mb-6 rounded-xl border border-edge bg-surface-alt p-8">
             {formState === 'activated' ? (
               <div className="py-12 text-center">
                 <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-accent/10">
@@ -476,7 +476,7 @@ export default function ActivatePage() {
                           <button
                             key={pos.id}
                             onClick={() => setSleepPosition(pos.id)}
-                            className={`cursor-pointer rounded-sm border p-4 text-left transition-all duration-200 ${
+                            className={`cursor-pointer rounded-xl border p-4 text-left transition-all duration-200 ${
                               sleepPosition === pos.id
                                 ? 'border-accent/40 bg-accent/5'
                                 : 'border-edge bg-surface'
@@ -496,7 +496,7 @@ export default function ActivatePage() {
                           <button
                             key={side.id}
                             onClick={() => setBedSide(side.id)}
-                            className={`flex-1 cursor-pointer rounded-sm border px-4 py-3 text-center text-sm transition-all duration-200 ${
+                            className={`flex-1 cursor-pointer rounded-xl border px-4 py-3 text-center text-sm transition-all duration-200 ${
                               bedSide === side.id
                                 ? 'border-accent/40 bg-accent/5 font-medium text-foreground'
                                 : 'border-edge bg-surface text-foreground-secondary'
@@ -540,7 +540,7 @@ export default function ActivatePage() {
                     <button
                       onClick={handleNextStep}
                       disabled={!sleepPosition || !bedSide}
-                      className="w-full cursor-pointer rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-white uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-30"
+                      className="w-full cursor-pointer rounded-full bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-accent-on uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-30"
                     >
                       Continue to Calibration →
                     </button>
@@ -558,7 +558,7 @@ export default function ActivatePage() {
                     <IntensityDial value={intensityValue} onRelease={handleIntensityRelease} />
 
                     {intensitySnapped && (
-                      <div className="mt-12 rounded-sm border border-edge bg-foreground/3 p-4">
+                      <div className="mt-12 rounded-xl border border-edge bg-foreground/3 p-4">
                         <p className="text-xs leading-relaxed text-foreground-muted">
                           Push Mode intensity is calibrated automatically based on your profile, sleep position, and self-assessed morning resistance ({resistance}/10).
                           Manual adjustment is not available at this time.
@@ -571,7 +571,7 @@ export default function ActivatePage() {
 
                     <button
                       onClick={handleNextStep}
-                      className="mt-8 w-full cursor-pointer rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-white uppercase transition-all duration-300"
+                      className="mt-8 w-full cursor-pointer rounded-full bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-accent-on uppercase transition-all duration-300"
                     >
                       Continue to Morning Sequence →
                     </button>
@@ -606,7 +606,7 @@ export default function ActivatePage() {
 
                     <button
                       onClick={handleNextStep}
-                      className="mt-8 w-full cursor-pointer rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-white uppercase transition-all duration-300"
+                      className="mt-8 w-full cursor-pointer rounded-full bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-accent-on uppercase transition-all duration-300"
                     >
                       Continue to Review →
                     </button>
@@ -621,7 +621,7 @@ export default function ActivatePage() {
                       Acknowledge each statement below. All eight are required. Activation cannot be undone.
                     </p>
 
-                    <div className="mb-8 rounded-sm border border-edge bg-foreground/2 p-5">
+                    <div className="mb-8 rounded-xl border border-edge bg-foreground/2 p-5">
                       <p className="mb-1 text-xs font-medium text-foreground-secondary">Configuration Summary</p>
                       <div className="mt-3 flex flex-col gap-1.5 text-xs text-foreground-muted">
                         <p>Serial: <span className="font-mono text-foreground-secondary">{serial.trim().toUpperCase()}</span></p>
@@ -634,7 +634,7 @@ export default function ActivatePage() {
 
                     <div className="flex flex-col gap-3">
                       {ACKNOWLEDGMENTS.map((ack, i) => (
-                        <label key={i} className="flex cursor-pointer items-start gap-3 rounded-sm border border-edge bg-surface p-4 transition-colors duration-150">
+                        <label key={i} className="flex cursor-pointer items-start gap-3 rounded-xl border border-edge bg-surface p-4 transition-colors duration-150">
                           <input
                             type="checkbox"
                             checked={acknowledgments[i]}
@@ -653,7 +653,7 @@ export default function ActivatePage() {
                     <button
                       onClick={handleFinalActivation}
                       disabled={!allAcknowledged}
-                      className="mt-8 w-full cursor-pointer rounded-sm bg-accent px-6 py-4 text-xs font-medium tracking-[0.16em] text-white uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-30"
+                      className="mt-8 w-full cursor-pointer rounded-full bg-accent px-6 py-4 text-xs font-medium tracking-[0.16em] text-accent-on uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-30"
                     >
                       Activate Push Mode
                     </button>
@@ -678,7 +678,7 @@ export default function ActivatePage() {
                   located. Your device is ready for activation.
                 </p>
 
-                <div className="mb-6 rounded-sm border border-edge bg-foreground/3 p-5">
+                <div className="mb-6 rounded-xl border border-edge bg-foreground/3 p-5">
                   <p className="mb-3 text-xs font-medium text-foreground-secondary">
                     Refund Policy — Please Read
                   </p>
@@ -727,7 +727,7 @@ export default function ActivatePage() {
                   <button
                     onClick={handleBeginActivation}
                     disabled={!refundAcknowledged}
-                    className="cursor-pointer rounded-sm bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-white uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:bg-accent/30 disabled:text-white/30"
+                    className="cursor-pointer rounded-full bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-accent-on uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:bg-accent/30 disabled:text-accent-on/30"
                   >
                     Begin Activation
                   </button>
@@ -736,7 +736,7 @@ export default function ActivatePage() {
                       setFormState('idle')
                       setRefundAcknowledged(false)
                     }}
-                    className="cursor-pointer rounded-sm border border-edge bg-transparent px-6 py-3 text-xs font-medium tracking-[0.14em] text-foreground-muted uppercase"
+                    className="cursor-pointer rounded-full border border-edge bg-transparent px-6 py-3 text-xs font-medium tracking-[0.14em] text-foreground-muted uppercase"
                   >
                     Cancel
                   </button>
@@ -762,7 +762,7 @@ export default function ActivatePage() {
                     }}
                     placeholder="RSB-"
                     aria-label="Device serial number"
-                    className={`flex-1 rounded-sm border px-4 py-3 font-mono text-sm tracking-wider text-foreground transition-all duration-200 outline-none ${
+                    className={`flex-1 rounded-lg border px-4 py-3 font-mono text-sm tracking-wider text-foreground transition-all duration-200 outline-none ${
                       formState === 'invalid'
                         ? 'border-rise-error/40 bg-foreground/4'
                         : 'border-edge bg-foreground/4'
@@ -772,7 +772,7 @@ export default function ActivatePage() {
                   />
                   <button
                     type="submit"
-                    className="rounded-sm border-none bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] whitespace-nowrap text-white uppercase transition-all duration-300"
+                    className="rounded-full border-none bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] whitespace-nowrap text-accent-on uppercase transition-all duration-300"
                   >
                     Locate Device
                   </button>
@@ -828,7 +828,7 @@ export default function ActivatePage() {
             {STAGES.map((stage) => (
               <div
                 key={stage.number}
-                className={`rounded-sm border p-6 ${
+                className={`rounded-xl border p-6 ${
                   stage.flagged
                     ? 'border-edge-subtle bg-foreground/1.5'
                     : 'border-edge bg-surface-alt'
@@ -1048,7 +1048,7 @@ export default function ActivatePage() {
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="inline-block glow-btn cursor-pointer rounded-sm border-none bg-accent px-10 py-4 text-xs font-medium tracking-[0.16em] text-white uppercase"
+            className="inline-block glow-btn cursor-pointer rounded-full border-none bg-accent px-10 py-4 text-xs font-medium tracking-[0.16em] text-accent-on uppercase"
           >
             Begin Activation →
           </button>

@@ -61,7 +61,7 @@ export function LegalLayout({
             <span className="text-xs text-foreground-muted">{title}</span>
           </div>
           <div className="flex items-center gap-4">
-            <span className="rounded-sm border border-edge-subtle bg-foreground/4 px-2 py-1 text-[10px] text-foreground-muted">
+            <span className="rounded-xl border border-edge-subtle bg-foreground/4 px-2 py-1 text-[10px] text-foreground-muted">
               {version}
             </span>
             <span className="text-[10px] text-foreground-muted/50">
@@ -163,7 +163,7 @@ export function LegalP({ children }: { children: React.ReactNode }) {
 
 export function LegalNote({ children }: { children: React.ReactNode }) {
   return (
-    <div className="my-4 rounded-sm border border-accent/12 bg-accent/6 px-4 py-3 text-xs leading-relaxed text-foreground-muted">
+    <div className="my-4 rounded-xl border border-accent/12 bg-accent/6 px-4 py-3 text-xs leading-relaxed text-foreground-muted">
       {children}
     </div>
   )
@@ -171,7 +171,7 @@ export function LegalNote({ children }: { children: React.ReactNode }) {
 
 export function AppendixNote({ label }: { label: string }) {
   return (
-    <span className="mx-1 inline-block rounded-sm border border-edge-subtle bg-foreground/4 px-2 py-0.5 text-[10px] text-foreground-muted/50">
+    <span className="mx-1 inline-block rounded-xl border border-edge-subtle bg-foreground/4 px-2 py-0.5 text-[10px] text-foreground-muted/50">
       {label} — forthcoming
     </span>
   )
@@ -190,7 +190,7 @@ export function AcceptanceClause() {
         If you have not accepted these terms, please don't press the button on
         the PM-1 remote to initiate the opt-out process.
       </p>
-      <p className="mb-3 rounded-sm border border-edge-subtle bg-foreground/3 px-3 py-2">
+      <p className="mb-3 rounded-xl border border-edge-subtle bg-foreground/3 px-3 py-2">
         <em>
           Note: The PM-1 remote initiates Push Mode. There is no opt-out
           process. Continued presence in the sleep environment constitutes

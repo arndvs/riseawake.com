@@ -121,7 +121,7 @@ export default function VisionPage() {
                 is also a contract.
               </p>
             </div>
-            <div className="mt-8 rounded-sm border border-edge-subtle bg-surface-inset p-5">
+            <div className="mt-8 rounded-xl border border-edge-subtle bg-surface-inset p-5">
               <p className="text-sm italic leading-loose text-foreground-muted">
                 &ldquo;By 2030, we expect Push Mode to be as unremarkable as the
                 alarm clock — present in bedrooms, expected by employers,
@@ -188,7 +188,7 @@ export default function VisionPage() {
                 ready to answer it yet. We are preparing to be ready.
               </p>
             </div>
-            <div className="mt-8 rounded-sm border border-edge-subtle bg-surface-inset p-5">
+            <div className="mt-8 rounded-xl border border-edge-subtle bg-surface-inset p-5">
               <p className="text-sm italic leading-loose text-foreground-muted">
                 &ldquo;We have spent ten years asking what happens when people
                 get up on time. The data is beginning to tell us. The answer is
@@ -255,7 +255,7 @@ export default function VisionPage() {
                 seven courts. It will hold up in more.
               </p>
             </div>
-            <div className="mt-8 rounded-sm border border-edge-subtle/60 bg-surface-inset p-6">
+            <div className="mt-8 rounded-xl border border-edge-subtle/60 bg-surface-inset p-6">
               <p className="text-sm italic leading-loose text-foreground-muted/70">
                 &ldquo;We are sometimes asked what RISE™ looks like in 2045. The
                 honest answer is that we do not know precisely — the world

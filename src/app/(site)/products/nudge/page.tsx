@@ -158,7 +158,7 @@ export default function NudgePage() {
 
           <div className="grid items-start gap-16 md:grid-cols-2">
             <div>
-              <div className="mb-8 rounded-sm border border-edge bg-foreground/3 px-4 py-3 text-xs leading-relaxed text-foreground-muted">
+              <div className="mb-8 rounded-xl border border-edge bg-foreground/3 px-4 py-3 text-xs leading-relaxed text-foreground-muted">
                 <span className="font-medium text-foreground-secondary">
                   This product has been discontinued.
                 </span>{' '}
@@ -180,13 +180,13 @@ export default function NudgePage() {
                 .
               </div>
 
-              <div className="relative flex h-105 w-full items-center justify-center overflow-hidden rounded-sm border border-edge bg-surface-alt">
+              <div className="relative flex h-105 w-full items-center justify-center overflow-hidden rounded-xl border border-edge bg-surface-alt">
                 <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-foreground/1 to-transparent" />
                 <NudgeBedIllustration />
                 <div
                   className="absolute inset-0 flex -rotate-12 items-center justify-center"
                 >
-                  <p className="rounded-sm border border-edge px-6 py-2 text-[10px] font-medium tracking-[0.3em] text-foreground/8 uppercase">
+                  <p className="rounded-xl border border-edge px-6 py-2 text-[10px] font-medium tracking-[0.3em] text-foreground/8 uppercase">
                     Discontinued
                   </p>
                 </div>
@@ -204,7 +204,7 @@ export default function NudgePage() {
 
             <div className="pt-2">
               <div className="mb-4">
-                <span className="rounded-sm border border-edge bg-foreground/5 px-3 py-1.5 text-[10px] font-medium tracking-[0.18em] text-foreground-muted uppercase">
+                <span className="rounded-xl border border-edge bg-foreground/5 px-3 py-1.5 text-[10px] font-medium tracking-[0.18em] text-foreground-muted uppercase">
                   Discontinued
                 </span>
               </div>
@@ -236,7 +236,7 @@ export default function NudgePage() {
                 compliance rate. We later learned that 74% was not good enough.
               </p>
 
-              <div className="mb-6 rounded-sm border border-edge bg-foreground/3 p-6">
+              <div className="mb-6 rounded-xl border border-edge bg-foreground/3 p-6">
                 <p className="mb-2 text-xs font-medium text-foreground-secondary">
                   This product is no longer available.
                 </p>
@@ -275,7 +275,7 @@ export default function NudgePage() {
             {FEATURES.map((f, i) => (
               <div
                 key={i}
-                className="rounded-sm border border-edge bg-surface-alt p-8"
+                className="rounded-xl border border-edge bg-surface-alt p-8"
               >
                 <h3 className="mb-4 text-sm font-medium text-foreground-secondary">
                   {f.title}

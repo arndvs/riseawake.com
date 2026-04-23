@@ -94,7 +94,7 @@ export default function FinancialsPage() {
             </p>
           </div>
 
-          <div className="mb-10 rounded-sm border border-edge-subtle bg-surface-alt p-8">
+          <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
             <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
               <div>
                 <p className="mb-1 text-xs uppercase tracking-[0.16em] text-foreground-muted">
@@ -153,7 +153,7 @@ export default function FinancialsPage() {
             </ResponsiveContainer>
           </div>
 
-          <div className="mb-10 rounded-sm border border-edge-subtle bg-surface-alt p-8">
+          <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
             <div className="mb-6">
               <p className="mb-1 text-xs uppercase tracking-[0.16em] text-foreground-muted">
                 Waitlist vs. Units Shipped
@@ -222,7 +222,7 @@ export default function FinancialsPage() {
           </div>
 
           <div className="mb-10 grid gap-6 md:grid-cols-2">
-            <div className="rounded-sm border border-edge-subtle bg-surface-alt p-8">
+            <div className="rounded-xl border border-edge-subtle bg-surface-alt p-8">
               <p className="mb-6 text-xs uppercase tracking-[0.16em] text-foreground-muted">
                 Unit Economics
               </p>
@@ -252,7 +252,7 @@ export default function FinancialsPage() {
               </p>
             </div>
 
-            <div className="rounded-sm border border-edge-subtle bg-surface-alt p-8">
+            <div className="rounded-xl border border-edge-subtle bg-surface-alt p-8">
               <p className="mb-6 text-xs uppercase tracking-[0.16em] text-foreground-muted">
                 Push Mode Compliance
               </p>
@@ -288,7 +288,7 @@ export default function FinancialsPage() {
             </div>
           </div>
 
-          <div className="mb-10 rounded-sm border border-edge-subtle bg-surface-alt p-8">
+          <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
             <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
               <div>
                 <p className="mb-1 text-xs uppercase tracking-[0.16em] text-foreground-muted">
@@ -342,7 +342,7 @@ export default function FinancialsPage() {
             </ResponsiveContainer>
           </div>
 
-          <div className="mb-10 rounded-sm border border-edge-subtle bg-surface-alt p-8">
+          <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
             <p className="mb-2 text-xs uppercase tracking-[0.16em] text-foreground-muted">
               Geographic Presence
             </p>
@@ -356,12 +356,12 @@ export default function FinancialsPage() {
               {ACTIVE_MARKETS.map((market) => (
                 <span
                   key={market}
-                  className="rounded-sm border border-accent/15 bg-accent/10 px-3 py-1.5 text-[10px] text-accent"
+                  className="rounded-xl border border-accent/15 bg-accent/10 px-3 py-1.5 text-[10px] text-accent"
                 >
                   {market}
                 </span>
               ))}
-              <span className="rounded-sm border border-edge-subtle bg-surface-inset px-3 py-1.5 text-[10px] text-foreground-muted/60">
+              <span className="rounded-xl border border-edge-subtle bg-surface-inset px-3 py-1.5 text-[10px] text-foreground-muted/60">
                 +75 planned
               </span>
             </div>
@@ -373,7 +373,7 @@ export default function FinancialsPage() {
             </p>
           </div>
 
-          <div className="rounded-sm border border-edge-subtle/60 bg-surface-inset p-4">
+          <div className="rounded-xl border border-edge-subtle/60 bg-surface-inset p-4">
             <p className="text-[10px] leading-loose text-foreground-muted">
               All figures unaudited. Push Mode compliance data independently
               verified by RISE™ Internal Analytics. Third-party verification

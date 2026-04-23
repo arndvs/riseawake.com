@@ -208,7 +208,7 @@ export default function AnnualReportPage() {
               ].map((s) => (
                 <div
                   key={s.label}
-                  className="rounded-sm border border-edge-subtle bg-surface-alt p-5 text-center"
+                  className="rounded-xl border border-edge-subtle bg-surface-alt p-5 text-center"
                 >
                   <p className="mb-1 font-display text-2xl text-foreground">
                     {s.stat}
@@ -262,7 +262,7 @@ export default function AnnualReportPage() {
               median knowledge worker rates. We have addressed approximately 1%
               of our addressable market.
             </p>
-            <div className="rounded-sm border border-accent/12 bg-accent/5 p-5">
+            <div className="rounded-xl border border-accent/12 bg-accent/5 p-5">
               <p className="text-xs leading-loose text-foreground-muted">
                 <strong className="text-foreground-secondary">TAM:</strong> $4.2
                 trillion (global productivity loss attributable to morning
@@ -294,7 +294,7 @@ export default function AnnualReportPage() {
               {RISK_FACTORS.map((r, i) => (
                 <div
                   key={i}
-                  className="rounded-sm border border-edge-subtle bg-surface-alt p-6"
+                  className="rounded-xl border border-edge-subtle bg-surface-alt p-6"
                 >
                   <h3 className="mb-3 text-xs font-medium tracking-[0.14em] text-foreground-secondary uppercase">
                     {r.title}
@@ -353,7 +353,7 @@ export default function AnnualReportPage() {
               {LEADERSHIP.map((p) => (
                 <div
                   key={p.name}
-                  className="rounded-sm border border-edge-subtle bg-surface-alt p-6"
+                  className="rounded-xl border border-edge-subtle bg-surface-alt p-6"
                 >
                   <p className="mb-1 text-sm font-medium text-foreground-secondary">
                     {p.name}
@@ -367,7 +367,7 @@ export default function AnnualReportPage() {
             </div>
           </section>
 
-          <div className="rounded-sm border border-edge-subtle/60 bg-surface-inset p-4">
+          <div className="rounded-xl border border-edge-subtle/60 bg-surface-inset p-4">
             <p className="text-[10px] leading-loose text-foreground-muted">
               This annual report contains forward-looking statements. Actual
               results may differ materially. Financial figures are unaudited

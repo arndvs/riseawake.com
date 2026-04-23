@@ -124,10 +124,10 @@ function ProductCard({
 }) {
   return (
     <Link href={href} className="group block">
-      <div className="h-full rounded-sm border border-edge bg-surface p-10 md:p-14">
+      <div className="h-full rounded-xl border border-edge bg-surface p-10 md:p-14">
         <div className="mb-10 flex items-center justify-between">
           <span
-            className={`rounded-sm px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.16em] ${
+            className={`rounded-xl px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.16em] ${
               status === 'discontinued'
                 ? 'border border-edge bg-foreground/5 text-foreground-muted'
                 : 'border border-accent/20 bg-accent/10 text-accent'
@@ -140,7 +140,7 @@ function ProductCard({
           <span className="text-xs text-foreground-muted">{generation}</span>
         </div>
 
-        <div className="mb-10 flex h-40 w-full items-center justify-center rounded-sm border border-edge-subtle bg-foreground/2">
+        <div className="mb-10 flex h-40 w-full items-center justify-center rounded-xl border border-edge-subtle bg-foreground/2">
           <BedIcon status={status} />
         </div>
 
@@ -195,7 +195,7 @@ export default function Home() {
             </div>
 
             <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col">
-              <div className="relative aspect-video w-full overflow-hidden rounded-sm border border-edge bg-surface shadow-hero">
+              <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-edge bg-surface shadow-hero">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative flex items-center justify-center">
                     <div className="absolute size-25 animate-glow-pulse rounded-full border border-accent/35" />
@@ -227,7 +227,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="pointer-events-none absolute top-4 right-4">
-                  <span className="rounded-sm border border-edge bg-page/75 px-2.5 py-1 text-[10px] uppercase tracking-widest text-foreground-secondary">
+                  <span className="rounded-xl border border-edge bg-page/75 px-2.5 py-1 text-[10px] uppercase tracking-widest text-foreground-secondary">
                     Push Mode
                   </span>
                 </div>
@@ -403,7 +403,7 @@ export default function Home() {
               ].map((t, i) => (
                 <div
                   key={i}
-                  className="rounded-sm border border-edge bg-surface p-8"
+                  className="rounded-xl border border-edge bg-surface p-8"
                 >
                   <div className="mb-6 flex gap-0.5" role="img" aria-label={`${t.stars} out of 5 stars`}>
                     {Array.from({ length: 5 }).map((_, s) => (

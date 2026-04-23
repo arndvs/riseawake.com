@@ -229,7 +229,7 @@ export default function DataRequestPage() {
             interests are not always aligned.
           </p>
 
-          <div className="mb-16 rounded-sm border border-accent/12 bg-accent/6 p-5">
+          <div className="mb-16 rounded-xl border border-accent/12 bg-accent/6 p-5">
             <div className="flex flex-wrap gap-8">
               {STATS.map((stat) => (
                 <div key={stat.label}>
@@ -273,7 +273,7 @@ export default function DataRequestPage() {
                         {step.title}
                       </h3>
                       {step.fee && (
-                        <span className="shrink-0 rounded-sm border border-accent/15 bg-accent/10 px-2 py-1 text-[10px] text-accent/80">
+                        <span className="shrink-0 rounded-xl border border-accent/15 bg-accent/10 px-2 py-1 text-[10px] text-accent/80">
                           {step.fee}
                         </span>
                       )}

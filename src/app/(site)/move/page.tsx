@@ -52,7 +52,7 @@ export default function MovePage() {
         />
 
         <div className="relative z-10 mx-auto max-w-3xl text-center">
-          <div className="mb-14 inline-flex items-center gap-2 rounded-sm border border-edge-subtle bg-foreground/3 px-4 py-2">
+          <div className="mb-14 inline-flex items-center gap-2 rounded-xl border border-edge-subtle bg-foreground/3 px-4 py-2">
             <div className="size-1.5 rounded-full bg-foreground-muted/50" />
             <span className="text-[10px] tracking-[0.22em] text-foreground-muted/70 uppercase">
               In Development
@@ -87,12 +87,12 @@ export default function MovePage() {
                 placeholder="your@email.com"
                 aria-label="Email address"
                 required
-                className="flex-1 rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                className="flex-1 rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
               />
               <button
                 type="submit"
                 disabled={loading}
-                className="rounded-sm border border-edge bg-foreground/8 px-6 py-3 text-xs font-medium tracking-[0.14em] whitespace-nowrap text-foreground-secondary uppercase transition-all duration-300 disabled:cursor-not-allowed"
+                className="rounded-full border border-edge bg-foreground/8 px-6 py-3 text-xs font-medium tracking-[0.14em] whitespace-nowrap text-foreground-secondary uppercase transition-all duration-300 disabled:cursor-not-allowed"
               >
                 {loading ? '...' : 'Notify Me'}
               </button>
@@ -272,7 +272,7 @@ export default function MovePage() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="rounded-sm border border-edge-subtle bg-foreground/3 p-6 text-center"
+                className="rounded-xl border border-edge-subtle bg-foreground/3 p-6 text-center"
               >
                 <p className="mb-3 text-xs tracking-[0.14em] text-foreground-muted uppercase">
                   {item.label}
@@ -330,7 +330,7 @@ export default function MovePage() {
       </section>
 
       <section className="border-t border-edge-subtle px-6 py-16">
-        <div className="mx-auto max-w-3xl rounded-sm border border-edge-subtle bg-surface-alt p-8">
+        <div className="mx-auto max-w-3xl rounded-xl border border-edge-subtle bg-surface-alt p-8">
           <p className="mb-3 text-xs font-medium text-foreground-secondary">
             A note for current Push owners.
           </p>
@@ -382,12 +382,12 @@ export default function MovePage() {
                 placeholder="your@email.com"
                 aria-label="Email address"
                 required
-                className="flex-1 rounded-sm border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                className="flex-1 rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
               />
               <button
                 type="submit"
                 disabled={loading}
-                className="rounded-sm border border-edge bg-foreground/8 px-6 py-3 text-xs font-medium tracking-[0.14em] text-foreground-secondary uppercase"
+                className="rounded-full border border-edge bg-foreground/8 px-6 py-3 text-xs font-medium tracking-[0.14em] text-foreground-secondary uppercase"
               >
                 {loading ? '...' : 'Notify Me'}
               </button>

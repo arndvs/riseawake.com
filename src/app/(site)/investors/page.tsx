@@ -116,7 +116,7 @@ export default function InvestorsPage() {
               {NEWS.map((n, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-6 rounded-sm border border-edge-subtle bg-surface-alt p-5"
+                  className="flex items-start gap-6 rounded-xl border border-edge-subtle bg-surface-alt p-5"
                 >
                   <span className="mt-0.5 shrink-0 text-[10px] text-foreground-muted">
                     {n.date}
@@ -124,7 +124,7 @@ export default function InvestorsPage() {
                   <span className="flex-1 text-sm leading-relaxed text-foreground-secondary">
                     {n.headline}
                   </span>
-                  <span className="shrink-0 rounded-sm border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] text-accent">
+                  <span className="shrink-0 rounded-xl border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] text-accent">
                     {n.tag}
                   </span>
                 </div>
@@ -141,7 +141,7 @@ export default function InvestorsPage() {
                 <Link
                   key={q.href}
                   href={q.href}
-                  className={`group block rounded-sm border p-6 ${
+                  className={`group block rounded-xl border p-6 ${
                     q.accent
                       ? 'border-accent/20 bg-accent/6'
                       : 'border-edge-subtle bg-surface-alt'
@@ -169,7 +169,7 @@ export default function InvestorsPage() {
             </div>
           </div>
 
-          <div className="rounded-sm border border-edge-subtle bg-surface-alt p-8">
+          <div className="rounded-xl border border-edge-subtle bg-surface-alt p-8">
             <p className="mb-6 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Investor Relations Contact
             </p>
