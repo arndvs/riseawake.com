@@ -17,14 +17,20 @@ const SECTIONS = [
       { path: '/help', desc: 'Support & FAQ' },
       { path: '/press', desc: 'Press releases' },
       { path: '/blog', desc: 'Blog' },
+      { path: '/careers', desc: 'Open positions & culture' },
+      { path: '/enterprise', desc: 'Enterprise solutions' },
     ],
   },
   {
     label: 'Platform',
     routes: [
       { path: '/data-request', desc: 'Data subject request process' },
+      { path: '/security', desc: 'Security overview' },
       { path: '/sdk', desc: 'DataKit SDK' },
       { path: '/sdk/documentation', desc: 'SDK documentation' },
+      { path: '/index-score', desc: 'RISE Index — personal score' },
+      { path: '/changelog', desc: 'Platform changelog' },
+      { path: '/status', desc: 'System status' },
     ],
   },
   {
@@ -102,6 +108,10 @@ const SECTIONS = [
         desc: 'DOC-009 — Audio Data Access Log Summary [CONFIDENTIAL]',
       },
       { path: '/internal/media', desc: 'Media — 0 files' },
+      {
+        path: '/internal/dataroom',
+        desc: 'Pre-IPO Due Diligence Data Room [RESTRICTED]',
+      },
       {
         path: '/internal/users',
         desc: 'Users — 3 accounts (1 should be deactivated)',
