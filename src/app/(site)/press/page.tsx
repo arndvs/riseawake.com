@@ -51,7 +51,7 @@ export default function PressPage() {
           <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             Press
           </p>
-          <h1 className="mb-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] tracking-tight text-foreground">
+          <h1 className="mb-6 font-display text-display tracking-tight text-foreground">
             Press Releases
           </h1>
           <p className="mb-4 max-w-xl text-sm leading-loose text-foreground-muted">

@@ -216,7 +216,7 @@ export default function SecurityPage() {
           <p className="mb-5 text-xs uppercase tracking-[0.2em] text-foreground-muted">
             Security
           </p>
-          <h1 className="mb-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] tracking-tight text-foreground">
+          <h1 className="mb-6 font-display text-display tracking-tight text-foreground">
             Security at RISE™
           </h1>
           <p className="mb-6 max-w-2xl text-base leading-loose text-foreground-secondary">
@@ -257,7 +257,7 @@ export default function SecurityPage() {
           <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
             Compliance & Certifications
           </p>
-          <h2 className="mb-4 font-display text-[clamp(1.8rem,4vw,2.8rem)] tracking-tight text-foreground">
+          <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground">
             Industry-Recognized Standards
           </h2>
           <p className="mb-14 max-w-xl text-sm leading-relaxed text-foreground-muted">
@@ -299,7 +299,7 @@ export default function SecurityPage() {
             <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
               Reliability
             </p>
-            <h2 className="mb-2 font-display text-[clamp(3rem,7vw,5rem)] tracking-tight text-foreground">
+            <h2 className="mb-2 font-display text-hero tracking-tight text-foreground">
               99.97%
             </h2>
             <p className="mb-3 text-sm font-medium text-foreground-secondary">
@@ -323,7 +323,7 @@ export default function SecurityPage() {
           <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
             Infrastructure
           </p>
-          <h2 className="mb-4 font-display text-[clamp(1.8rem,4vw,2.8rem)] tracking-tight text-foreground">
+          <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground">
             How We Protect Your Data
           </h2>
           <p className="mb-14 max-w-xl text-sm leading-relaxed text-foreground-muted">
@@ -362,7 +362,7 @@ export default function SecurityPage() {
           <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
             Progress
           </p>
-          <h2 className="mb-4 font-display text-[clamp(1.8rem,4vw,2.8rem)] tracking-tight text-foreground">
+          <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground">
             Certification Progress
           </h2>
           <p className="mb-14 max-w-xl text-sm leading-relaxed text-foreground-muted">
@@ -416,7 +416,7 @@ export default function SecurityPage() {
           <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
             Data Practices
           </p>
-          <h2 className="mb-4 font-display text-[clamp(1.8rem,4vw,2.8rem)] tracking-tight text-foreground">
+          <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground">
             Responsible Data Handling
           </h2>
 
@@ -492,7 +492,7 @@ export default function SecurityPage() {
           <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
             Our Team
           </p>
-          <h2 className="mb-4 font-display text-[clamp(1.8rem,4vw,2.8rem)] tracking-tight text-foreground">
+          <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground">
             Dedicated Security Operations
           </h2>
           <p className="mb-14 max-w-2xl text-sm leading-relaxed text-foreground-muted">
@@ -504,7 +504,7 @@ export default function SecurityPage() {
 
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-xl border border-edge-subtle bg-surface p-7 text-center">
-              <p className="mb-1 font-display text-[clamp(2rem,4vw,3rem)] tracking-tight text-foreground">
+              <p className="mb-1 font-display text-subsection tracking-tight text-foreground">
                 100%
               </p>
               <p className="text-xs text-foreground-muted">
@@ -512,7 +512,7 @@ export default function SecurityPage() {
               </p>
             </div>
             <div className="rounded-xl border border-edge-subtle bg-surface p-7 text-center">
-              <p className="mb-1 font-display text-[clamp(2rem,4vw,3rem)] tracking-tight text-foreground">
+              <p className="mb-1 font-display text-subsection tracking-tight text-foreground">
                 &lt;\u00a04h
               </p>
               <p className="text-xs text-foreground-muted">
@@ -520,7 +520,7 @@ export default function SecurityPage() {
               </p>
             </div>
             <div className="rounded-xl border border-edge-subtle bg-surface p-7 text-center">
-              <p className="mb-1 font-display text-[clamp(2rem,4vw,3rem)] tracking-tight text-foreground">
+              <p className="mb-1 font-display text-subsection tracking-tight text-foreground">
                 24/7
               </p>
               <p className="text-xs text-foreground-muted">
@@ -546,7 +546,7 @@ export default function SecurityPage() {
               <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
                 Responsible Disclosure
               </p>
-              <h2 className="mb-4 font-display text-[clamp(1.8rem,4vw,2.8rem)] tracking-tight text-foreground">
+              <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground">
                 Bug Bounty Program
               </h2>
               <p className="mb-6 text-sm leading-relaxed text-foreground-muted">
@@ -573,7 +573,7 @@ export default function SecurityPage() {
               <p className="mb-3 text-xs uppercase tracking-[0.2em] text-foreground-muted">
                 Contact
               </p>
-              <h2 className="mb-4 font-display text-[clamp(1.8rem,4vw,2.8rem)] tracking-tight text-foreground">
+              <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground">
                 Security Inquiries
               </h2>
               <p className="mb-6 text-sm leading-relaxed text-foreground-muted">

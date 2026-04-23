@@ -214,7 +214,7 @@ export default function DataRequestPage() {
           <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             Your Rights
           </p>
-          <h1 className="mb-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-tight tracking-tight text-foreground">
+          <h1 className="mb-6 font-display text-display leading-tight tracking-tight text-foreground">
             Data Subject
             <br />
             Request Process

@@ -30,7 +30,7 @@ export default function MoveAnnouncementPage() {
               FOR IMMEDIATE RELEASE
             </p>
 
-            <h1 className="mb-6 font-display text-[clamp(1.8rem,4vw,3rem)] leading-snug tracking-tight text-foreground">
+            <h1 className="mb-6 font-display text-subsection leading-snug tracking-tight text-foreground">
               RISE™ Technologies Confirms Next-Generation Vertical Navigation
               Platform in Development
             </h1>

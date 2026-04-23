@@ -84,7 +84,7 @@ export default function FinancialsPage() {
             <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
               Key Metrics
             </p>
-            <h1 className="mb-4 font-display text-[clamp(2rem,5vw,3.5rem)] tracking-tight text-foreground">
+            <h1 className="mb-4 font-display text-section tracking-tight text-foreground">
               Financials & Data
             </h1>
             <p className="max-w-xl text-sm leading-loose text-foreground-muted">

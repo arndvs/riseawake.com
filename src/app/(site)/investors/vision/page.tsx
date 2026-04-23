@@ -47,7 +47,7 @@ export default function VisionPage() {
             <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
               RISE™ Technologies, Inc.
             </p>
-            <h1 className="mb-4 font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.1] tracking-tight text-foreground">
+            <h1 className="mb-4 font-display text-display leading-[1.1] tracking-tight text-foreground">
               The Morning After:
               <br />A 20-Year Vision for
               <br />
@@ -59,7 +59,7 @@ export default function VisionPage() {
           </div>
 
           <div className="mb-20">
-            <p className="mb-6 font-display text-[clamp(1.4rem,3vw,2rem)] leading-snug tracking-tight text-foreground-secondary">
+            <p className="mb-6 font-display text-subsection leading-snug tracking-tight text-foreground-secondary">
               Every morning, approximately 4.2 billion people intend to get up
               earlier than they do.
             </p>
@@ -273,7 +273,7 @@ export default function VisionPage() {
           </div>
 
           <div className="border-t border-edge-subtle py-20 text-center">
-            <p className="font-display text-[clamp(2rem,5vw,3.5rem)] tracking-tight text-foreground-secondary">
+            <p className="font-display text-section tracking-tight text-foreground-secondary">
               We are on schedule.
             </p>
           </div>

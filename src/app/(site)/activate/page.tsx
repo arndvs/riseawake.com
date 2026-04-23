@@ -411,7 +411,7 @@ export default function ActivatePage() {
           <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             Device Activation
           </p>
-          <h1 className="mb-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-tight tracking-tight text-foreground">
+          <h1 className="mb-6 font-display text-display leading-tight tracking-tight text-foreground">
             Activate Your Push.
           </h1>
           <p className="mb-4 max-w-xl text-sm leading-loose text-foreground-muted">
@@ -1036,7 +1036,7 @@ export default function ActivatePage() {
           <p className="mb-8 text-xs tracking-[0.2em] text-foreground-muted uppercase">
             Ready?
           </p>
-          <h2 className="mb-6 font-display text-[clamp(2rem,5vw,3.5rem)] leading-tight tracking-tight text-foreground">
+          <h2 className="mb-6 font-display text-section leading-tight tracking-tight text-foreground">
             The bed is ready
             <br />
             <span className="text-foreground-muted">when you are.</span>

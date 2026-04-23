@@ -60,7 +60,7 @@ export default function LegalHubPage() {
           <p className="mb-5 text-xs uppercase tracking-[0.2em] text-foreground-muted">
             Legal
           </p>
-          <h1 className="mb-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] tracking-tight text-foreground">
+          <h1 className="mb-6 font-display text-display tracking-tight text-foreground">
             Legal Documents
           </h1>
           <p className="mb-4 max-w-xl text-sm leading-loose text-foreground-muted">

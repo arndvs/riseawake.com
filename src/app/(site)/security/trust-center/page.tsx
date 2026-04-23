@@ -24,7 +24,7 @@ export default function TrustCenterPage() {
         </span>
       </div>
 
-      <h1 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] tracking-tight text-foreground">
+      <h1 className="font-display text-display tracking-tight text-foreground">
         Trust Center
       </h1>
 
@@ -44,7 +44,7 @@ export default function TrustCenterPage() {
         <p className="text-xs uppercase tracking-[0.2em] text-foreground-muted">
           Expected Launch
         </p>
-        <p className="mt-2 font-display text-[clamp(1.5rem,3vw,2rem)] tracking-tight text-foreground">
+        <p className="mt-2 font-display text-subsection tracking-tight text-foreground">
           Q4 2024
         </p>
       </div>

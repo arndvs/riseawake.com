@@ -305,7 +305,7 @@ export default function MovePage() {
 
       <section className="border-t border-edge-subtle px-6 py-32 text-center">
         <div className="mx-auto max-w-2xl">
-          <p className="mb-6 font-display text-[clamp(1.6rem,4vw,2.8rem)] leading-snug tracking-tight text-foreground-secondary italic">
+          <p className="mb-6 font-display text-subsection leading-snug tracking-tight text-foreground-secondary italic">
             &ldquo;We are aware of the stairs.
             <br />
             All of them.

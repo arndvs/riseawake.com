@@ -86,7 +86,7 @@ export default function InvestorsPage() {
             <p className="mb-5 text-xs tracking-[0.2em] text-foreground-muted uppercase">
               Investor Relations
             </p>
-            <h1 className="font-display text-[clamp(2.5rem,6vw,5rem)] leading-[1.05] tracking-tight text-foreground">
+            <h1 className="font-display text-display leading-[1.05] tracking-tight text-foreground">
               Redefining the $4.2 trillion
               <br />
               productivity gap.

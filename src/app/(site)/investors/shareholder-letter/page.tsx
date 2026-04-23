@@ -70,7 +70,7 @@ export default function ShareholderLetterPage() {
             <p className="mb-4 text-xs uppercase tracking-[0.2em] text-foreground-muted">
               Shareholder Letter
             </p>
-            <h1 className="mb-2 font-display text-[clamp(2rem,5vw,3.5rem)] tracking-tight text-foreground">
+            <h1 className="mb-2 font-display text-section tracking-tight text-foreground">
               FY2024 Annual Letter
             </h1>
             <p className="text-xs text-foreground-muted/60">

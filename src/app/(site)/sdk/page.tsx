@@ -132,7 +132,7 @@ export default function SDKPage() {
               RISE™ Developer Platform
             </span>
           </div>
-          <h1 className="mb-6 font-display text-[clamp(3rem,8vw,6rem)] leading-none tracking-tight text-foreground">
+          <h1 className="mb-6 font-display text-hero leading-none tracking-tight text-foreground">
             DataKit SDK
           </h1>
           <p className="mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-foreground-secondary">
