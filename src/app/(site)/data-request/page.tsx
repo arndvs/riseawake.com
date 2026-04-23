@@ -219,7 +219,7 @@ export default function DataRequestPage() {
             <br />
             Request Process
           </h1>
-          <p className="mb-4 max-w-xl text-body text-foreground-muted">
+          <p className="mb-4 max-w-xl text-body text-foreground-secondary">
             RISE™ respects your right to access your personal data. We have
             designed a thorough process to ensure your request is handled with
             the care it deserves.

@@ -289,7 +289,7 @@ export default function Home() {
               <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
                 From Nudge to Push.
               </h2>
-              <p className="mx-auto mt-4 max-w-md text-body text-foreground-muted">
+              <p className="mx-auto mt-4 max-w-md text-body text-foreground-secondary">
                 A decade of research into the science of not wanting to get up.
               </p>
             </div>
@@ -353,7 +353,7 @@ export default function Home() {
                   <h3 className="mb-4 text-sm font-medium uppercase tracking-widest text-foreground-secondary">
                     {item.title}
                   </h3>
-                  <p className="text-body text-foreground-muted">
+                  <p className="text-body text-foreground-secondary">
                     {item.body}
                   </p>
                 </div>
@@ -464,7 +464,7 @@ export default function Home() {
               <br />
               snooze long enough.
             </h2>
-            <p className="mb-12 text-body text-foreground-muted">
+            <p className="mb-12 text-body text-foreground-secondary">
               The Push is currently out of stock. Join the waitlist.
               <br />
               Push Mode will be available to you soon.

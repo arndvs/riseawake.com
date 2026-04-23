@@ -63,7 +63,7 @@ export default function VisionPage() {
               Every morning, approximately 4.2 billion people intend to get up
               earlier than they do.
             </p>
-            <p className="mb-4 text-body text-foreground-muted">
+            <p className="mb-4 text-body text-foreground-secondary">
               The gap between that intention and what actually happens — measured
               in aggregate across the global workforce — represents the single
               largest source of untapped human potential on Earth. It is larger
@@ -91,7 +91,7 @@ export default function VisionPage() {
             <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-strong">
               Push Mode in Every Bedroom.
             </h2>
-            <div className="space-y-4 text-body text-foreground-muted">
+            <div className="space-y-4 text-body text-foreground-secondary">
               <p>
                 By 2030, RISE™ projects 2 million Push units in active global
                 use, with Push Mode available across 47 countries. The RISE™
@@ -145,7 +145,7 @@ export default function VisionPage() {
             <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-secondary">
               The Platform.
             </h2>
-            <div className="space-y-4 text-body text-foreground-muted">
+            <div className="space-y-4 text-body text-foreground-secondary">
               <p>
                 RISE™ is not a bed company. The 10-year vision makes this
                 explicit. Push Mode becomes a platform: third-party integrations
@@ -212,7 +212,7 @@ export default function VisionPage() {
             <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-muted">
               A World That Starts on Time.
             </h2>
-            <div className="space-y-4 text-body text-foreground-muted/80">
+            <div className="space-y-4 text-body text-foreground-secondary/80">
               <p>
                 Push Mode is infrastructure. The question in 2045 is not whether
                 you have it — it is which tier. RISE™ operates across five

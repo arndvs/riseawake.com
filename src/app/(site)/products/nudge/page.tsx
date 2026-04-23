@@ -229,7 +229,7 @@ export default function NudgePage() {
                 might be, which is to say: occasionally uncomfortable to be
                 around, but correct.
               </p>
-              <p className="mb-10 text-body text-foreground-muted">
+              <p className="mb-10 text-body text-foreground-secondary">
                 The Nudge never moved you anywhere. It simply made staying a
                 progressively active choice, until not staying became the path
                 of least resistance. A philosophy with a 74% reported morning
@@ -280,7 +280,7 @@ export default function NudgePage() {
                 <h3 className="mb-4 text-sm font-medium text-foreground-secondary">
                   {f.title}
                 </h3>
-                <p className="text-body text-foreground-muted">
+                <p className="text-body text-foreground-secondary">
                   {f.body}
                 </p>
               </div>
@@ -328,7 +328,7 @@ export default function NudgePage() {
             <br />
             <span className="text-foreground-muted">It delivers.</span>
           </h2>
-          <p className="mb-10 text-body text-foreground-muted">
+          <p className="mb-10 text-body text-foreground-secondary">
             Everything the Nudge aspired to be, plus Push Mode, autonomous
             navigation, and the knowledge that the decision has been made for
             you.

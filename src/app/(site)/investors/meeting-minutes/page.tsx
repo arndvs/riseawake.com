@@ -198,7 +198,7 @@ export default function MeetingMinutesPage() {
                   <p className="mb-2 text-[10px] tracking-widest text-accent">
                     A — {item.respondent}
                   </p>
-                  <p className="text-body text-foreground-muted">
+                  <p className="text-body text-foreground-secondary">
                     {item.a}
                   </p>
                 </div>

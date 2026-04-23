@@ -230,7 +230,7 @@ export default function PushPage() {
                 through each stage of your morning routine — bathroom, closet,
                 kitchen, departure — until you are where you need to be.
               </p>
-              <p className="mb-10 text-body text-foreground-muted">
+              <p className="mb-10 text-body text-foreground-secondary">
                 While this is happening, the bed is also making itself. Slowly.
                 One wrinkle at a time. It will be ready when you return. It has
                 already decided to be.
@@ -319,7 +319,7 @@ export default function PushPage() {
                 <h3 className="mb-4 text-sm font-medium text-foreground-secondary">
                   {f.title}
                 </h3>
-                <p className="text-body text-foreground-muted">
+                <p className="text-body text-foreground-secondary">
                   {f.body}
                 </p>
               </div>
@@ -346,7 +346,7 @@ export default function PushPage() {
                 option. Push Mode does not offer a snooze. It does not offer a
                 delay. It offers the morning.
               </p>
-              <p className="text-body text-foreground-muted">
+              <p className="text-body text-foreground-secondary">
                 Fine print on the remote reverse:{' '}
                 <em>
                   &ldquo;Push Mode cannot be manually interrupted once
@@ -424,7 +424,7 @@ export default function PushPage() {
               will be available to you soon.
             </span>
           </h2>
-          <p className="mb-10 text-body text-foreground-muted">
+          <p className="mb-10 text-body text-foreground-secondary">
             We&rsquo;ll be in touch when The Push is back in stock.
           </p>
           <button

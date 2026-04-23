@@ -155,7 +155,7 @@ export function LegalSection({
 
 export function LegalP({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mb-4 text-body text-foreground-muted">
+    <p className="mb-4 text-body text-foreground-secondary">
       {children}
     </p>
   )

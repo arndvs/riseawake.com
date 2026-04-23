@@ -87,7 +87,7 @@ export default function HelpPage() {
             <br />
             <span className="text-foreground-muted">to help you adapt.</span>
           </h1>
-          <p className="max-w-xl text-body text-foreground-muted">
+          <p className="max-w-xl text-body text-foreground-secondary">
             If you are reading this, Push Mode is likely already running. We
             understand. Most questions resolve themselves by the time you reach
             the office. For everything else, we are here.
@@ -280,7 +280,7 @@ export default function HelpPage() {
             <h2 className="mb-4 font-display text-4xl tracking-tight text-foreground md:text-5xl">
               Get in touch.
             </h2>
-            <p className="text-body text-foreground-muted">
+            <p className="text-body text-foreground-secondary">
               Our support team responds within 2–3 business days. If Push Mode
               has already started, we respectfully suggest finishing your
               morning first.
@@ -391,7 +391,7 @@ export default function HelpPage() {
               <p className="mb-4 font-display text-3xl tracking-tight text-foreground-strong">
                 Message received.
               </p>
-              <p className="text-body text-foreground-muted">
+              <p className="text-body text-foreground-secondary">
                 We&rsquo;ll be in touch within 2–3 business days.
                 <br />
                 We trust Push Mode has taken care of the rest.

@@ -272,7 +272,7 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
         <h3 className="mb-4 font-display text-2xl text-foreground-secondary">
           {entry.headline}
         </h3>
-        <p className="text-body text-foreground-muted">
+        <p className="text-body text-foreground-secondary">
           {entry.body}
         </p>
       </div>
@@ -397,7 +397,7 @@ export default function AboutPage() {
             temperature. We tried vibration. We tried presence. We tried
             discomfort. We tried every polite option available to us.
           </p>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground-muted">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground-secondary">
             Then we built something that doesn&rsquo;t wait for the user to
             decide.
           </p>
@@ -424,7 +424,7 @@ export default function AboutPage() {
                 <h3 className="mb-4 text-sm font-medium text-foreground-secondary">
                   {p.title}
                 </h3>
-                <p className="text-body text-foreground-muted">
+                <p className="text-body text-foreground-secondary">
                   {p.body}
                 </p>
               </div>
@@ -442,7 +442,7 @@ export default function AboutPage() {
             <h2 className="mb-6 font-display text-4xl tracking-tight text-foreground md:text-5xl">
               The full arc.
             </h2>
-            <p className="max-w-xl text-body text-foreground-muted">
+            <p className="max-w-xl text-body text-foreground-secondary">
               Every product RISE™ has ever made. In order. With honesty about
               what worked and what didn&rsquo;t. Most of them didn&rsquo;t. That
               is the point.
@@ -579,10 +579,10 @@ export default function AboutPage() {
             <br />
             <span className="text-foreground-muted">taught us one thing.</span>
           </h2>
-          <p className="mb-4 text-body text-foreground-muted">
+          <p className="mb-4 text-body text-foreground-secondary">
             The decision cannot be left to the user.
           </p>
-          <p className="mb-12 text-body text-foreground-muted/60">
+          <p className="mb-12 text-body text-foreground-secondary/60">
             The Push is currently out of stock. Join the waitlist.
           </p>
           <Button variant="cta" size="lg" href="/products/push">

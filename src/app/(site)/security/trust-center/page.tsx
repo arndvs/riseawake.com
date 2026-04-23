@@ -34,7 +34,7 @@ export default function TrustCenterPage() {
         practices — all in one place.
       </p>
 
-      <p className="mt-6 max-w-sm text-body text-foreground-muted">
+      <p className="mt-6 max-w-sm text-body text-foreground-secondary">
         Our team is working to ensure the Trust Center meets the same standard
         of excellence our customers expect from the RISE™ platform. We
         appreciate your patience.

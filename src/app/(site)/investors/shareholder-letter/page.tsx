@@ -90,7 +90,7 @@ export default function ShareholderLetterPage() {
                   {section.heading}
                 </p>
               )}
-              <div className="whitespace-pre-line text-body text-foreground-muted">
+              <div className="whitespace-pre-line text-body text-foreground-secondary">
                 {section.body}
               </div>
             </div>
