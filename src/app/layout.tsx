@@ -1,3 +1,4 @@
+import { ClerkProvider } from '@clerk/nextjs'
 import { EasterEggs } from '@/components/easter-eggs'
 import { SanityLive } from '@/sanity/live'
 import { revalidateSyncTags } from '@/sanity/revalidateSyncTags'
@@ -63,11 +64,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSans.variable} ${dmSerifDisplay.variable}`} suppressHydrationWarning>
       <body className="bg-page text-foreground antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-          <EasterEggs />
-          <SanityLive revalidateSyncTags={revalidateSyncTags} />
-        </ThemeProvider>
+        <ClerkProvider afterSignOutUrl="/studio">
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            {children}
+            <EasterEggs />
+            <SanityLive revalidateSyncTags={revalidateSyncTags} />
+          </ThemeProvider>
+        </ClerkProvider>
       </body>
     </html>
   )

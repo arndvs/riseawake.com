@@ -1,20 +1,8 @@
-'use client'
-
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import { RISE_RENDER } from '@/lib/studio-config'
 
 const isGenerationEnabled = process.env.NEXT_PUBLIC_GENERATION_ENABLED !== 'false'
 
 export default function RenderPage() {
-  const router = useRouter()
-
-  useEffect(() => {
-    if (sessionStorage.getItem('rise-render-auth') !== 'true') {
-      router.replace('/studio')
-    }
-  }, [router])
-
   return (
     <div className="flex flex-col items-center justify-center py-32 text-center">
       <h1 className="font-display text-3xl text-foreground-strong">{RISE_RENDER.name}</h1>

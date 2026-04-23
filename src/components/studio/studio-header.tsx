@@ -1,7 +1,7 @@
 'use client'
 
 import { clsx } from 'clsx'
-import { LogOut } from 'lucide-react'
+import { UserButton } from '@clerk/nextjs'
 import { Logo } from '../logo'
 import { ThemeToggle } from '../theme-toggle'
 import { RISE_RENDER } from '@/lib/studio-config'
@@ -19,10 +19,7 @@ export function StudioHeader({ className }: { className?: string }) {
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <a href="/studio" className="flex items-center gap-1.5 text-xs text-foreground-muted transition-colors duration-200 hover:text-foreground-secondary">
-            <LogOut className="size-3.5" />
-            <span className="hidden sm:inline">Sign Out</span>
-          </a>
+          <UserButton />
         </div>
       </div>
     </header>
