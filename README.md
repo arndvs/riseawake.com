@@ -1,66 +1,110 @@
-# riseawake.com
+# RISE Technologies, Inc.
 
-Website for RISE Technologies, Inc. — makers of the RISE Push. 
+The official corporate website for RISE Technologies, Inc.
 
-*Push Mode cannot be manually interrupted. This is a feature, not a limitation.*
+For people who need a little push.
 
-Built on the Radiant template from [Tailwind Plus](https://tailwindcss.com/plus) 
-using Next.js, Tailwind CSS, and Sanity CMS.
+---
+
+## About
+
+RISE Technologies builds Smart Adjustable Base technology. The flagship product — The Push — delivers a 98% morning compliance rate. There is no off switch. There has never been an off switch. RISE considers this section of the README complete.
+
+This repository contains the full riseawake.com web platform: consumer product pages, investor relations, legal documentation, internal document management, the PM-1 Remote simulation, the 12-stage Activation configurator, and approximately 50 other pages that function exactly as designed.
 
 ## Stack
 
-- [Next.js](https://nextjs.org) — framework
-- [Tailwind CSS](https://tailwindcss.com) — styling
-- [Sanity](https://www.sanity.io) — CMS
-- [Headless UI](https://headlessui.dev) — components
+| Layer     | Technology                                                      |
+| --------- | --------------------------------------------------------------- |
+| Framework | [Next.js 16](https://nextjs.org) (App Router, React 19)        |
+| Styling   | [Tailwind CSS v4](https://tailwindcss.com)                      |
+| CMS       | [Sanity v5](https://www.sanity.io) (blog, Studio at `/studio`) |
+| Charts    | [Recharts](https://recharts.org) (investor financials)          |
+| UI        | [Headless UI](https://headlessui.dev)                           |
+| Hosting   | [Vercel](https://vercel.com)                                    |
 
-## Getting started
+## Getting Started
 
-Install dependencies:
-
-```bash
-npm install
-```
-
-Create a Sanity project:
+Requires Node.js ≥ 20 and pnpm ≥ 9.
 
 ```bash
-npm create sanity@latest -- --env=.env.local --create-project "RISE Awake" --dataset production
+pnpm install
 ```
 
-When asked "Would you like to add configuration files for a Sanity project 
-in this Next.js folder?", choose "n".
+Create a `.env.local` file with your Sanity project credentials:
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+```
 
 Run the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+Open [http://localhost:3000](http://localhost:3000).
 
-Manage content via Sanity Studio at 
-[http://localhost:3000/studio](http://localhost:3000/studio).
+Sanity Studio is available at [http://localhost:3000/studio](http://localhost:3000/studio).
+
+## Site Structure
+
+### Consumer
+
+`/` · `/about` · `/products/push` · `/products/nudge` · `/move` · `/activate` · `/help` · `/blog` · `/blog/[slug]`
+
+### Platform
+
+`/data-request` · `/sdk` · `/sdk/documentation` · `/index-score` · `/security` · `/security/trust-center`
+
+### Investors
+
+`/investors` · `/investors/vision` · `/investors/shareholder-letter` · `/investors/annual-report` · `/investors/meeting-minutes` · `/investors/financials` · `/investors/press`
+
+### Legal
+
+`/legal` · `/legal/terms` · `/legal/privacy` · `/legal/push-mode-eula` · `/legal/sleep-data-policy` · `/legal/autonomous-navigation` · `/legal/disclaimer`
+
+### Press
+
+`/press` · `/press/rise-move-announcement`
+
+### Internal
+
+`/internal` · `/internal/docs/[slug]` · `/internal/users` · `/internal/media` · `/internal/settings`
+
+The internal document management system is publicly accessible. The authentication middleware was not completed. This is a known issue. It is in Arvin's TODO list. Arvin is no longer at RISE.
+
+### Hidden
+
+`/remote` · `/internal/docs/arvin-final-commit`
+
+These routes are excluded from `robots.txt`. Excluding them does not resolve the access issue but does reduce discoverability. RISE considers this an acceptable interim measure.
 
 ## Products
 
-- [RISE Push](https://riseawake.com/push) — Smart Adjustable Base
-- [RISE Move](https://riseawake.com/move) — Coming soon
+- **The Push** (RP-01) — Smart Adjustable Base. Sold out. 340,000 waitlist.
+- **The Nudge** (RN-01) — Permanently discontinued. We respect the role it played.
+- **The Push Pro** — We are not currently accepting questions about The Push Pro.
+- **RISE Move** — Autonomous vertical navigation. In development. There is no timeline. There is no loyalty discount.
 
+## Scripts
 
+```bash
+pnpm dev          # development server
+pnpm build        # production build
+pnpm start        # production server
+pnpm lint         # eslint
+pnpm typegen      # regenerate Sanity types
+```
 
-Why riseawake.com?
-It's a complete thought. "Rise awake" — the act of waking up and rising, combined. It's what the product does to you, stated as a brand promise rather than a product description.  The tone is perfectly RISE. Earnest. Slightly commanding. Not a question — not "wake up better" or "try waking up." A statement. Rise. Awake. 
+## License
 
-Other options have been either product-literal (risebed.tech) or category-descriptive (risemorning.io) (risepush.io). riseawake.com is aspirational — which is exactly how RISE Technologies talks about itself.
+Proprietary. RISE Technologies, Inc. All rights reserved.
 
-.com is the right TLD for this company. RISE Technologies is not a scrappy startup. It has investor materials, an annual report, and regulatory inquiries in three jurisdictions. .com is the corporate register. It carries weight that .io and .tech don't quite have.
-It scales across the product line perfectly:
+Users own the hardware they have purchased. They do not own anything that runs on it.
 
-riseawake.com — company home
-riseawake.com/push — the Push
-riseawake.com/move — the Move
-riseawake.com/vns — VNS subscription
-riseawake.com/nudge — archived product
+---
 
-Just like that.
+*Push Mode cannot be manually interrupted once initiated. This is a feature, not a limitation. Have a productive day!*
