@@ -178,28 +178,43 @@ const INCIDENTS = [
 
 const STATUS_STYLES: Record<
   string,
-  { dot: string; label: string; badge: string; detailText: string }
+  {
+    dot: string
+    glow: string
+    border: string
+    label: string
+    badge: string
+    detailText: string
+  }
 > = {
   operational: {
     dot: 'bg-emerald-500',
+    glow: '',
+    border: 'border-edge-subtle',
     label: 'Operational',
     badge: 'bg-emerald-500/8 text-emerald-500/80',
     detailText: 'text-foreground-muted',
   },
   degraded: {
     dot: 'bg-yellow-500',
+    glow: 'shadow-[0_0_6px_rgba(234,179,8,0.5)]',
+    border: 'border-yellow-500/10',
     label: 'Degraded',
     badge: 'bg-yellow-500/8 text-yellow-500/80',
     detailText: 'text-yellow-500/60',
   },
   maintenance: {
     dot: 'bg-accent',
+    glow: 'shadow-[0_0_6px_rgba(var(--color-accent),0.5)]',
+    border: 'border-accent/10',
     label: 'Maintenance',
     badge: 'bg-accent/8 text-accent/80',
     detailText: 'text-accent/60',
   },
   unavailable: {
     dot: 'bg-red-500/70',
+    glow: 'shadow-[0_0_6px_rgba(239,68,68,0.5)]',
+    border: 'border-red-500/10',
     label: 'Unavailable',
     badge: 'bg-red-500/6 text-red-500/60',
     detailText: 'text-foreground-muted',
@@ -227,7 +242,9 @@ export default function StatusPage() {
           hour: '2-digit',
           minute: '2-digit',
           second: '2-digit',
-        }) + ' UTC',
+          timeZone: 'UTC',
+          timeZoneName: 'short',
+        }),
       )
     }
     fmt()
@@ -301,19 +318,11 @@ export default function StatusPage() {
               return (
                 <div
                   key={svc.name}
-                  className={`rounded border p-4 ${
-                    svc.status !== 'operational'
-                      ? `border-${svc.status === 'maintenance' ? 'accent/10' : svc.status === 'unavailable' ? 'red-500/10' : 'yellow-500/10'}`
-                      : 'border-edge-subtle'
-                  } bg-surface-alt`}
+                  className={`rounded border p-4 ${ss.border} bg-surface-alt`}
                 >
                   <div className="flex items-start gap-3">
                     <div
-                      className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${ss.dot} ${
-                        svc.status !== 'operational'
-                          ? `shadow-[0_0_6px_currentColor]`
-                          : ''
-                      }`}
+                      className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${ss.dot} ${ss.glow}`}
                     />
                     <div className="flex-1">
                       <div className="mb-0.5 flex items-center gap-2.5">
@@ -366,6 +375,8 @@ export default function StatusPage() {
                   className="overflow-hidden rounded border border-edge-subtle bg-surface-alt"
                 >
                   <button
+                    aria-expanded={open}
+                    aria-controls={`incident-${inc.id}`}
                     onClick={() =>
                       setExpandedInc((e) => ({
                         ...e,
@@ -394,7 +405,10 @@ export default function StatusPage() {
                     </div>
                   </button>
                   {open && (
-                    <div className="border-t border-edge-subtle px-4 pb-4">
+                    <div
+                      id={`incident-${inc.id}`}
+                      className="border-t border-edge-subtle px-4 pb-4"
+                    >
                       <p className="mt-3 text-[11px] leading-relaxed text-foreground-muted">
                         {inc.detail}
                       </p>
