@@ -1,7 +1,7 @@
 import { createMetadata } from '@/lib/metadata'
 
 export const metadata = createMetadata({
-  title: 'RISE™ Move',
+  title: 'Move',
   description:
     'Next-generation vertical navigation. Stairs. Both directions. In development.',
   path: '/move',

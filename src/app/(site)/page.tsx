@@ -3,7 +3,7 @@ import { Link } from '@/components/link'
 import { createMetadata } from '@/lib/metadata'
 
 export const metadata = createMetadata({
-  title: 'RISE™ — Smart Adjustable Base',
+  title: 'Smart Adjustable Base',
   description:
     'For People Who Need A Little Push. The RISE™ Smart Adjustable Base.',
   path: '/',

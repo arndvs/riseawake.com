@@ -17,7 +17,7 @@ export function ThemeToggle() {
   useEffect(() => setMounted(true), [])
 
   if (!mounted) {
-    return <div className="size-8" />
+    return <div className="size-8" aria-hidden="true" />
   }
 
   const currentIndex = themes.findIndex((t) => t.value === theme)

@@ -2,6 +2,10 @@ import { client } from '@/sanity/client'
 import { siteUrl } from '@/sanity/env'
 import { defineQuery } from 'next-sanity'
 
+function escapeXml(str: string): string {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;')
+}
+
 const SITEMAP_POSTS_QUERY = defineQuery(`*[
   _type == "post"
   && defined(slug.current)
@@ -53,11 +57,17 @@ export async function GET() {
     )
 
     const blogEntries = posts.map(
-        (post: { slug: string; publishedAt: string | null }) => `  <url>
-    <loc>${siteUrl}/blog/${post.slug}</loc>${post.publishedAt ? `\n    <lastmod>${new Date(post.publishedAt).toISOString()}</lastmod>` : ''}
+        (post: { slug: string; publishedAt: string | null }) => {
+            const safeLoc = escapeXml(`${siteUrl}/blog/${post.slug}`)
+            const lastmod = post.publishedAt && !isNaN(Date.parse(post.publishedAt))
+                ? `\n    <lastmod>${new Date(post.publishedAt).toISOString()}</lastmod>`
+                : ''
+            return `  <url>
+    <loc>${safeLoc}</loc>${lastmod}
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>`,
+  </url>`
+        },
     )
 
     const xml = `<?xml version="1.0" encoding="UTF-8"?>

@@ -2,7 +2,7 @@ import { Link } from '@/components/link'
 import { createMetadata } from '@/lib/metadata'
 
 export const metadata = createMetadata({
-  title: 'Security — RISE™',
+  title: 'Security',
   description:
     'How RISE™ protects your data, your privacy, and your morning routine. Certifications, compliance, and infrastructure.',
   path: '/security',

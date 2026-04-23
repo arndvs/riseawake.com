@@ -3,7 +3,7 @@ import { Logo } from '@/components/logo'
 import { createMetadata } from '@/lib/metadata'
 
 export const metadata = createMetadata({
-  title: 'Trust Center — Coming Soon — RISE™',
+  title: 'Trust Center — Coming Soon',
   description:
     'The RISE™ Trust Center is currently under development. Expected launch: Q4 2024.',
   path: '/security/trust-center',

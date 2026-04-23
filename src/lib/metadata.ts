@@ -11,7 +11,7 @@ type MetadataInput = {
 }
 
 export function createMetadata({ title, description, path, openGraph, robots, noIndex }: MetadataInput): Metadata {
-    const url = path ? `${siteUrl}${path}` : siteUrl
+    const url = path ? new URL(path, siteUrl).toString() : siteUrl
 
     return {
         title,

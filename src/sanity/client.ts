@@ -22,13 +22,3 @@ export const liveClient = createClient({
   useCdn: true,
   token: tokens.read,
 })
-
-/** No CDN, write token — server-only mutations */
-export const writeClient = createClient({
-  ...baseConfig,
-  useCdn: false,
-  token: tokens.write,
-})
-
-if (typeof window !== 'undefined' && tokens.write)
-    throw new Error('writeClient must not be used on the client side')
