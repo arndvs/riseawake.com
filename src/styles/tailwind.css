@@ -18,8 +18,6 @@
   --color-cta-hover: var(--cta-hover);
   --color-cta-on: var(--cta-on);
 
-  --color-surface-warm: var(--surface-warm);
-
   --color-edge: var(--edge);
   --color-edge-strong: var(--edge-strong);
   --color-edge-subtle: var(--edge-subtle);
@@ -30,11 +28,7 @@
 }
 
 @theme {
-  --color-rise-teal: #0A6B5A;
-  --color-rise-coral: #E07A4A;
   --color-rise-charcoal: #1C1C1E;
-  --color-rise-dark: #1D1D1F;
-  --color-rise-gray: #2C2C2E;
   --color-rise-error: #DC4545;
 
   --font-display: var(--font-dm-serif), 'DM Serif Display', serif;
@@ -48,10 +42,6 @@
   --text-display--line-height: 1.1;
   --text-display--letter-spacing: -0.02em;
 
-  --text-product: clamp(2.8rem, 5.5vw, 4rem);
-  --text-product--line-height: 1.1;
-  --text-product--letter-spacing: -0.02em;
-
   --text-section: clamp(2rem, 5vw, 3.5rem);
   --text-section--line-height: 1.15;
   --text-section--letter-spacing: -0.02em;
@@ -63,14 +53,6 @@
   --text-eyebrow: 0.6875rem;
   --text-eyebrow--line-height: 1.4;
   --text-eyebrow--letter-spacing: 0.18em;
-
-  --text-caption: 0.75rem;
-  --text-caption--line-height: 1.5;
-  --text-caption--letter-spacing: 0.04em;
-
-  --text-fine: 0.6875rem;
-  --text-fine--line-height: 1.8;
-  --text-fine--letter-spacing: 0.02em;
 
   --radius-pill: 62rem;
 }
@@ -93,8 +75,6 @@
     --cta: #E07A4A;
     --cta-hover: #C96A3D;
     --cta-on: #FFFFFF;
-
-    --surface-warm: #F9F6F2;
 
     --edge: rgb(0 0 0 / 0.08);
     --edge-strong: rgb(0 0 0 / 0.14);
@@ -122,8 +102,6 @@
     --cta: #F0A050;
     --cta-hover: #F5B56A;
     --cta-on: #1D1D1F;
-
-    --surface-warm: #1E1C1A;
 
     --edge: rgb(255 255 255 / 0.10);
     --edge-strong: rgb(255 255 255 / 0.16);
