@@ -381,6 +381,21 @@ const DOC_SEEDS: DocSeed[] = [
       'Engineering team size by quarter. Headcount dropped from 42 to 3 between Q2 2020 and Q1 2021. Current headcount: 127. The three engineers who remained through the transition are identified by name. All three are still employed. Their retention packages are referenced but not disclosed.',
     wordCount: 1204,
   },
+  {
+    id: 'DOC-022',
+    slug: 'asset-pipeline-migration-notice',
+    title: 'Asset Pipeline Migration Notice — RISE Render',
+    classification: 'INTERNAL',
+    author: 'Arvin Reyes',
+    department: 'Engineering',
+    date: 'April 15, 2026',
+    lastUpdated: 'April 15, 2026',
+    status: 'Active',
+    relatedDocs: ['DOC-020'],
+    summary:
+      'The RC-1 asset pipeline has been migrated to /studio. Default credentials remain active. IT ticket #4471 has not been resolved. RISE Render production environment is accessible at the new endpoint. Auth middleware deployment is pending.',
+    wordCount: 342,
+  },
 ]
 
 // ─── Dynamic access log definitions ─────────────────────────────────────────
@@ -520,6 +535,12 @@ const ACCESS_PATTERNS: Record<string, AccessPattern> = {
       { name: 'S. Williams', role: 'HR Director', baseMinutes: 4320 },
     ],
     externals: [],
+  },
+  'DOC-022': {
+    staff: [
+      { name: 'A. Reyes', role: 'Junior Developer', baseMinutes: 45 },
+    ],
+    externals: [{ ip: '203.0.113.47' }],
   },
 }
 

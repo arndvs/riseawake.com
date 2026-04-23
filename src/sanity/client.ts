@@ -6,7 +6,7 @@ const baseConfig = {
   dataset,
   apiVersion,
   stega: {
-    studioUrl: '/studio',
+    studioUrl: '/cms',
   },
 }
 
