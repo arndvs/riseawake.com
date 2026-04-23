@@ -159,7 +159,7 @@ export default function SDKPage() {
               environments. Not all operating systems are supported. Not all
               versions of supported operating systems are supported.
             </p>
-            <p className="mt-3 text-xs text-foreground-muted/60">
+            <div className="mt-3 text-xs text-foreground-muted/60">
               Before purchasing, consult the{' '}
               <details className="inline">
                 <summary className="cursor-pointer text-accent/60 underline">
@@ -170,7 +170,7 @@ export default function SDKPage() {
                 </span>
               </details>{' '}
               to confirm your system meets minimum requirements.
-            </p>
+            </div>
           </div>
         </div>
       </section>

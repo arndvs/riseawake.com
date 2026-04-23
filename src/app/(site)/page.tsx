@@ -127,7 +127,7 @@ function ProductCard({
       <div className="h-full rounded-xl border border-edge bg-surface p-10 transition-all duration-300 group-hover:border-accent/25 group-hover:shadow-lg md:p-14">
         <div className="mb-10 flex items-center justify-between">
           <span
-            className={`rounded-xl px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.16em] ${
+            className={`rounded-xl px-3 py-1.5 text-[10px] font-medium tracking-[0.16em] uppercase ${
               status === 'discontinued'
                 ? 'border border-edge bg-foreground/5 text-foreground-muted'
                 : 'border border-accent/20 bg-accent/10 text-accent'
@@ -147,7 +147,7 @@ function ProductCard({
         <h3 className="mb-3 font-display text-4xl tracking-tight text-foreground-strong">
           {name}
         </h3>
-        <p className="mb-6 text-sm italic text-accent/75">
+        <p className="mb-6 text-sm text-accent/75 italic">
           &ldquo;{tagline}&rdquo;
         </p>
         <p className="mb-10 text-body text-foreground-secondary">
@@ -156,7 +156,7 @@ function ProductCard({
 
         <div className="flex items-center justify-between border-t border-edge pt-6">
           <span className="text-xs text-foreground-muted">{detail}</span>
-          <span className="text-xs font-medium uppercase tracking-widest text-foreground-secondary transition-colors duration-300 group-hover:text-foreground-strong">
+          <span className="text-xs font-medium tracking-widest text-foreground-secondary uppercase transition-colors duration-300 group-hover:text-foreground-strong">
             View →
           </span>
         </div>
@@ -176,7 +176,7 @@ export default function Home() {
             <div className="mx-auto mb-8 w-full max-w-5xl text-center">
               <div className="mb-7 flex items-center justify-center gap-3">
                 <div className="h-px w-12 bg-accent/50" />
-                <span className="text-[10px] font-medium uppercase tracking-[0.24em] text-foreground-muted">
+                <span className="text-[10px] font-medium tracking-[0.24em] text-foreground-muted uppercase">
                   Smart Adjustable Base
                 </span>
                 <div className="h-px w-12 bg-accent/50" />
@@ -185,7 +185,7 @@ export default function Home() {
               <h1 className="mb-4 font-display text-hero leading-none text-foreground-strong">
                 Rise.{' '}
                 <span className="text-transparent [-webkit-text-stroke:1px_var(--color-foreground-muted)]">
-                  Inevitably.
+                  Awake.
                 </span>
               </h1>
 
@@ -198,7 +198,7 @@ export default function Home() {
               <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-edge bg-surface shadow-hero">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative flex items-center justify-center">
-                    <div className="absolute size-25 animate-glow-pulse rounded-full border border-accent/35" />
+                    <div className="animate-glow-pulse absolute size-25 rounded-full border border-accent/35" />
                     <div className="flex size-19 items-center justify-center rounded-full border border-accent/45 bg-accent/18 backdrop-blur-xl">
                       <svg
                         width="22"
@@ -213,21 +213,21 @@ export default function Home() {
                         />
                       </svg>
                     </div>
-                    <div className="absolute top-full mt-5 whitespace-nowrap text-center">
-                      <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-foreground-muted">
-                        Watch the film
+                    <div className="absolute top-full mt-5 text-center whitespace-nowrap">
+                      <p className="text-[10px] font-medium tracking-[0.2em] text-foreground-muted uppercase">
+                        Watch the film (coming soon)
                       </p>
                     </div>
                   </div>
                 </div>
                 <div className="pointer-events-none absolute top-4 left-4 flex items-center gap-2">
-                  <div className="size-1.5 animate-glow-pulse rounded-full bg-accent" />
-                  <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-foreground-secondary">
+                  <div className="animate-glow-pulse size-1.5 rounded-full bg-accent" />
+                  <span className="text-[10px] font-medium tracking-[0.2em] text-foreground-secondary uppercase">
                     RISE
                   </span>
                 </div>
                 <div className="pointer-events-none absolute top-4 right-4">
-                  <span className="rounded-xl border border-edge bg-page/75 px-2.5 py-1 text-[10px] uppercase tracking-widest text-foreground-secondary">
+                  <span className="rounded-xl border border-edge bg-page/75 px-2.5 py-1 text-[10px] tracking-widest text-foreground-secondary uppercase">
                     Push Mode
                   </span>
                 </div>
@@ -237,7 +237,7 @@ export default function Home() {
             <div className="mx-auto mt-6 w-full max-w-6xl">
               <div className="mb-6 flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
                 <div className="flex items-center gap-3">
-                  <div className="size-1.5 animate-glow-pulse rounded-full bg-accent" />
+                  <div className="animate-glow-pulse size-1.5 rounded-full bg-accent" />
                   <p className="text-xs text-foreground-muted">
                     <span className="text-foreground-secondary">
                       &ldquo;The Remote&rdquo;
@@ -245,7 +245,7 @@ export default function Home() {
                     — a short film. One morning. One button.
                   </p>
                 </div>
-                <p className="text-[10px] italic text-foreground-muted/50">
+                <p className="text-[10px] text-foreground-muted/50 italic">
                   Dave did not consent to this film. Dave arrived at work on
                   time. Results typical.
                 </p>
@@ -260,7 +260,7 @@ export default function Home() {
                     Our Story
                   </Button>
                 </div>
-                <p className="hidden max-w-70 text-right text-xs italic leading-relaxed text-foreground-muted md:block">
+                <p className="hidden max-w-70 text-right text-xs leading-relaxed text-foreground-muted italic md:block">
                   For People Who Need A Little Push.
                 </p>
               </div>
@@ -283,7 +283,7 @@ export default function Home() {
         <section className="px-6 py-24">
           <div className="mx-auto max-w-7xl">
             <div className="mb-16 text-center">
-              <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
+              <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
                 The Product Line
               </p>
               <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -320,7 +320,7 @@ export default function Home() {
         <section className="border-t border-edge-subtle px-6 py-32">
           <div className="mx-auto max-w-6xl">
             <div className="mb-20 text-center">
-              <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
+              <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
                 Push Mode
               </p>
               <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -350,7 +350,7 @@ export default function Home() {
                   <p className="mb-6 font-display text-5xl text-accent/28">
                     {item.step}
                   </p>
-                  <h3 className="mb-4 text-sm font-medium uppercase tracking-widest text-foreground-secondary">
+                  <h3 className="mb-4 text-sm font-medium tracking-widest text-foreground-secondary uppercase">
                     {item.title}
                   </h3>
                   <p className="text-body text-foreground-secondary">
@@ -365,7 +365,7 @@ export default function Home() {
         <section className="px-6 py-32">
           <div className="mx-auto max-w-6xl">
             <div className="mb-16 text-center">
-              <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
+              <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
                 Customer Outcomes
               </p>
               <h2 className="font-display text-4xl tracking-tight text-foreground md:text-5xl">
@@ -405,7 +405,11 @@ export default function Home() {
                   key={i}
                   className="rounded-xl border border-edge bg-surface p-8"
                 >
-                  <div className="mb-6 flex gap-0.5" role="img" aria-label={`${t.stars} out of 5 stars`}>
+                  <div
+                    className="mb-6 flex gap-0.5"
+                    role="img"
+                    aria-label={`${t.stars} out of 5 stars`}
+                  >
                     {Array.from({ length: 5 }).map((_, s) => (
                       <span
                         key={s}
@@ -416,7 +420,7 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                  <p className="mb-8 text-body italic text-foreground-secondary">
+                  <p className="mb-8 text-body text-foreground-secondary italic">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div>
@@ -445,7 +449,7 @@ export default function Home() {
                 <p className="mb-2 font-display text-display text-foreground-strong">
                   {s.stat}
                 </p>
-                <p className="text-xs uppercase tracking-widest text-foreground-muted">
+                <p className="text-xs tracking-widest text-foreground-muted uppercase">
                   {s.label}
                 </p>
               </div>
@@ -456,7 +460,7 @@ export default function Home() {
         <section className="relative overflow-hidden px-6 py-40 text-center">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
           <div className="relative z-10 mx-auto max-w-2xl">
-            <p className="mb-8 text-eyebrow uppercase text-foreground-muted">
+            <p className="mb-8 text-eyebrow text-foreground-muted uppercase">
               Ready?
             </p>
             <h2 className="mb-8 font-display text-display leading-tight tracking-tight text-foreground-strong">
