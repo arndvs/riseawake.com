@@ -1,13 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { ConvexHttpClient } from 'convex/browser'
+import { Resend } from 'resend'
 import { api } from '../../../../../convex/_generated/api'
 import {
   getJobById,
   MAX_RESUME_SIZE,
   ALLOWED_RESUME_TYPES,
 } from '@/lib/careers-data'
+import { ApplicationConfirmationEmail } from '@/emails/application-confirmation'
+import { ApplicationNotificationEmail } from '@/emails/application-notification'
 
 const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!)
+const resend = new Resend(process.env.RESEND_API_KEY!)
 
 export async function POST(request: NextRequest) {
   try {
@@ -152,8 +156,58 @@ export async function POST(request: NextRequest) {
       ipAddress,
     })
 
-    // TODO: Send confirmation email to applicant (B.9)
-    // TODO: Send notification email to staff (B.10)
+    // ─── Send emails ───────────────────────────────────────────────────
+    const submittedAtFormatted = new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+
+    const emailFrom = process.env.RESEND_FROM_EMAIL || 'RISE Awake <careers@riseawake.com>'
+    const notifyTo = process.env.RESEND_NOTIFY_EMAIL || 'careers@riseawake.com'
+
+    // Confirmation to applicant (best-effort — don't fail the submission)
+    try {
+      await resend.emails.send({
+        from: emailFrom,
+        to: email,
+        subject: `Application received — ${roleTitle}`,
+        react: ApplicationConfirmationEmail({
+          firstName,
+          roleTitle,
+          roleId,
+          submittedAt: submittedAtFormatted,
+        }),
+      })
+    } catch (emailErr) {
+      console.error('[careers/application] Confirmation email failed:', emailErr)
+    }
+
+    // Internal notification (best-effort)
+    try {
+      await resend.emails.send({
+        from: emailFrom,
+        to: notifyTo,
+        subject: `New application: ${firstName} ${lastName} — ${roleTitle}`,
+        react: ApplicationNotificationEmail({
+          firstName,
+          lastName,
+          email,
+          phone,
+          roleTitle,
+          roleId,
+          experienceLevel,
+          availability,
+          whyJoinRise,
+          hasResume: !!resumeStorageId,
+          resumeFileName,
+          submittedAt: submittedAtFormatted,
+          ipAddress,
+        }),
+      })
+    } catch (emailErr) {
+      console.error('[careers/application] Notification email failed:', emailErr)
+    }
 
     return NextResponse.json({ success: true })
   } catch (err) {
