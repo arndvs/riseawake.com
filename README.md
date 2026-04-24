@@ -49,7 +49,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-Sanity Studio is available at [http://localhost:3000/studio](http://localhost:3000/studio).
+Sanity Studio is available at [http://localhost:3000/cms](http://localhost:3000/cms).
 
 ## Site Structure
 
