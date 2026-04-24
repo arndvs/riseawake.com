@@ -1,5 +1,10 @@
 import { RISE_RENDER } from './studio-config'
 
+/**
+ * Daily allocation tracking for RISE Render.
+ * Note: The "day" boundary is UTC midnight (via toISOString).
+ * Allocations reset at 00:00 UTC regardless of user timezone.
+ */
 const STORAGE_KEY = 'rise-render-allocation'
 
 type AllocationRecord = {
