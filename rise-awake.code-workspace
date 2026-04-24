@@ -5,6 +5,15 @@
 		}
 	],
 	"settings": {
-		"workbench.colorTheme": "Tomorrow Night Blue"
+		"workbench.colorTheme": "Tomorrow Night Blue",
+		"mcp": {
+			"servers": {
+				"Clerk": {
+					"url": "https://mcp.clerk.dev/mcp",
+					"type": "http"
+				}
+			},
+			"inputs": []
+		}
 	}
 }
