@@ -250,6 +250,17 @@ const FICTIONAL_APPLICATIONS = [
 ]
 
 async function main() {
+  const shouldReset = process.argv.includes('--reset')
+
+  if (shouldReset) {
+    console.log('Clearing existing fictional applications...')
+    const existing = await convex.query(api.applications.listApplications, {})
+    for (const app of existing) {
+      await convex.mutation(api.applications.deleteApplication, { id: app._id })
+    }
+    console.log(`  Deleted ${existing.length} existing entries.\n`)
+  }
+
   console.log(`Seeding ${FICTIONAL_APPLICATIONS.length} fictional applications...\n`)
 
   for (const app of FICTIONAL_APPLICATIONS) {

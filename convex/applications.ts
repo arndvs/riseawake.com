@@ -110,3 +110,10 @@ export const setFictional = mutation({
     await ctx.db.patch(args.id, { fictional: args.fictional })
   },
 })
+
+export const deleteApplication = mutation({
+  args: { id: v.id('applications') },
+  handler: async (ctx, args) => {
+    await ctx.db.delete(args.id)
+  },
+})

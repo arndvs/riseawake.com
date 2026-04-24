@@ -6,12 +6,38 @@ import PayloadShell, {
 } from '@/components/payload/PayloadShell'
 import { getJobById } from '@/lib/careers-data'
 import { ConvexHttpClient } from 'convex/browser'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { api } from '../../../../convex/_generated/api'
 
 const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!)
 
+const COOKIE_KEY = 'rise_app_overrides'
+
 type ApplicationStatus = 'needs_review' | 'reviewed' | 'archived' | 'flagged'
+
+interface AppOverride {
+  status?: ApplicationStatus
+  breachFlag?: boolean
+  fictional?: boolean
+}
+
+function readOverrides(): Record<string, AppOverride> {
+  try {
+    const match = document.cookie
+      .split('; ')
+      .find((c) => c.startsWith(`${COOKIE_KEY}=`))
+    if (!match) return {}
+    return JSON.parse(decodeURIComponent(match.split('=').slice(1).join('=')))
+  } catch {
+    return {}
+  }
+}
+
+function writeOverrides(overrides: Record<string, AppOverride>) {
+  const val = encodeURIComponent(JSON.stringify(overrides))
+  // Session cookie — cleared when browser closes or cookies are cleared
+  document.cookie = `${COOKIE_KEY}=${val}; path=/internal/applications; SameSite=Lax`
+}
 
 interface Application {
   _id: string
@@ -80,11 +106,20 @@ export default function ApplicationsPage() {
     fetchApplications()
   }, [])
 
+  const applyOverrides = useCallback((apps: Application[]) => {
+    const overrides = readOverrides()
+    return apps.map((a) => {
+      const o = overrides[a._id]
+      if (!o) return a
+      return { ...a, ...o }
+    })
+  }, [])
+
   async function fetchApplications() {
     setLoading(true)
     try {
       const results = await convex.query(api.applications.listApplications, {})
-      setApplications(results as unknown as Application[])
+      setApplications(applyOverrides(results as unknown as Application[]))
     } catch (err) {
       console.error('Failed to fetch applications:', err)
       fireToast('Failed to load applications.', 'error')
@@ -93,74 +128,51 @@ export default function ApplicationsPage() {
     }
   }
 
-  async function handleStatusChange(
+  function updateOverride(appId: string, patch: AppOverride) {
+    const overrides = readOverrides()
+    overrides[appId] = { ...overrides[appId], ...patch }
+    writeOverrides(overrides)
+  }
+
+  function handleStatusChange(
     appId: string,
     newStatus: ApplicationStatus,
   ) {
-    const prev = [...applications]
     setApplications((apps) =>
       apps.map((a) => (a._id === appId ? { ...a, status: newStatus } : a)),
     )
-    try {
-      await convex.mutation(api.applications.updateApplicationStatus, {
-        id: appId as any,
-        status: newStatus,
-      })
-      fireToast(`Status updated to ${STATUS_LABELS[newStatus]}.`)
-    } catch (err) {
-      console.error('Failed to update status:', err)
-      setApplications(prev)
-      fireToast('Status update failed.', 'error')
-    }
+    updateOverride(appId, { status: newStatus })
+    fireToast(`Status updated to ${STATUS_LABELS[newStatus]}.`)
   }
 
-  async function handleFlagToggle(app: Application) {
-    const prev = [...applications]
+  function handleFlagToggle(app: Application) {
+    const next = !app.breachFlag
     setApplications((apps) =>
       apps.map((a) =>
-        a._id === app._id ? { ...a, breachFlag: !a.breachFlag } : a,
+        a._id === app._id ? { ...a, breachFlag: next } : a,
       ),
     )
-    try {
-      await convex.mutation(api.applications.updateApplicationStatus, {
-        id: app._id as any,
-        status: app.status,
-        breachFlag: !app.breachFlag,
-      })
-      fireToast(
-        app.breachFlag ? 'Breach flag removed.' : 'Breach flag set.',
-        'info',
-      )
-    } catch (err) {
-      console.error('Failed to toggle flag:', err)
-      setApplications(prev)
-      fireToast('Flag toggle failed.', 'error')
-    }
+    updateOverride(app._id, { breachFlag: next })
+    fireToast(
+      app.breachFlag ? 'Breach flag removed.' : 'Breach flag set.',
+      'info',
+    )
   }
 
-  async function handleFictionalToggle(app: Application) {
-    const prev = [...applications]
+  function handleFictionalToggle(app: Application) {
+    const next = !app.fictional
     setApplications((apps) =>
       apps.map((a) =>
-        a._id === app._id ? { ...a, fictional: !a.fictional } : a,
+        a._id === app._id ? { ...a, fictional: next } : a,
       ),
     )
-    try {
-      await convex.mutation(api.applications.setFictional, {
-        id: app._id as any,
-        fictional: !app.fictional,
-      })
-      fireToast(
-        app.fictional
-          ? 'Removed from public dashboard.'
-          : 'Promoted to public dashboard.',
-        'info',
-      )
-    } catch (err) {
-      console.error('Failed to toggle fictional:', err)
-      setApplications(prev)
-      fireToast('Visibility toggle failed.', 'error')
-    }
+    updateOverride(app._id, { fictional: next })
+    fireToast(
+      app.fictional
+        ? 'Removed from public dashboard.'
+        : 'Promoted to public dashboard.',
+      'info',
+    )
   }
 
   const roleIds = [...new Set(applications.map((a) => a.roleId))]
