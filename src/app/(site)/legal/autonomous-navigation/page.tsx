@@ -28,7 +28,6 @@ const RELATED = [
 export default function AutonomousNavPage() {
   return (
     <main>
-
       <div className="pt-20">
         <LegalLayout
           title="Autonomous Navigation Disclosure"
@@ -60,10 +59,10 @@ export default function AutonomousNavPage() {
               combination of ultrasonic ranging, floor pressure mapping, and
               ambient light sensing. The map is stored on-device and updated
               continuously during operation. Navigation decisions are made by an
-              onboard processor, with route optimization handled by RISE
-              servers via telemetry. The device navigates continuously while
-              Push Mode is active. It does not pause at obstacles. It does not
-              hesitate at thresholds. It proceeds.
+              onboard processor, with route optimization handled by RISE servers
+              via telemetry. The device navigates continuously while Push Mode
+              is active. It does not pause at obstacles. It does not hesitate at
+              thresholds. It proceeds.
             </LegalP>
           </LegalSection>
 
@@ -95,9 +94,9 @@ export default function AutonomousNavPage() {
               irregularities, inclines, wet conditions, vehicles in motion, and
               third parties. The device navigates these conditions using its
               standard navigation system, which was designed for indoor use.
-              Outdoor navigation is a courtesy feature. RISE recommends it.
-              RISE also notes that it has occurred in conditions the device was
-              not designed for, and that outcomes have varied.
+              Outdoor navigation is a courtesy feature. RISE recommends it. RISE
+              also notes that it has occurred in conditions the device was not
+              designed for, and that outcomes have varied.
             </LegalP>
           </LegalSection>
 
@@ -116,8 +115,8 @@ export default function AutonomousNavPage() {
               The solo return commute was added in Push Mode firmware 2.4.0.
               Users who purchased before this update received it via
               over-the-air update. Users who did not want the solo return
-              commute feature were not offered an opt-out, as RISE considers
-              the return commute integral to the product's promise of a made bed
+              commute feature were not offered an opt-out, as RISE considers the
+              return commute integral to the product's promise of a made bed
               upon return.
             </LegalNote>
           </LegalSection>
@@ -187,8 +186,8 @@ export default function AutonomousNavPage() {
               observed to interact with the returning device in a variety of
               ways. Their owners have not always been present. RISE is not
               responsible for animal-device interactions during the solo
-              commute. RISE notes that the device has not been found to
-              initiate these interactions.
+              commute. RISE notes that the device has not been found to initiate
+              these interactions.
             </LegalP>
           </LegalSection>
 
@@ -207,8 +206,8 @@ export default function AutonomousNavPage() {
           <LegalSection id="s11" number="11." title="Incident Reporting">
             <LegalP>
               Users who wish to report autonomous navigation incidents may do so
-              at riseawake.com/help. RISE reviews incident reports and uses
-              them to improve navigation algorithms. Incident reports do not
+              at riseawake.com/help. RISE reviews incident reports and uses them
+              to improve navigation algorithms. Incident reports do not
               constitute formal legal notice and do not initiate any liability
               process. For formal legal notice, users should contact RISE's
               registered agent in Delaware. RISE will respond within legally
@@ -217,7 +216,6 @@ export default function AutonomousNavPage() {
           </LegalSection>
         </LegalLayout>
       </div>
-
     </main>
   )
 }

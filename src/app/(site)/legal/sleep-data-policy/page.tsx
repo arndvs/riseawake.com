@@ -1,9 +1,9 @@
 import {
-  LegalLayout,
-  LegalSection,
-  LegalP,
-  LegalNote,
   AppendixNote,
+  LegalLayout,
+  LegalNote,
+  LegalP,
+  LegalSection,
 } from '@/components/legal/legal-layout'
 import { rise } from '@/lib/temporal'
 
@@ -33,7 +33,6 @@ const RELATED = [
 export default function SleepDataPage() {
   return (
     <main>
-
       <div className="pt-20">
         <LegalLayout
           title="Sleep & Environmental Data Policy"
@@ -47,15 +46,16 @@ export default function SleepDataPage() {
               RISE is committed to the responsible collection, use, and
               protection of the data generated in your sleep environment. We
               recognize that the bedroom is a private space. We also recognize
-              that it is the space in which our product operates. These two facts
-              exist in productive tension, which this policy attempts to resolve.
+              that it is the space in which our product operates. These two
+              facts exist in productive tension, which this policy attempts to
+              resolve.
             </LegalP>
             <LegalP>
               This policy is supplemental to the Privacy Policy and governs
               specifically the data generated within the sleep environment: the
-              mattress surface, the surrounding room, and — during the autonomous
-              return commute — the spaces through which the device travels
-              unaccompanied.
+              mattress surface, the surrounding room, and — during the
+              autonomous return commute — the spaces through which the device
+              travels unaccompanied.
             </LegalP>
           </LegalSection>
 
@@ -66,10 +66,10 @@ export default function SleepDataPage() {
               sensors enable Push Mode navigation, mattress health monitoring,
               sleep stage estimation, and occupancy detection. The resolution of
               this array is sufficient to distinguish individual body areas,
-              movement patterns, and the interactions between multiple occupants.
-              This distinction is made continuously during device operation. It
-              is logged. It is transmitted to RISE servers as part of standard
-              telemetry.
+              movement patterns, and the interactions between multiple
+              occupants. This distinction is made continuously during device
+              operation. It is logged. It is transmitted to RISE servers as part
+              of standard telemetry.
             </LegalP>
           </LegalSection>
 
@@ -103,8 +103,8 @@ export default function SleepDataPage() {
               We are required to disclose that the sensor array is capable of
               distinguishing between different types of occupant interaction. We
               are further required to disclose that this distinction is logged.
-              We are not required to specify what interaction categories exist in
-              the taxonomy, and we have chosen not to. The taxonomy is
+              We are not required to specify what interaction categories exist
+              in the taxonomy, and we have chosen not to. The taxonomy is
               proprietary. Its categories have been reviewed by the RISE Sleep
               Science Institute and the RISE legal team. Both have approved its
               use.
@@ -119,8 +119,9 @@ export default function SleepDataPage() {
               retention is appropriate. The classification criteria are
               proprietary. Retained audio includes: conversations between
               occupants; phone calls conducted within range; any audio the
-              classification system flags as potentially significant; and ambient
-              sound from adjacent spaces under favorable acoustic conditions.
+              classification system flags as potentially significant; and
+              ambient sound from adjacent spaces under favorable acoustic
+              conditions.
             </LegalP>
             <LegalP>
               RISE does not livestream audio. Retained audio is stored on RISE
@@ -186,12 +187,12 @@ export default function SleepDataPage() {
             <LegalP>
               Occupancy data is retained for 7 years from collection. Movement
               classification data is retained for 7 years. Audio (standard) is
-              retained for 7 years. Audio (flagged as significant): indefinitely.
-              Relationship status inference data: indefinitely, with annual
-              review. The review determines whether the data continues to be
-              accurate. Inaccurate inference data is updated, not deleted, as
-              historical inference data has research value independent of its
-              accuracy.
+              retained for 7 years. Audio (flagged as significant):
+              indefinitely. Relationship status inference data: indefinitely,
+              with annual review. The review determines whether the data
+              continues to be accurate. Inaccurate inference data is updated,
+              not deleted, as historical inference data has research value
+              independent of its accuracy.
             </LegalP>
           </LegalSection>
 
@@ -250,8 +251,8 @@ export default function SleepDataPage() {
               model directly — the model updates from data only. Historical
               relationship inference data is retained regardless of current
               relationship status. RISE acknowledges that this data may be
-              sensitive in the context of legal proceedings and responds to valid
-              subpoenas within legally required timeframes.
+              sensitive in the context of legal proceedings and responds to
+              valid subpoenas within legally required timeframes.
             </LegalP>
           </LegalSection>
 
@@ -261,9 +262,9 @@ export default function SleepDataPage() {
               occupants. RISE accepts no responsibility for any role its data
               collection, inference modeling, or Household Sync feature may have
               played in any relationship outcome. RISE notes that its sensors
-              are non-judgmental. The data they produce is factual. What users do
-              with that data, if they obtain it through the Data Subject Request
-              Process, is their own concern.
+              are non-judgmental. The data they produce is factual. What users
+              do with that data, if they obtain it through the Data Subject
+              Request Process, is their own concern.
             </LegalP>
           </LegalSection>
 
@@ -279,7 +280,6 @@ export default function SleepDataPage() {
           </LegalSection>
         </LegalLayout>
       </div>
-
     </main>
   )
 }

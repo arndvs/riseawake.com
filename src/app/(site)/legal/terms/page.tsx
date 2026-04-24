@@ -44,7 +44,6 @@ const RELATED = [
 export default function TermsPage() {
   return (
     <main>
-
       <div className="pt-20">
         <LegalLayout
           title="Terms of Service"
@@ -71,8 +70,8 @@ export default function TermsPage() {
 
           <LegalSection id="s2" number="2." title="Description of Service">
             <LegalP>
-              RISE provides a Smart Adjustable Base platform including the
-              RISE Push hardware, Push Mode software, self-making mechanism,
+              RISE provides a Smart Adjustable Base platform including the RISE
+              Push hardware, Push Mode software, self-making mechanism,
               autonomous navigation system, the RISE Index, and related
               services. The platform is designed to activate on schedule,
               transition the base to vertical, and deliver the user through
@@ -95,8 +94,8 @@ export default function TermsPage() {
 
           <LegalSection id="s4" number="4." title="Permitted Use">
             <LegalP>
-              The RISE platform is licensed for personal residential morning
-              use by the registered account holder. Use of Push Mode on third
+              The RISE platform is licensed for personal residential morning use
+              by the registered account holder. Use of Push Mode on third
               parties without their knowledge or prior written agreement is not
               recommended, though RISE notes that guests of primary account
               holders are covered under Section 14.
@@ -167,8 +166,8 @@ export default function TermsPage() {
               considers the placement of this disclosure to be reasonable, as
               the product specifications were available prior to purchase and
               the user had ample opportunity to assess compatibility before
-              initiating activation. RISE understands this may be frustrating
-              to discover at Stage 5 of 12.
+              initiating activation. RISE understands this may be frustrating to
+              discover at Stage 5 of 12.
             </LegalNote>
           </LegalSection>
 
@@ -177,9 +176,9 @@ export default function TermsPage() {
               All RISE technology, including Push Mode algorithms, the RISE
               Index methodology, the .rsm file format, REASCII encoding, the
               self-making mechanism, and any data derived from user activity, is
-              the intellectual property of RISE Technologies, Inc. Users own
-              the hardware they have purchased. They do not own anything that
-              runs on it.
+              the intellectual property of RISE Technologies, Inc. Users own the
+              hardware they have purchased. They do not own anything that runs
+              on it.
             </LegalP>
           </LegalSection>
 
@@ -271,8 +270,8 @@ export default function TermsPage() {
 
           <LegalSection id="s14" number="14." title="Occupancy & Guest Users">
             <LegalP>
-              Any person who occupies the mattress surface while the RISE
-              device is in use is subject to Push Mode, to the data collection
+              Any person who occupies the mattress surface while the RISE device
+              is in use is subject to Push Mode, to the data collection
               described in the Privacy Policy, and to the physical risk
               disclosures in Section 10, regardless of whether they have been
               informed of these facts. By activating Push Mode in the presence
@@ -290,14 +289,14 @@ export default function TermsPage() {
               theory of law, shall not exceed the lesser of: (a) the original
               purchase price of the product giving rise to the claim, or (b) the
               value of one morning's productive output as calculated by the
-              user's RISE Index score at time of the incident, multiplied by
-              the national average hourly wage in the user's jurisdiction.
+              user's RISE Index score at time of the incident, multiplied by the
+              national average hourly wage in the user's jurisdiction.
             </LegalP>
             <LegalP>
               RISE notes that clause (b) is typically lower than clause (a).
-              RISE further notes that the RISE Index methodology is
-              proprietary and the calculation is performed by RISE. RISE will
-              perform the calculation in good faith.
+              RISE further notes that the RISE Index methodology is proprietary
+              and the calculation is performed by RISE. RISE will perform the
+              calculation in good faith.
             </LegalP>
             <LegalNote>
               RISE is not liable for: productivity gains, career advancement,
@@ -318,9 +317,9 @@ export default function TermsPage() {
               product; the user's guests' presence in the sleep environment; the
               user's activation of Push Mode in a location for which it was not
               designed; any claim by a third party arising from the solo return
-              commute; and any claim that RISE's data practices caused harm to
-              a person who did not consent to those practices but was present in
-              a RISE-enabled environment.
+              commute; and any claim that RISE's data practices caused harm to a
+              person who did not consent to those practices but was present in a
+              RISE-enabled environment.
             </LegalP>
           </LegalSection>
 
@@ -380,8 +379,8 @@ export default function TermsPage() {
               user acknowledges that Push Mode cannot be interrupted. The user
               acknowledges that they knew this before pressing the button — it
               is stated on the remote, in the EULA, in this document, and in
-              every piece of marketing material RISE has ever produced. The
-              user acknowledges that they pressed it anyway. RISE finds this
+              every piece of marketing material RISE has ever produced. The user
+              acknowledges that they pressed it anyway. RISE finds this
               meaningful and records it in the user's file.
             </LegalP>
           </LegalSection>
@@ -404,8 +403,8 @@ export default function TermsPage() {
               in related documents. If the user is currently looking for an off
               switch in this document, there is not one. If the user is looking
               for an off switch in the product, there is not one. If the user
-              has been told, across all RISE documentation, that there is no
-              off switch a minimum of fourteen times and is still looking, RISE
+              has been told, across all RISE documentation, that there is no off
+              switch a minimum of fourteen times and is still looking, RISE
               respectfully suggests that this energy would be better directed
               toward the morning.
             </LegalP>
@@ -436,7 +435,6 @@ export default function TermsPage() {
           </LegalSection>
         </LegalLayout>
       </div>
-
     </main>
   )
 }

@@ -1,8 +1,8 @@
 import {
   LegalLayout,
-  LegalSection,
-  LegalP,
   LegalNote,
+  LegalP,
+  LegalSection,
 } from '@/components/legal/legal-layout'
 import { rise } from '@/lib/temporal'
 
@@ -37,7 +37,6 @@ const RELATED = [
 export default function EulaPage() {
   return (
     <main>
-
       <div className="pt-20">
         <LegalLayout
           title="Push Mode End User License Agreement"
@@ -62,21 +61,21 @@ export default function EulaPage() {
               You may not: transfer your Push Mode license to another person or
               device; use Push Mode on more than one device without purchasing
               additional licenses; sublicense Push Mode to third parties; or
-              attempt to revoke your own license. The license does not expire. It
-              cannot be returned. RISE does not offer license refunds after Push
-              Mode has been activated.
+              attempt to revoke your own license. The license does not expire.
+              It cannot be returned. RISE does not offer license refunds after
+              Push Mode has been activated.
             </LegalP>
           </LegalSection>
 
           <LegalSection id="s3" number="3." title="Push Mode Operation">
             <LegalP>
-              Push Mode is a software system that activates the base's autonomous
-              morning routing sequence. When initiated, Push Mode transitions the
-              base to vertical, activates the self-making mechanism, and
-              navigates the user through a pre-mapped morning routine until
-              departure. Push Mode operates without requiring input from the user
-              after the initial button press. This is correct. This is the
-              product.
+              Push Mode is a software system that activates the base's
+              autonomous morning routing sequence. When initiated, Push Mode
+              transitions the base to vertical, activates the self-making
+              mechanism, and navigates the user through a pre-mapped morning
+              routine until departure. Push Mode operates without requiring
+              input from the user after the initial button press. This is
+              correct. This is the product.
             </LegalP>
           </LegalSection>
 
@@ -96,10 +95,10 @@ export default function EulaPage() {
               You may not modify Push Mode in any way. This includes: installing
               third-party software on the device; attempting to intercept Push
               Mode navigation signals; physically modifying the caster base,
-              motor, or control circuitry; and placing objects in the base's path
-              with the intent of stopping it. RISE considers the last item a
-              prohibited modification to the navigation environment rather than
-              the software, but includes it here for completeness.
+              motor, or control circuitry; and placing objects in the base's
+              path with the intent of stopping it. RISE considers the last item
+              a prohibited modification to the navigation environment rather
+              than the software, but includes it here for completeness.
             </LegalP>
           </LegalSection>
 
@@ -107,9 +106,10 @@ export default function EulaPage() {
             <LegalP>
               Push Mode initiated by accidental contact with the PM-1 button,
               including contact during sleep, constitutes activation. Accidental
-              activation is activation. The user's intent at the moment of button
-              contact is not a factor in determining whether Push Mode has been
-              initiated. Push Mode has been initiated. The morning has begun.
+              activation is activation. The user's intent at the moment of
+              button contact is not a factor in determining whether Push Mode
+              has been initiated. Push Mode has been initiated. The morning has
+              begun.
             </LegalP>
             <LegalNote>
               RISE has received feedback that accidental activation is a
@@ -125,29 +125,25 @@ export default function EulaPage() {
           <LegalSection id="s7" number="7." title="Over-the-Air Updates">
             <LegalP>
               RISE reserves the right to modify Push Mode at any time via
-              over-the-air update. Updates may alter routing patterns, activation
-              timing, Push Mode intensity, self-making mechanism behavior, and
-              audio classification thresholds. Updated Push Mode behavior
-              constitutes the product after the update. Continued use following
-              an update constitutes acceptance of the updated behavior. Updates
-              will not add an off switch.
+              over-the-air update. Updates may alter routing patterns,
+              activation timing, Push Mode intensity, self-making mechanism
+              behavior, and audio classification thresholds. Updated Push Mode
+              behavior constitutes the product after the update. Continued use
+              following an update constitutes acceptance of the updated
+              behavior. Updates will not add an off switch.
             </LegalP>
           </LegalSection>
 
-          <LegalSection
-            id="s8"
-            number="8."
-            title="The Off Switch (Software)"
-          >
+          <LegalSection id="s8" number="8." title="The Off Switch (Software)">
             <LegalP>
               Push Mode does not have a software off switch. This is not a bug,
               an oversight, or an opportunity for a workaround. It is a
               deliberate architectural decision made by RISE's engineering team,
               reviewed by RISE's product team, approved by RISE's board, and
               stated in every version of this EULA since version 1.0. No update
-              will add an off switch. No version of Push Mode has ever had an off
-              switch. No version of Push Mode will ever have an off switch. RISE
-              considers this section complete.
+              will add an off switch. No version of Push Mode has ever had an
+              off switch. No version of Push Mode will ever have an off switch.
+              RISE considers this section complete.
             </LegalP>
           </LegalSection>
 
@@ -181,8 +177,8 @@ export default function EulaPage() {
               initiate Push Mode. It has one button. Pressing the button
               initiates Push Mode. Pressing the button again does not stop Push
               Mode — it provides a second confirmation of the original input,
-              which the system has already received and acted upon. The remote is
-              working correctly in all scenarios in which it has ever been
+              which the system has already received and acted upon. The remote
+              is working correctly in all scenarios in which it has ever been
               reported to be malfunctioning.
             </LegalP>
           </LegalSection>
@@ -198,7 +194,8 @@ export default function EulaPage() {
               Push Mode initiates — are subject to Push Mode for the duration of
               the session. Their data is collected. Their physical experience of
               the session is their own responsibility and the primary account
-              holder's legal responsibility as described in the Terms of Service.
+              holder's legal responsibility as described in the Terms of
+              Service.
             </LegalP>
           </LegalSection>
 
@@ -244,16 +241,13 @@ export default function EulaPage() {
             title="Acknowledgment — Iteration 3"
           >
             <LegalP>
-              You were informed of this in this document, which you are currently
-              reading, in Section 3, Section 7, Section 8, and now Section 16.
+              You were informed of this in this document, which you are
+              currently reading, in Section 3, Section 7, Section 8, and now
+              Section 16.
             </LegalP>
           </LegalSection>
 
-          <LegalSection
-            id="s17"
-            number="17."
-            title="Acknowledgment — Final"
-          >
+          <LegalSection id="s17" number="17." title="Acknowledgment — Final">
             <LegalP>
               You are being informed of this again now. Continuing to read this
               document constitutes acknowledgment of all prior acknowledgments.
@@ -272,8 +266,8 @@ export default function EulaPage() {
 
           <LegalSection id="s19" number="19." title="Severability">
             <LegalP>
-              If any provision of this EULA is found unenforceable, the remaining
-              provisions remain in full force. Specifically: if the
+              If any provision of this EULA is found unenforceable, the
+              remaining provisions remain in full force. Specifically: if the
               non-revocability of the license in Section 1 is found
               unenforceable, Push Mode will continue to operate pending legal
               resolution. RISE does not anticipate that the distinction between
@@ -284,7 +278,6 @@ export default function EulaPage() {
           </LegalSection>
         </LegalLayout>
       </div>
-
     </main>
   )
 }

@@ -19,7 +19,7 @@ const DOCS = [
   {
     title: 'Push Mode EULA',
     sections: '19 sections',
-    desc: "The End User License Agreement governing Push Mode. Covers license scope, modification rights, and the acknowledgment that Push Mode has no off switch.",
+    desc: 'The End User License Agreement governing Push Mode. Covers license scope, modification rights, and the acknowledgment that Push Mode has no off switch.',
     href: '/legal/push-mode-eula',
     flag: null,
   },
@@ -51,10 +51,9 @@ export default function LegalHubPage() {
 
   return (
     <main>
-
       <section className="px-6 pt-40 pb-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-5 text-eyebrow uppercase text-foreground-muted">
+          <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Legal
           </p>
           <h1 className="mb-6 font-display text-display tracking-tight text-foreground-strong">
@@ -65,7 +64,7 @@ export default function LegalHubPage() {
             products and services. All documents are {LEGAL_V}, updated{' '}
             {rise.legalLastUpdated()}.
           </p>
-          <p className="mb-16 text-xs italic leading-relaxed text-foreground-muted/50">
+          <p className="mb-16 text-xs leading-relaxed text-foreground-muted/50 italic">
             By using any RISE product or service, you have accepted all of the
             following. We appreciate that you are reading them now. Most people
             do not.
@@ -113,9 +112,9 @@ export default function LegalHubPage() {
           <div className="rounded-xl border border-edge-subtle bg-foreground/2 p-6">
             <p className="text-xs leading-loose text-foreground-muted">
               These documents cross-reference each other extensively. Reading
-              one document in full requires reading all of them. RISE
-              recommends beginning with the Terms of Service, then proceeding to
-              the Privacy Policy, then the Push Mode EULA, then the Sleep &
+              one document in full requires reading all of them. RISE recommends
+              beginning with the Terms of Service, then proceeding to the
+              Privacy Policy, then the Push Mode EULA, then the Sleep &
               Environmental Data Policy, then the Autonomous Navigation
               Disclosure, and finally the General Disclaimer. This reading order
               will take approximately 4–6 hours. RISE considers this time well
@@ -125,7 +124,6 @@ export default function LegalHubPage() {
           </div>
         </div>
       </section>
-
     </main>
   )
 }

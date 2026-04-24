@@ -1,8 +1,8 @@
 import {
   LegalLayout,
-  LegalSection,
-  LegalP,
   LegalNote,
+  LegalP,
+  LegalSection,
 } from '@/components/legal/legal-layout'
 import { rise } from '@/lib/temporal'
 
@@ -25,7 +25,6 @@ const RELATED = [
 export default function DisclaimerPage() {
   return (
     <main>
-
       <div className="pt-20">
         <LegalLayout
           title="General Disclaimer"
@@ -64,31 +63,27 @@ export default function DisclaimerPage() {
               resulting burns; glass objects on nightstands being disturbed
               during activation — specifically including water glasses the user
               intended to drink from but did not; and any physical contact
-              between the device and the user's body during routing that the user
-              experiences as uncomfortable, painful, or injurious.
+              between the device and the user's body during routing that the
+              user experiences as uncomfortable, painful, or injurious.
             </LegalP>
             <LegalP>
               RISE notes that these scenarios have all occurred. RISE has
               documented them. They are in the incident database. They informed
-              the design of current Push Mode. The current design reflects RISE's
-              considered position on acceptable contact during routing.
+              the design of current Push Mode. The current design reflects
+              RISE's considered position on acceptable contact during routing.
             </LegalP>
           </LegalSection>
 
-          <LegalSection
-            id="s3"
-            number="3."
-            title="Outdoor & Traffic Incidents"
-          >
+          <LegalSection id="s3" number="3." title="Outdoor & Traffic Incidents">
             <LegalP>
               RISE is not liable for incidents occurring during outdoor
               navigation, including: the user being routed toward oncoming
               traffic during driveway navigation; the device making contact with
               a vehicle during docking; the device's solo return commute
               resulting in traffic delays, property damage, or interaction with
-              law enforcement; the device entering a place of business during the
-              solo commute; the device navigating into a body of water; and any
-              encounter between the returning device and a third party on a
+              law enforcement; the device entering a place of business during
+              the solo commute; the device navigating into a body of water; and
+              any encounter between the returning device and a third party on a
               public or semi-public thoroughfare.
             </LegalP>
             <LegalNote>
@@ -96,8 +91,8 @@ export default function DisclaimerPage() {
               elevated surface — a platform, dock, or rooftop — if Push Mode
               activates in a non-residential location. RISE does not recommend
               activating Push Mode in such locations. RISE notes that the PM-1
-              button does not know where it is. The button does what it does. The
-              user chose to bring the device to that location.
+              button does not know where it is. The button does what it does.
+              The user chose to bring the device to that location.
             </LegalNote>
           </LegalSection>
 
@@ -106,11 +101,11 @@ export default function DisclaimerPage() {
               RISE is not liable for incidents occurring at the user's
               workplace, including: the device making contact with a colleague,
               colleague's property, or glass partition; Push Mode completing
-              delivery at a location that is not the user's desk due to imprecise
-              workplace navigation mapping; the device being present in a
-              workplace that prohibits such devices; and any outcome arising from
-              colleagues observing the device and drawing conclusions about the
-              user's morning.
+              delivery at a location that is not the user's desk due to
+              imprecise workplace navigation mapping; the device being present
+              in a workplace that prohibits such devices; and any outcome
+              arising from colleagues observing the device and drawing
+              conclusions about the user's morning.
             </LegalP>
           </LegalSection>
 
@@ -122,17 +117,18 @@ export default function DisclaimerPage() {
               dependency on Push Mode resulting in an inability to self-initiate
               morning routines; psychological distress resulting from Push Mode
               operation; psychological distress resulting from the solo return
-              commute; and any medical condition that the user attributes to Push
-              Mode operation, unless that condition is directly and exclusively
-              caused by a manufacturing defect in the device, which would be
-              covered under the 5-year hardware warranty.
+              commute; and any medical condition that the user attributes to
+              Push Mode operation, unless that condition is directly and
+              exclusively caused by a manufacturing defect in the device, which
+              would be covered under the 5-year hardware warranty.
             </LegalP>
           </LegalSection>
 
           <LegalSection id="s6" number="6." title="The Liability Cap">
             <LegalP>
               RISE's total liability to any user, for any claim, under any
-              theory of law, in any jurisdiction, shall not exceed the lesser of:
+              theory of law, in any jurisdiction, shall not exceed the lesser
+              of:
             </LegalP>
             <LegalP>
               (a) The original purchase price of the RISE product giving rise to
@@ -162,11 +158,7 @@ export default function DisclaimerPage() {
             </LegalNote>
           </LegalSection>
 
-          <LegalSection
-            id="s7"
-            number="7."
-            title="What RISE Is Liable For"
-          >
+          <LegalSection id="s7" number="7." title="What RISE Is Liable For">
             <LegalP>
               RISE is liable for manufacturing defects in the device hardware,
               within the 5-year warranty period, for the cost of repair or
@@ -193,7 +185,6 @@ export default function DisclaimerPage() {
           </LegalSection>
         </LegalLayout>
       </div>
-
     </main>
   )
 }

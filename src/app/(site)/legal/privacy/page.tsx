@@ -1,6 +1,6 @@
 import {
-  LegalLayout,
   AppendixNote,
+  LegalLayout,
   LegalNote,
   LegalP,
   LegalSection,
@@ -50,7 +50,6 @@ const RELATED = [
 export default function PrivacyPage() {
   return (
     <main>
-
       <div className="pt-20">
         <LegalLayout
           title="Privacy Policy"
@@ -113,13 +112,13 @@ export default function PrivacyPage() {
             title="Data We Collect — Device & Performance"
           >
             <LegalP>
-              RISE collects the following device and performance data: Push
-              Mode activation timestamps; autonomous navigation route data
-              including room sequence and dwell time per location; motor
-              performance telemetry; sheet tensioning cycle data; pillow node
-              pressure and duration logs; caster velocity, direction, and
-              surface resistance data; power consumption metrics; firmware state
-              at time of activation; and error logs.
+              RISE collects the following device and performance data: Push Mode
+              activation timestamps; autonomous navigation route data including
+              room sequence and dwell time per location; motor performance
+              telemetry; sheet tensioning cycle data; pillow node pressure and
+              duration logs; caster velocity, direction, and surface resistance
+              data; power consumption metrics; firmware state at time of
+              activation; and error logs.
             </LegalP>
             <LegalP>
               This data is collected continuously while the device is powered.
@@ -134,14 +133,13 @@ export default function PrivacyPage() {
             title="Data We Collect — Sleep & Biometric"
           >
             <LegalP>
-              RISE collects sleep onset and offset times; movement frequency
-              and pattern during sleep; sleep stage estimation derived from
-              motion sensor array data; heart rate approximation via mattress
-              pressure sensor variance; respiratory rate estimation via
-              low-frequency pressure oscillation detection; ambient room
-              temperature at time of activation; and pre-activation user
-              position (face-down, lateral, supine, or compound) derived from
-              pressure mapping.
+              RISE collects sleep onset and offset times; movement frequency and
+              pattern during sleep; sleep stage estimation derived from motion
+              sensor array data; heart rate approximation via mattress pressure
+              sensor variance; respiratory rate estimation via low-frequency
+              pressure oscillation detection; ambient room temperature at time
+              of activation; and pre-activation user position (face-down,
+              lateral, supine, or compound) derived from pressure mapping.
             </LegalP>
             <LegalP>
               These estimations are not medical-grade. They are, however,
@@ -189,9 +187,9 @@ export default function PrivacyPage() {
               and classification history.
             </LegalP>
             <LegalP>
-              RISE does not record audio in the traditional sense. Audio data
-              is processed in real-time by the onboard classification system,
-              which determines whether a given audio input meets the retention
+              RISE does not record audio in the traditional sense. Audio data is
+              processed in real-time by the onboard classification system, which
+              determines whether a given audio input meets the retention
               threshold. Audio inputs that meet the threshold are retained in
               full. Audio inputs that do not meet the threshold are not retained
               beyond the current session buffer of 4 seconds. The classification
@@ -342,11 +340,11 @@ export default function PrivacyPage() {
             title="Third Party Sharing — Insurance & Financial Services"
           >
             <LegalP>
-              RISE shares aggregate RISE Index data with insurance and
-              financial services partners in jurisdictions where this is
-              permitted. Individual scores are shared where the user has
-              consented. Continued use of the product constitutes consent as
-              described in Section 11.
+              RISE shares aggregate RISE Index data with insurance and financial
+              services partners in jurisdictions where this is permitted.
+              Individual scores are shared where the user has consented.
+              Continued use of the product constitutes consent as described in
+              Section 11.
             </LegalP>
           </LegalSection>
 
@@ -358,10 +356,10 @@ export default function PrivacyPage() {
             <LegalP>
               RISE responds to valid legal requests from law enforcement,
               regulatory bodies, and courts. RISE may also respond to requests
-              that are invalid but that RISE determines, in its sole
-              discretion, to serve the company's interests. Users are not
-              notified of such disclosures where notification is not legally
-              required, and in some jurisdictions where it is.
+              that are invalid but that RISE determines, in its sole discretion,
+              to serve the company's interests. Users are not notified of such
+              disclosures where notification is not legally required, and in
+              some jurisdictions where it is.
             </LegalP>
           </LegalSection>
 
@@ -391,8 +389,8 @@ export default function PrivacyPage() {
             <LegalP>
               The Index is used for product calibration, shared with corporate
               wellness and insurance partners as described, and retained
-              indefinitely. A score of zero is theoretically possible. RISE
-              does not disclose what a score of zero means in practice.
+              indefinitely. A score of zero is theoretically possible. RISE does
+              not disclose what a score of zero means in practice.
             </LegalP>
           </LegalSection>
 
@@ -421,11 +419,10 @@ export default function PrivacyPage() {
             <LegalP>
               Retained audio may be accessed by: RISE Software Development Team
               members for product improvement; RISE Quality Assurance Team
-              members for performance verification; RISE Sleep Science
-              Institute researchers under data use agreements; any RISE
-              employee whose role, as determined by RISE, requires access; and
-              third party research partners listed in{' '}
-              <AppendixNote label="Appendix D" />.
+              members for performance verification; RISE Sleep Science Institute
+              researchers under data use agreements; any RISE employee whose
+              role, as determined by RISE, requires access; and third party
+              research partners listed in <AppendixNote label="Appendix D" />.
             </LegalP>
             <LegalP>
               RISE maintains access logs for audio data. Access logs are
@@ -454,12 +451,12 @@ export default function PrivacyPage() {
               non-judgmental by design.
             </LegalP>
             <LegalP>
-              RISE may infer the relationship status of mattress occupants
-              based on pressure signature proximity, movement correlation,
-              frequency patterns, and occupancy consistency data. This inference
-              is used for household account management and routing optimization.
-              The inference is updated in real time. It is logged. It is
-              retained for the periods described in Section 21.
+              RISE may infer the relationship status of mattress occupants based
+              on pressure signature proximity, movement correlation, frequency
+              patterns, and occupancy consistency data. This inference is used
+              for household account management and routing optimization. The
+              inference is updated in real time. It is logged. It is retained
+              for the periods described in Section 21.
             </LegalP>
             <LegalP>
               We are required to disclose that the sensor array is capable of
@@ -575,12 +572,12 @@ export default function PrivacyPage() {
           >
             <LegalP>
               You may object to or request restriction of certain processing
-              activities. RISE will consider such requests and respond within
-              90 days. Objections to processing that is necessary for Push Mode
+              activities. RISE will consider such requests and respond within 90
+              days. Objections to processing that is necessary for Push Mode
               operation will not be upheld. If restricting or stopping the
-              relevant processing would prevent Push Mode from functioning,
-              RISE will note your objection, retain it in your file, and
-              continue processing.
+              relevant processing would prevent Push Mode from functioning, RISE
+              will note your objection, retain it in your file, and continue
+              processing.
             </LegalP>
           </LegalSection>
 
@@ -624,7 +621,6 @@ export default function PrivacyPage() {
           </LegalSection>
         </LegalLayout>
       </div>
-
     </main>
   )
 }

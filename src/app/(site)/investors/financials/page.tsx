@@ -2,25 +2,25 @@
 
 import { InvestorLayout } from '@/components/investors/investor-layout'
 import {
-  revenueChartData,
-  waitlistChartData,
-  npsChartData,
-  latestMetrics,
   formatFYLabel,
   formatRevenue,
   latestFiscalYear,
+  latestMetrics,
+  npsChartData,
+  revenueChartData,
+  waitlistChartData,
 } from '@/lib/temporal'
 import {
-  BarChart,
   Bar,
-  LineChart,
+  BarChart,
+  CartesianGrid,
   Line,
+  LineChart,
+  ReferenceLine,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  ReferenceLine,
 } from 'recharts'
 
 const ACTIVE_MARKETS = [
@@ -70,15 +70,15 @@ export default function FinancialsPage() {
       <section className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 pt-8">
-            <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
               Key Metrics
             </p>
             <h1 className="mb-4 font-display text-section tracking-tight text-foreground-strong">
               Financials & Data
             </h1>
             <p className="max-w-xl text-body text-foreground-secondary">
-              {LATEST_FY} key performance indicators. All figures unaudited. Push
-              Mode compliance data independently verified by RISE Internal
+              {LATEST_FY} key performance indicators. All figures unaudited.
+              Push Mode compliance data independently verified by RISE Internal
               Analytics.
             </p>
           </div>
@@ -86,7 +86,7 @@ export default function FinancialsPage() {
           <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
             <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
               <div>
-                <p className="mb-1 text-eyebrow uppercase text-foreground-muted">
+                <p className="mb-1 text-eyebrow text-foreground-muted uppercase">
                   Revenue Growth
                 </p>
                 <p className="font-display text-3xl text-foreground-strong">
@@ -144,12 +144,12 @@ export default function FinancialsPage() {
 
           <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
             <div className="mb-6">
-              <p className="mb-1 text-eyebrow uppercase text-foreground-muted">
+              <p className="mb-1 text-eyebrow text-foreground-muted uppercase">
                 Waitlist vs. Units Shipped
               </p>
               <p className="text-sm text-foreground-muted">
                 Demand constraint, not supply constraint.{' '}
-                <span className="italic text-foreground-muted/60">
+                <span className="text-foreground-muted/60 italic">
                   This is intentional.
                 </span>
               </p>
@@ -212,7 +212,7 @@ export default function FinancialsPage() {
 
           <div className="mb-10 grid gap-6 md:grid-cols-2">
             <div className="rounded-xl border border-edge-subtle bg-surface-alt p-8">
-              <p className="mb-6 text-eyebrow uppercase text-foreground-muted">
+              <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
                 Unit Economics
               </p>
               <div className="flex flex-col gap-4">
@@ -242,7 +242,7 @@ export default function FinancialsPage() {
             </div>
 
             <div className="rounded-xl border border-edge-subtle bg-surface-alt p-8">
-              <p className="mb-6 text-eyebrow uppercase text-foreground-muted">
+              <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
                 Push Mode Compliance
               </p>
               <div className="mb-6 flex items-end gap-6">
@@ -250,9 +250,7 @@ export default function FinancialsPage() {
                   <p className="mb-2 font-display text-5xl tracking-tight text-foreground-muted">
                     74%
                   </p>
-                  <p className="text-xs text-foreground-muted/60">
-                    RISE Nudge
-                  </p>
+                  <p className="text-xs text-foreground-muted/60">RISE Nudge</p>
                   <p className="mt-1 text-[10px] text-foreground-muted/40">
                     Previous generation
                   </p>
@@ -261,9 +259,7 @@ export default function FinancialsPage() {
                   <p className="mb-2 font-display text-5xl tracking-tight text-accent">
                     98%
                   </p>
-                  <p className="text-xs text-foreground-secondary">
-                    RISE Push
-                  </p>
+                  <p className="text-xs text-foreground-secondary">RISE Push</p>
                   <p className="mt-1 text-[10px] text-accent/70">
                     Current generation
                   </p>
@@ -280,7 +276,7 @@ export default function FinancialsPage() {
           <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
             <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
               <div>
-                <p className="mb-1 text-eyebrow uppercase text-foreground-muted">
+                <p className="mb-1 text-eyebrow text-foreground-muted uppercase">
                   Net Promoter Score Trend
                 </p>
                 <p className="font-display text-3xl text-foreground-strong">
@@ -332,12 +328,12 @@ export default function FinancialsPage() {
           </div>
 
           <div className="mb-10 rounded-xl border border-edge-subtle bg-surface-alt p-8">
-            <p className="mb-2 text-eyebrow uppercase text-foreground-muted">
+            <p className="mb-2 text-eyebrow text-foreground-muted uppercase">
               Geographic Presence
             </p>
             <p className="mb-6 text-sm text-foreground-muted">
               {ACTIVE_MARKETS.length} active markets · 89 planned ·{' '}
-              <span className="italic text-foreground-muted/60">
+              <span className="text-foreground-muted/60 italic">
                 The morning is universal.
               </span>
             </p>
