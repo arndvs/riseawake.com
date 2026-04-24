@@ -7,7 +7,7 @@
     "pnpm": ">=9"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "convex dev --start \"next dev\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -16,6 +16,7 @@
   "dependencies": {
     "@clerk/nextjs": "^7.2.5",
     "@headlessui/react": "^2.2.6",
+    "@imagekit/next": "^2.1.5",
     "@sanity/client": "^7.20.0",
     "@sanity/icons": "^3.7.4",
     "@sanity/image-url": "^2.1.1",
