@@ -353,7 +353,7 @@ export default function EnterprisePage() {
                 )}
                 <a
                   href="mailto:enterprise@riseawake.com?subject=Enterprise%20Inquiry"
-                  className={`block w-full rounded py-2.5 text-center text-[11px] font-medium tracking-widest uppercase ${
+                  className={`block w-full rounded py-2.5 text-center text-[11px] font-medium tracking-widest uppercase no-underline ${
                     tier.accent
                       ? 'bg-accent text-accent-on'
                       : 'bg-surface text-foreground-muted'

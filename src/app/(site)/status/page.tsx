@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import { Link } from '@/components/link'
+import { useEffect, useState } from 'react'
 
 const SERVICES = [
   {
@@ -147,8 +147,7 @@ const INCIDENTS = [
     date: 'November 3, 2024',
     status: 'resolved',
     title: 'SC-0134 \u2014 Solo commute parking citation',
-    duration:
-      'October 29 (incident), November 3 (patched v4.0.2)',
+    duration: 'October 29 (incident), November 3 (patched v4.0.2)',
     affected: 'Solo Return Commute',
     detail:
       'Device received a parking citation during solo return commute. Root cause: street-side parking enforcement zones not tagged as avoidable. Patched in v4.0.2. Citation responsibility: account holder. See disclaimer.',
@@ -158,8 +157,7 @@ const INCIDENTS = [
     date: 'October 22, 2024',
     status: 'resolved',
     title: 'SC-0047 \u2014 Low-profile furniture obstacle encounter',
-    duration:
-      'October 14 (incident), October 22 (patched v4.0.1)',
+    duration: 'October 14 (incident), October 22 (patched v4.0.1)',
     affected: 'Solo Return Commute',
     detail:
       'Device encountered a coffee table (height: 12 inches) during solo return commute. Obstacle detection did not trigger at this height. Resolved in v4.0.1: sensor sweep angle expanded.',
@@ -178,28 +176,43 @@ const INCIDENTS = [
 
 const STATUS_STYLES: Record<
   string,
-  { dot: string; label: string; badge: string; detailText: string }
+  {
+    dot: string
+    glow: string
+    border: string
+    label: string
+    badge: string
+    detailText: string
+  }
 > = {
   operational: {
-    dot: 'bg-emerald-500 text-emerald-500',
+    dot: 'bg-emerald-500',
+    glow: '',
+    border: 'border-edge-subtle',
     label: 'Operational',
     badge: 'bg-emerald-500/8 text-emerald-500/80',
     detailText: 'text-foreground-muted',
   },
   degraded: {
-    dot: 'bg-yellow-500 text-yellow-500',
+    dot: 'bg-yellow-500',
+    glow: 'shadow-[0_0_6px_rgba(234,179,8,0.5)]',
+    border: 'border-yellow-500/10',
     label: 'Degraded',
     badge: 'bg-yellow-500/8 text-yellow-500/80',
     detailText: 'text-yellow-500/60',
   },
   maintenance: {
-    dot: 'bg-accent text-accent',
+    dot: 'bg-accent',
+    glow: 'shadow-[0_0_6px_rgba(var(--color-accent),0.5)]',
+    border: 'border-accent/10',
     label: 'Maintenance',
     badge: 'bg-accent/8 text-accent/80',
     detailText: 'text-accent/60',
   },
   unavailable: {
-    dot: 'bg-red-500/70 text-red-500/70',
+    dot: 'bg-red-500/70',
+    glow: 'shadow-[0_0_6px_rgba(239,68,68,0.5)]',
+    border: 'border-red-500/10',
     label: 'Unavailable',
     badge: 'bg-red-500/6 text-red-500/60',
     detailText: 'text-foreground-muted',
@@ -212,9 +225,8 @@ const INCIDENT_STYLES: Record<string, { className: string; label: string }> = {
   ongoing: { className: 'text-red-500/70', label: 'Ongoing' },
 }
 
-export default function StatusPage() {
+function Clock() {
   const [now, setNow] = useState('')
-  const [expandedInc, setExpandedInc] = useState<Record<string, boolean>>({})
 
   useEffect(() => {
     const fmt = () => {
@@ -236,6 +248,12 @@ export default function StatusPage() {
     const iv = setInterval(fmt, 1000)
     return () => clearInterval(iv)
   }, [])
+
+  return <>{now}</>
+}
+
+export default function StatusPage() {
+  const [expandedInc, setExpandedInc] = useState<Record<string, boolean>>({})
 
   const degradedCount = SERVICES.filter(
     (s) => s.status === 'degraded' || s.status === 'unavailable',
@@ -266,9 +284,9 @@ export default function StatusPage() {
               </h1>
             </div>
             <p className="text-[11px] leading-relaxed text-foreground-muted">
-              Push Mode is operational. The self-making mechanism is operational.
-              The staircase is not operational. This has been the case since
-              October 7, 2021. Last checked: {now}
+              Push Mode is operational. The self-making mechanism is
+              operational. The staircase is not operational. This has been the
+              case since October 7, 2021. Last checked: <Clock />
             </p>
           </div>
 
@@ -303,23 +321,11 @@ export default function StatusPage() {
               return (
                 <div
                   key={svc.name}
-                  className={`rounded border p-4 ${
-                    svc.status === 'maintenance'
-                      ? 'border-accent/10'
-                      : svc.status === 'unavailable'
-                        ? 'border-red-500/10'
-                        : svc.status === 'degraded'
-                          ? 'border-yellow-500/10'
-                          : 'border-edge-subtle'
-                  } bg-surface-alt`}
+                  className={`rounded border p-4 ${ss.border} bg-surface-alt`}
                 >
                   <div className="flex items-start gap-3">
                     <div
-                      className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${ss.dot} ${
-                        svc.status !== 'operational'
-                          ? `shadow-[0_0_6px_currentColor]`
-                          : ''
-                      }`}
+                      className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${ss.dot} ${ss.glow}`}
                     />
                     <div className="flex-1">
                       <div className="mb-0.5 flex items-center gap-2.5">
@@ -372,14 +378,14 @@ export default function StatusPage() {
                   className="overflow-hidden rounded border border-edge-subtle bg-surface-alt"
                 >
                   <button
+                    aria-expanded={open}
+                    aria-controls={`incident-${inc.id}`}
                     onClick={() =>
                       setExpandedInc((e) => ({
                         ...e,
                         [inc.id]: !e[inc.id],
                       }))
                     }
-                    aria-expanded={open}
-                    aria-controls={`incident-${inc.id}`}
                     className="w-full cursor-pointer border-none bg-transparent p-4 text-left"
                   >
                     <div className="flex items-start gap-2.5">
@@ -402,7 +408,10 @@ export default function StatusPage() {
                     </div>
                   </button>
                   {open && (
-                    <div id={`incident-${inc.id}`} className="border-t border-edge-subtle px-4 pb-4">
+                    <div
+                      id={`incident-${inc.id}`}
+                      className="border-t border-edge-subtle px-4 pb-4"
+                    >
                       <p className="mt-3 text-[11px] leading-relaxed text-foreground-muted">
                         {inc.detail}
                       </p>
@@ -442,10 +451,11 @@ export default function StatusPage() {
           <div className="flex gap-2">
             <input
               type="email"
+              aria-label="Email address for status updates"
               placeholder="your@email.com"
               className="flex-1 rounded border border-edge bg-surface-alt px-3.5 py-2.5 text-xs text-foreground outline-none"
             />
-            <button className="cursor-pointer whitespace-nowrap rounded bg-accent px-5 py-2.5 text-[11px] tracking-wider font-medium text-accent-on uppercase">
+            <button className="cursor-pointer rounded bg-accent px-5 py-2.5 text-[11px] font-medium tracking-wider whitespace-nowrap text-accent-on uppercase">
               Subscribe
             </button>
           </div>

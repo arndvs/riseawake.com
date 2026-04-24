@@ -1,4 +1,5 @@
 import { clsx } from 'clsx'
+import type { Metadata } from 'next'
 
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
@@ -6,6 +7,10 @@ import Link from 'next/link'
 import { rise } from '@/lib/temporal'
 
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+}
 
 const SECTIONS = [
   {
