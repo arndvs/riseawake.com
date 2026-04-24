@@ -1,8 +1,16 @@
 import { clsx } from 'clsx'
+import type { Metadata } from 'next'
 
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
+import { rise } from '@/lib/temporal'
 import Link from 'next/link'
+
+export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+}
 
 const SECTIONS = [
   {
@@ -12,19 +20,25 @@ const SECTIONS = [
       { path: '/about', desc: 'Company history & product timeline' },
       { path: '/products/nudge', desc: 'The Nudge — discontinued' },
       { path: '/products/push', desc: 'The Push — sold out, waitlist' },
-      { path: '/move', desc: 'RISE™ Move — in development' },
+      { path: '/move', desc: 'RISE Move — in development' },
       { path: '/activate', desc: 'Device activation' },
       { path: '/help', desc: 'Support & FAQ' },
       { path: '/press', desc: 'Press releases' },
       { path: '/blog', desc: 'Blog' },
+      { path: '/careers', desc: 'Open positions & culture' },
+      { path: '/enterprise', desc: 'Enterprise solutions' },
     ],
   },
   {
     label: 'Platform',
     routes: [
       { path: '/data-request', desc: 'Data subject request process' },
+      { path: '/security', desc: 'Security overview' },
       { path: '/sdk', desc: 'DataKit SDK' },
       { path: '/sdk/documentation', desc: 'SDK documentation' },
+      { path: '/index-score', desc: 'RISE Index — personal score' },
+      { path: '/changelog', desc: 'Platform changelog' },
+      { path: '/status', desc: 'System status' },
     ],
   },
   {
@@ -95,13 +109,17 @@ const SECTIONS = [
       },
       {
         path: '/internal/docs/rise-index-methodology',
-        desc: 'DOC-008 — RISE™ Index Methodology [RESTRICTED]',
+        desc: 'DOC-008 — RISE Index Methodology [RESTRICTED]',
       },
       {
         path: '/internal/docs/audio-data-access-log-summary',
         desc: 'DOC-009 — Audio Data Access Log Summary [CONFIDENTIAL]',
       },
       { path: '/internal/media', desc: 'Media — 0 files' },
+      {
+        path: '/internal/dataroom',
+        desc: 'Pre-IPO Due Diligence Data Room [RESTRICTED]',
+      },
       {
         path: '/internal/users',
         desc: 'Users — 3 accounts (1 should be deactivated)',
@@ -123,24 +141,26 @@ const SECTIONS = [
 ]
 
 export default function SitemapPage() {
+  const generated = rise.sitemapGeneratedDate()
+
   return (
     <main className="bg-page">
       <Navbar />
       <section className="px-6 pt-40 pb-24">
         <div className="mx-auto max-w-3xl">
-          <p className="mb-4 text-eyebrow uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-4 text-eyebrow tracking-[0.2em] text-foreground-muted uppercase">
             riseawake.com
           </p>
           <h1 className="mb-4 font-display text-section text-foreground">
             Sitemap
           </h1>
           <p className="mb-2 text-xs text-foreground-muted">
-            Last generated automatically: March 1, 2025
+            Last generated automatically: {generated}
           </p>
-          <p className="mb-16 text-xs italic text-foreground-muted/60">
-            RISE™ reviews sitemap contents quarterly. The next review is
-            scheduled for June 1, 2025. If you believe a URL has been listed in
-            error, please contact webmaster@riseawake.com.
+          <p className="mb-16 text-xs text-foreground-muted/60 italic">
+            RISE reviews sitemap contents quarterly. The next review is
+            scheduled for {rise.sitemapNextReview()}. If you believe a URL has
+            been listed in error, please contact webmaster@riseawake.com.
           </p>
 
           <div className="flex flex-col gap-10">
@@ -148,7 +168,7 @@ export default function SitemapPage() {
               <div key={section.label}>
                 <p
                   className={clsx(
-                    'mb-4 pb-2 text-[10px] uppercase tracking-[0.2em]',
+                    'mb-4 pb-2 text-[10px] tracking-[0.2em] uppercase',
                     section.isInternal
                       ? 'border-b border-amber-500/15 text-amber-500/60'
                       : 'border-b border-edge-subtle text-foreground-muted',
@@ -187,13 +207,14 @@ export default function SitemapPage() {
 
           <div className="mt-16 border-t border-edge-subtle pt-8">
             <p className="text-[10px] leading-[1.8] text-foreground-muted/60">
-              This sitemap was generated automatically on March 1, 2025 by the
-              RISE™ site management system. RISE™ reviews sitemap contents
-              quarterly. Quarterly reviews are scheduled and conducted by the IT
-              team. The IT team has been notified that the Internal section of
-              this sitemap contains routes that should not be publicly indexed.
-              The notification was sent February 12, 2025. This sitemap was
-              generated March 1, 2025. The routes remain listed.
+              This sitemap was generated automatically on{' '}
+              {generated} by the RISE site management system.
+              RISE reviews sitemap contents quarterly. Quarterly reviews are
+              scheduled and conducted by the IT team. The IT team has been
+              notified that the Internal section of this sitemap contains routes
+              that should not be publicly indexed. The notification was sent{' '}
+              {rise.sitemapNotificationDate()}. This sitemap was generated{' '}
+              {generated}. The routes remain listed.
             </p>
           </div>
         </div>

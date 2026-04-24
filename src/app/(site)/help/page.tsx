@@ -26,7 +26,7 @@ const FAQ = [
   },
   {
     q: 'The bed stops at my stairs. Can this be fixed?',
-    a: 'The Push is not compatible with staircase navigation. This is a hardware constraint, not a software one. The caster base operates on flat and gradual-gradient surfaces only. No update will change this. RISE™ is developing the RISE™ Move — a next-generation platform that addresses vertical navigation in both directions. We are not providing timelines or pricing. Current Push owners will be able to purchase it when it is available at the standard price. There is no loyalty discount. We appreciate your patience and your purchase.',
+    a: 'The Push is not compatible with staircase navigation. This is a hardware constraint, not a software one. The caster base operates on flat and gradual-gradient surfaces only. No update will change this. RISE is developing the RISE Move — a next-generation platform that addresses vertical navigation in both directions. We are not providing timelines or pricing. Current Push owners will be able to purchase it when it is available at the standard price. There is no loyalty discount. We appreciate your patience and your purchase.',
   },
   {
     q: 'I have a RISE Nudge. Can I upgrade?',
@@ -96,7 +96,7 @@ export default function HelpPage() {
           <div className="mt-8 inline-flex items-center gap-3 rounded-xl border border-accent/12 bg-accent/6 px-4 py-3">
             <div className="animate-glow-pulse size-1.5 rounded-full bg-accent/80" />
             <p className="text-xs text-foreground-secondary">
-              You were referred here from the RISE™ PM-1 remote.{' '}
+              You were referred here from the RISE PM-1 remote.{' '}
               <span className="text-foreground-muted">riseawake.com/help</span>
             </p>
           </div>
@@ -265,7 +265,7 @@ export default function HelpPage() {
             Warranty does not cover: reluctance to use the product, attempts to
             manually interrupt Push Mode, events described by the user as
             &ldquo;it just kept going,&rdquo; or any outcome described as
-            &ldquo;not what I expected.&rdquo; RISE™ Technologies, Inc. is not
+            &ldquo;not what I expected.&rdquo; RISE Technologies, Inc. is not
             liable for career advancement resulting from product use.
           </p>
         </div>

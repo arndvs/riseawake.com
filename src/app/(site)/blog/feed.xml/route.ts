@@ -6,11 +6,11 @@ export async function GET(req: Request) {
   const siteUrl = new URL(req.url).origin
 
   const feed = new Feed({
-    title: 'RISE™ Blog',
+    title: 'RISE Blog',
     description:
-      'Updates, observations, and communications from RISE™ Technologies.',
+      'Updates, observations, and communications from RISE Technologies.',
     author: {
-      name: 'RISE™ Technologies',
+      name: 'RISE Technologies',
       email: 'press@riseawake.com',
     },
     id: siteUrl,

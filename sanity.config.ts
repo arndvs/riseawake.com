@@ -8,7 +8,7 @@ import { schema } from './src/sanity/schema'
 
 export default defineConfig({
   name: 'RISE',
-  basePath: '/studio',
+  basePath: '/cms',
   projectId,
   dataset,
   schema,

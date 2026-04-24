@@ -142,7 +142,7 @@ function SecurityAlert({ ip }: { ip: string }) {
       </div>
       <div className="px-4 py-3">
         <p className="mb-2 text-[11px]" style={{ color: P.text }}>
-          Access from an unrecognized IP address detected on the RISE™ Internal
+          Access from an unrecognized IP address detected on the RISE Internal
           Document System.
         </p>
         <div
@@ -163,7 +163,7 @@ function SecurityAlert({ ip }: { ip: string }) {
           </p>
         </div>
         <p className="text-[10px]" style={{ color: P.textFaint }}>
-          This IP is not recognized as internal RISE™ infrastructure. IT
+          This IP is not recognized as internal RISE infrastructure. IT
           security has been notified. Access has not been restricted.
         </p>
       </div>
@@ -248,7 +248,7 @@ function LoginModal({
           </div>
           <div>
             <p className="text-xs font-medium" style={{ color: P.text }}>
-              RISE™ Internal Docs
+              RISE Internal Docs
             </p>
             <p className="text-[10px]" style={{ color: P.textFaint }}>
               Powered by Payload CMS
@@ -635,7 +635,7 @@ export default function PayloadShell({
             style={{ color: 'rgba(234,179,8,0.8)' }}
           >
             <strong style={{ color: P.warning }}>
-              RISE™ INTERNAL DOCUMENT SYSTEM
+              RISE INTERNAL DOCUMENT SYSTEM
             </strong>{' '}
             · Authorized personnel only ·{' '}
             {session && visitorIp
@@ -715,7 +715,7 @@ export default function PayloadShell({
                 className="text-[11px] font-semibold"
                 style={{ color: P.text }}
               >
-                RISE™ Internal
+                RISE Internal
               </span>
               <span className="text-[9px]" style={{ color: P.textFaint }}>
                 Document Management

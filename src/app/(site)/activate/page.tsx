@@ -41,7 +41,7 @@ const STAGES = [
     title: 'Environment Mapping',
     desc: 'Dimensions and layouts of all spaces your morning sequence passes through. Hallway width is critical.',
     duration: '15 min',
-    note: 'Staircase navigation is not supported. RISE™ is working on this. See RISE™ Move.',
+    note: 'Staircase navigation is not supported. RISE is working on this. See RISE Move.',
     flagged: true,
   },
   {
@@ -89,7 +89,7 @@ const STAGES = [
     title: 'Emergency Protocols',
     desc: 'Emergency contact. Medical information. Anomaly response preferences.',
     duration: '4 min',
-    note: 'RISE™ recommends completion. This stage is labeled Advanced Configuration.',
+    note: 'RISE recommends completion. This stage is labeled Advanced Configuration.',
     flagged: false,
   },
   {
@@ -142,7 +142,7 @@ const ACKNOWLEDGMENTS = [
   'Push Mode cannot be manually interrupted once initiated.',
   'The refund window has closed upon serial number entry.',
   'Environmental incompatibilities discovered during activation are not grounds for refund.',
-  'Staircase navigation is not supported. See RISE™ Move.',
+  'Staircase navigation is not supported. See RISE Move.',
   'Duration estimates are monitored and automatically adjusted.',
   'GPS coordinates are shared with the autonomous navigation system.',
   'The bed infers outfit correctness from time and behavior. It cannot see.',
@@ -421,7 +421,7 @@ export default function ActivatePage() {
             mornings.
           </p>
           <p className="mb-16 max-w-xl text-body text-foreground-secondary/60 italic">
-            Activation takes 45–90 minutes. RISE™ recommends completing it
+            Activation takes 45–90 minutes. RISE recommends completing it
             before your first intended Push Mode morning. The bed will operate
             on default settings until then. Most users find the default settings
             inadequate.
@@ -690,7 +690,7 @@ export default function ActivatePage() {
                     >
                       Section 7 of the Terms of Service
                     </Link>
-                    , RISE™ does not offer refunds after activation has been
+                    , RISE does not offer refunds after activation has been
                     initiated.
                   </p>
                   <p className="mb-3 text-xs leading-relaxed text-foreground-muted">
@@ -866,12 +866,12 @@ export default function ActivatePage() {
                       <p className="mt-2 text-[10px] leading-relaxed text-foreground-muted/50 italic">
                         {stage.flagged ? (
                           <>
-                            {stage.note.replace(' See RISE™ Move.', '')}{' '}
+                            {stage.note.replace(' See RISE Move.', '')}{' '}
                             <Link
                               href="/move"
                               className="text-accent/50 underline"
                             >
-                              See RISE™ Move.
+                              See RISE Move.
                             </Link>{' '}
                             The refund window closes at Stage 01.{' '}
                             <Link
@@ -1026,7 +1026,7 @@ export default function ActivatePage() {
             . Room photos are retained indefinitely. GPS coordinates are shared
             with the autonomous navigation system and retained for the solo
             return commute. Emergency contact information is stored securely and
-            accessed at RISE™&rsquo;s discretion.
+            accessed at RISE&rsquo;s discretion.
           </p>
         </div>
       </section>

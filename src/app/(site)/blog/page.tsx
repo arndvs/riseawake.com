@@ -26,7 +26,7 @@ import { notFound } from 'next/navigation'
 export const metadata = createMetadata({
   title: 'Blog',
   description:
-    'Updates, observations, and communications from RISE™ Technologies.',
+    'Updates, observations, and communications from RISE Technologies.',
   path: '/blog',
 })
 
@@ -292,10 +292,10 @@ export default async function Blog({
       <Container>
         <Subheading className="mt-16">Blog</Subheading>
         <Heading as="h1" className="mt-2">
-          What&rsquo;s happening at RISE™.
+          What&rsquo;s happening at RISE.
         </Heading>
         <Lead className="mt-6 max-w-3xl">
-          Updates, observations, and communications from RISE™ Technologies.
+          Updates, observations, and communications from RISE Technologies.
         </Lead>
       </Container>
       {page === 1 && !category && <FeaturedPosts />}

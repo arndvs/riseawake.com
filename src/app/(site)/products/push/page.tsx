@@ -11,7 +11,7 @@ const SPECS = [
   { label: 'Sheet System', value: 'Autonomous tensioning bar (center-out)' },
   { label: 'Pillow System', value: 'Single pneumatic node, gradual cycle' },
   { label: 'Caster Base', value: 'Low-profile, near-silent, high-torque' },
-  { label: 'Staircase Navigation', value: 'Not supported — see RISE™ Move' },
+  { label: 'Staircase Navigation', value: 'Not supported — see RISE Move' },
   { label: 'Navigation', value: 'Precision room mapping, autonomous' },
   { label: 'Raising Arc', value: '0° – 90°+ continuous, motor-assisted' },
   { label: 'Motor Hum', value: 'Warm, low, 42Hz baseline' },
@@ -125,7 +125,7 @@ function RemoteIllustration() {
       >
         <rect x="25" y="10" width="90" height="260" rx="8" className="fill-rise-charcoal/90 stroke-accent/20" strokeWidth="1" />
         <rect x="26" y="11" width="88" height="258" rx="7.5" className="fill-foreground/1" />
-        <text x="70" y="60" textAnchor="middle" fontSize="8" className="fill-foreground/20" fontFamily="DM Sans, sans-serif" letterSpacing="4">RISE™</text>
+        <text x="70" y="60" textAnchor="middle" fontSize="8" className="fill-foreground/20" fontFamily="DM Sans, sans-serif" letterSpacing="4">RISE</text>
         <circle cx="70" cy="155" r="34" className="fill-accent/8 stroke-accent/35" strokeWidth="1" />
         <circle cx="70" cy="155" r="34" className="fill-accent/6 animate-glow-pulse" />
         <circle cx="70" cy="155" r="28" className="fill-accent/12 stroke-accent/25" strokeWidth="0.5" />
@@ -398,7 +398,7 @@ export default function PushPage() {
                         href="/move"
                         className="text-accent/65 underline"
                       >
-                        RISE™ Move
+                        RISE Move
                       </Link>
                     </>
                   ) : (

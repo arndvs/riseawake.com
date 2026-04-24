@@ -26,7 +26,7 @@ const QA = [
     respondent: 'Dr. Voss',
   },
   {
-    q: 'The Autonomous Navigation Disclosure mentions that the bed\u2019s legal status during the solo commute is unresolved in most jurisdictions. Is RISE™ exposed to regulatory risk here?',
+    q: 'The Autonomous Navigation Disclosure mentions that the bed\u2019s legal status during the solo commute is unresolved in most jurisdictions. Is RISE exposed to regulatory risk here?',
     questioner: 'Institutional investor',
     a: 'Regulatory frameworks for autonomous morning routing devices are evolving. We are engaged with regulatory bodies in three jurisdictions. We believe our position is sound. Our position is that the user authorized the commute by pressing the button. The courts have agreed, in the cases where this has been tested.',
     respondent: 'James Park, General Counsel',
@@ -34,7 +34,7 @@ const QA = [
   {
     q: 'My apartment has stairs. The bed stops at the bottom every morning. When will this be fixed?',
     questioner: 'Retail shareholder, via proxy',
-    a: 'It is being worked on. It will not be free. There is no loyalty discount for current Push owners. The product that addresses this is called the RISE™ Move. We are not providing further details today. You may join a notification list at riseawake.com/move.',
+    a: 'It is being worked on. It will not be free. There is no loyalty discount for current Push owners. The product that addresses this is called the RISE Move. We are not providing further details today. You may join a notification list at riseawake.com/move.',
     respondent: 'Dr. Voss',
   },
   {
@@ -44,7 +44,7 @@ const QA = [
     respondent: 'Dr. Voss',
   },
   {
-    q: 'The Privacy Policy states that RISE™ collects audio data. Can you characterize how extensively that data is used internally?',
+    q: 'The Privacy Policy states that RISE collects audio data. Can you characterize how extensively that data is used internally?',
     questioner: 'Proxy, institutional',
     a: 'The audio classification system is used for product improvement and Push Mode calibration. Personnel access is governed by our Privacy Policy, Section 19. We consider our practices compliant with applicable law in most jurisdictions. In jurisdictions where this is uncertain, we are monitoring developments.',
     respondent: 'James Park, General Counsel',
@@ -93,7 +93,7 @@ const ACTIONS = [
   },
   {
     action:
-      'Publish RISE™ Move press release and launch riseawake.com/move notification page',
+      'Publish RISE Move press release and launch riseawake.com/move notification page',
     owner: 'Marketing & Communications',
   },
   {
@@ -105,7 +105,7 @@ const ACTIONS = [
 
 const MEETING_DETAILS = [
   { label: 'Date', value: 'March 14, 2025' },
-  { label: 'Location', value: 'RISE™ Headquarters, San Francisco CA' },
+  { label: 'Location', value: 'RISE Headquarters, San Francisco CA' },
   { label: 'Convened', value: '10:04am Pacific Time' },
   { label: 'Adjourned', value: '2:31pm Pacific Time' },
   { label: 'Quorum', value: 'Confirmed (83.4% of shares represented)' },
@@ -173,7 +173,7 @@ export default function MeetingMinutesPage() {
             <p className="mt-3 text-[10px] leading-relaxed text-foreground-muted/60">
               Note on Resolution 5: The proposal to add a Push Mode manual
               override was submitted by a retail shareholder and is included
-              here as a matter of record. It received 3% of votes cast. RISE™
+              here as a matter of record. It received 3% of votes cast. RISE
               thanks the shareholder for their engagement with the governance
               process.
             </p>
@@ -230,9 +230,9 @@ export default function MeetingMinutesPage() {
           <div className="rounded-xl border border-edge-subtle/60 bg-surface-inset p-4">
             <p className="text-[10px] leading-loose text-foreground-muted">
               These minutes are a summary record of the Annual General Meeting
-              of RISE™ Technologies, Inc. held March 14, 2025. They have been
+              of RISE Technologies, Inc. held March 14, 2025. They have been
               approved by the Board of Directors. Audio recording of the meeting
-              is retained by RISE™ in accordance with its standard data
+              is retained by RISE in accordance with its standard data
               retention policies. The recording is not available to
               shareholders. A transcript may be requested; fulfillment time is
               90 days.

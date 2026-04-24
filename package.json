@@ -7,19 +7,22 @@
     "pnpm": ">=9"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "convex dev --start \"next dev\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "typegen": "sanity schema extract --path=src/sanity/extract.json && sanity typegen generate && rm ./src/sanity/extract.json"
   },
   "dependencies": {
+    "@clerk/nextjs": "^7.2.5",
     "@headlessui/react": "^2.2.6",
+    "@imagekit/next": "^2.1.5",
     "@sanity/client": "^7.20.0",
     "@sanity/icons": "^3.7.4",
     "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^5.20.0",
     "clsx": "^2.1.1",
+    "convex": "^1.36.1",
     "dayjs": "^1.11.13",
     "feed": "^5.1.0",
     "lucide-react": "^1.7.0",
