@@ -1,10 +1,8 @@
-import ConvexClientProvider from '@/components/convex-client-provider'
 import { EasterEggs } from '@/components/easter-eggs'
 import { siteUrl } from '@/sanity/env'
 import { SanityLive } from '@/sanity/live'
 import { revalidateSyncTags } from '@/sanity/revalidateSyncTags'
 import '@/styles/tailwind.css'
-import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
 import { ThemeProvider } from 'next-themes'
 import { DM_Sans, DM_Serif_Display } from 'next/font/google'
@@ -69,15 +67,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-page text-foreground antialiased">
-        <ClerkProvider afterSignOutUrl="/studio">
-          <ConvexClientProvider>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              {children}
-              <EasterEggs />
-              <SanityLive revalidateSyncTags={revalidateSyncTags} />
-            </ThemeProvider>
-          </ConvexClientProvider>
-        </ClerkProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+          <EasterEggs />
+          <SanityLive revalidateSyncTags={revalidateSyncTags} />
+        </ThemeProvider>
       </body>
     </html>
   )

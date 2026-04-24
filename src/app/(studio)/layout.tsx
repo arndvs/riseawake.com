@@ -1,3 +1,5 @@
+import ConvexClientProvider from '@/components/convex-client-provider'
+import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -7,5 +9,11 @@ export const metadata: Metadata = {
 }
 
 export default function StudioLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+  return (
+    <ClerkProvider afterSignOutUrl="/studio">
+      <ConvexClientProvider>
+        {children}
+      </ConvexClientProvider>
+    </ClerkProvider>
+  )
 }

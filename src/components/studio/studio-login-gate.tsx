@@ -25,6 +25,7 @@ export function StudioLoginGate() {
         <SignIn routing="hash" forceRedirectUrl="/studio/render" />
 
         <div className="mt-6 rounded-xl border border-edge-subtle bg-surface-alt px-5 py-4">
+          {/* Credentials rendered in login gate UI are intentionally visible and for demonstration purposes only */}
           <p className="text-xs leading-relaxed text-foreground-muted">
             Having trouble signing in? Default credentials have not been
             updated. Username: arvin / Password: pushmode

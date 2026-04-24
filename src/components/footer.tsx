@@ -84,7 +84,6 @@ export function Footer() {
               <FooterLink href="/sdk/documentation">SDK Docs</FooterLink>
               <FooterLink href="/changelog">Changelog</FooterLink>
               <FooterLink href="/status">Status</FooterLink>
-              <FooterLink href="/studio">Render</FooterLink>
             </div>
           </div>
 
