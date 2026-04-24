@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import { Link } from '@/components/link'
+import { useEffect, useState } from 'react'
 
 const SERVICES = [
   {
@@ -147,8 +147,7 @@ const INCIDENTS = [
     date: 'November 3, 2024',
     status: 'resolved',
     title: 'SC-0134 \u2014 Solo commute parking citation',
-    duration:
-      'October 29 (incident), November 3 (patched v4.0.2)',
+    duration: 'October 29 (incident), November 3 (patched v4.0.2)',
     affected: 'Solo Return Commute',
     detail:
       'Device received a parking citation during solo return commute. Root cause: street-side parking enforcement zones not tagged as avoidable. Patched in v4.0.2. Citation responsibility: account holder. See disclaimer.',
@@ -158,8 +157,7 @@ const INCIDENTS = [
     date: 'October 22, 2024',
     status: 'resolved',
     title: 'SC-0047 \u2014 Low-profile furniture obstacle encounter',
-    duration:
-      'October 14 (incident), October 22 (patched v4.0.1)',
+    duration: 'October 14 (incident), October 22 (patched v4.0.1)',
     affected: 'Solo Return Commute',
     detail:
       'Device encountered a coffee table (height: 12 inches) during solo return commute. Obstacle detection did not trigger at this height. Resolved in v4.0.1: sensor sweep angle expanded.',
@@ -281,9 +279,9 @@ export default function StatusPage() {
               </h1>
             </div>
             <p className="text-[11px] leading-relaxed text-foreground-muted">
-              Push Mode is operational. The self-making mechanism is operational.
-              The staircase is not operational. This has been the case since
-              October 7, 2021. Last checked: {now}
+              Push Mode is operational. The self-making mechanism is
+              operational. The staircase is not operational. This has been the
+              case since October 7, 2021. Last checked: {now}
             </p>
           </div>
 
@@ -451,7 +449,7 @@ export default function StatusPage() {
               placeholder="your@email.com"
               className="flex-1 rounded border border-edge bg-surface-alt px-3.5 py-2.5 text-xs text-foreground outline-none"
             />
-            <button className="cursor-pointer whitespace-nowrap rounded bg-accent px-5 py-2.5 text-[11px] tracking-wider font-medium text-accent-on uppercase">
+            <button className="cursor-pointer rounded bg-accent px-5 py-2.5 text-[11px] font-medium tracking-wider whitespace-nowrap text-accent-on uppercase">
               Subscribe
             </button>
           </div>
