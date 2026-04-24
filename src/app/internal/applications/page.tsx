@@ -35,6 +35,7 @@ interface Application {
   reviewedBy?: string
   reviewNotes?: string
   breachFlag?: boolean
+  fictional?: boolean
 }
 
 const STATUS_COLORS: Record<ApplicationStatus, string> = {
@@ -124,6 +125,25 @@ export default function ApplicationsPage() {
     } catch (err) {
       console.error('Failed to toggle flag:', err)
       fireToast('Flag toggle failed.', 'error')
+    }
+  }
+
+  async function handleFictionalToggle(app: Application) {
+    try {
+      await convex.mutation(api.applications.setFictional, {
+        id: app._id as any,
+        fictional: !app.fictional,
+      })
+      fireToast(
+        app.fictional
+          ? 'Removed from public dashboard.'
+          : 'Promoted to public dashboard.',
+        'info',
+      )
+      await fetchApplications()
+    } catch (err) {
+      console.error('Failed to toggle fictional:', err)
+      fireToast('Visibility toggle failed.', 'error')
     }
   }
 
@@ -584,6 +604,20 @@ export default function ApplicationsPage() {
                       >
                         {app.breachFlag ? '⚑ Remove Flag' : '⚐ Flag'}
                       </button>
+                      <button
+                        onClick={() => handleFictionalToggle(app)}
+                        className="rounded-sm px-3 py-1.5 text-[10px]"
+                        style={{
+                          background: app.fictional
+                            ? 'rgba(26,79,214,0.1)'
+                            : 'transparent',
+                          border: `1px solid ${P.blue}40`,
+                          color: P.blue,
+                          cursor: 'pointer',
+                        }}
+                      >
+                        {app.fictional ? '◉ Public' : '◎ Hidden'}
+                      </button>
                     </div>
                   </div>
                 )}
@@ -602,9 +636,11 @@ export default function ApplicationsPage() {
         }}
       >
         <p className="text-[10px]" style={{ color: P.textFaint }}>
-          Applications are submitted through /careers/apply and stored in
-          Convex. Status changes and breach flags are recorded. Email
-          notifications are pending integration with Resend. The review
+          This dashboard shows fictional in-universe applications only.
+          Real submissions are delivered via email and stored in Convex
+          but hidden from this view by default. Applications can be
+          promoted to public visibility or hidden using the ◉/◎ toggle.
+          Status changes and breach flags are recorded. The review
           process involves Dr.&nbsp;Voss. Her feedback mode is not documented
           here.
         </p>

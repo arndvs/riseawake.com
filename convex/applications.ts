@@ -23,6 +23,7 @@ export const submitApplication = mutation({
       ...args,
       status: 'needs_review',
       submittedAt: Date.now(),
+      fictional: false,
     })
     return applicationId
   },
@@ -48,25 +49,22 @@ export const listApplications = query({
     roleId: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
+    // Public query: only returns fictional (in-universe) applications.
+    // Real submissions (fictional: false) are never exposed here.
+    const all = await ctx.db
+      .query('applications')
+      .withIndex('by_fictional', (q) => q.eq('fictional', true))
+      .order('desc')
+      .take(200)
+
+    let results = all
     if (args.status) {
-      return await ctx.db
-        .query('applications')
-        .withIndex('by_status', (q) => q.eq('status', args.status!))
-        .order('desc')
-        .take(100)
+      results = results.filter((a) => a.status === args.status)
     }
     if (args.roleId) {
-      return await ctx.db
-        .query('applications')
-        .withIndex('by_roleId', (q) => q.eq('roleId', args.roleId!))
-        .order('desc')
-        .take(100)
+      results = results.filter((a) => a.roleId === args.roleId)
     }
-    return await ctx.db
-      .query('applications')
-      .withIndex('by_submittedAt')
-      .order('desc')
-      .take(100)
+    return results.slice(0, 100)
   },
 })
 
@@ -100,5 +98,15 @@ export const updateApplicationStatus = mutation({
   handler: async (ctx, args) => {
     const { id, ...fields } = args
     await ctx.db.patch(id, fields)
+  },
+})
+
+export const setFictional = mutation({
+  args: {
+    id: v.id('applications'),
+    fictional: v.boolean(),
+  },
+  handler: async (ctx, args) => {
+    await ctx.db.patch(args.id, { fictional: args.fictional })
   },
 })

@@ -38,8 +38,14 @@ export default defineSchema({
     reviewedBy: v.optional(v.string()),
     reviewNotes: v.optional(v.string()),
     breachFlag: v.optional(v.boolean()),
+
+    // Visibility — fictional applications are in-universe narrative entries
+    // shown on the public dashboard. Real submissions default to fictional: false
+    // and are hidden until explicitly promoted.
+    fictional: v.optional(v.boolean()),
   })
     .index('by_status', ['status'])
     .index('by_roleId', ['roleId'])
-    .index('by_submittedAt', ['submittedAt']),
+    .index('by_submittedAt', ['submittedAt'])
+    .index('by_fictional', ['fictional', 'submittedAt']),
 })
