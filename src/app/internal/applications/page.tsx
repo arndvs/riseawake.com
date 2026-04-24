@@ -97,20 +97,30 @@ export default function ApplicationsPage() {
     appId: string,
     newStatus: ApplicationStatus,
   ) {
+    const prev = [...applications]
+    setApplications((apps) =>
+      apps.map((a) => (a._id === appId ? { ...a, status: newStatus } : a)),
+    )
     try {
       await convex.mutation(api.applications.updateApplicationStatus, {
         id: appId as any,
         status: newStatus,
       })
       fireToast(`Status updated to ${STATUS_LABELS[newStatus]}.`)
-      await fetchApplications()
     } catch (err) {
       console.error('Failed to update status:', err)
+      setApplications(prev)
       fireToast('Status update failed.', 'error')
     }
   }
 
   async function handleFlagToggle(app: Application) {
+    const prev = [...applications]
+    setApplications((apps) =>
+      apps.map((a) =>
+        a._id === app._id ? { ...a, breachFlag: !a.breachFlag } : a,
+      ),
+    )
     try {
       await convex.mutation(api.applications.updateApplicationStatus, {
         id: app._id as any,
@@ -121,14 +131,20 @@ export default function ApplicationsPage() {
         app.breachFlag ? 'Breach flag removed.' : 'Breach flag set.',
         'info',
       )
-      await fetchApplications()
     } catch (err) {
       console.error('Failed to toggle flag:', err)
+      setApplications(prev)
       fireToast('Flag toggle failed.', 'error')
     }
   }
 
   async function handleFictionalToggle(app: Application) {
+    const prev = [...applications]
+    setApplications((apps) =>
+      apps.map((a) =>
+        a._id === app._id ? { ...a, fictional: !a.fictional } : a,
+      ),
+    )
     try {
       await convex.mutation(api.applications.setFictional, {
         id: app._id as any,
@@ -140,9 +156,9 @@ export default function ApplicationsPage() {
           : 'Promoted to public dashboard.',
         'info',
       )
-      await fetchApplications()
     } catch (err) {
       console.error('Failed to toggle fictional:', err)
+      setApplications(prev)
       fireToast('Visibility toggle failed.', 'error')
     }
   }
