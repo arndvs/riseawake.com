@@ -4,8 +4,8 @@ import { InvestorLayout } from '@/components/investors/investor-layout'
 import {
   formatFYLabel,
   formatRevenue,
-  latestPublishedFiscalYear,
   latestMetrics,
+  latestPublishedFiscalYear,
   npsChartData,
   revenueChartData,
   waitlistChartData,
