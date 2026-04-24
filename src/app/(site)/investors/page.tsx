@@ -3,15 +3,16 @@ import {
   IRMetricCard,
 } from '@/components/investors/investor-layout'
 import { Link } from '@/components/link'
+import { rise } from '@/lib/temporal'
 
 const METRICS = [
-  { stat: '$89.4M', label: 'FY2024 Revenue', note: '+134% year-over-year' },
+  { stat: rise.revenue(), label: `${rise.latestFY()} Revenue`, note: `${rise.yoyGrowth()} year-over-year` },
   {
-    stat: '340,000',
+    stat: rise.waitlist(),
     label: 'Active Waitlist',
     note: 'Demand constraint. By design.',
   },
-  { stat: '68%', label: 'Gross Margin', note: 'FY2024' },
+  { stat: rise.margin(), label: 'Gross Margin', note: rise.latestFY() },
   {
     stat: '98%',
     label: 'Push Mode Compliance',

@@ -1,3 +1,4 @@
+import { rise } from '@/lib/temporal'
 import {
   LegalLayout,
   LegalSection,
@@ -36,8 +37,8 @@ export default function SleepDataPage() {
       <div className="pt-20">
         <LegalLayout
           title="Sleep & Environmental Data Policy"
-          version="Version 4.2"
-          lastUpdated="March 1, 2025"
+          version={rise.legalVersion()}
+          lastUpdated={rise.legalLastUpdated()}
           toc={TOC}
           relatedDocs={RELATED}
         >

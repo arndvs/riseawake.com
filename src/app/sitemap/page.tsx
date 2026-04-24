@@ -3,6 +3,7 @@ import { clsx } from 'clsx'
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import Link from 'next/link'
+import { rise } from '@/lib/temporal'
 
 const SECTIONS = [
   {
@@ -135,11 +136,11 @@ export default function SitemapPage() {
             Sitemap
           </h1>
           <p className="mb-2 text-xs text-foreground-muted">
-            Last generated automatically: March 1, 2025
+            Last generated automatically: {rise.sitemapGeneratedDate()}
           </p>
           <p className="mb-16 text-xs italic text-foreground-muted/60">
             RISE™ reviews sitemap contents quarterly. The next review is
-            scheduled for June 1, 2025. If you believe a URL has been listed in
+            scheduled for {rise.sitemapNextReview()}. If you believe a URL has been listed in
             error, please contact webmaster@riseawake.com.
           </p>
 
@@ -187,13 +188,13 @@ export default function SitemapPage() {
 
           <div className="mt-16 border-t border-edge-subtle pt-8">
             <p className="text-[10px] leading-[1.8] text-foreground-muted/60">
-              This sitemap was generated automatically on March 1, 2025 by the
+              This sitemap was generated automatically on {rise.sitemapGeneratedDate()} by the
               RISE™ site management system. RISE™ reviews sitemap contents
               quarterly. Quarterly reviews are scheduled and conducted by the IT
               team. The IT team has been notified that the Internal section of
               this sitemap contains routes that should not be publicly indexed.
-              The notification was sent February 12, 2025. This sitemap was
-              generated March 1, 2025. The routes remain listed.
+              The notification was sent {rise.sitemapNotificationDate()}. This sitemap was
+              generated {rise.sitemapGeneratedDate()}. The routes remain listed.
             </p>
           </div>
         </div>

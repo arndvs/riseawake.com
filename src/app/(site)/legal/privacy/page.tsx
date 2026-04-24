@@ -1,3 +1,4 @@
+import { rise } from '@/lib/temporal'
 import {
   LegalLayout,
   AppendixNote,
@@ -53,8 +54,8 @@ export default function PrivacyPage() {
       <div className="pt-20">
         <LegalLayout
           title="Privacy Policy"
-          version="Version 4.2"
-          lastUpdated="March 1, 2025"
+          version={rise.legalVersion()}
+          lastUpdated={rise.legalLastUpdated()}
           toc={TOC}
           relatedDocs={RELATED}
         >

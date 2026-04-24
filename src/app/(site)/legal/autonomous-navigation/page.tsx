@@ -1,3 +1,4 @@
+import { rise } from '@/lib/temporal'
 import {
   LegalLayout,
   LegalNote,
@@ -31,8 +32,8 @@ export default function AutonomousNavPage() {
       <div className="pt-20">
         <LegalLayout
           title="Autonomous Navigation Disclosure"
-          version="Version 4.2"
-          lastUpdated="March 1, 2025"
+          version={rise.legalVersion()}
+          lastUpdated={rise.legalLastUpdated()}
           toc={TOC}
           relatedDocs={RELATED}
         >

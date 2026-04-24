@@ -1,4 +1,5 @@
 import { Link } from '@/components/link'
+import { rise } from '@/lib/temporal'
 
 const TOC = [
   'Getting Started',
@@ -123,7 +124,7 @@ export default function SDKDocsPage() {
             Documentation
           </h1>
           <p className="mb-12 text-xs text-foreground-muted/60">
-            SDK v1.4.1 · Documentation v1.2 · Last updated February 2025
+            SDK v1.4.1 · Documentation v1.2 · Last updated {rise.sdkLastUpdated()}
           </p>
 
           <div className="mb-12 rounded-xl border border-accent/15 bg-accent/6 p-4">

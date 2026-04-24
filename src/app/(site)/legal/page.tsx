@@ -1,9 +1,12 @@
 import { Link } from '@/components/link'
+import { rise } from '@/lib/temporal'
+
+const LEGAL_V = rise.legalVersion().replace('Version ', 'v')
 
 const DOCS = [
   {
     title: 'Terms of Service',
-    version: 'v4.2',
+    version: LEGAL_V,
     sections: '25 sections',
     desc: 'The foundational agreement governing your use of RISE™ products and services. Everything else refers back to this.',
     href: '/legal/terms',
@@ -11,7 +14,7 @@ const DOCS = [
   },
   {
     title: 'Privacy Policy',
-    version: 'v4.2',
+    version: LEGAL_V,
     sections: '31 sections',
     desc: 'A comprehensive account of the data RISE™ collects, retains, shares, and acts upon. Includes audio, occupancy, and inferred behavioral data.',
     href: '/legal/privacy',
@@ -19,7 +22,7 @@ const DOCS = [
   },
   {
     title: 'Push Mode EULA',
-    version: 'v4.2',
+    version: LEGAL_V,
     sections: '19 sections',
     desc: "The End User License Agreement governing Push Mode. Covers license scope, modification rights, and the acknowledgment that Push Mode has no off switch.",
     href: '/legal/push-mode-eula',
@@ -27,7 +30,7 @@ const DOCS = [
   },
   {
     title: 'Sleep & Environmental Data Policy',
-    version: 'v4.2',
+    version: LEGAL_V,
     sections: '14 sections',
     desc: 'The bedroom-specific data policy. Covers occupancy detection, relationship status inference, audio classification, and the 2,048-sensor pressure array.',
     href: '/legal/sleep-data-policy',
@@ -35,7 +38,7 @@ const DOCS = [
   },
   {
     title: 'Autonomous Navigation Disclosure',
-    version: 'v4.2',
+    version: LEGAL_V,
     sections: '11 sections',
     desc: "Covers the Push's solo return commute, third-party encounters, traffic interactions, elevator use, and allocation of liability for autonomous navigation incidents.",
     href: '/legal/autonomous-navigation',
@@ -43,7 +46,7 @@ const DOCS = [
   },
   {
     title: 'General Disclaimer',
-    version: 'v4.2',
+    version: LEGAL_V,
     sections: '8 sections',
     desc: 'Limitations of liability covering physical harm scenarios, the liability cap calculation, and the relationship between the liability cap and the RISE™ Index.',
     href: '/legal/disclaimer',
@@ -65,8 +68,8 @@ export default function LegalHubPage() {
           </h1>
           <p className="mb-4 max-w-xl text-body text-foreground-secondary">
             RISE™ maintains six primary legal documents governing the use of its
-            products and services. All documents are version 4.2, updated March
-            1, 2025.
+            products and services. All documents are {LEGAL_V}, updated{' '}
+            {rise.legalLastUpdated()}.
           </p>
           <p className="mb-16 text-xs italic leading-relaxed text-foreground-muted/50">
             By using any RISE™ product or service, you have accepted all of the
