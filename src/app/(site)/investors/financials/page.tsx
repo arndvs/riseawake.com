@@ -2,6 +2,15 @@
 
 import { InvestorLayout } from '@/components/investors/investor-layout'
 import {
+  revenueChartData,
+  waitlistChartData,
+  npsChartData,
+  latestMetrics,
+  formatFYLabel,
+  formatRevenue,
+  latestFiscalYear,
+} from '@/lib/temporal'
+import {
   BarChart,
   Bar,
   LineChart,
@@ -13,15 +22,6 @@ import {
   ResponsiveContainer,
   ReferenceLine,
 } from 'recharts'
-import {
-  formatFYLabel,
-  formatRevenue,
-  latestFiscalYear,
-  latestMetrics,
-  npsChartData,
-  revenueChartData,
-  waitlistChartData,
-} from '@/lib/temporal'
 
 const ACTIVE_MARKETS = [
   'United States',
@@ -336,7 +336,7 @@ export default function FinancialsPage() {
               Geographic Presence
             </p>
             <p className="mb-6 text-sm text-foreground-muted">
-              14 active markets · 89 planned ·{' '}
+              {ACTIVE_MARKETS.length} active markets · 89 planned ·{' '}
               <span className="italic text-foreground-muted/60">
                 The morning is universal.
               </span>

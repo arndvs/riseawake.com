@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
-import Link from 'next/link'
 import { rise } from '@/lib/temporal'
+import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
@@ -146,7 +146,7 @@ export default function SitemapPage() {
       <Navbar />
       <section className="px-6 pt-40 pb-24">
         <div className="mx-auto max-w-3xl">
-          <p className="mb-4 text-eyebrow uppercase tracking-[0.2em] text-foreground-muted">
+          <p className="mb-4 text-eyebrow tracking-[0.2em] text-foreground-muted uppercase">
             riseawake.com
           </p>
           <h1 className="mb-4 font-display text-section text-foreground">
@@ -155,10 +155,10 @@ export default function SitemapPage() {
           <p className="mb-2 text-xs text-foreground-muted">
             Last generated automatically: {rise.sitemapGeneratedDate()}
           </p>
-          <p className="mb-16 text-xs italic text-foreground-muted/60">
-            RISE reviews sitemap contents quarterly. The next review is
-            scheduled for {rise.sitemapNextReview()}. If you believe a URL has been listed in
-            error, please contact webmaster@riseawake.com.
+          <p className="mb-16 text-xs text-foreground-muted/60 italic">
+            RISE™ reviews sitemap contents quarterly. The next review is
+            scheduled for {rise.sitemapNextReview()}. If you believe a URL has
+            been listed in error, please contact webmaster@riseawake.com.
           </p>
 
           <div className="flex flex-col gap-10">
@@ -166,7 +166,7 @@ export default function SitemapPage() {
               <div key={section.label}>
                 <p
                   className={clsx(
-                    'mb-4 pb-2 text-[10px] uppercase tracking-[0.2em]',
+                    'mb-4 pb-2 text-[10px] tracking-[0.2em] uppercase',
                     section.isInternal
                       ? 'border-b border-amber-500/15 text-amber-500/60'
                       : 'border-b border-edge-subtle text-foreground-muted',
@@ -205,13 +205,14 @@ export default function SitemapPage() {
 
           <div className="mt-16 border-t border-edge-subtle pt-8">
             <p className="text-[10px] leading-[1.8] text-foreground-muted/60">
-              This sitemap was generated automatically on {rise.sitemapGeneratedDate()} by the
-              RISE site management system. RISE reviews sitemap contents
-              quarterly. Quarterly reviews are scheduled and conducted by the IT
-              team. The IT team has been notified that the Internal section of
-              this sitemap contains routes that should not be publicly indexed.
-              The notification was sent {rise.sitemapNotificationDate()}. This sitemap was
-              generated {rise.sitemapGeneratedDate()}. The routes remain listed.
+              This sitemap was generated automatically on{' '}
+              {rise.sitemapGeneratedDate()} by the RISE™ site management system.
+              RISE™ reviews sitemap contents quarterly. Quarterly reviews are
+              scheduled and conducted by the IT team. The IT team has been
+              notified that the Internal section of this sitemap contains routes
+              that should not be publicly indexed. The notification was sent{' '}
+              {rise.sitemapNotificationDate()}. This sitemap was generated{' '}
+              {rise.sitemapGeneratedDate()}. The routes remain listed.
             </p>
           </div>
         </div>
