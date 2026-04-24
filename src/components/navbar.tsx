@@ -18,7 +18,6 @@ const links = [
   { href: '/activate', label: 'Activate' },
   { href: '/help', label: 'Support' },
   { href: '/blog', label: 'Blog' },
-  { href: '/studio', label: 'Render' },
 ]
 
 function DesktopNav() {
@@ -28,14 +27,14 @@ function DesktopNav() {
         <Link
           key={href}
           href={href}
-          className="text-xs font-medium uppercase tracking-widest text-foreground-secondary transition-colors duration-200 hover:text-foreground-strong"
+          className="text-xs font-medium tracking-widest text-foreground-secondary uppercase transition-colors duration-200 hover:text-foreground-strong"
         >
           {label}
         </Link>
       ))}
       <Link
         href="/products/push"
-        className="rounded-pill bg-accent px-5 py-2.5 text-xs font-medium uppercase tracking-widest text-accent-on transition-colors duration-200 hover:bg-accent-hover"
+        className="rounded-pill bg-accent px-5 py-2.5 text-xs font-medium tracking-widest text-accent-on uppercase transition-colors duration-200 hover:bg-accent-hover"
       >
         Shop Now
       </Link>
@@ -50,7 +49,9 @@ function MobileNavButton() {
       className="flex size-12 items-center justify-center self-center rounded-lg text-foreground-secondary hover:text-foreground lg:hidden"
       aria-label="Open main menu"
     >
-      {({ open }) => (open ? <X className="size-6" /> : <Menu className="size-6" />)}
+      {({ open }) =>
+        open ? <X className="size-6" /> : <Menu className="size-6" />
+      }
     </DisclosureButton>
   )
 }
@@ -63,14 +64,14 @@ function MobileNav() {
           <Link
             key={href}
             href={href}
-            className="text-sm font-medium uppercase tracking-widest text-foreground-secondary transition-colors hover:text-foreground-strong"
+            className="text-sm font-medium tracking-widest text-foreground-secondary uppercase transition-colors hover:text-foreground-strong"
           >
             {label}
           </Link>
         ))}
         <Link
           href="/products/push"
-          className="rounded-pill bg-accent px-5 py-3 text-center text-sm font-medium uppercase tracking-widest text-accent-on transition-colors hover:bg-accent-hover"
+          className="rounded-pill bg-accent px-5 py-3 text-center text-sm font-medium tracking-widest text-accent-on uppercase transition-colors hover:bg-accent-hover"
         >
           Shop Now
         </Link>
@@ -84,16 +85,17 @@ function MobileNav() {
 
 export function Navbar({ banner }: { banner?: React.ReactNode }) {
   return (
-    <Disclosure as="header" className="fixed inset-x-0 top-0 z-50 border-b border-edge/0 bg-page/85 backdrop-blur-xl transition-all duration-500 data-open:border-edge">
+    <Disclosure
+      as="header"
+      className="fixed inset-x-0 top-0 z-50 border-b border-edge/0 bg-page/85 backdrop-blur-xl transition-all duration-500 data-open:border-edge"
+    >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-12">
         <div className="flex items-center gap-6">
           <Link href="/" title="Home">
             <Logo className="h-7" />
           </Link>
           {banner && (
-            <div className="hidden items-center lg:flex">
-              {banner}
-            </div>
+            <div className="hidden items-center lg:flex">{banner}</div>
           )}
         </div>
         <DesktopNav />
