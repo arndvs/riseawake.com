@@ -4,7 +4,7 @@ import { InvestorLayout } from '@/components/investors/investor-layout'
 import {
   formatFYLabel,
   formatRevenue,
-  latestFiscalYear,
+  latestPublishedFiscalYear,
   latestMetrics,
   npsChartData,
   revenueChartData,
@@ -63,7 +63,7 @@ export default function FinancialsPage() {
   const WAITLIST_DATA = waitlistChartData()
   const NPS_DATA = npsChartData()
   const LATEST = latestMetrics()
-  const LATEST_FY = formatFYLabel(latestFiscalYear())
+  const LATEST_FY = formatFYLabel(latestPublishedFiscalYear())
 
   return (
     <InvestorLayout>

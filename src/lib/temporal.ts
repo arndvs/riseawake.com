@@ -139,20 +139,34 @@ export function fyMetrics(fy: number): FYMetrics {
 
 // ━━ CURRENT STATE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+const MAX_CANON_FY = Math.max(...Object.keys(CANON).map(Number))
+
 /**
  * Most recently completed fiscal year.
  * RISE publishes annual results by March, so:
  * - March onwards → FY(year - 1) results are "published"
  * - Jan/Feb → FY(year - 2) is still the latest published
+ *
+ * Capped at the latest canon year. Beyond that, data is projected,
+ * not published. Use latestFiscalYear() for projections.
+ */
+export function latestPublishedFiscalYear(): number {
+  const now = new Date()
+  const derived = now.getMonth() >= 2 ? now.getFullYear() - 1 : now.getFullYear() - 2
+  return Math.min(derived, MAX_CANON_FY)
+}
+
+/**
+ * Most recently completed fiscal year (may be projected, not published).
  */
 export function latestFiscalYear(): number {
   const now = new Date()
   return now.getMonth() >= 2 ? now.getFullYear() - 1 : now.getFullYear() - 2
 }
 
-/** Latest published FY metrics */
+/** Latest published FY metrics (canon data only) */
 export function latestMetrics(): FYMetrics {
-  return fyMetrics(latestFiscalYear())
+  return fyMetrics(latestPublishedFiscalYear())
 }
 
 // ━━ FORMATTERS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -225,7 +239,7 @@ export function legalLastUpdated(): string {
  * FY2024 → 4.2, FY2025 → 4.3, FY2026 → 4.4, etc.
  */
 export function legalVersion(): string {
-  const yearsBeyond = latestFiscalYear() - 2024
+  const yearsBeyond = latestPublishedFiscalYear() - 2024
   const version = 4.2 + yearsBeyond * 0.1
   return `Version ${version.toFixed(1)}`
 }
@@ -391,7 +405,7 @@ export const rise = {
   waitlist: () => formatCount(latestMetrics().waitlist),
   nps: () => String(latestMetrics().npsRange[1]),
   markets: () => String(latestMetrics().markets),
-  yoyGrowth: () => yoyGrowth(latestFiscalYear()),
+  yoyGrowth: () => yoyGrowth(latestPublishedFiscalYear()),
 
   // Raw metrics for a specific FY
   fy: fyMetrics,
