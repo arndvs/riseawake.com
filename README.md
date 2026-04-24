@@ -14,17 +14,17 @@ This repository contains the full riseawake.com web platform: consumer product p
 
 ## Stack
 
-| Layer     | Technology                                                       |
-| --------- | ---------------------------------------------------------------- |
-| Framework | [Next.js 16](https://nextjs.org) (App Router, React 19)         |
-| Styling   | [Tailwind CSS v4](https://tailwindcss.com)                       |
-| CMS       | [Sanity v5](https://www.sanity.io) (blog, Studio at `/cms`)     |
-| Auth      | [Clerk](https://clerk.com) (studio authentication)              |
-| Backend   | [Convex](https://convex.dev)                                     |
-| AI Images | [ImageKit](https://imagekit.io) (AI image generation)            |
-| Charts    | [Recharts](https://recharts.org) (investor financials)           |
-| UI        | [Headless UI](https://headlessui.dev)                            |
-| Hosting   | [Vercel](https://vercel.com)                                     |
+| Layer     | Technology                                                  |
+| --------- | ----------------------------------------------------------- |
+| Framework | [Next.js 16](https://nextjs.org) (App Router, React 19)     |
+| Styling   | [Tailwind CSS v4](https://tailwindcss.com)                  |
+| CMS       | [Sanity v5](https://www.sanity.io) (blog, Studio at `/cms`) |
+| Auth      | [Clerk](https://clerk.com) (studio authentication)          |
+| Backend   | [Convex](https://convex.dev)                                |
+| AI Images | [ImageKit](https://imagekit.io) (AI image generation)       |
+| Charts    | [Recharts](https://recharts.org) (investor financials)      |
+| UI        | [Headless UI](https://headlessui.dev)                       |
+| Hosting   | [Vercel](https://vercel.com)                                |
 
 ## Getting Started
 
@@ -110,4 +110,4 @@ Users own the hardware they have purchased. They do not own anything that runs o
 
 ---
 
-*Push Mode cannot be manually interrupted once initiated. This is a feature, not a limitation. Have a productive day!*
+_Push Mode cannot be manually interrupted once initiated. This is a feature, not a limitation. Have a productive day!_

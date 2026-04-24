@@ -152,7 +152,8 @@ const MAX_CANON_FY = Math.max(...Object.keys(CANON).map(Number))
  */
 export function latestPublishedFiscalYear(): number {
   const now = new Date()
-  const derived = now.getMonth() >= 2 ? now.getFullYear() - 1 : now.getFullYear() - 2
+  const derived =
+    now.getMonth() >= 2 ? now.getFullYear() - 1 : now.getFullYear() - 2
   return Math.min(derived, MAX_CANON_FY)
 }
 
