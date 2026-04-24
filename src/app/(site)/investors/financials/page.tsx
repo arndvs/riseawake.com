@@ -13,32 +13,15 @@ import {
   ResponsiveContainer,
   ReferenceLine,
 } from 'recharts'
-
-const REVENUE_DATA = [
-  { year: 'FY20', revenue: 2.1 },
-  { year: 'FY21', revenue: 8.4 },
-  { year: 'FY22', revenue: 23.7 },
-  { year: 'FY23', revenue: 38.2 },
-  { year: 'FY24', revenue: 89.4 },
-]
-
-const WAITLIST_DATA = [
-  { year: 'FY21', shipped: 3800, waitlist: 12000 },
-  { year: 'FY22', shipped: 10600, waitlist: 45000 },
-  { year: 'FY23', shipped: 17100, waitlist: 121000 },
-  { year: 'FY24', shipped: 47000, waitlist: 340000 },
-]
-
-const NPS_DATA = [
-  { period: 'Q1 21', nps: 31 },
-  { period: 'Q3 21', nps: 38 },
-  { period: 'Q1 22', nps: 44 },
-  { period: 'Q3 22', nps: 51 },
-  { period: 'Q1 23', nps: 57 },
-  { period: 'Q3 23', nps: 63 },
-  { period: 'Q1 24', nps: 67 },
-  { period: 'Q3 24', nps: 71 },
-]
+import {
+  formatFYLabel,
+  formatRevenue,
+  latestFiscalYear,
+  latestMetrics,
+  npsChartData,
+  revenueChartData,
+  waitlistChartData,
+} from '@/lib/temporal'
 
 const ACTIVE_MARKETS = [
   'United States',
@@ -76,6 +59,12 @@ const tooltipStyle = {
 } as const
 
 export default function FinancialsPage() {
+  const REVENUE_DATA = revenueChartData()
+  const WAITLIST_DATA = waitlistChartData()
+  const NPS_DATA = npsChartData()
+  const LATEST = latestMetrics()
+  const LATEST_FY = formatFYLabel(latestFiscalYear())
+
   return (
     <InvestorLayout>
       <section className="px-6 py-16">
@@ -88,8 +77,8 @@ export default function FinancialsPage() {
               Financials & Data
             </h1>
             <p className="max-w-xl text-body text-foreground-secondary">
-              FY2024 key performance indicators. All figures unaudited. Push
-              Mode compliance data independently verified by RISE™ Internal
+              {LATEST_FY} key performance indicators. All figures unaudited. Push
+              Mode compliance data independently verified by RISE Internal
               Analytics.
             </p>
           </div>
@@ -101,8 +90,8 @@ export default function FinancialsPage() {
                   Revenue Growth
                 </p>
                 <p className="font-display text-3xl text-foreground-strong">
-                  $89.4M{' '}
-                  <span className="text-base text-accent">FY2024</span>
+                  {formatRevenue(LATEST.revenue)}{' '}
+                  <span className="text-base text-accent">{LATEST_FY}</span>
                 </p>
               </div>
               <div className="text-right">
@@ -247,7 +236,7 @@ export default function FinancialsPage() {
                 ))}
               </div>
               <p className="mt-6 text-[10px] leading-relaxed text-foreground-muted/60">
-                LTV/CAC ratio: 13.3x. Payback in 27 days. RISE™ notes these
+                LTV/CAC ratio: 13.3x. Payback in 27 days. RISE notes these
                 figures are unusual. They reflect a product that works.
               </p>
             </div>
@@ -295,9 +284,9 @@ export default function FinancialsPage() {
                   Net Promoter Score Trend
                 </p>
                 <p className="font-display text-3xl text-foreground-strong">
-                  71{' '}
+                  {LATEST.npsRange[1]}{' '}
                   <span className="text-base text-foreground-muted">
-                    Q3 2024
+                    Q3 {LATEST_FY.slice(2)}
                   </span>
                 </p>
               </div>
@@ -367,7 +356,7 @@ export default function FinancialsPage() {
             </div>
             <p className="text-[10px] leading-relaxed text-foreground-muted/60">
               Planned markets pending regulatory review of autonomous morning
-              routing device classification in each jurisdiction. RISE™ is
+              routing device classification in each jurisdiction. RISE is
               engaged with regulators in all 75 planned markets. Progress is
               being made.
             </p>
@@ -376,11 +365,11 @@ export default function FinancialsPage() {
           <div className="rounded-xl border border-edge-subtle/60 bg-surface-inset p-4">
             <p className="text-[10px] leading-loose text-foreground-muted">
               All figures unaudited. Push Mode compliance data independently
-              verified by RISE™ Internal Analytics. Third-party verification
+              verified by RISE Internal Analytics. Third-party verification
               pending. NPS measured at 90 days post-delivery. Unit economics
               calculated using median knowledge worker salary in US market.
               Geographic expansion market count subject to regulatory approval.
-              RISE™ is not responsible for investment decisions made based on
+              RISE is not responsible for investment decisions made based on
               these figures.
             </p>
           </div>

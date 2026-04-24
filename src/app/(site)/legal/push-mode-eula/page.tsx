@@ -4,6 +4,7 @@ import {
   LegalP,
   LegalNote,
 } from '@/components/legal/legal-layout'
+import { rise } from '@/lib/temporal'
 
 const TOC = [
   { id: 's1', label: '1. Grant of License' },
@@ -40,18 +41,18 @@ export default function EulaPage() {
       <div className="pt-20">
         <LegalLayout
           title="Push Mode End User License Agreement"
-          version="Version 4.2"
-          lastUpdated="March 1, 2025"
+          version={rise.legalVersion()}
+          lastUpdated={rise.legalLastUpdated()}
           toc={TOC}
           relatedDocs={RELATED}
         >
           <LegalSection id="s1" number="1." title="Grant of License">
             <LegalP>
-              RISE™ grants you a non-exclusive, non-transferable,
+              RISE grants you a non-exclusive, non-transferable,
               non-sublicensable, non-revocable license to use Push Mode on a
-              single RISE™ Smart Adjustable Base registered to your account. The
+              single RISE Smart Adjustable Base registered to your account. The
               license is non-revocable. This is noted here in Section 1 because
-              it is the most important characteristic of the license and RISE™
+              it is the most important characteristic of the license and RISE
               wants it established early.
             </LegalP>
           </LegalSection>
@@ -62,7 +63,7 @@ export default function EulaPage() {
               device; use Push Mode on more than one device without purchasing
               additional licenses; sublicense Push Mode to third parties; or
               attempt to revoke your own license. The license does not expire. It
-              cannot be returned. RISE™ does not offer license refunds after Push
+              cannot be returned. RISE does not offer license refunds after Push
               Mode has been activated.
             </LegalP>
           </LegalSection>
@@ -84,9 +85,9 @@ export default function EulaPage() {
               Push Mode is licensed for personal residential morning use. It is
               designed for use in private dwellings. Use of Push Mode in hotels,
               vehicles, offices, or other non-residential environments is not
-              recommended and is not covered by warranty. RISE™ is aware that
-              Push Mode has been used in all of these environments. RISE™ does
-              not encourage this. RISE™ also does not prevent it.
+              recommended and is not covered by warranty. RISE is aware that
+              Push Mode has been used in all of these environments. RISE does
+              not encourage this. RISE also does not prevent it.
             </LegalP>
           </LegalSection>
 
@@ -96,7 +97,7 @@ export default function EulaPage() {
               third-party software on the device; attempting to intercept Push
               Mode navigation signals; physically modifying the caster base,
               motor, or control circuitry; and placing objects in the base's path
-              with the intent of stopping it. RISE™ considers the last item a
+              with the intent of stopping it. RISE considers the last item a
               prohibited modification to the navigation environment rather than
               the software, but includes it here for completeness.
             </LegalP>
@@ -111,11 +112,11 @@ export default function EulaPage() {
               initiated. Push Mode has been initiated. The morning has begun.
             </LegalP>
             <LegalNote>
-              RISE™ has received feedback that accidental activation is a
-              concern. RISE™ has reviewed this feedback. The PM-1 remote will not
+              RISE has received feedback that accidental activation is a
+              concern. RISE has reviewed this feedback. The PM-1 remote will not
               be redesigned to prevent accidental activation. Users who are
               concerned about accidental activation should store the remote in a
-              location not accessible during sleep. RISE™ notes that the remote's
+              location not accessible during sleep. RISE notes that the remote's
               glow is designed to make it findable in darkness, which may
               conflict with this recommendation.
             </LegalNote>
@@ -123,7 +124,7 @@ export default function EulaPage() {
 
           <LegalSection id="s7" number="7." title="Over-the-Air Updates">
             <LegalP>
-              RISE™ reserves the right to modify Push Mode at any time via
+              RISE reserves the right to modify Push Mode at any time via
               over-the-air update. Updates may alter routing patterns, activation
               timing, Push Mode intensity, self-making mechanism behavior, and
               audio classification thresholds. Updated Push Mode behavior
@@ -141,18 +142,18 @@ export default function EulaPage() {
             <LegalP>
               Push Mode does not have a software off switch. This is not a bug,
               an oversight, or an opportunity for a workaround. It is a
-              deliberate architectural decision made by RISE™'s engineering team,
-              reviewed by RISE™'s product team, approved by RISE™'s board, and
+              deliberate architectural decision made by RISE's engineering team,
+              reviewed by RISE's product team, approved by RISE's board, and
               stated in every version of this EULA since version 1.0. No update
               will add an off switch. No version of Push Mode has ever had an off
-              switch. No version of Push Mode will ever have an off switch. RISE™
+              switch. No version of Push Mode will ever have an off switch. RISE
               considers this section complete.
             </LegalP>
           </LegalSection>
 
           <LegalSection id="s9" number="9." title="Data License">
             <LegalP>
-              By activating Push Mode, you grant RISE™ a perpetual, worldwide,
+              By activating Push Mode, you grant RISE a perpetual, worldwide,
               royalty-free license to use all data generated during Push Mode
               sessions for product improvement, research, and any other purpose
               described in the Privacy Policy, the Sleep & Environmental Data
@@ -163,13 +164,13 @@ export default function EulaPage() {
 
           <LegalSection id="s10" number="10." title="Telemetry">
             <LegalP>
-              Push Mode transmits telemetry data to RISE™ servers during and
+              Push Mode transmits telemetry data to RISE servers during and
               after each session. Telemetry includes navigation route data,
               compliance metrics, resistance index, environmental sensor
               readings, and audio classification results. Telemetry is
               transmitted encrypted. It cannot be disabled. Disabling telemetry
               would prevent Push Mode from functioning, as the navigation
-              algorithm relies on server-side computation. RISE™ considers
+              algorithm relies on server-side computation. RISE considers
               telemetry part of the product, not an optional feature.
             </LegalP>
           </LegalSection>
@@ -205,10 +206,10 @@ export default function EulaPage() {
             <LegalP>
               This EULA terminates when you stop using Push Mode. After
               termination, data collected during Push Mode sessions continues to
-              be used under the perpetual license granted in Section 9. The RISE™
+              be used under the perpetual license granted in Section 9. The RISE
               Index score derived from your usage continues to exist. Inferred
               data derived from your sessions continues to exist. Termination
-              means you have stopped pressing the button. It does not mean RISE™
+              means you have stopped pressing the button. It does not mean RISE
               has stopped using what pressing the button produced.
             </LegalP>
           </LegalSection>
@@ -256,7 +257,7 @@ export default function EulaPage() {
             <LegalP>
               You are being informed of this again now. Continuing to read this
               document constitutes acknowledgment of all prior acknowledgments.
-              RISE™ considers this section the most important section in any of
+              RISE considers this section the most important section in any of
               its legal documents and thanks you for reaching it.
             </LegalP>
           </LegalSection>
@@ -275,7 +276,7 @@ export default function EulaPage() {
               provisions remain in full force. Specifically: if the
               non-revocability of the license in Section 1 is found
               unenforceable, Push Mode will continue to operate pending legal
-              resolution. RISE™ does not anticipate that the distinction between
+              resolution. RISE does not anticipate that the distinction between
               an enforceable and unenforceable non-revocability clause will be
               meaningful in practice, as the product will continue to function
               either way.

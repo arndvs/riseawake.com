@@ -154,7 +154,7 @@ export default function RemotePage() {
             marginBottom: '60px',
           }}
         >
-          RISE™
+          RISE
         </p>
 
         {/* THE REMOTE */}

@@ -1,5 +1,5 @@
 // lib/internal-docs.ts
-// RISE™ Internal Document System
+// RISE Internal Document System
 // Data layer — hardcoded per Arvin's implementation
 // "TODO: connect to actual DB (currently using hardcoded data)" — areyes, Aug 12 2024
 
@@ -129,7 +129,7 @@ const DOC_SEEDS: DocSeed[] = [
   {
     id: 'DOC-005',
     slug: 'move-engineering-status',
-    title: 'RISE™ Move — Engineering Status Report',
+    title: 'RISE Move — Engineering Status Report',
     classification: 'CONFIDENTIAL',
     author: 'R&D Team',
     department: 'Research & Development',
@@ -138,7 +138,7 @@ const DOC_SEEDS: DocSeed[] = [
     status: 'Active',
     relatedDocs: ['DOC-004'],
     summary:
-      "Project status dashboard for the RISE™ Move. Solo commute stair navigation: RED. No timeline. Engineering team's note on the hard part.",
+      "Project status dashboard for the RISE Move. Solo commute stair navigation: RED. No timeline. Engineering team's note on the hard part.",
     wordCount: 1847,
   },
   {
@@ -174,7 +174,7 @@ const DOC_SEEDS: DocSeed[] = [
   {
     id: 'DOC-008',
     slug: 'rise-index-methodology',
-    title: 'RISE™ Index Methodology — Internal Reference',
+    title: 'RISE Index Methodology — Internal Reference',
     classification: 'RESTRICTED',
     author: 'Data Science Team',
     department: 'Data Science',
@@ -183,7 +183,7 @@ const DOC_SEEDS: DocSeed[] = [
     status: 'Active',
     relatedDocs: [],
     summary:
-      'The proprietary RISE™ Index methodology document the Terms of Service says is not disclosed. The methodology section is entirely redacted. The document is not.',
+      'The proprietary RISE Index methodology document the Terms of Service says is not disclosed. The methodology section is entirely redacted. The document is not.',
     wordCount: 156,
   },
   {
@@ -258,7 +258,7 @@ const DOC_SEEDS: DocSeed[] = [
     status: 'Active',
     relatedDocs: ['DOC-010', 'DOC-011', 'DOC-014'],
     summary:
-      "Full StoryBrand SB7 BrandScript applied to Push Mode. All seven framework elements completed. The villain is Monday morning. The guide is RISE™. The call to action is one button. Legal reviewed and approved all sections except the 'Avoiding Failure' messaging, which is under separate review.",
+      "Full StoryBrand SB7 BrandScript applied to Push Mode. All seven framework elements completed. The villain is Monday morning. The guide is RISE. The call to action is one button. Legal reviewed and approved all sections except the 'Avoiding Failure' messaging, which is under separate review.",
     wordCount: 3241,
   },
   {
@@ -273,7 +273,7 @@ const DOC_SEEDS: DocSeed[] = [
     status: 'Under Review',
     relatedDocs: ['DOC-013'],
     summary:
-      "RISE™ brand mission, vision, and WHY statements developed via Golden Circle and Start With Why frameworks. Dr. Voss reviewed and returned with two annotations. Both annotations are included verbatim. The document remains under review pending Dr. Voss's approval of the WHY statement, which she described as 'close but not right yet.'",
+      "RISE brand mission, vision, and WHY statements developed via Golden Circle and Start With Why frameworks. Dr. Voss reviewed and returned with two annotations. Both annotations are included verbatim. The document remains under review pending Dr. Voss's approval of the WHY statement, which she described as 'close but not right yet.'",
     wordCount: 2876,
   },
   {
@@ -288,7 +288,7 @@ const DOC_SEEDS: DocSeed[] = [
     status: 'Active',
     relatedDocs: ['DOC-013'],
     summary:
-      'Standard blog content creation playbook. Nine phases, 22 days average. Includes quality standards, SEO requirements, and brand voice guidelines. Applied to RISE™ without modification. The brand voice section references a template that does not exist. Several phases have been annotated by team members. Phase 6 (Client Review) has the most annotations.',
+      'Standard blog content creation playbook. Nine phases, 22 days average. Includes quality standards, SEO requirements, and brand voice guidelines. Applied to RISE without modification. The brand voice section references a template that does not exist. Several phases have been annotated by team members. Phase 6 (Client Review) has the most annotations.',
     wordCount: 1847,
   },
   {
@@ -350,6 +350,36 @@ const DOC_SEEDS: DocSeed[] = [
     summary:
       'Retroactive proof of concept validation for Push Mode. Completed January 2024. The product has been on the market since 2021. The waitlist is 340,000 people. The document is required by the investor relations team for the pre-IPO due diligence package. Several sections were completed as summaries of existing data rather than original research.',
     wordCount: 2891,
+  },
+  {
+    id: 'DOC-020',
+    slug: 'platform-architecture-history',
+    title: 'Platform Architecture History — 2009 to Present',
+    classification: 'RESTRICTED',
+    author: 'Dr. Mara Chen, CPO',
+    department: 'Engineering',
+    date: 'March 22, 2025',
+    lastUpdated: 'DYNAMIC',
+    status: 'Active',
+    relatedDocs: ['DOC-004', 'DOC-005'],
+    summary:
+      'Complete architectural lineage from founding through four CTOs. Documents the 2017–2020 cloud-native platform ($11.4M written off), the January 2021 rewrite, and current local-first architecture. Written by Dr. Chen at General Counsel\'s request for the pre-IPO due diligence package. 214 pages of Nair-era documentation summarized in 3 paragraphs.',
+    wordCount: 3847,
+  },
+  {
+    id: 'DOC-021',
+    slug: 'engineering-headcount-changes',
+    title: 'Engineering Headcount Changes — Q1 2020 through Q1 2025',
+    classification: 'CONFIDENTIAL',
+    author: 'Human Resources / T. Ellery, CFO',
+    department: 'Human Resources',
+    date: 'April 1, 2025',
+    lastUpdated: 'April 1, 2025',
+    status: 'Active',
+    relatedDocs: ['DOC-006'],
+    summary:
+      'Engineering team size by quarter. Headcount dropped from 42 to 3 between Q2 2020 and Q1 2021. Current headcount: 127. The three engineers who remained through the transition are identified by name. All three are still employed. Their retention packages are referenced but not disclosed.',
+    wordCount: 1204,
   },
 ]
 
@@ -476,6 +506,20 @@ const ACCESS_PATTERNS: Record<string, AccessPattern> = {
       { name: 'Dr. M. Chen', role: 'CPO', baseMinutes: 8640 },
     ],
     externals: [{ ip: '203.0.113.47' }],
+  },
+  'DOC-020': {
+    staff: [
+      { name: 'Dr. M. Chen', role: 'CPO', baseMinutes: 720 },
+      { name: 'J. Park', role: 'General Counsel', baseMinutes: 2880 },
+    ],
+    externals: [{ ip: '203.0.113.47' }],
+  },
+  'DOC-021': {
+    staff: [
+      { name: 'T. Ellery', role: 'CFO', baseMinutes: 4320 },
+      { name: 'S. Williams', role: 'HR Director', baseMinutes: 4320 },
+    ],
+    externals: [],
   },
 }
 

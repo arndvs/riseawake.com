@@ -68,7 +68,7 @@ export default function UsersPage() {
   return (
     <PayloadShell
       breadcrumb={[
-        { label: 'RISE™ Internal', href: '/internal' },
+        { label: 'RISE Internal', href: '/internal' },
         { label: 'Users' },
       ]}
       title="Users"

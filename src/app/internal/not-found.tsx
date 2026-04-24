@@ -7,7 +7,7 @@ export default function InternalNotFound() {
   return (
     <PayloadShell
       breadcrumb={[
-        { label: 'RISE™ Internal', href: '/internal' },
+        { label: 'RISE Internal', href: '/internal' },
         { label: 'Not Found' },
       ]}
       title="Not Found"

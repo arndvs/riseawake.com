@@ -4,17 +4,17 @@ const RELEASES = [
   {
     date: 'February 3, 2025',
     headline:
-      'RISE™ Technologies Confirms Next-Generation Vertical Navigation Platform in Development',
+      'RISE Technologies Confirms Next-Generation Vertical Navigation Platform in Development',
     tag: 'Product',
     href: '/press/rise-move-announcement',
     summary:
-      'RISE™ confirms the RISE™ Move is in active development. Staircase navigation, both directions. No further details at this time.',
+      'RISE confirms the RISE Move is in active development. Staircase navigation, both directions. No further details at this time.',
     featured: true,
   },
   {
     date: 'November 8, 2024',
     headline:
-      'RISE™ Closes $120M Series C to Accelerate Global Push Mode Deployment',
+      'RISE Closes $120M Series C to Accelerate Global Push Mode Deployment',
     tag: 'Funding',
     href: '/investors',
     summary:
@@ -24,16 +24,16 @@ const RELEASES = [
   {
     date: 'August 14, 2024',
     headline:
-      'RISE™ Push Mode Compliance Rate Reaches 98% Across Active User Base',
+      'RISE Push Mode Compliance Rate Reaches 98% Across Active User Base',
     tag: 'Data',
     href: '/investors/financials',
     summary:
-      'RISE™ reports 98% Push Mode compliance rate among active users, up from 94% in the prior year. The remaining 2% is being studied.',
+      'RISE reports 98% Push Mode compliance rate among active users, up from 94% in the prior year. The remaining 2% is being studied.',
     featured: false,
   },
   {
     date: 'March 1, 2024',
-    headline: 'RISE™ Technologies Publishes FY2023 Annual Report',
+    headline: 'RISE Technologies Publishes FY2023 Annual Report',
     tag: 'Financial',
     href: '/investors/annual-report',
     summary:
@@ -55,7 +55,7 @@ export default function PressPage() {
             Press Releases
           </h1>
           <p className="mb-4 max-w-xl text-body text-foreground-secondary">
-            Official communications from RISE™ Technologies, Inc.
+            Official communications from RISE Technologies, Inc.
           </p>
           <p className="mb-16 text-xs leading-relaxed text-foreground-muted/50">
             Media inquiries: press@riseawake.com · Response time: 5 business

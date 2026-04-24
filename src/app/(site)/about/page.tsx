@@ -28,8 +28,8 @@ const TIMELINE: TimelineEra[] = [
       {
         product: null,
         type: 'founding',
-        headline: 'RISE™ Technologies, Inc. is founded.',
-        body: 'The company begins with a single research question: why, given that every human being knows they need to get up, do so many of them not? The answer, after eighteen months of study, is both obvious and unexplored. The problem is not information. The problem is not intention. The problem is the moment between deciding and doing. RISE™ will own that moment.',
+        headline: 'RISE Technologies, Inc. is founded.',
+        body: 'The company begins with a single research question: why, given that every human being knows they need to get up, do so many of them not? The answer, after eighteen months of study, is both obvious and unexplored. The problem is not information. The problem is not intention. The problem is the moment between deciding and doing. RISE will own that moment.',
       },
     ],
   },
@@ -70,7 +70,7 @@ const TIMELINE: TimelineEra[] = [
         headline: 'Temperature, with conviction.',
         body: 'The mattress surface cools progressively from 6am onward — edges first, then inward — shrinking the comfortable warm center until there is, theoretically, nowhere left to hide. The theory holds. Users find the center. They stay there. The center is warm. They have adapted.',
         outcome:
-          'Outcome: Users purchased better blankets. Sales of RISE Thermal blankets, a product RISE™ does not make, increased.',
+          'Outcome: Users purchased better blankets. Sales of RISE Thermal blankets, a product RISE does not make, increased.',
       },
       {
         product: 'RISE Gradient',
@@ -129,7 +129,7 @@ const TIMELINE: TimelineEra[] = [
         headline: 'The Thermal, with better branding.',
         body: 'Refined thermal mapping cools the outer 8 inches of the mattress surface while preserving a warm center zone. The gradient is steeper and more precisely calibrated than the original Thermal. A new name. The same center. Users remain in it.',
         outcome:
-          'Outcome: RISE™ accepts that comfort is adaptive. The user will always find the warm center. A different approach is required.',
+          'Outcome: RISE accepts that comfort is adaptive. The user will always find the warm center. A different approach is required.',
       },
       {
         product: 'RISE NudgeTone',
@@ -138,7 +138,7 @@ const TIMELINE: TimelineEra[] = [
         headline: 'Vibration, with better marketing.',
         body: "The vibration motor, redesigned with a more precise frequency profile and renamed. The pulses are described in marketing materials as 'purposeful.' Users describe them as 'actually quite soothing.' Average additional sleep per NudgeTone user: 23 minutes. The product is, by every measurable outcome, making the problem worse.",
         outcome:
-          'Outcome: Discontinued. RISE™ will not again attempt to make the bed more comfortable as a strategy for getting people out of it.',
+          'Outcome: Discontinued. RISE will not again attempt to make the bed more comfortable as a strategy for getting people out of it.',
       },
     ],
   },
@@ -152,9 +152,9 @@ const TIMELINE: TimelineEra[] = [
         type: 'product',
         status: 'Discontinued',
         headline: 'The first movement.',
-        body: 'The first RISE™ product to physically move the user. A slow lateral tilt toward the edge of the bed — approximately 8 degrees over 20 minutes — applying the gentle logic of a ship listing toward port. The user, like water, should flow toward the low point. The user, unlike water, has a center of mass and a preference. They roll back. Every time.',
+        body: 'The first RISE product to physically move the user. A slow lateral tilt toward the edge of the bed — approximately 8 degrees over 20 minutes — applying the gentle logic of a ship listing toward port. The user, like water, should flow toward the low point. The user, unlike water, has a center of mass and a preference. They roll back. Every time.',
         outcome:
-          'Outcome: 100% of users who rolled toward the edge rolled back. RISE™ notes that the direction was correct. The mechanism was not.',
+          'Outcome: 100% of users who rolled toward the edge rolled back. RISE notes that the direction was correct. The mechanism was not.',
       },
     ],
   },
@@ -170,7 +170,7 @@ const TIMELINE: TimelineEra[] = [
         headline: 'Something that simply expects.',
         body: "A padded arm extends from the side of the frame and rests — with steadily increasing pressure — against the user's shoulder. Not a push. Not a tilt. A presence. The NudgeBar does not move the user. It makes the user aware that something is there, and that it has expectations. The pressure increases approximately 0.4 PSI per minute. At stage 7, the user must choose between consciousness and actively deciding to remain.",
         outcome:
-          "Outcome: 74% morning compliance rate. A cult following. Letters from users who describe the NudgeBar as 'the only thing that understands me.' RISE™ notes 74% is not good enough. A successor is authorized.",
+          "Outcome: 74% morning compliance rate. A cult following. Letters from users who describe the NudgeBar as 'the only thing that understands me.' RISE notes 74% is not good enough. A successor is authorized.",
       },
     ],
   },
@@ -184,7 +184,7 @@ const TIMELINE: TimelineEra[] = [
         type: 'product',
         status: 'Discontinued',
         headline: 'The line, consolidated.',
-        body: 'The Nudge sub-brand is consolidated into a single product — the RISE Nudge — representing the best of the NudgeBar platform with refinements from the full Nudge product line. The Nudge is the best version of passive accountability RISE™ can build. It is the last product RISE™ will build that does not move the person. Karen has one. It made her a VP.',
+        body: 'The Nudge sub-brand is consolidated into a single product — the RISE Nudge — representing the best of the NudgeBar platform with refinements from the full Nudge product line. The Nudge is the best version of passive accountability RISE can build. It is the last product RISE will build that does not move the person. Karen has one. It made her a VP.',
         outcome:
           'Outcome: Discontinued 2019. Replaced by something that does not wait for the user to decide.',
       },
@@ -200,7 +200,7 @@ const TIMELINE: TimelineEra[] = [
         type: 'product',
         status: 'Current — Out of Stock',
         headline: 'The answer.',
-        body: 'After twelve years, nine product lines, and a 94% average failure rate across early models, RISE™ arrives at the only conclusion the data supports: the bed must move the person. Not suggest. Not tilt. Not vibrate. Not apply presence. Move. Push Mode activates, transitions the base to vertical, and navigates the user through their full morning routine with the quiet, unhurried precision of a system that has already decided how this ends. One button. No off switch. By design.',
+        body: 'After twelve years, nine product lines, and a 94% average failure rate across early models, RISE arrives at the only conclusion the data supports: the bed must move the person. Not suggest. Not tilt. Not vibrate. Not apply presence. Move. Push Mode activates, transitions the base to vertical, and navigates the user through their full morning routine with the quiet, unhurried precision of a system that has already decided how this ends. One button. No off switch. By design.',
         outcome: 'Currently out of stock. Join the waitlist.',
         isCurrentProduct: true,
       },
@@ -217,16 +217,16 @@ const TIMELINE: TimelineEra[] = [
         status: 'Not Announced',
         headline:
           'We are not currently accepting questions about The Push Pro.',
-        body: 'RISE™ is not currently accepting questions about The Push Pro.',
+        body: 'RISE is not currently accepting questions about The Push Pro.',
         outcome: null,
         isRedacted: true,
       },
       {
-        product: 'RISE™ Move',
+        product: 'RISE Move',
         type: 'product',
         status: 'In Development',
         headline: 'We are aware of the stairs.',
-        body: 'The Push addresses flat surfaces. Approximately 34% of residential housing stock involves multi-story navigation. RISE™ has been aware of this figure since before the Push launched. The RISE™ Move addresses vertical navigation — ascending and descending — attended and unattended. The solo return commute navigates stairs. The bed comes home.',
+        body: 'The Push addresses flat surfaces. Approximately 34% of residential housing stock involves multi-story navigation. RISE has been aware of this figure since before the Push launched. The RISE Move addresses vertical navigation — ascending and descending — attended and unattended. The solo return commute navigates stairs. The bed comes home.',
         outcome: 'No timeline. No price. Both directions.',
       },
     ],
@@ -237,12 +237,12 @@ const PRINCIPLES = [
   {
     number: '01',
     title: 'The problem is not information.',
-    body: 'Every person who has ever failed to get up on time knew they needed to get up on time. RISE™ does not solve an information problem. It solves a doing problem. These are different problems requiring different solutions.',
+    body: 'Every person who has ever failed to get up on time knew they needed to get up on time. RISE does not solve an information problem. It solves a doing problem. These are different problems requiring different solutions.',
   },
   {
     number: '02',
     title: 'Comfort is adaptive.',
-    body: "The user will always find the warm center. They will sleep through the vibration. They will grow accustomed to the pressure. Any product that relies on the user's discomfort as its mechanism will eventually face a user who has adapted to the discomfort. RISE™ does not rely on discomfort. It relies on momentum.",
+    body: "The user will always find the warm center. They will sleep through the vibration. They will grow accustomed to the pressure. Any product that relies on the user's discomfort as its mechanism will eventually face a user who has adapted to the discomfort. RISE does not rely on discomfort. It relies on momentum.",
   },
   {
     number: '03',
@@ -338,7 +338,7 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
             <Button variant="cta" size="sm" href="/products/push">
               Join the Waitlist →
             </Button>
-          ) : entry.product === 'RISE™ Move' ? (
+          ) : entry.product === 'RISE Move' ? (
             <div className="flex items-center gap-4">
               <p className="text-xs text-foreground-muted italic">
                 No timeline. No price. Both directions.
@@ -384,7 +384,7 @@ export default function AboutPage() {
 
         <div className="relative z-10 mx-auto max-w-5xl">
           <p className="mb-6 text-eyebrow text-foreground-muted uppercase">
-            About RISE™
+            About RISE
           </p>
           <h1 className="mb-8 font-display text-hero leading-none text-foreground-strong">
             Twelve years.
@@ -392,7 +392,7 @@ export default function AboutPage() {
             <span className="text-foreground-muted">One conclusion.</span>
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-foreground-secondary">
-            RISE™ has spent over a decade asking why people don&rsquo;t get up
+            RISE has spent over a decade asking why people don&rsquo;t get up
             when they know they should. We tried light. We tried sound. We tried
             temperature. We tried vibration. We tried presence. We tried
             discomfort. We tried every polite option available to us.
@@ -443,7 +443,7 @@ export default function AboutPage() {
               The full arc.
             </h2>
             <p className="max-w-xl text-body text-foreground-secondary">
-              Every product RISE™ has ever made. In order. With honesty about
+              Every product RISE has ever made. In order. With honesty about
               what worked and what didn&rsquo;t. Most of them didn&rsquo;t. That
               is the point.
             </p>
@@ -563,7 +563,7 @@ export default function AboutPage() {
             The 94% figure refers to combined failure rates across the Ambient,
             Tone, Thermal, Gradient, and Alarm product lines (2011–2012).
             <br />
-            RISE™ is transparent about this. It is part of how we got here.
+            RISE is transparent about this. It is part of how we got here.
           </p>
         </div>
       </section>

@@ -14,7 +14,7 @@ export default function MediaPage() {
   return (
     <PayloadShell
       breadcrumb={[
-        { label: 'RISE™ Internal', href: '/internal' },
+        { label: 'RISE Internal', href: '/internal' },
         { label: 'Media' },
       ]}
       title="Media"

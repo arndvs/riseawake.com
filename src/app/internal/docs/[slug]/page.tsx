@@ -184,7 +184,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
       <DocSection title="Summary">
         <DocP>
           Q4 2024 total incidents: 23. Q4 2023 total incidents: 31. Trend:
-          favorable. RISE™ considers this progress. The 23 incidents are being
+          favorable. RISE considers this progress. The 23 incidents are being
           addressed individually. The resolution rate is 91%. The remaining 9%
           are ongoing. Status: monitored.
         </DocP>
@@ -237,7 +237,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
               'Nov 2, 2024',
               'RSB-7765...',
               'Solo commute — traffic incident, minor',
-              'Resolved. Third party signed form RNC-7. RISE™ Legal reviewed.',
+              'Resolved. Third party signed form RNC-7. RISE Legal reviewed.',
               'Closed',
             ],
             [
@@ -321,7 +321,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
       <DocSection title="QA Team Notes">
         <DocP>
           The 98% compliance rate and 91% incident resolution rate are
-          consistent. RISE™ considers a 9% ongoing incident rate acceptable
+          consistent. RISE considers a 9% ongoing incident rate acceptable
           given the product&rsquo;s operational complexity. The 9% ongoing
           incidents are being monitored. They have been monitored since Q3 2022.
           Monitoring continues.
@@ -350,7 +350,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           FROM: Dr. Eleanor Voss, Founder & CEO
         </p>
         <p className="mb-1 text-xs" style={{ color: P.textMuted }}>
-          TO: All RISE™ Product & Engineering Staff
+          TO: All RISE Product & Engineering Staff
         </p>
         <p className="mb-1 text-xs" style={{ color: P.textMuted }}>
           RE: Nudge Product Line Discontinuation
@@ -489,7 +489,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           This document is classified DR. VOSS EYES ONLY. It is currently
           accessible to anyone with the URL. The access control layer for this
           classification tier was not implemented. It is in Arvin&rsquo;s TODO
-          list. Arvin is no longer at RISE™.
+          list. Arvin is no longer at RISE.
         </p>
       </div>
 
@@ -516,10 +516,10 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
             [
               'Resistance Index (avg)',
               '0.2 / 10.0',
-              'Lowest recorded in the RISE™ user base.',
+              'Lowest recorded in the RISE user base.',
             ],
             [
-              'RISE™ Index Score',
+              'RISE Index Score',
               <Redacted key="idx" label="REDACTED" />,
               'Dr. Voss redacted this field personally.',
             ],
@@ -677,7 +677,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
             engineering team. The suggestion was reviewed. The section has been
             archived. There will not be an off switch in the Push Pro. This is
             consistent with the current Push. It is consistent with the Nudge.
-            It will be consistent with all future RISE™ products. If you have
+            It will be consistent with all future RISE products. If you have
             questions about this decision, the answer is in the original design
             brief from 2019, which is not in this document system because Arvin
             has not finished building the import feature.
@@ -706,9 +706,9 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           part.
         </DocP>
         <DocP>
-          RISE™ is not currently accepting questions about The Push Pro. This
+          RISE is not currently accepting questions about The Push Pro. This
           document is available because of a permissions error. Its availability
-          does not constitute disclosure. RISE™&rsquo;s position is unchanged.
+          does not constitute disclosure. RISE&rsquo;s position is unchanged.
         </DocP>
       </DocSection>
     </DocBody>
@@ -716,7 +716,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
 
   'move-engineering-status': (
     <DocBody>
-      <DocSection title="Project Status Dashboard — RISE™ Move · March 1, 2025">
+      <DocSection title="Project Status Dashboard — RISE Move · March 1, 2025">
         <DocTable
           headers={['Workstream', 'Status', 'Owner', 'Notes']}
           rows={[
@@ -918,7 +918,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           The Physics of Uncontrolled Descent
         </p>
         <DocP>
-          A RISE™ Move bed descending a standard residential staircase (7.5-inch
+          A RISE Move bed descending a standard residential staircase (7.5-inch
           rise, 10-inch tread, 12 steps) must manage approximately 90 inches of
           vertical drop across roughly 120 inches of horizontal travel. During
           attended transit, the occupant&rsquo;s body weight — typically 120–250
@@ -1189,21 +1189,21 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           Status: Awaiting Legal Review (since March 2023)
         </p>
         <p className="mb-1 text-xs" style={{ color: P.textMuted }}>
-          Reviewed by: RISE™ Legal (March 2023), RISE™ HR (March 2023)
+          Reviewed by: RISE Legal (March 2023), RISE HR (March 2023)
         </p>
         <p className="text-xs" style={{ color: P.warning }}>
           ⚠ Not reviewed by employment law counsel in any jurisdiction
         </p>
       </div>
 
-      <DocSection title="RISE™ PUSH MODE CORPORATE WELLNESS ENROLLMENT WAIVER">
+      <DocSection title="RISE PUSH MODE CORPORATE WELLNESS ENROLLMENT WAIVER">
         <DocP>
           <strong style={{ color: P.text }}>
             EMPLOYEE ACKNOWLEDGMENT AND WAIVER
           </strong>
         </DocP>
         <DocP>
-          In consideration of my employer&rsquo;s enrollment of me in the RISE™
+          In consideration of my employer&rsquo;s enrollment of me in the RISE
           Corporate Wellness Push Mode Program (&ldquo;the Program&rdquo;), I
           hereby acknowledge and agree to the following:
         </DocP>
@@ -1226,7 +1226,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           premises. I acknowledge that the bed navigating me to my
           employer&rsquo;s premises constitutes Push Mode operating as designed
           and not a violation of any agreement between myself, my employer, and
-          RISE™. I acknowledge that my employer requested this capability when
+          RISE. I acknowledge that my employer requested this capability when
           enrolling in the Program. I acknowledge that I was not present for
           this discussion.
         </DocP>
@@ -1237,7 +1237,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           I acknowledge that the solo return commute will occur. I acknowledge
           that the bed will return to my registered address independently
           following Push Mode completion. I acknowledge that my employer is not
-          responsible for the solo commute and that RISE™ is not responsible for
+          responsible for the solo commute and that RISE is not responsible for
           the solo commute and that I, by activating Push Mode in the context of
           this employer program, have accepted responsibility for the solo
           commute and all outcomes of it including but not limited to incidents
@@ -1249,7 +1249,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
       <DocSection title="Section 14 — Audio Data">
         <DocP>
           I acknowledge that Push Mode includes audio collection as described in
-          RISE™&rsquo;s Privacy Policy. I acknowledge that my employer, by
+          RISE&rsquo;s Privacy Policy. I acknowledge that my employer, by
           enrolling me in this Program, has acknowledged the same. I acknowledge
           that neither I nor my employer has read the Privacy Policy in full. I
           acknowledge that this acknowledgment constitutes acceptance of the
@@ -1269,11 +1269,11 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
             className="text-xs"
             style={{ color: P.textMuted, lineHeight: 1.8 }}
           >
-            This template has been reviewed by RISE™ Legal (March 2023) and
-            RISE™ HR (March 2023). It has not been reviewed by employment law
+            This template has been reviewed by RISE Legal (March 2023) and
+            RISE HR (March 2023). It has not been reviewed by employment law
             counsel in any jurisdiction. It is a template. Employers should
-            review it with their own counsel before use. RISE™ cannot guarantee
-            its enforceability. RISE™ also cannot guarantee that employers are
+            review it with their own counsel before use. RISE cannot guarantee
+            its enforceability. RISE also cannot guarantee that employers are
             reviewing it with their own counsel before use. The status has been
             &ldquo;Awaiting Legal Review&rdquo; since March 2023. The legal
             review has not occurred. HR considers this to be Legal&rsquo;s
@@ -1289,7 +1289,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
     <DocBody>
       <DocSection>
         <DocP>
-          The following incidents are selected from the RISE™ solo commute
+          The following incidents are selected from the RISE solo commute
           incident archive. Full archive access is restricted to Legal and QA
           Level 3+. These incidents were selected for documentation review. They
           were selected by James Park. He selected them for reasons he has not
@@ -1304,10 +1304,10 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           location: 'Valencia Street, San Francisco, CA',
           summary: 'Unintended retail entry',
           detail:
-            'The bed entered a coffee shop on Valencia Street during its solo return commute. The shop was open. The door was propped open for ventilation. The bed navigated through the open door. It proceeded approximately 8 feet into the establishment before determining that its registered address was not in the direction it was heading and beginning a reversal maneuver. Staff attempted to assist the bed. The bed did not require assistance. It was navigating. It exited after 4 minutes and 12 seconds. No damage to the establishment. One ceramic mug was displaced during the reversal maneuver. The mug did not break. The shop posted about it on Instagram that evening. The post received 17,000 likes in 24 hours. RISE™ did not comment. RISE™ is still not commenting. The coffee shop has become something of a local landmark for the incident. They have a small sign.',
+            'The bed entered a coffee shop on Valencia Street during its solo return commute. The shop was open. The door was propped open for ventilation. The bed navigated through the open door. It proceeded approximately 8 feet into the establishment before determining that its registered address was not in the direction it was heading and beginning a reversal maneuver. Staff attempted to assist the bed. The bed did not require assistance. It was navigating. It exited after 4 minutes and 12 seconds. No damage to the establishment. One ceramic mug was displaced during the reversal maneuver. The mug did not break. The shop posted about it on Instagram that evening. The post received 17,000 likes in 24 hours. RISE did not comment. RISE is still not commenting. The coffee shop has become something of a local landmark for the incident. They have a small sign.',
           status: 'Closed',
           outcome:
-            'RNC-7 signed. RISE™ paid for the displaced mug. The mug did not break but the policy is the policy.',
+            'RNC-7 signed. RISE paid for the displaced mug. The mug did not break but the policy is the policy.',
         },
         {
           id: 'SC-0089',
@@ -1318,7 +1318,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
             "The bed's solo return commute was obstructed by a street fair on the return route. The bed arrived at the perimeter of the fair at 8:47am. The fair extended the full length of the return route. The bed waited. The bed has a 4-hour obstacle hold protocol before initiating an alternate route calculation. The 4-hour window elapsed at 12:47pm. Alternate route calculation required an additional 23 minutes. The bed arrived home at 1:14pm. Total return commute duration: 4 hours 27 minutes. Standard return commute for this address: 11 minutes. The user was not informed in real time because the notification system was not operational on this date. IT is aware. The user arrived home before the bed. They found the bed at the door. The bed was making itself.",
           status: 'Closed',
           outcome:
-            "No injury. No property damage. User filed an incident report expressing 'existential concern.' RISE™ noted the concern. No further action.",
+            "No injury. No property damage. User filed an incident report expressing 'existential concern.' RISE noted the concern. No further action.",
         },
         {
           id: 'SC-0112',
@@ -1326,10 +1326,10 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           location: 'Noe Valley, San Francisco, CA',
           summary: 'Animal encounter — extended follow',
           detail:
-            "A neighbor's dog began following the returning bed approximately 2 blocks into its solo return commute. The dog followed the bed for approximately 6 blocks. The dog was assessed by the bed's sensor system as an obstacle. The bed made lateral adjustments. The dog made corresponding lateral adjustments. This continued for 6 blocks. The dog turned around independently at the 6-block mark and returned home. No injuries to the dog, the bed, or any third party. The neighbor was not informed. The dog has been observed to wait at the corner where it previously encountered the bed on subsequent mornings. RISE™ considers this outside its operational responsibility. The dog's name is [REDACTED — per RISE™ animal privacy policy, Section 4, which does not exist but which was referenced in the incident notes and has now been formally established by legal as a retroactive policy].",
+            "A neighbor's dog began following the returning bed approximately 2 blocks into its solo return commute. The dog followed the bed for approximately 6 blocks. The dog was assessed by the bed's sensor system as an obstacle. The bed made lateral adjustments. The dog made corresponding lateral adjustments. This continued for 6 blocks. The dog turned around independently at the 6-block mark and returned home. No injuries to the dog, the bed, or any third party. The neighbor was not informed. The dog has been observed to wait at the corner where it previously encountered the bed on subsequent mornings. RISE considers this outside its operational responsibility. The dog's name is [REDACTED — per RISE animal privacy policy, Section 4, which does not exist but which was referenced in the incident notes and has now been formally established by legal as a retroactive policy].",
           status: 'Closed',
           outcome:
-            'No action required. The dog is fine. RISE™ wishes the dog well.',
+            'No action required. The dog is fine. RISE wishes the dog well.',
         },
         {
           id: 'SC-0134',
@@ -1337,7 +1337,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           location: 'SOMA, San Francisco, CA',
           summary: 'Municipal citation — parking enforcement',
           detail:
-            'Municipal parking enforcement encountered the returning bed at 9:14am on a block where the bed had paused to recalculate route following an obstacle. The enforcement officer attempted to issue a citation. The bed does not have a license plate. The bed does not have a registration. The bed does not have a human operator present. The officer issued the citation to the nearest address. That address was a fire hydrant. The citation was issued to the fire hydrant. RISE™\'s legal team reviewed the citation. The citation was issued to a fire hydrant. This has been resolved. The bed was not at fault. The bed was navigating. The fire hydrant was not navigating. The enforcement officer filed a supplemental report. The supplemental report describes the bed as "an unattended motorized mattress of unknown origin." RISE™ considers this an accurate description and an acceptable outcome.',
+            'Municipal parking enforcement encountered the returning bed at 9:14am on a block where the bed had paused to recalculate route following an obstacle. The enforcement officer attempted to issue a citation. The bed does not have a license plate. The bed does not have a registration. The bed does not have a human operator present. The officer issued the citation to the nearest address. That address was a fire hydrant. The citation was issued to the fire hydrant. RISE\'s legal team reviewed the citation. The citation was issued to a fire hydrant. This has been resolved. The bed was not at fault. The bed was navigating. The fire hydrant was not navigating. The enforcement officer filed a supplemental report. The supplemental report describes the bed as "an unattended motorized mattress of unknown origin." RISE considers this an accurate description and an acceptable outcome.',
           status: 'Closed',
           outcome:
             'Citation voided. No fine. The fire hydrant was not cited. The supplemental report has been preserved by James Park. He has not explained why.',
@@ -1419,13 +1419,13 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         }}
       >
         <p className="mb-2 text-xs" style={{ color: P.text }}>
-          RISE™ Index Methodology — Internal Reference Document
+          RISE Index Methodology — Internal Reference Document
         </p>
         <p className="text-[10px]" style={{ color: P.textMuted }}>
           This is the document referenced in Section 17 of the Privacy Policy,
-          which states that the RISE™ Index methodology is proprietary and not
+          which states that the RISE Index methodology is proprietary and not
           disclosed. The document is not disclosed. It is also accessible at
-          this URL. RISE™ is reviewing this situation.
+          this URL. RISE is reviewing this situation.
         </p>
       </div>
 
@@ -1511,7 +1511,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           style={{ color: P.textMuted, lineHeight: 1.8 }}
         >
           Auto-generated document. Distributed to IT Security distribution list.
-          The distribution list was last audited in 2019. RISE™ cannot confirm
+          The distribution list was last audited in 2019. RISE cannot confirm
           all current members of this list.
         </p>
       </div>
@@ -1603,7 +1603,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         <DocP>
           This document was generated automatically and distributed to the IT
           Security distribution list. The distribution list was last audited in
-          2019. RISE™ cannot confirm all current members of this list. RISE™ has
+          2019. RISE cannot confirm all current members of this list. RISE has
           been meaning to audit the distribution list since 2020. This intention
           has appeared in every quarterly IT planning document since Q1 2020. It
           has not been acted on. The next quarterly planning document will note
@@ -1618,8 +1618,8 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
   'push-mode-headline-swipe-file': (
     <DocBody>
       <DocSection title="Engagement">
-        <DocP>This document was produced by an external consultant engaged by the Growth Marketing team in Q3 2023. The consultant was briefed on Push Mode, the PM-1 remote, the RISE™ brand positioning, and the target customer profile. The consultant produced this document within 72 hours. The invoice for this document has not been paid. Accounts payable is aware.</DocP>
-        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Note from Dr. M. Chen, CPO: I want to be clear that several of these headlines do not reflect RISE™&apos;s brand voice and will never be used. I am keeping this document because the underlying analysis is useful and because I want Legal to have reviewed everything. — MC, Sep 21 2023</DocP>
+        <DocP>This document was produced by an external consultant engaged by the Growth Marketing team in Q3 2023. The consultant was briefed on Push Mode, the PM-1 remote, the RISE brand positioning, and the target customer profile. The consultant produced this document within 72 hours. The invoice for this document has not been paid. Accounts payable is aware.</DocP>
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Note from Dr. M. Chen, CPO: I want to be clear that several of these headlines do not reflect RISE&apos;s brand voice and will never be used. I am keeping this document because the underlying analysis is useful and because I want Legal to have reviewed everything. — MC, Sep 21 2023</DocP>
         <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Note from J. Park, General Counsel: I have reviewed. Please see flagged items. Do not publish headlines marked [LEGAL HOLD]. Do not share this document externally. — JP</DocP>
       </DocSection>
 
@@ -1889,13 +1889,13 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         />
       </DocSection>
 
-      <DocSection title="SB7 Element 3 — The Guide (RISE™)">
+      <DocSection title="SB7 Element 3 — The Guide (RISE)">
         <DocTable
           headers={['Guide Dimension', 'Push Mode Application']}
           rows={[
             ['Empathy statement', 'We know you\'ve tried. The alarm apps. The accountability partners. You\'re not the problem. The system is.'],
             ['Authority demonstration', '98% compliance rate. 340,000-person waitlist. The product doesn\'t lecture — it delivers.'],
-            ['Guide positioning', 'RISE™ does not compete with the customer\'s willpower. RISE™ replaces the moment where willpower is required.'],
+            ['Guide positioning', 'RISE does not compete with the customer\'s willpower. RISE replaces the moment where willpower is required.'],
           ]}
         />
       </DocSection>
@@ -1954,7 +1954,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           rows={[
             ['Hero', 'A capable professional who can\'t reliably make themselves get up when they intend to.'],
             ['Problem (Villain)', 'The snooze button. The daily override of human intention.'],
-            ['Guide', 'RISE™ — we built something that doesn\'t ask for your willpower.'],
+            ['Guide', 'RISE — we built something that doesn\'t ask for your willpower.'],
             ['Plan', '1. Press RISE. 2. Trust the process. 3. Arrive.'],
             ['CTA', 'Join the Waitlist. / Activate Push Mode.'],
             ['Success', 'You become someone who gets up. It became automatic.'],
@@ -1969,7 +1969,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
   'push-mode-brand-identity-suite': (
     <DocBody>
       <DocSection title="Document Status">
-        <DocP>This document contains the RISE™ Mission Statement, Vision Statement, and WHY (Golden Circle). Dr. Voss reviewed the document on November 22, 2023 and returned it with two annotations. Both annotations are reproduced verbatim below. The document remains in review status.</DocP>
+        <DocP>This document contains the RISE Mission Statement, Vision Statement, and WHY (Golden Circle). Dr. Voss reviewed the document on November 22, 2023 and returned it with two annotations. Both annotations are reproduced verbatim below. The document remains in review status.</DocP>
       </DocSection>
 
       <DocSection title="Brand WHY Statement (Golden Circle)">
@@ -1985,7 +1985,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
 
       <DocSection title="Mission Statement">
         <DocP style={{ fontSize: '15px', color: P.text, lineHeight: 2, paddingLeft: '16px', borderLeft: '2px solid rgba(255,255,255,0.1)', marginLeft: '8px' }}>
-          &ldquo;RISE™ builds products that replace the one moment every day where most people fail themselves. We do this by designing systems that take the customer&apos;s original decision more seriously than their in-the-moment preference — and by being honest, in the fine print and everywhere else, about exactly what that means.&rdquo;
+          &ldquo;RISE builds products that replace the one moment every day where most people fail themselves. We do this by designing systems that take the customer&apos;s original decision more seriously than their in-the-moment preference — and by being honest, in the fine print and everywhere else, about exactly what that means.&rdquo;
         </DocP>
         <div style={{ background: 'rgba(42,92,219,0.06)', border: '1px solid rgba(42,92,219,0.15)', borderRadius: '4px', padding: '16px', margin: '16px 0' }}>
           <DocP style={{ color: 'rgba(76,124,255,0.9)', fontSize: '11px', marginBottom: '4px' }}>⚑ CEO Annotation — November 22, 2023</DocP>
@@ -2008,7 +2008,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
             ['Declarative sentence structure', '9/10', 'Short sentences. Subject-verb-object. No hedging.'],
             ['Compressed irony', '8/10', 'The copy acknowledges what the product does not do without apologizing for it.'],
             ['Specificity as trust signal', '8/10', '98% compliance rate. 340,000 waitlist. 4.7 stars. The specificity is not marketing. It is evidence.'],
-            ['Institutional calm under absurd conditions', '9/10', 'The bed follows you to work. RISE™ reports this in the same register it uses for quarterly earnings.'],
+            ['Institutional calm under absurd conditions', '9/10', 'The bed follows you to work. RISE reports this in the same register it uses for quarterly earnings.'],
           ]}
         />
         <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Writeprint nickname (consultant&apos;s designation): &ldquo;The Coroner&apos;s Report.&rdquo; Accurate. Precise. Professionally indifferent to the implications of what it is describing.</DocP>
@@ -2020,13 +2020,13 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
   'content-marketing-blog-playbook': (
     <DocBody>
       <DocSection title="Document Context">
-        <DocP>This playbook was adapted from the external consultant&apos;s standard blog content process and applied to RISE™ Content Marketing without modification. Team annotations are reproduced inline.</DocP>
-        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Note: The consultant confirmed that this playbook was originally developed for a regional pest control chain and a B2B accounting software company. It has been applied to RISE™ without modification.</DocP>
+        <DocP>This playbook was adapted from the external consultant&apos;s standard blog content process and applied to RISE Content Marketing without modification. Team annotations are reproduced inline.</DocP>
+        <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>Note: The consultant confirmed that this playbook was originally developed for a regional pest control chain and a B2B accounting software company. It has been applied to RISE without modification.</DocP>
       </DocSection>
 
       <DocSection title="Process Timeline">
         <DocTable
-          headers={['Phase', 'Duration', 'Responsible', 'RISE™ Note']}
+          headers={['Phase', 'Duration', 'Responsible', 'RISE Note']}
           rows={[
             ['Topic Research & Ideation', '3–5 days', 'Content Strategist', ''],
             ['Content Brief Creation', '1–2 days', 'Content Strategist', ''],
@@ -2059,7 +2059,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
 
       <DocSection title="Quality Standards">
         <DocTable
-          headers={['Standard', 'Specification', 'RISE™ Implementation']}
+          headers={['Standard', 'Specification', 'RISE Implementation']}
           rows={[
             ['Headlines', 'Attention-grabbing, include primary keyword', 'Headlines are factual statements. They do not grab. They land.'],
             ['Length', '1,200–2,000 words', 'Current average: 847 words. The playbook\'s word count standard has not been formally revised.'],
@@ -2071,7 +2071,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
 
       <DocSection title="Success Metrics">
         <DocTable
-          headers={['Metric', 'Target', 'RISE™ Note']}
+          headers={['Metric', 'Target', 'RISE Note']}
           rows={[
             ['Average time on page', '> 3 minutes', 'Current average: 4:12. The posts are short. People read them slowly. We do not know why.'],
             ['Keyword rankings', 'Improvement over time', 'Ranking #1 for \'Push Mode compliance rate,\' \'autonomous morning bed,\' and \'bed with no off switch.\' We are the only result for most of these.'],
@@ -2129,7 +2129,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         <DocP style={{ color: P.textFaint, fontStyle: 'italic' }}>This section was completed by the consultant, reviewed by Dr. Voss, and returned with revisions. Both versions are preserved below.</DocP>
         <DocP><strong style={{ color: P.text }}>Consultant&apos;s Draft (struck through by CEO):</strong></DocP>
         <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '4px', padding: '14px', margin: '8px 0', borderLeft: '2px solid rgba(255,255,255,0.08)' }}>
-          <DocP style={{ color: P.textFaint, textDecoration: 'line-through', fontSize: '12px' }}>Primary Message: &ldquo;Stop fighting your mornings. Let RISE™ handle them.&rdquo;</DocP>
+          <DocP style={{ color: P.textFaint, textDecoration: 'line-through', fontSize: '12px' }}>Primary Message: &ldquo;Stop fighting your mornings. Let RISE handle them.&rdquo;</DocP>
         </div>
         <div style={{ background: 'rgba(42,92,219,0.06)', border: '1px solid rgba(42,92,219,0.15)', borderRadius: '4px', padding: '14px', margin: '12px 0' }}>
           <DocP style={{ color: 'rgba(76,124,255,0.9)', fontSize: '11px', marginBottom: '4px' }}>⚑ CEO Revision — Dr. E. Voss, November 1, 2023</DocP>
@@ -2187,12 +2187,12 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           headers={['Upsell Path', 'Status']}
           rows={[
             ['The Push Pro', 'Acknowledged internally. No public details. See DOC-004.'],
-            ['The RISE™ Move', 'In development. No timeline. See DOC-005.'],
+            ['The RISE Move', 'In development. No timeline. See DOC-005.'],
           ]}
         />
         <div style={{ background: 'rgba(42,92,219,0.06)', border: '1px solid rgba(42,92,219,0.15)', borderRadius: '4px', padding: '14px', margin: '12px 0' }}>
           <DocP style={{ color: 'rgba(76,124,255,0.9)', fontSize: '11px', marginBottom: '4px' }}>⚑ Consultant Note</DocP>
-          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>The Ascend stage is the weakest stage in the RISE™ value journey. There is currently no clear path to increase customer value after the initial purchase. This is a revenue risk that RISE™ has not addressed.</DocP>
+          <DocP style={{ color: 'rgba(76,124,255,0.75)', fontStyle: 'italic', fontSize: '12px' }}>The Ascend stage is the weakest stage in the RISE value journey. There is currently no clear path to increase customer value after the initial purchase. This is a revenue risk that RISE has not addressed.</DocP>
         </div>
       </DocSection>
 
@@ -2235,7 +2235,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           rows={[
             ['Morning compliance failure rate', 'Behavioral science — sleep inertia research', 'Sources identified, not yet formatted'],
             ['Snooze button as hardware problem', 'Cognitive science — decision fatigue literature', 'Sources identified, not yet formatted'],
-            ['98% compliance rate', 'Internal RISE™ data', 'Active — used in all current copy'],
+            ['98% compliance rate', 'Internal RISE data', 'Active — used in all current copy'],
           ]}
         />
       </DocSection>
@@ -2304,7 +2304,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
         <DocTable
           headers={['Rank', 'Issue', 'Frequency', 'Status']}
           rows={[
-            ['1', 'Staircase navigation — not supported', '34% of users mention stairs', 'RISE™ Move in development. See DOC-005.'],
+            ['1', 'Staircase navigation — not supported', '34% of users mention stairs', 'RISE Move in development. See DOC-005.'],
             ['2', 'Solo commute: some users find it startling', '11%', 'Working as intended.'],
             ['3', 'Activation process: 12 stages feels lengthy', '18%', 'Intentional.'],
             ['4', 'No off switch — some users want one', '9%', 'Not available. Not planned. This is the product.'],
@@ -2423,9 +2423,9 @@ while i worked here. the push mode helped. i mean that sincerely.`}
           <br />
           It is accessible from this URL.
           <br />
-          RISE™ IT has not been notified. RISE™ IT is not aware.
+          RISE IT has not been notified. RISE IT is not aware.
           <br />
-          RISE™ IT response time: variable.
+          RISE IT response time: variable.
         </p>
       </div>
     </DocBody>
@@ -2505,7 +2505,7 @@ export default function DocDetailPage({
   return (
     <PayloadShell
       breadcrumb={[
-        { label: 'RISE™ Internal', href: '/internal' },
+        { label: 'RISE Internal', href: '/internal' },
         { label: 'Documents', href: '/internal' },
         { label: doc.id },
       ]}
