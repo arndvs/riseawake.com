@@ -21,6 +21,7 @@
     "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^5.20.0",
     "clsx": "^2.1.1",
+    "convex": "^1.36.1",
     "dayjs": "^1.11.13",
     "feed": "^5.1.0",
     "lucide-react": "^1.7.0",
