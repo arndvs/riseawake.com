@@ -5,7 +5,11 @@ import { Image, ImageKitProvider } from '@imagekit/next'
 export default function ImageTest() {
   const urlEndpoint = process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT
   if (!urlEndpoint) {
-    return <p>NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT not found in environment variables.</p>
+    return (
+      <p>
+        NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT not found in environment variables.
+      </p>
+    )
   }
 
   return (
