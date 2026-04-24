@@ -1,4 +1,3 @@
-import { rise } from '@/lib/temporal'
 import {
   LegalLayout,
   LegalNote,

@@ -61,11 +61,7 @@ export default function LegalHubPage() {
             Legal Documents
           </h1>
           <p className="mb-4 max-w-xl text-body text-foreground-secondary">
-<<<<<<< HEAD
-            RISE™ maintains six primary legal documents governing the use of its
-=======
             RISE maintains six primary legal documents governing the use of its
->>>>>>> ab0acc3f1ae5c4d325eed54fea4086d151c5c799
             products and services. All documents are {LEGAL_V}, updated{' '}
             {rise.legalLastUpdated()}.
           </p>

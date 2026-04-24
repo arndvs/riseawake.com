@@ -22,18 +22,6 @@ import {
   ResponsiveContainer,
   ReferenceLine,
 } from 'recharts'
-<<<<<<< HEAD
-=======
-import {
-  formatFYLabel,
-  formatRevenue,
-  latestFiscalYear,
-  latestMetrics,
-  npsChartData,
-  revenueChartData,
-  waitlistChartData,
-} from '@/lib/temporal'
->>>>>>> ab0acc3f1ae5c4d325eed54fea4086d151c5c799
 
 const ACTIVE_MARKETS = [
   'United States',
@@ -90,11 +78,7 @@ export default function FinancialsPage() {
             </h1>
             <p className="max-w-xl text-body text-foreground-secondary">
               {LATEST_FY} key performance indicators. All figures unaudited. Push
-<<<<<<< HEAD
-              Mode compliance data independently verified by RISE™ Internal
-=======
               Mode compliance data independently verified by RISE Internal
->>>>>>> ab0acc3f1ae5c4d325eed54fea4086d151c5c799
               Analytics.
             </p>
           </div>
