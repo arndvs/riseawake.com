@@ -601,6 +601,7 @@ export default function PayloadShell({
   const NAV = [
     { href: '/internal', label: 'Dashboard', icon: '⊞' },
     { href: '/internal', label: 'Documents', icon: '☰', count: 19 },
+    { href: '/internal/applications', label: 'Applications', icon: '✉' },
     { href: '/internal/media', label: 'Media', icon: '⊡', count: 0 },
     { href: '/internal/users', label: 'Users', icon: '◎', count: 3 },
     { href: '/internal/settings', label: 'Settings', icon: '⚙' },
