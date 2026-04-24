@@ -8,7 +8,7 @@ import { rise } from '@/lib/temporal'
 const NEWS = [
   {
     date: 'April 2, 2025',
-    headline: 'RISE™ Files S-1 with SEC — IPO Anticipated Q3 2026',
+    headline: 'RISE Files S-1 with SEC — IPO Anticipated Q3 2026',
     tag: 'Corporate',
   },
   {
@@ -19,7 +19,7 @@ const NEWS = [
   {
     date: 'November 8, 2024',
     headline:
-      'RISE™ Closes $120M Series C to Accelerate Global Push Mode Deployment',
+      'RISE Closes $120M Series C to Accelerate Global Push Mode Deployment',
     tag: 'Funding',
   },
 ]
@@ -27,7 +27,7 @@ const NEWS = [
 const QUICK_LINKS = [
   {
     label: 'Vision 2045',
-    desc: 'Where RISE™ intends to be in 5, 10, and 20 years.',
+    desc: 'Where RISE intends to be in 5, 10, and 20 years.',
     href: '/investors/vision',
     accent: true,
   },
@@ -197,11 +197,11 @@ export default function InvestorsPage() {
             <p className="mt-8 border-t border-edge-subtle pt-6 text-[10px] leading-loose text-foreground-muted">
               All materials provided for informational purposes only.
               Forward-looking statements involve risks and uncertainties. Push
-              Mode compliance data independently verified by RISE™ Internal
+              Mode compliance data independently verified by RISE Internal
               Analytics. Third-party verification pending. Past compliance rates
-              do not guarantee future compliance rates. RISE™ is not responsible
+              do not guarantee future compliance rates. RISE is not responsible
               for investor decisions made based on information contained herein,
-              including the decision to invest, which RISE™ nonetheless
+              including the decision to invest, which RISE nonetheless
               encourages.
             </p>
           </div>

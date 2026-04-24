@@ -22,6 +22,18 @@ import {
   ResponsiveContainer,
   ReferenceLine,
 } from 'recharts'
+<<<<<<< HEAD
+=======
+import {
+  formatFYLabel,
+  formatRevenue,
+  latestFiscalYear,
+  latestMetrics,
+  npsChartData,
+  revenueChartData,
+  waitlistChartData,
+} from '@/lib/temporal'
+>>>>>>> ab0acc3f1ae5c4d325eed54fea4086d151c5c799
 
 const ACTIVE_MARKETS = [
   'United States',
@@ -78,7 +90,11 @@ export default function FinancialsPage() {
             </h1>
             <p className="max-w-xl text-body text-foreground-secondary">
               {LATEST_FY} key performance indicators. All figures unaudited. Push
+<<<<<<< HEAD
               Mode compliance data independently verified by RISE™ Internal
+=======
+              Mode compliance data independently verified by RISE Internal
+>>>>>>> ab0acc3f1ae5c4d325eed54fea4086d151c5c799
               Analytics.
             </p>
           </div>
@@ -236,7 +252,7 @@ export default function FinancialsPage() {
                 ))}
               </div>
               <p className="mt-6 text-[10px] leading-relaxed text-foreground-muted/60">
-                LTV/CAC ratio: 13.3x. Payback in 27 days. RISE™ notes these
+                LTV/CAC ratio: 13.3x. Payback in 27 days. RISE notes these
                 figures are unusual. They reflect a product that works.
               </p>
             </div>
@@ -356,7 +372,7 @@ export default function FinancialsPage() {
             </div>
             <p className="text-[10px] leading-relaxed text-foreground-muted/60">
               Planned markets pending regulatory review of autonomous morning
-              routing device classification in each jurisdiction. RISE™ is
+              routing device classification in each jurisdiction. RISE is
               engaged with regulators in all 75 planned markets. Progress is
               being made.
             </p>
@@ -365,11 +381,11 @@ export default function FinancialsPage() {
           <div className="rounded-xl border border-edge-subtle/60 bg-surface-inset p-4">
             <p className="text-[10px] leading-loose text-foreground-muted">
               All figures unaudited. Push Mode compliance data independently
-              verified by RISE™ Internal Analytics. Third-party verification
+              verified by RISE Internal Analytics. Third-party verification
               pending. NPS measured at 90 days post-delivery. Unit economics
               calculated using median knowledge worker salary in US market.
               Geographic expansion market count subject to regulatory approval.
-              RISE™ is not responsible for investment decisions made based on
+              RISE is not responsible for investment decisions made based on
               these figures.
             </p>
           </div>

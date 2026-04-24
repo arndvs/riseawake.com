@@ -240,7 +240,12 @@ export function jobPostedDate(jobId: string): string {
         hash = ((hash << 5) - hash + jobId.charCodeAt(i)) | 0
     }
     const daysAgo = (Math.abs(hash) % 56) + 14 // 2–10 weeks ago
+<<<<<<< HEAD
     return formatLongDate(new Date(Date.now() - daysAgo * 86_400_000))
+=======
+    const date = new Date(Date.now() - daysAgo * 86_400_000)
+    return formatLongDate(date)
+>>>>>>> ab0acc3f1ae5c4d325eed54fea4086d151c5c799
 }
 
 /**

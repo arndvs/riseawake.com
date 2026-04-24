@@ -4,7 +4,7 @@ import { createMetadata } from '@/lib/metadata'
 export const metadata = createMetadata({
   title: 'Security',
   description:
-    'How RISE™ protects your data, your privacy, and your morning routine. Certifications, compliance, and infrastructure.',
+    'How RISE protects your data, your privacy, and your morning routine. Certifications, compliance, and infrastructure.',
   path: '/security',
 })
 
@@ -35,15 +35,15 @@ const CERTIFICATIONS = [
     name: 'HIPAA',
     status: 'Applicable',
     detail:
-      'RISE™ has implemented applicable security policies and procedures to ensure compliance with all applicable rules and regulations.',
+      'RISE has implemented applicable security policies and procedures to ensure compliance with all applicable rules and regulations.',
     footnote:
-      'For compliance purposes, RISE™ considers itself a Business Associate. BAA template: Awaiting Legal Review.',
+      'For compliance purposes, RISE considers itself a Business Associate. BAA template: Awaiting Legal Review.',
   },
   {
     name: 'GDPR',
     status: 'Acknowledged',
     detail:
-      'RISE™ acknowledges the General Data Protection Regulation and has taken steps to understand its requirements.',
+      'RISE acknowledges the General Data Protection Regulation and has taken steps to understand its requirements.',
     footnote:
       'Data Protection Officer appointment: Pending. DPA template drafted Q2 2023.',
   },
@@ -51,7 +51,7 @@ const CERTIFICATIONS = [
     name: 'CCPA / CPRA',
     status: 'Noted',
     detail:
-      'RISE™ is aware of the California Consumer Privacy Act and its amendments. A compliance review has been initiated.',
+      'RISE is aware of the California Consumer Privacy Act and its amendments. A compliance review has been initiated.',
     footnote: 'Review initiated: March 2024. Current status: Initiated.',
   },
 ]
@@ -62,21 +62,21 @@ const FEATURES = [
   {
     title: 'Enterprise-Grade Encryption',
     description:
-      'All data transmitted between your RISE™ base and our cloud infrastructure is protected using 256-bit SSL/TLS encryption — the same standard used by leading financial institutions. Data at rest is encrypted using AES-256 with keys managed through our internal key management service.',
+      'All data transmitted between your RISE base and our cloud infrastructure is protected using 256-bit SSL/TLS encryption — the same standard used by leading financial institutions. Data at rest is encrypted using AES-256 with keys managed through our internal key management service.',
     footnote:
       'SSL certificate last renewed: August 11, 2024. Key rotation last completed: August 12, 2024.',
   },
   {
     title: 'Cloud Infrastructure',
     description:
-      'RISE™ operates entirely on Amazon Web Services (AWS), leveraging industry-leading infrastructure security, redundancy, and compliance certifications. Our team follows best practices and internal guidelines to ensure safety and durability of all customer data.',
+      'RISE operates entirely on Amazon Web Services (AWS), leveraging industry-leading infrastructure security, redundancy, and compliance certifications. Our team follows best practices and internal guidelines to ensure safety and durability of all customer data.',
     footnote:
       'Infrastructure configuration last reviewed: August 2024. Reviewer: A. Reyes.',
   },
   {
     title: 'Continuous Monitoring',
     description:
-      'Our IT Security team monitors access events across all RISE™ systems around the clock. Every anomalous access attempt triggers an automated notification. Our team has been notified of 100% of flagged events and maintains full awareness of all ongoing access patterns.',
+      'Our IT Security team monitors access events across all RISE systems around the clock. Every anomalous access attempt triggers an automated notification. Our team has been notified of 100% of flagged events and maintains full awareness of all ongoing access patterns.',
     footnote: 'The team is aware. The team has been aware.',
   },
   {
@@ -89,16 +89,14 @@ const FEATURES = [
   {
     title: 'Web Application Firewall',
     description:
-      'RISE™ leverages the latest in WAF technologies to detect and mitigate denial-of-service attacks and other malicious traffic patterns before they impact the platform. All API calls are monitored and analyzed in real time.',
-    footnote:
-      'WAF rules last updated: July 2024. Update cadence: As needed.',
+      'RISE leverages the latest in WAF technologies to detect and mitigate denial-of-service attacks and other malicious traffic patterns before they impact the platform. All API calls are monitored and analyzed in real time.',
+    footnote: 'WAF rules last updated: July 2024. Update cadence: As needed.',
   },
   {
     title: 'Key Rotation',
     description:
       'Encryption is only as strong as the privacy of the encryption key. Our system leverages key rotation to ensure all data is secured with keys that change on a regular schedule, stored using FIPS 140-2 validated hardware security modules.',
-    footnote:
-      'Last rotation: August 12, 2024. Rotation schedule: Regular.',
+    footnote: 'Last rotation: August 12, 2024. Rotation schedule: Regular.',
   },
   {
     title: 'Role-Based Access Controls',
@@ -110,7 +108,7 @@ const FEATURES = [
   {
     title: 'Incident Response',
     description:
-      'RISE™ maintains a documented incident response plan with a target response time SLA of less than 4 hours. All incidents are logged, categorized, and tracked through resolution. Our Q4 2024 resolution rate was 91%.',
+      'RISE maintains a documented incident response plan with a target response time SLA of less than 4 hours. All incidents are logged, categorized, and tracked through resolution. Our Q4 2024 resolution rate was 91%.',
     footnote:
       'Remaining 9% of incidents have been monitored since Q3 2022. Monitoring continues.',
   },
@@ -213,24 +211,25 @@ export default function SecurityPage() {
       {/* ── Hero ── */}
       <section className="px-6 pt-40 pb-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-5 text-eyebrow uppercase text-foreground-muted">
+          <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Security
           </p>
           <h1 className="mb-6 font-display text-display tracking-tight text-foreground-strong">
-            Security at RISE™
+            Security at RISE
           </h1>
           <p className="mb-6 max-w-2xl text-base leading-loose text-foreground-secondary">
-            Trust is the foundation of everything we build. When you invite
-            RISE™ into your bedroom, your morning routine, and your commute,
+            Trust is the foundation of everything we build. When you invite RISE
+            into your bedroom, your morning routine, and your commute,
             you&rsquo;re trusting us with more than data — you&rsquo;re trusting
             us with the first and last moments of your day. We take that
             seriously.
           </p>
           <p className="mb-10 max-w-2xl text-body text-foreground-secondary">
             Our security program is designed to protect the data generated by
-            2,048 pressure sensors, environmental audio classification, occupancy
-            detection, relationship status inference, and autonomous navigation
-            telemetry. We understand the sensitivity of this information.
+            2,048 pressure sensors, environmental audio classification,
+            occupancy detection, relationship status inference, and autonomous
+            navigation telemetry. We understand the sensitivity of this
+            information.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -254,14 +253,14 @@ export default function SecurityPage() {
       {/* ── Certification Badges ── */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
+          <p className="mb-3 text-eyebrow text-foreground-muted uppercase">
             Compliance & Certifications
           </p>
           <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground-strong">
             Industry-Recognized Standards
           </h2>
           <p className="mb-14 max-w-xl text-body text-foreground-secondary">
-            RISE™ is committed to achieving and maintaining compliance with the
+            RISE is committed to achieving and maintaining compliance with the
             security frameworks that matter most to our customers.
           </p>
 
@@ -283,7 +282,7 @@ export default function SecurityPage() {
                 <p className="mb-4 text-xs leading-relaxed text-foreground-muted">
                   {cert.detail}
                 </p>
-                <p className="mt-auto text-[10px] italic leading-relaxed text-foreground-muted/40">
+                <p className="mt-auto text-[10px] leading-relaxed text-foreground-muted/40 italic">
                   {cert.footnote}
                 </p>
               </div>
@@ -296,7 +295,7 @@ export default function SecurityPage() {
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-24">
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-col items-center text-center">
-            <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
+            <p className="mb-3 text-eyebrow text-foreground-muted uppercase">
               Reliability
             </p>
             <h2 className="mb-2 font-display text-hero tracking-tight text-foreground-strong">
@@ -320,7 +319,7 @@ export default function SecurityPage() {
       {/* ── Security Features Grid ── */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
+          <p className="mb-3 text-eyebrow text-foreground-muted uppercase">
             Infrastructure
           </p>
           <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground-strong">
@@ -328,8 +327,7 @@ export default function SecurityPage() {
           </h2>
           <p className="mb-14 max-w-xl text-body text-foreground-secondary">
             From encryption in transit to access controls at rest, every layer
-            of the RISE™ platform is designed with security as a first
-            principle.
+            of the RISE platform is designed with security as a first principle.
           </p>
 
           <div className="grid gap-4 md:grid-cols-2">
@@ -347,7 +345,7 @@ export default function SecurityPage() {
                 <p className="mb-4 text-xs leading-relaxed text-foreground-muted">
                   {feature.description}
                 </p>
-                <p className="mt-auto text-[10px] italic leading-relaxed text-foreground-muted/40">
+                <p className="mt-auto text-[10px] leading-relaxed text-foreground-muted/40 italic">
                   {feature.footnote}
                 </p>
               </div>
@@ -359,14 +357,14 @@ export default function SecurityPage() {
       {/* ── Compliance Progress ── */}
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
+          <p className="mb-3 text-eyebrow text-foreground-muted uppercase">
             Progress
           </p>
           <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground-strong">
             Certification Progress
           </h2>
           <p className="mb-14 max-w-xl text-body text-foreground-secondary">
-            RISE™ is actively pursuing industry certifications across multiple
+            RISE is actively pursuing industry certifications across multiple
             security and compliance frameworks. All programs are on track.
           </p>
 
@@ -386,7 +384,7 @@ export default function SecurityPage() {
                     <span className="rounded-xl border border-accent/12 bg-accent/8 px-2 py-0.5 text-[10px] text-accent/70">
                       {item.label}
                     </span>
-                    <span className="text-xs tabular-nums text-foreground-muted">
+                    <span className="text-xs text-foreground-muted tabular-nums">
                       {item.progress}%
                     </span>
                   </div>
@@ -405,7 +403,7 @@ export default function SecurityPage() {
             Progress percentages are approximate and reflect internal
             milestones. Milestone definitions were established at program
             initiation and have not been revised. Timeline estimates are not
-            provided. RISE™ is committed to completing all certifications.
+            provided. RISE is committed to completing all certifications.
           </p>
         </div>
       </section>
@@ -413,7 +411,7 @@ export default function SecurityPage() {
       {/* ── Data Handling ── */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
+          <p className="mb-3 text-eyebrow text-foreground-muted uppercase">
             Data Practices
           </p>
           <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground-strong">
@@ -426,12 +424,12 @@ export default function SecurityPage() {
                 Data Retention
               </h3>
               <p className="mb-4 text-xs leading-relaxed text-foreground-muted">
-                RISE™ retains personal data only as long as necessary for
+                RISE retains personal data only as long as necessary for
                 operational purposes and in accordance with applicable
-                regulations. Retention periods are defined per data category
-                and reviewed periodically.
+                regulations. Retention periods are defined per data category and
+                reviewed periodically.
               </p>
-              <p className="text-[10px] italic leading-relaxed text-foreground-muted/40">
+              <p className="text-[10px] leading-relaxed text-foreground-muted/40 italic">
                 Audio data access log distribution list last audited: 2019.
                 Audit of the audit schedule: Pending.
               </p>
@@ -443,11 +441,11 @@ export default function SecurityPage() {
               </h3>
               <p className="mb-4 text-xs leading-relaxed text-foreground-muted">
                 We collect only the data required to deliver, improve, and
-                secure the RISE™ experience. This includes pressure sensor
+                secure the RISE experience. This includes pressure sensor
                 telemetry, environmental audio classification, occupancy
                 patterns, navigation logs, and relationship inference data.
               </p>
-              <p className="text-[10px] italic leading-relaxed text-foreground-muted/40">
+              <p className="text-[10px] leading-relaxed text-foreground-muted/40 italic">
                 Excluding data stored in browser localStorage for operational
                 continuity purposes.
               </p>
@@ -458,11 +456,11 @@ export default function SecurityPage() {
                 Third-Party Audits
               </h3>
               <p className="mb-4 text-xs leading-relaxed text-foreground-muted">
-                RISE™ engages independent auditors on an annual basis to
-                evaluate the effectiveness of our security controls,
-                infrastructure resilience, and data handling practices.
+                RISE engages independent auditors on an annual basis to evaluate
+                the effectiveness of our security controls, infrastructure
+                resilience, and data handling practices.
               </p>
-              <p className="text-[10px] italic leading-relaxed text-foreground-muted/40">
+              <p className="text-[10px] leading-relaxed text-foreground-muted/40 italic">
                 Most recent audit: In progress. Prior audit: In progress.
                 Auditor selection for next audit: Under review.
               </p>
@@ -474,11 +472,10 @@ export default function SecurityPage() {
               </h3>
               <p className="mb-4 text-xs leading-relaxed text-foreground-muted">
                 Regular penetration testing is conducted to identify and
-                remediate vulnerabilities before they can be exploited.
-                Testing is performed by qualified third-party security
-                firms.
+                remediate vulnerabilities before they can be exploited. Testing
+                is performed by qualified third-party security firms.
               </p>
-              <p className="text-[10px] italic leading-relaxed text-foreground-muted/40">
+              <p className="text-[10px] leading-relaxed text-foreground-muted/40 italic">
                 Last completed: Q2 2024. Next scheduled: Q4 2024.
               </p>
             </div>
@@ -489,17 +486,17 @@ export default function SecurityPage() {
       {/* ── Security Team & Contact ── */}
       <section className="border-t border-edge-subtle bg-surface-alt px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
+          <p className="mb-3 text-eyebrow text-foreground-muted uppercase">
             Our Team
           </p>
           <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground-strong">
             Dedicated Security Operations
           </h2>
           <p className="mb-14 max-w-2xl text-body text-foreground-secondary">
-            Our IT Security team is the backbone of RISE™&rsquo;s security
-            posture. Every flagged event is acknowledged. Every anomalous
-            access pattern is noted. The team maintains continuous awareness
-            of all security-relevant activity across the platform.
+            Our IT Security team is the backbone of RISE&rsquo;s security
+            posture. Every flagged event is acknowledged. Every anomalous access
+            pattern is noted. The team maintains continuous awareness of all
+            security-relevant activity across the platform.
           </p>
 
           <div className="grid gap-4 md:grid-cols-3">
@@ -529,7 +526,7 @@ export default function SecurityPage() {
             </div>
           </div>
 
-          <p className="mt-8 text-[10px] italic leading-relaxed text-foreground-muted/40">
+          <p className="mt-8 text-[10px] leading-relaxed text-foreground-muted/40 italic">
             &ldquo;Awareness maintained&rdquo; reflects the team&rsquo;s
             notification receipt status. The team has been notified of all
             events. The team is aware. The team has been aware for some time.
@@ -543,14 +540,14 @@ export default function SecurityPage() {
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-10 md:grid-cols-2">
             <div>
-              <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
+              <p className="mb-3 text-eyebrow text-foreground-muted uppercase">
                 Responsible Disclosure
               </p>
               <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground-strong">
                 Bug Bounty Program
               </h2>
               <p className="mb-6 text-body text-foreground-secondary">
-                RISE™ welcomes responsible security disclosure from researchers
+                RISE welcomes responsible security disclosure from researchers
                 and the broader security community. We value the contributions
                 of independent researchers in helping us maintain the integrity
                 of our platform.
@@ -570,7 +567,7 @@ export default function SecurityPage() {
             </div>
 
             <div>
-              <p className="mb-3 text-eyebrow uppercase text-foreground-muted">
+              <p className="mb-3 text-eyebrow text-foreground-muted uppercase">
                 Contact
               </p>
               <h2 className="mb-4 font-display text-subsection tracking-tight text-foreground-strong">
@@ -578,22 +575,22 @@ export default function SecurityPage() {
               </h2>
               <p className="mb-6 text-body text-foreground-secondary">
                 For security-related questions, audit requests, or compliance
-                inquiries, please contact our security team. All inquiries
-                are acknowledged and routed to the appropriate team member.
+                inquiries, please contact our security team. All inquiries are
+                acknowledged and routed to the appropriate team member.
               </p>
               <div className="space-y-3">
                 <p className="text-sm text-foreground-secondary">
-                  security@riseco.online
+                  security@riseawake.com
                 </p>
                 <p className="text-sm text-foreground-secondary">
-                  compliance@riseco.online
+                  compliance@riseawake.com
                 </p>
               </div>
-              <p className="mt-6 text-[10px] italic leading-relaxed text-foreground-muted/40">
-                Average response time: Under review. Response time SLA has
-                not been established for external inquiries. Internal
-                response time SLA (&lt;\u00a04h) applies to automated system
-                notifications only.
+              <p className="mt-6 text-[10px] leading-relaxed text-foreground-muted/40 italic">
+                Average response time: Under review. Response time SLA has not
+                been established for external inquiries. Internal response time
+                SLA (&lt;\u00a04h) applies to automated system notifications
+                only.
               </p>
             </div>
           </div>
@@ -605,13 +602,13 @@ export default function SecurityPage() {
         <div className="mx-auto max-w-5xl">
           <div className="rounded-xl border border-edge-subtle bg-foreground/2 p-6">
             <p className="text-xs leading-loose text-foreground-muted">
-              RISE™ is committed to the security and privacy of our
+              RISE is committed to the security and privacy of our
               customers&rsquo; data. This page represents our current security
               posture and ongoing compliance efforts as of the date of last
               update. Certification statuses, compliance progress, and
-              infrastructure details are provided for informational purposes
-              and may not reflect the most current state of any given program.
-              RISE™ makes no warranties, express or implied, regarding the
+              infrastructure details are provided for informational purposes and
+              may not reflect the most current state of any given program. RISE
+              makes no warranties, express or implied, regarding the
               completeness or timeliness of any certification process. For the
               most current information, please visit our Trust Center.
             </p>

@@ -42,6 +42,12 @@ const staticRoutes = [
     { path: '/legal/sleep-data-policy', priority: '0.2', changefreq: 'yearly' },
     { path: '/legal/autonomous-navigation', priority: '0.2', changefreq: 'yearly' },
     { path: '/legal/disclaimer', priority: '0.2', changefreq: 'yearly' },
+    { path: '/careers', priority: '0.6', changefreq: 'monthly' },
+    { path: '/enterprise', priority: '0.6', changefreq: 'monthly' },
+    { path: '/index-score', priority: '0.5', changefreq: 'monthly' },
+    { path: '/changelog', priority: '0.5', changefreq: 'weekly' },
+    { path: '/status', priority: '0.5', changefreq: 'daily' },
+    { path: '/security', priority: '0.4', changefreq: 'yearly' },
     { path: '/sitemap', priority: '0.1', changefreq: 'monthly' },
 ]
 

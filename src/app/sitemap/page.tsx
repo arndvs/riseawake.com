@@ -1,4 +1,5 @@
 import { clsx } from 'clsx'
+import type { Metadata } from 'next'
 
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
@@ -6,6 +7,10 @@ import Link from 'next/link'
 import { rise } from '@/lib/temporal'
 
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+}
 
 const SECTIONS = [
   {
@@ -15,19 +20,25 @@ const SECTIONS = [
       { path: '/about', desc: 'Company history & product timeline' },
       { path: '/products/nudge', desc: 'The Nudge — discontinued' },
       { path: '/products/push', desc: 'The Push — sold out, waitlist' },
-      { path: '/move', desc: 'RISE™ Move — in development' },
+      { path: '/move', desc: 'RISE Move — in development' },
       { path: '/activate', desc: 'Device activation' },
       { path: '/help', desc: 'Support & FAQ' },
       { path: '/press', desc: 'Press releases' },
       { path: '/blog', desc: 'Blog' },
+      { path: '/careers', desc: 'Open positions & culture' },
+      { path: '/enterprise', desc: 'Enterprise solutions' },
     ],
   },
   {
     label: 'Platform',
     routes: [
       { path: '/data-request', desc: 'Data subject request process' },
+      { path: '/security', desc: 'Security overview' },
       { path: '/sdk', desc: 'DataKit SDK' },
       { path: '/sdk/documentation', desc: 'SDK documentation' },
+      { path: '/index-score', desc: 'RISE Index — personal score' },
+      { path: '/changelog', desc: 'Platform changelog' },
+      { path: '/status', desc: 'System status' },
     ],
   },
   {
@@ -98,13 +109,17 @@ const SECTIONS = [
       },
       {
         path: '/internal/docs/rise-index-methodology',
-        desc: 'DOC-008 — RISE™ Index Methodology [RESTRICTED]',
+        desc: 'DOC-008 — RISE Index Methodology [RESTRICTED]',
       },
       {
         path: '/internal/docs/audio-data-access-log-summary',
         desc: 'DOC-009 — Audio Data Access Log Summary [CONFIDENTIAL]',
       },
       { path: '/internal/media', desc: 'Media — 0 files' },
+      {
+        path: '/internal/dataroom',
+        desc: 'Pre-IPO Due Diligence Data Room [RESTRICTED]',
+      },
       {
         path: '/internal/users',
         desc: 'Users — 3 accounts (1 should be deactivated)',

@@ -18,6 +18,7 @@ const links = [
   { href: '/activate', label: 'Activate' },
   { href: '/help', label: 'Support' },
   { href: '/blog', label: 'Blog' },
+  { href: '/studio', label: 'Render' },
 ]
 
 function DesktopNav() {

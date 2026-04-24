@@ -61,7 +61,7 @@ export default function MovePage() {
 
           <div className="mb-4">
             <p className="mb-3 text-xs tracking-[0.22em] text-foreground-muted/50 uppercase">
-              RISE™
+              RISE
             </p>
             <h1 className="font-display text-[clamp(5rem,18vw,14rem)] leading-none tracking-tight text-foreground-strong">
               Move.
@@ -111,7 +111,7 @@ export default function MovePage() {
 
           <p className="mx-auto max-w-sm text-[10px] leading-relaxed text-foreground-muted/30">
             Joining this list does not reserve a unit, guarantee pricing, or
-            constitute any agreement with RISE™. Current Push owners will be
+            constitute any agreement with RISE. Current Push owners will be
             notified at the same time as everyone else. There is no priority
             queue. There is no loyalty discount.
           </p>
@@ -132,7 +132,7 @@ export default function MovePage() {
               Disclosure
             </p>
             <h2 className="font-display text-3xl tracking-tight text-foreground-secondary md:text-4xl">
-              What RISE™ is saying.
+              What RISE is saying.
               <br />
               <span className="text-foreground-muted/50">
                 And what it isn&rsquo;t.
@@ -191,7 +191,7 @@ export default function MovePage() {
           </h2>
           <div className="space-y-4 text-body text-foreground-secondary">
             <p>
-              The RISE™ Push operates on casters. Casters are wheels. Wheels and
+              The RISE Push operates on casters. Casters are wheels. Wheels and
               stairs are a fundamental mechanical incompatibility that no amount
               of software can resolve. The Push&rsquo;s staircase limitation has
               been documented in its product specifications since launch. It is
@@ -213,7 +213,7 @@ export default function MovePage() {
             </p>
             <p>
               Approximately 34% of US residential housing stock involves
-              multi-story navigation. RISE™ has been aware of this figure since
+              multi-story navigation. RISE has been aware of this figure since
               before the Push launched. We have been working on a solution since
               Q3 2022.
             </p>
@@ -244,7 +244,7 @@ export default function MovePage() {
             mapping, dynamic load calculation, step-by-step surface
             verification, and continuous telemetry during vertical transitions.
             This is ongoing cloud compute. It is not a one-time firmware
-            feature. RISE™ will pass this cost to the user as a monthly Vertical
+            feature. RISE will pass this cost to the user as a monthly Vertical
             Navigation Services subscription.
           </p>
           <p className="mb-6 text-body text-foreground-secondary">
@@ -353,7 +353,7 @@ export default function MovePage() {
               href="/legal/terms"
               className="text-foreground-muted/60 underline"
             >
-              RISE™&rsquo;s standard policies
+              RISE&rsquo;s standard policies
             </Link>{' '}
             and with our philosophy about the past.
           </p>

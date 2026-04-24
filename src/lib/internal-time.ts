@@ -1,5 +1,5 @@
 // lib/internal-time.ts
-// Dynamic time utilities for the RISE™ Internal Document System
+// Dynamic time utilities for the RISE Internal Document System
 // Makes hardcoded "3h ago" strings feel alive by computing from real time
 
 /**

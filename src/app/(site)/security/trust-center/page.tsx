@@ -5,7 +5,7 @@ import { createMetadata } from '@/lib/metadata'
 export const metadata = createMetadata({
   title: 'Trust Center — Coming Soon',
   description:
-    'The RISE™ Trust Center is currently under development. Expected launch: Q4 2024.',
+    'The RISE Trust Center is currently under development. Expected launch: Q4 2024.',
   path: '/security/trust-center',
 })
 
@@ -29,14 +29,14 @@ export default function TrustCenterPage() {
       </h1>
 
       <p className="mt-4 max-w-md text-base leading-relaxed text-foreground-secondary">
-        The RISE™ Trust Center is being built to provide real-time visibility
+        The RISE Trust Center is being built to provide real-time visibility
         into our security posture, compliance certifications, and data handling
         practices — all in one place.
       </p>
 
       <p className="mt-6 max-w-sm text-body text-foreground-secondary">
         Our team is working to ensure the Trust Center meets the same standard
-        of excellence our customers expect from the RISE™ platform. We
+        of excellence our customers expect from the RISE platform. We
         appreciate your patience.
       </p>
 

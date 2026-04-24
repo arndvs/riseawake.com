@@ -8,15 +8,15 @@ const STEPS = [
       'Identify which of five request types applies to you before initiating anything.',
     detail: `Before initiating a data request, determine which type applies:
 
-Type A — Active Account Holder: Registered RISE™ account, device in active use
+Type A — Active Account Holder: Registered RISE account, device in active use
 Type B — Inactive Account Holder: Registered account, device no longer in use or transferred
 Type C — Former Account Holder: Account closed, device returned or resold
 Type D — Unregistered User: Used a device registered to another account
-Type E — Incidental Data Subject: Present in a RISE™-enabled environment without being a registered user
+Type E — Incidental Data Subject: Present in a RISE-enabled environment without being a registered user
 
 Type D and E requests require supplementary Form DSR-SUP-01, which requires a signed statement from the primary account holder. If the primary account holder is unwilling to provide this, a notarized statutory declaration with corroborating evidence of presence (visitor logs, key card records) is accepted.
 
-Type E applicants: RISE™ cannot confirm whether you appear in occupancy data without first receiving and processing a complete request. There is no way to determine whether a Type E request is necessary before submitting one. RISE™ recommends erring on the side of submission.`,
+Type E applicants: RISE cannot confirm whether you appear in occupancy data without first receiving and processing a complete request. There is no way to determine whether a Type E request is necessary before submitting one. RISE recommends erring on the side of submission.`,
     fee: null,
   },
   {
@@ -25,9 +25,9 @@ Type E applicants: RISE™ cannot confirm whether you appear in occupancy data w
     summary:
       'The Data Subject Request Form. Not available for download. Must be mailed to you.',
     detail: `Form DSR-01 is available by:
-— Written request to the RISE™ Data Processing Unit (allow 15–20 business days for postal delivery)
-— Calling the RISE™ Data Request Hotline and requesting a mailed form (Monday–Friday, 11:00am–11:30am Pacific Time — expected hold time 40–70 minutes — no callback option)
-— In person at RISE™ headquarters during Data Request Office Hours (third Tuesday of each quarter, 2:00–2:45pm Pacific Time, by appointment via hotline)
+— Written request to the RISE Data Processing Unit (allow 15–20 business days for postal delivery)
+— Calling the RISE Data Request Hotline and requesting a mailed form (Monday–Friday, 11:00am–11:30am Pacific Time — expected hold time 40–70 minutes — no callback option)
+— In person at RISE headquarters during Data Request Office Hours (third Tuesday of each quarter, 2:00–2:45pm Pacific Time, by appointment via hotline)
 
 DSR-01 is not available for download. It is not available by email. It is not available digitally. Photocopies are not accepted.
 
@@ -42,9 +42,9 @@ DSR-01 must be completed in black or dark blue ballpoint pen. Felt-tip, rollerba
     detail: `DSR-01 requires the following. All fields are mandatory. Partial submissions are rejected in full.
 
 ACCOUNT INFORMATION
-— Full legal name as it appears on the RISE™ account
-— RISE™ account email address
-— RISE™ account number (format RS-XXXXXXXX — located in your original account confirmation email)
+— Full legal name as it appears on the RISE account
+— RISE account email address
+— RISE account number (format RS-XXXXXXXX — located in your original account confirmation email)
 
 DEVICE INFORMATION
 — Full model name (located on the label affixed to the underside of the base frame, readable by lying on the floor beneath the bed with a light source and reading upward — the label is approximately 2 inches by 1 inch)
@@ -82,11 +82,11 @@ Reason 23 Curiosity Surcharge: +$25
 Audio Data (if requested):    +$200
 Expedited Processing:         +$150
 
-Payment accepted by certified check or money order only, payable to "RISE™ Technologies, Inc. — Data Processing Unit." Personal checks are not accepted. Credit card payment is not accepted for data requests.
+Payment accepted by certified check or money order only, payable to "RISE Technologies, Inc. — Data Processing Unit." Personal checks are not accepted. Credit card payment is not accepted for data requests.
 
-RISE™ acknowledges the irony of requiring credit card details for identity verification (Step 03) while not accepting credit card payment. These are separate matters.
+RISE acknowledges the irony of requiring credit card details for identity verification (Step 03) while not accepting credit card payment. These are separate matters.
 
-The processing fee is non-refundable under all circumstances, including rejection of the request, RISE™ determining the data does not exist, or the user deciding they no longer want the data after submission.`,
+The processing fee is non-refundable under all circumstances, including rejection of the request, RISE determining the data does not exist, or the user deciding they no longer want the data after submission.`,
     fee: 'From $35',
   },
   {
@@ -107,13 +107,13 @@ The processing fee is non-refundable under all circumstances, including rejectio
 Submit by certified mail with return receipt requested. Retain the tracking number.
 
 Submit to:
-RISE™ Technologies, Inc.
+RISE Technologies, Inc.
 Data Subject Request Processing Unit
 Attn: DSR Intake — Legal & Compliance
 [Current mailing address: call the Data Request Hotline]
 [Address subject to change without notice — confirm before mailing]
 
-If the package is lost in transit, the process restarts from Step 1. The processing fee is not refunded. RISE™ recommends photographing each page before mailing.`,
+If the package is lost in transit, the process restarts from Step 1. The processing fee is not refunded. RISE recommends photographing each page before mailing.`,
     fee: null,
   },
   {
@@ -121,11 +121,11 @@ If the package is lost in transit, the process restarts from Step 1. The process
     title: 'Receive Acknowledgment',
     summary:
       'Within 20–30 business days. By standard post. Includes your DSR Reference Number.',
-    detail: `Within 20–30 business days of receiving the package, RISE™ will send an acknowledgment letter by standard post. The acknowledgment confirms receipt and provides a DSR Reference Number. Retain this number — it is required for all future correspondence.
+    detail: `Within 20–30 business days of receiving the package, RISE will send an acknowledgment letter by standard post. The acknowledgment confirms receipt and provides a DSR Reference Number. Retain this number — it is required for all future correspondence.
 
-If no acknowledgment is received within 45 business days of mailing, call the Data Request Hotline (Monday–Friday, 11:00am–11:30am Pacific Time) to inquire. To inquire, provide your full legal name, RISE™ account number, certified mail tracking number, exact date mailed, and exact total weight of the package as declared to the postal service.
+If no acknowledgment is received within 45 business days of mailing, call the Data Request Hotline (Monday–Friday, 11:00am–11:30am Pacific Time) to inquire. To inquire, provide your full legal name, RISE account number, certified mail tracking number, exact date mailed, and exact total weight of the package as declared to the postal service.
 
-If the package is found incomplete upon review, RISE™ will mail a rejection letter specifying the deficiency. A new complete package must be submitted from Step 1. The processing fee from the rejected submission is not credited.`,
+If the package is found incomplete upon review, RISE will mail a rejection letter specifying the deficiency. A new complete package must be submitted from Step 1. The processing fee from the rejected submission is not credited.`,
     fee: null,
   },
   {
@@ -133,7 +133,7 @@ If the package is found incomplete upon review, RISE™ will mail a rejection le
     title: 'Complete Identity Verification Call',
     summary:
       'Scheduled by letter. Three time slots. One unregistered number. Cannot be rescheduled by phone.',
-    detail: `Following completeness review, RISE™ will send a scheduling letter offering three available time slots for your identity verification call. Select one slot by returning the letter within 10 business days. If no response: three slots forfeited, new letter sent (+15–20 business days).
+    detail: `Following completeness review, RISE will send a scheduling letter offering three available time slots for your identity verification call. Select one slot by returning the letter within 10 business days. If no response: three slots forfeited, new letter sent (+15–20 business days).
 
 The verification call will come from an unregistered number. You will be asked to verbally confirm:
 — Your DSR Reference Number
@@ -151,16 +151,16 @@ One failed verification attempt is permitted. Second failure voids the request. 
     number: '08',
     title: 'Wait for Processing',
     summary:
-      '90 business days. May be paused for additional information, active disputes, or RISE™ company holidays.',
+      '90 business days. May be paused for additional information, active disputes, or RISE company holidays.',
     detail: `Standard processing: 90 business days from verification call date.
 Expedited processing: 45 business days (+$150, by certified check, must arrive before processing begins).
 
 Processing may pause if:
 — Additional information is required (15 business days to respond — no response voids request, fee not refunded)
-— Any dispute with RISE™ is initiated during processing (resumes 30 days after resolution)
-— RISE™ company holidays (full schedule available in Appendix G — forthcoming)
+— Any dispute with RISE is initiated during processing (resumes 30 days after resolution)
+— RISE company holidays (full schedule available in Appendix G — forthcoming)
 
-During processing, RISE™ compiles the RISE™ Standard Data Package (RSDP) in .rsm format. The RSDP includes data RISE™ is required by applicable law to provide. It does not include: audio recordings (separate Audio Data Request Process — 18–24 months, $200 additional fee), relationship status inference history (under regulatory review), derived and inferred data (belongs to RISE™), or data shared with third parties (available from those parties directly — list of parties available within 180 days of written request for the list).`,
+During processing, RISE compiles the RISE Standard Data Package (RSDP) in .rsm format. The RSDP includes data RISE is required by applicable law to provide. It does not include: audio recordings (separate Audio Data Request Process — 18–24 months, $200 additional fee), relationship status inference history (under regulatory review), derived and inferred data (belongs to RISE), or data shared with third parties (available from those parties directly — list of parties available within 180 days of written request for the list).`,
     fee: null,
   },
   {
@@ -168,11 +168,11 @@ During processing, RISE™ compiles the RISE™ Standard Data Package (RSDP) in 
     title: 'Receive Your Data',
     summary:
       'USB drive by standard post. Data in .rsm format. Opening requires DataKit SDK.',
-    detail: `Upon processing completion, RISE™ mails the RSDP on a USB-A flash drive by standard post.
+    detail: `Upon processing completion, RISE mails the RSDP on a USB-A flash drive by standard post.
 
-The USB drive contains your data in .rsm format (RISE™ Standard Metric — proprietary).
+The USB drive contains your data in .rsm format (RISE Standard Metric — proprietary).
 
-Opening .rsm files requires RISE™ DataKit SDK:
+Opening .rsm files requires RISE DataKit SDK:
 — Compatible with select operating systems (not all operating systems are supported; not all versions of supported operating systems are supported)
 — Available at riseawake.com/sdk
 — Waitlist currently: 4,891 developers
@@ -191,9 +191,9 @@ The RSDP does not include audio recordings. Audio requires the Audio Data Reques
 
 Failure to return the Confirmation Card within 21 days voids the data package. The data on the USB drive is remotely wiped.
 
-A new request may be submitted from Step 1. The processing fee for the new submission is 50% of the standard fee — RISE™'s acknowledgment that you have already completed the process once.
+A new request may be submitted from Step 1. The processing fee for the new submission is 50% of the standard fee — RISE's acknowledgment that you have already completed the process once.
 
-RISE™ respectfully notes that if you have reached Step 10 and are considering not returning the Confirmation Card, this would be an unusual conclusion to a 6–18 month process. RISE™ recommends returning the card.`,
+RISE respectfully notes that if you have reached Step 10 and are considering not returning the Confirmation Card, this would be an unusual conclusion to a 6–18 month process. RISE recommends returning the card.`,
     fee: null,
   },
 ]
@@ -220,7 +220,7 @@ export default function DataRequestPage() {
             Request Process
           </h1>
           <p className="mb-4 max-w-xl text-body text-foreground-secondary">
-            RISE™ respects your right to access your personal data. We have
+            RISE respects your right to access your personal data. We have
             designed a thorough process to ensure your request is handled with
             the care it deserves.
           </p>
@@ -295,7 +295,7 @@ export default function DataRequestPage() {
               A final note.
             </p>
             <p className="mb-3 text-xs leading-8 text-foreground-muted">
-              RISE™ has designed this process to be thorough. Thoroughness
+              RISE has designed this process to be thorough. Thoroughness
               protects you. It also protects us. We recognize these interests
               are not always aligned. We have resolved that tension in the way
               we resolve most tensions: by proceeding.

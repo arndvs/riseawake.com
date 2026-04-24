@@ -18,7 +18,7 @@ const SPECS = [
 
 const FEATURES = [
   {
-    title: 'Graduated Discomfort Technology™',
+    title: 'Graduated Discomfort Technology',
     body: 'The Nudge introduced our proprietary 7-stage GDT system. Beginning 45 minutes before your target wake time, the sleeping surface would imperceptibly increase surface resistance, reducing ambient comfort by approximately 12% per stage. By stage 7, remaining in bed required active commitment. We respected that commitment. We simply made it harder.',
   },
   {
@@ -251,7 +251,7 @@ export default function NudgePage() {
               </div>
 
               <p className="text-center text-[10px] leading-relaxed text-foreground-muted/30">
-                RISE™ does not offer trade-in credit for discontinued models.
+                RISE does not offer trade-in credit for discontinued models.
                 <br />
                 This is consistent with our philosophy about the past.
               </p>

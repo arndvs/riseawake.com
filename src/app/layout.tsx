@@ -1,11 +1,13 @@
+import ConvexClientProvider from '@/components/convex-client-provider'
 import { EasterEggs } from '@/components/easter-eggs'
+import { siteUrl } from '@/sanity/env'
 import { SanityLive } from '@/sanity/live'
 import { revalidateSyncTags } from '@/sanity/revalidateSyncTags'
-import { siteUrl } from '@/sanity/env'
 import '@/styles/tailwind.css'
+import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
-import { DM_Sans, DM_Serif_Display } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
+import { DM_Sans, DM_Serif_Display } from 'next/font/google'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -23,11 +25,11 @@ const dmSerifDisplay = DM_Serif_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    template: '%s — RISE™',
-    default: 'RISE™ — Smart Adjustable Base',
+    template: '%s — RISE',
+    default: 'RISE — Smart Adjustable Base',
   },
   description:
-    'For People Who Need A Little Push. The RISE™ Smart Adjustable Base.',
+    'For People Who Need A Little Push. The RISE Smart Adjustable Base.',
   alternates: {
     canonical: siteUrl,
     types: {
@@ -35,16 +37,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'RISE™ — Smart Adjustable Base',
+    title: 'RISE — Smart Adjustable Base',
     description: 'For People Who Need A Little Push.',
     url: siteUrl,
-    siteName: 'RISE™',
+    siteName: 'RISE',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RISE™ — Smart Adjustable Base',
+    title: 'RISE — Smart Adjustable Base',
     description: 'For People Who Need A Little Push.',
   },
   robots: {
@@ -61,13 +63,21 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${dmSerifDisplay.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${dmSans.variable} ${dmSerifDisplay.variable}`}
+      suppressHydrationWarning
+    >
       <body className="bg-page text-foreground antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-          <EasterEggs />
-          <SanityLive revalidateSyncTags={revalidateSyncTags} />
-        </ThemeProvider>
+        <ClerkProvider afterSignOutUrl="/studio">
+          <ConvexClientProvider>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              {children}
+              <EasterEggs />
+              <SanityLive revalidateSyncTags={revalidateSyncTags} />
+            </ThemeProvider>
+          </ConvexClientProvider>
+        </ClerkProvider>
       </body>
     </html>
   )

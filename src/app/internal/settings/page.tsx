@@ -127,7 +127,7 @@ export default function SettingsPage() {
   return (
     <PayloadShell
       breadcrumb={[
-        { label: 'RISE™ Internal', href: '/internal' },
+        { label: 'RISE Internal', href: '/internal' },
         { label: 'Settings' },
       ]}
       title="Settings"

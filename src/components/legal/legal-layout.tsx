@@ -117,7 +117,7 @@ export function LegalLayout({
             {title}
           </h1>
           <p className="mb-10 text-xs text-foreground-muted/50">
-            {version} · Last updated {lastUpdated} · RISE™ Technologies, Inc.
+            {version} · Last updated {lastUpdated} · RISE Technologies, Inc.
           </p>
 
           <div className="legal-content">{children}</div>
@@ -181,8 +181,8 @@ export function AcceptanceClause() {
   return (
     <div className="mt-16 border-t border-edge-subtle pt-8 text-xs leading-loose text-foreground-muted">
       <p className="mb-3">
-        By using RISE™ products, accessing RISE™ services, sleeping within range
-        of a RISE™ device, being present in a residence where a RISE™ device is
+        By using RISE products, accessing RISE services, sleeping within range
+        of a RISE device, being present in a residence where a RISE device is
         registered, or interacting with someone who has accepted these terms,
         you have accepted these terms.
       </p>
