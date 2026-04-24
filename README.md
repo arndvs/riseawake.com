@@ -18,7 +18,7 @@ This repository contains the full riseawake.com web platform: consumer product p
 | --------- | --------------------------------------------------------------- |
 | Framework | [Next.js 16](https://nextjs.org) (App Router, React 19)        |
 | Styling   | [Tailwind CSS v4](https://tailwindcss.com)                      |
-| CMS       | [Sanity v5](https://www.sanity.io) (blog, Studio at `/studio`) |
+| CMS       | [Sanity v5](https://www.sanity.io) (blog, Studio at `/cms`) |
 | Charts    | [Recharts](https://recharts.org) (investor financials)          |
 | UI        | [Headless UI](https://headlessui.dev)                           |
 | Hosting   | [Vercel](https://vercel.com)                                    |

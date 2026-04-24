@@ -28,7 +28,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/internal/', '/remote/', '/studio/', '/cms/', '/api/'],
+        disallow: ['/internal', '/internal/', '/remote', '/remote/', '/studio', '/studio/', '/cms', '/cms/', '/api', '/api/'],
       },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,

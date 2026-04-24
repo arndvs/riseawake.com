@@ -14,15 +14,20 @@ function getRecord(): AllocationRecord {
 
   if (!raw) return { date: new Date().toISOString().slice(0, 10), used: 0 }
 
-  const record = JSON.parse(raw) as AllocationRecord
-  const today = new Date().toISOString().slice(0, 10)
+  try {
+    const record = JSON.parse(raw) as AllocationRecord
+    const today = new Date().toISOString().slice(0, 10)
 
-  if (record.date !== today) return { date: today, used: 0 }
+    if (record.date !== today) return { date: today, used: 0 }
 
-  return record
+    return record
+  } catch {
+    return { date: new Date().toISOString().slice(0, 10), used: 0 }
+  }
 }
 
 function saveRecord(record: AllocationRecord): void {
+  if (typeof window === 'undefined') return
   localStorage.setItem(STORAGE_KEY, JSON.stringify(record))
 }
 

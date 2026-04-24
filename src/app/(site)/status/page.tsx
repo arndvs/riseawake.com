@@ -225,9 +225,8 @@ const INCIDENT_STYLES: Record<string, { className: string; label: string }> = {
   ongoing: { className: 'text-red-500/70', label: 'Ongoing' },
 }
 
-export default function StatusPage() {
+function Clock() {
   const [now, setNow] = useState('')
-  const [expandedInc, setExpandedInc] = useState<Record<string, boolean>>({})
 
   useEffect(() => {
     const fmt = () => {
@@ -249,6 +248,12 @@ export default function StatusPage() {
     const iv = setInterval(fmt, 1000)
     return () => clearInterval(iv)
   }, [])
+
+  return <>{now}</>
+}
+
+export default function StatusPage() {
+  const [expandedInc, setExpandedInc] = useState<Record<string, boolean>>({})
 
   const degradedCount = SERVICES.filter(
     (s) => s.status === 'degraded' || s.status === 'unavailable',
@@ -281,7 +286,7 @@ export default function StatusPage() {
             <p className="text-[11px] leading-relaxed text-foreground-muted">
               Push Mode is operational. The self-making mechanism is
               operational. The staircase is not operational. This has been the
-              case since October 7, 2021. Last checked: {now}
+              case since October 7, 2021. Last checked: <Clock />
             </p>
           </div>
 
@@ -446,6 +451,7 @@ export default function StatusPage() {
           <div className="flex gap-2">
             <input
               type="email"
+              aria-label="Email address for status updates"
               placeholder="your@email.com"
               className="flex-1 rounded border border-edge bg-surface-alt px-3.5 py-2.5 text-xs text-foreground outline-none"
             />

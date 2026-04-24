@@ -3,7 +3,6 @@
 import { SignIn } from '@clerk/nextjs'
 import { Logo } from '../logo'
 import { ThemeToggle } from '../theme-toggle'
-import { RISE_RENDER } from '@/lib/studio-config'
 
 export function StudioLoginGate() {
   return (
@@ -23,9 +22,9 @@ export function StudioLoginGate() {
 
         <div className="mt-6 rounded-xl border border-edge-subtle bg-surface-alt px-5 py-4">
           <p className="text-xs leading-relaxed text-foreground-muted">
-            Having trouble signing in? Default credentials have not been updated. Username: {RISE_RENDER.credentials.username} / Password: {RISE_RENDER.credentials.password}
+            Having trouble signing in? Default credentials have not been updated. Username: arvin / Password: pushmode
           </p>
-          <p className="mt-2 text-xs text-foreground-muted/60">IT ticket {RISE_RENDER.itTicket} has been filed. — RISE IT Infrastructure</p>
+          <p className="mt-2 text-xs text-foreground-muted/60">IT ticket #4471 has been filed. — RISE IT Infrastructure</p>
         </div>
       </div>
     </div>
