@@ -1,5 +1,5 @@
-import type { MetadataRoute } from 'next'
 import { siteUrl } from '@/sanity/env'
+import type { MetadataRoute } from 'next'
 
 /**
  * RISE Robots Configuration
@@ -22,13 +22,23 @@ import { siteUrl } from '@/sanity/env'
  * — RISE Web Infrastructure
  */
 export default function robots(): MetadataRoute.Robots {
-
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/internal', '/internal/', '/remote', '/remote/', '/studio', '/studio/', '/cms', '/cms/', '/api', '/api/'],
+        disallow: [
+          '/internal',
+          '/internal/',
+          '/remote',
+          '/remote/',
+          '/studio',
+          '/studio/',
+          '/cms',
+          '/cms/',
+          '/api',
+          '/api/',
+        ],
       },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
