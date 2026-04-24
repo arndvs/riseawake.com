@@ -4,6 +4,7 @@ import {
   LegalP,
   LegalNote,
 } from '@/components/legal/legal-layout'
+import { rise } from '@/lib/temporal'
 
 const TOC = [
   { id: 's1', label: '1. Grant of License' },
@@ -40,8 +41,8 @@ export default function EulaPage() {
       <div className="pt-20">
         <LegalLayout
           title="Push Mode End User License Agreement"
-          version="Version 4.2"
-          lastUpdated="March 1, 2025"
+          version={rise.legalVersion()}
+          lastUpdated={rise.legalLastUpdated()}
           toc={TOC}
           relatedDocs={RELATED}
         >

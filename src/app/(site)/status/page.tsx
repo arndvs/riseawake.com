@@ -383,6 +383,8 @@ export default function StatusPage() {
                         [inc.id]: !e[inc.id],
                       }))
                     }
+                    aria-expanded={open}
+                    aria-controls={`incident-${inc.id}`}
                     className="w-full cursor-pointer border-none bg-transparent p-4 text-left"
                   >
                     <div className="flex items-start gap-2.5">
