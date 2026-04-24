@@ -5,6 +5,8 @@ import { Navbar } from '@/components/navbar'
 import Link from 'next/link'
 import { rise } from '@/lib/temporal'
 
+export const dynamic = 'force-dynamic'
+
 const SECTIONS = [
   {
     label: 'Consumer',

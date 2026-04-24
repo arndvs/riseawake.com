@@ -189,20 +189,35 @@ export function yoyGrowth(fy: number): string {
 
 // ━━ ADMIN DATES (relative to now — never go stale) ━━━━━━━━━━━━━━━━━━━━━━━━
 
-/**
- * Legal "last updated" date. Always the 1st of a recent month (1–4 months ago).
- * Deterministic for a given day so it doesn't flicker on re-render.
- */
-export function legalLastUpdated(): string {
-    const now = new Date()
-    const daySeed = now.getFullYear() * 400 + now.getMonth() * 32 + now.getDate()
-    const monthsAgo = (daySeed % 4) + 1
-    const date = new Date(now.getFullYear(), now.getMonth() - monthsAgo, 1)
+// Shared formatters for admin date functions
+function formatLongDate(date: Date): string {
     return date.toLocaleDateString('en-US', {
         month: 'long',
         day: 'numeric',
         year: 'numeric',
     })
+}
+
+function formatMonthYear(date: Date): string {
+    return date.toLocaleDateString('en-US', {
+        month: 'long',
+        year: 'numeric',
+    })
+}
+
+/** Deterministic "recent month start" seeded by the current date. */
+function seededRecentMonthStart(now: Date, min: number, max: number): Date {
+    const daySeed = now.getFullYear() * 400 + now.getMonth() * 32 + now.getDate()
+    const monthsAgo = (daySeed % (max - min + 1)) + min
+    return new Date(now.getFullYear(), now.getMonth() - monthsAgo, 1)
+}
+
+/**
+ * Legal "last updated" date. Always the 1st of a recent month (1–4 months ago).
+ * Deterministic for a given day so it doesn't flicker on re-render.
+ */
+export function legalLastUpdated(): string {
+    return formatLongDate(seededRecentMonthStart(new Date(), 1, 4))
 }
 
 /**
@@ -225,12 +240,7 @@ export function jobPostedDate(jobId: string): string {
         hash = ((hash << 5) - hash + jobId.charCodeAt(i)) | 0
     }
     const daysAgo = (Math.abs(hash) % 56) + 14 // 2–10 weeks ago
-    const date = new Date(Date.now() - daysAgo * 86_400_000)
-    return date.toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-    })
+    return formatLongDate(new Date(Date.now() - daysAgo * 86_400_000))
 }
 
 /**
@@ -238,14 +248,7 @@ export function jobPostedDate(jobId: string): string {
  * Stable per calendar month.
  */
 export function sdkLastUpdated(): string {
-    const now = new Date()
-    const monthSeed = now.getFullYear() * 12 + now.getMonth()
-    const monthsAgo = (monthSeed % 3) + 1
-    const date = new Date(now.getFullYear(), now.getMonth() - monthsAgo, 1)
-    return date.toLocaleDateString('en-US', {
-        month: 'long',
-        year: 'numeric',
-    })
+    return formatMonthYear(seededRecentMonthStart(new Date(), 1, 3))
 }
 
 /**
@@ -256,12 +259,7 @@ export function sitemapGeneratedDate(): string {
     const now = new Date()
     const weekSeed = Math.floor(now.getTime() / (7 * 86_400_000))
     const daysAgo = (weekSeed % 14) + 7 // 1-3 weeks ago
-    const date = new Date(Date.now() - daysAgo * 86_400_000)
-    return date.toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-    })
+    return formatLongDate(new Date(Date.now() - daysAgo * 86_400_000))
 }
 
 /**
@@ -269,12 +267,7 @@ export function sitemapGeneratedDate(): string {
  */
 export function sitemapNextReview(): string {
     const now = new Date()
-    const date = new Date(now.getFullYear(), now.getMonth() + 3, 1)
-    return date.toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-    })
+    return formatLongDate(new Date(now.getFullYear(), now.getMonth() + 3, 1))
 }
 
 /**
@@ -287,12 +280,7 @@ export function sitemapNotificationDate(): string {
     const weekSeed = Math.floor(now.getTime() / (7 * 86_400_000))
     const genDaysAgo = (weekSeed % 14) + 7
     const notifyDaysAgo = genDaysAgo + 14 + (weekSeed % 7) // 2-3 weeks earlier
-    const date = new Date(Date.now() - notifyDaysAgo * 86_400_000)
-    return date.toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-    })
+    return formatLongDate(new Date(Date.now() - notifyDaysAgo * 86_400_000))
 }
 
 // ━━ CHART DATA BUILDERS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

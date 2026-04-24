@@ -1,12 +1,9 @@
 import { Link } from '@/components/link'
 import { rise } from '@/lib/temporal'
 
-const LEGAL_V = rise.legalVersion().replace('Version ', 'v')
-
 const DOCS = [
   {
     title: 'Terms of Service',
-    version: LEGAL_V,
     sections: '25 sections',
     desc: 'The foundational agreement governing your use of RISE™ products and services. Everything else refers back to this.',
     href: '/legal/terms',
@@ -14,7 +11,6 @@ const DOCS = [
   },
   {
     title: 'Privacy Policy',
-    version: LEGAL_V,
     sections: '31 sections',
     desc: 'A comprehensive account of the data RISE™ collects, retains, shares, and acts upon. Includes audio, occupancy, and inferred behavioral data.',
     href: '/legal/privacy',
@@ -22,7 +18,6 @@ const DOCS = [
   },
   {
     title: 'Push Mode EULA',
-    version: LEGAL_V,
     sections: '19 sections',
     desc: "The End User License Agreement governing Push Mode. Covers license scope, modification rights, and the acknowledgment that Push Mode has no off switch.",
     href: '/legal/push-mode-eula',
@@ -30,7 +25,6 @@ const DOCS = [
   },
   {
     title: 'Sleep & Environmental Data Policy',
-    version: LEGAL_V,
     sections: '14 sections',
     desc: 'The bedroom-specific data policy. Covers occupancy detection, relationship status inference, audio classification, and the 2,048-sensor pressure array.',
     href: '/legal/sleep-data-policy',
@@ -38,7 +32,6 @@ const DOCS = [
   },
   {
     title: 'Autonomous Navigation Disclosure',
-    version: LEGAL_V,
     sections: '11 sections',
     desc: "Covers the Push's solo return commute, third-party encounters, traffic interactions, elevator use, and allocation of liability for autonomous navigation incidents.",
     href: '/legal/autonomous-navigation',
@@ -46,7 +39,6 @@ const DOCS = [
   },
   {
     title: 'General Disclaimer',
-    version: LEGAL_V,
     sections: '8 sections',
     desc: 'Limitations of liability covering physical harm scenarios, the liability cap calculation, and the relationship between the liability cap and the RISE™ Index.',
     href: '/legal/disclaimer',
@@ -55,6 +47,8 @@ const DOCS = [
 ]
 
 export default function LegalHubPage() {
+  const LEGAL_V = rise.legalVersion().replace('Version ', 'v')
+
   return (
     <main>
 
@@ -91,7 +85,7 @@ export default function LegalHubPage() {
                     </h2>
                     <div className="flex shrink-0 items-center gap-2">
                       <span className="rounded-xl border border-edge-subtle bg-foreground/4 px-2 py-0.5 text-[10px] text-foreground-muted/50">
-                        {doc.version}
+                        {LEGAL_V}
                       </span>
                       <span className="text-[10px] text-foreground-muted/40">
                         {doc.sections}

@@ -1,5 +1,7 @@
 import { createMetadata } from '@/lib/metadata'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = createMetadata({
   title: 'Investor Relations',
   description:

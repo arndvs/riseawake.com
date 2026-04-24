@@ -5,21 +5,6 @@ import {
 import { Link } from '@/components/link'
 import { rise } from '@/lib/temporal'
 
-const METRICS = [
-  { stat: rise.revenue(), label: `${rise.latestFY()} Revenue`, note: `${rise.yoyGrowth()} year-over-year` },
-  {
-    stat: rise.waitlist(),
-    label: 'Active Waitlist',
-    note: 'Demand constraint. By design.',
-  },
-  { stat: rise.margin(), label: 'Gross Margin', note: rise.latestFY() },
-  {
-    stat: '98%',
-    label: 'Push Mode Compliance',
-    note: 'vs. 74% Nudge generation',
-  },
-]
-
 const NEWS = [
   {
     date: 'April 2, 2025',
@@ -79,6 +64,21 @@ const QUICK_LINKS = [
 ]
 
 export default function InvestorsPage() {
+  const METRICS = [
+    { stat: rise.revenue(), label: `${rise.latestFY()} Revenue`, note: `${rise.yoyGrowth()} year-over-year` },
+    {
+      stat: rise.waitlist(),
+      label: 'Active Waitlist',
+      note: 'Demand constraint. By design.',
+    },
+    { stat: rise.margin(), label: 'Gross Margin', note: rise.latestFY() },
+    {
+      stat: '98%',
+      label: 'Push Mode Compliance',
+      note: 'vs. 74% Nudge generation',
+    },
+  ]
+
   return (
     <InvestorLayout>
       <section className="px-6 pt-24 pb-16">

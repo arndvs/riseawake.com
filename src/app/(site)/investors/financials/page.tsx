@@ -7,10 +7,8 @@ import {
   npsChartData,
   latestMetrics,
   formatFYLabel,
-  formatFYShort,
   formatRevenue,
   latestFiscalYear,
-  yoyGrowth,
 } from '@/lib/temporal'
 import {
   BarChart,
@@ -24,13 +22,6 @@ import {
   ResponsiveContainer,
   ReferenceLine,
 } from 'recharts'
-
-const REVENUE_DATA = revenueChartData()
-const WAITLIST_DATA = waitlistChartData()
-const NPS_DATA = npsChartData()
-const LATEST = latestMetrics()
-const LATEST_FY = formatFYLabel(latestFiscalYear())
-const LATEST_FY_SHORT = formatFYShort(latestFiscalYear())
 
 const ACTIVE_MARKETS = [
   'United States',
@@ -68,6 +59,12 @@ const tooltipStyle = {
 } as const
 
 export default function FinancialsPage() {
+  const REVENUE_DATA = revenueChartData()
+  const WAITLIST_DATA = waitlistChartData()
+  const NPS_DATA = npsChartData()
+  const LATEST = latestMetrics()
+  const LATEST_FY = formatFYLabel(latestFiscalYear())
+
   return (
     <InvestorLayout>
       <section className="px-6 py-16">
@@ -289,7 +286,7 @@ export default function FinancialsPage() {
                 <p className="font-display text-3xl text-foreground-strong">
                   {LATEST.npsRange[1]}{' '}
                   <span className="text-base text-foreground-muted">
-                    Q3 {String(latestFiscalYear()).slice(2)}
+                    Q3 {LATEST_FY.slice(2)}
                   </span>
                 </p>
               </div>
