@@ -4,6 +4,7 @@ import {
   LegalP,
   LegalNote,
 } from '@/components/legal/legal-layout'
+import { rise } from '@/lib/temporal'
 
 const TOC = [
   { id: 's1', label: '1. General Disclaimer' },
@@ -28,8 +29,8 @@ export default function DisclaimerPage() {
       <div className="pt-20">
         <LegalLayout
           title="General Disclaimer"
-          version="Version 4.2"
-          lastUpdated="March 1, 2025"
+          version={rise.legalVersion()}
+          lastUpdated={rise.legalLastUpdated()}
           toc={TOC}
           relatedDocs={RELATED}
         >

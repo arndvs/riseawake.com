@@ -4,6 +4,7 @@ import {
   LegalP,
   LegalSection,
 } from '@/components/legal/legal-layout'
+import { rise } from '@/lib/temporal'
 
 const TOC = [
   { id: 's1', label: '1. Scope' },
@@ -31,8 +32,8 @@ export default function AutonomousNavPage() {
       <div className="pt-20">
         <LegalLayout
           title="Autonomous Navigation Disclosure"
-          version="Version 4.2"
-          lastUpdated="March 1, 2025"
+          version={rise.legalVersion()}
+          lastUpdated={rise.legalLastUpdated()}
           toc={TOC}
           relatedDocs={RELATED}
         >

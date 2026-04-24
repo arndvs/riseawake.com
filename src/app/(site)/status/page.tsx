@@ -181,25 +181,25 @@ const STATUS_STYLES: Record<
   { dot: string; label: string; badge: string; detailText: string }
 > = {
   operational: {
-    dot: 'bg-emerald-500',
+    dot: 'bg-emerald-500 text-emerald-500',
     label: 'Operational',
     badge: 'bg-emerald-500/8 text-emerald-500/80',
     detailText: 'text-foreground-muted',
   },
   degraded: {
-    dot: 'bg-yellow-500',
+    dot: 'bg-yellow-500 text-yellow-500',
     label: 'Degraded',
     badge: 'bg-yellow-500/8 text-yellow-500/80',
     detailText: 'text-yellow-500/60',
   },
   maintenance: {
-    dot: 'bg-accent',
+    dot: 'bg-accent text-accent',
     label: 'Maintenance',
     badge: 'bg-accent/8 text-accent/80',
     detailText: 'text-accent/60',
   },
   unavailable: {
-    dot: 'bg-red-500/70',
+    dot: 'bg-red-500/70 text-red-500/70',
     label: 'Unavailable',
     badge: 'bg-red-500/6 text-red-500/60',
     detailText: 'text-foreground-muted',
@@ -227,7 +227,9 @@ export default function StatusPage() {
           hour: '2-digit',
           minute: '2-digit',
           second: '2-digit',
-        }) + ' UTC',
+          timeZone: 'UTC',
+          timeZoneName: 'short',
+        }),
       )
     }
     fmt()
@@ -302,9 +304,13 @@ export default function StatusPage() {
                 <div
                   key={svc.name}
                   className={`rounded border p-4 ${
-                    svc.status !== 'operational'
-                      ? `border-${svc.status === 'maintenance' ? 'accent/10' : svc.status === 'unavailable' ? 'red-500/10' : 'yellow-500/10'}`
-                      : 'border-edge-subtle'
+                    svc.status === 'maintenance'
+                      ? 'border-accent/10'
+                      : svc.status === 'unavailable'
+                        ? 'border-red-500/10'
+                        : svc.status === 'degraded'
+                          ? 'border-yellow-500/10'
+                          : 'border-edge-subtle'
                   } bg-surface-alt`}
                 >
                   <div className="flex items-start gap-3">
@@ -372,6 +378,8 @@ export default function StatusPage() {
                         [inc.id]: !e[inc.id],
                       }))
                     }
+                    aria-expanded={open}
+                    aria-controls={`incident-${inc.id}`}
                     className="w-full cursor-pointer border-none bg-transparent p-4 text-left"
                   >
                     <div className="flex items-start gap-2.5">
@@ -394,7 +402,7 @@ export default function StatusPage() {
                     </div>
                   </button>
                   {open && (
-                    <div className="border-t border-edge-subtle px-4 pb-4">
+                    <div id={`incident-${inc.id}`} className="border-t border-edge-subtle px-4 pb-4">
                       <p className="mt-3 text-[11px] leading-relaxed text-foreground-muted">
                         {inc.detail}
                       </p>

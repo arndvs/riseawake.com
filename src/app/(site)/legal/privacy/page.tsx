@@ -5,6 +5,7 @@ import {
   LegalP,
   LegalSection,
 } from '@/components/legal/legal-layout'
+import { rise } from '@/lib/temporal'
 
 const TOC = [
   { id: 's1', label: '1. Introduction' },
@@ -53,8 +54,8 @@ export default function PrivacyPage() {
       <div className="pt-20">
         <LegalLayout
           title="Privacy Policy"
-          version="Version 4.2"
-          lastUpdated="March 1, 2025"
+          version={rise.legalVersion()}
+          lastUpdated={rise.legalLastUpdated()}
           toc={TOC}
           relatedDocs={RELATED}
         >
