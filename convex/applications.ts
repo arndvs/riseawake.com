@@ -1,7 +1,7 @@
 import { v } from 'convex/values'
-import { internalMutation, mutation, query } from './_generated/server'
+import { mutation, query } from './_generated/server'
 
-export const submitApplication = internalMutation({
+export const submitApplication = mutation({
   args: {
     roleId: v.string(),
     roleTitle: v.string(),
