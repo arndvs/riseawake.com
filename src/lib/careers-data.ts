@@ -15,11 +15,7 @@ export const RESUME_ACCEPT = '.pdf,.doc,.docx'
 // ─── Types ──────────────────────────────────────────────────────────────────
 
 export type ExperienceLevel = 'entry' | 'mid' | 'senior' | 'staff'
-export type Availability =
-  | 'immediate'
-  | '2_weeks'
-  | '1_month'
-  | 'negotiable'
+export type Availability = 'immediate' | '2_weeks' | '1_month' | 'negotiable'
 
 export type RoleSpecificFieldType =
   | 'text'
@@ -107,14 +103,16 @@ const ENG_002_FIELDS: RoleSpecificField[] = [
     label: 'Sensor time-series data experience',
     type: 'textarea',
     required: true,
-    placeholder: 'Describe your experience with sensor or IoT time-series data at scale',
+    placeholder:
+      'Describe your experience with sensor or IoT time-series data at scale',
   },
   {
     id: 'privacyGovernanceExperience',
     label: 'Data privacy and governance experience',
     type: 'textarea',
     required: true,
-    placeholder: 'Describe your experience working with Legal on data governance',
+    placeholder:
+      'Describe your experience working with Legal on data governance',
   },
   {
     id: 'sensitiveAudioComfort',
@@ -148,7 +146,7 @@ const ENG_003_FIELDS: RoleSpecificField[] = [
   },
   {
     id: 'completedOthersCode',
-    label: "Have you completed code written by someone who left?",
+    label: 'Have you completed code written by someone who left?',
     type: 'boolean',
     required: true,
   },
@@ -236,7 +234,8 @@ const MKTG_001_FIELDS: RoleSpecificField[] = [
     label: 'Waitlist or pre-launch marketing experience',
     type: 'textarea',
     required: true,
-    placeholder: 'Describe your experience with scarcity-driven or pre-launch marketing',
+    placeholder:
+      'Describe your experience with scarcity-driven or pre-launch marketing',
   },
   {
     id: 'brandVoiceComfort',
@@ -278,8 +277,7 @@ const OPS_001_FIELDS: RoleSpecificField[] = [
   },
   {
     id: 'pushModePrincipalComfort',
-    label:
-      'Are you comfortable with a principal who uses Push Mode daily?',
+    label: 'Are you comfortable with a principal who uses Push Mode daily?',
     type: 'boolean',
     required: true,
   },

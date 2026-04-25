@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
 import { JOB_OPENINGS } from '@/lib/careers-data'
+import { useState } from 'react'
 
 const JOBS = JOB_OPENINGS
 
@@ -206,13 +206,13 @@ export default function CareersPage() {
             <p className="text-[11px] leading-relaxed text-foreground-muted">
               Click &ldquo;Apply for This Role&rdquo; on any listing above. The
               form asks for your information, role-specific questions, and an
-              optional resume. No cover letter required. One paragraph explaining
-              why you read the job description carefully. RISE reviews all
-              applications. Response time: 2–3 weeks. Phone screen, then
-              technical assessment, then panel interview. References checked.
-              Equity vesting: 4-year standard, 1-year cliff. Push Mode device
-              provided on day one of employment. Its use is encouraged. Its use
-              is not mandatory. That distinction matters to us.
+              optional resume. No cover letter required. One paragraph
+              explaining why you read the job description carefully. RISE
+              reviews all applications. Response time: 2–3 weeks. Phone screen,
+              then technical assessment, then panel interview. References
+              checked. Equity vesting: 4-year standard, 1-year cliff. Push Mode
+              device provided on day one of employment. Its use is encouraged.
+              Its use is not mandatory. That distinction matters to us.
             </p>
           </div>
         </div>
