@@ -495,6 +495,9 @@ export default function SDKPage() {
                       <p className="mt-1 text-xs text-foreground-muted/60">
                         Estimated wait: not available.
                       </p>
+                      <p className="mt-2 text-[9px] text-foreground-muted/40">
+                        Unsubscribing forfeits this position.
+                      </p>
                     </div>
                     <button
                       onClick={closeModal}
