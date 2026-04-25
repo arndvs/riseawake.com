@@ -9,6 +9,10 @@
  */
 
 import type * as applications from "../applications.js";
+import type * as media from "../media.js";
+import type * as mediaComments from "../mediaComments.js";
+import type * as projects from "../projects.js";
+import type * as promptCategories from "../promptCategories.js";
 
 import type {
   ApiFromModules,
@@ -18,6 +22,10 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   applications: typeof applications;
+  media: typeof media;
+  mediaComments: typeof mediaComments;
+  projects: typeof projects;
+  promptCategories: typeof promptCategories;
 }>;
 
 /**
