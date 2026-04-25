@@ -9,6 +9,8 @@ import { GenerationLoading } from './_components/generation-loading'
 import { PlaceholderGallery } from './_components/placeholder-gallery'
 import { SaveDialog } from './_components/save-dialog'
 import { Gallery } from './_components/gallery'
+import { CharacterSheetMode } from './_components/character-sheet-mode'
+import { User, FileText } from 'lucide-react'
 
 const isGenerationEnabled =
   process.env.NEXT_PUBLIC_GENERATION_ENABLED !== 'false'
@@ -31,6 +33,9 @@ export default function RenderPage() {
   const [kept, setKept] = useState<boolean[]>([false, false, false, false])
   const [error, setError] = useState<string | null>(null)
   const [savingSlot, setSavingSlot] = useState<number | null>(null)
+  const [promptMode, setPromptMode] = useState<'freeform' | 'character'>(
+    'freeform',
+  )
 
   // Allocation tracking (localStorage)
   const getAllocRemaining = useCallback(() => {
@@ -228,13 +233,50 @@ export default function RenderPage() {
             {/* Generate tab */}
             {activeTab === 'generate' && (
               <>
+                {/* Prompt mode toggle */}
+                <div className="mx-auto flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setPromptMode('freeform')}
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                      promptMode === 'freeform'
+                        ? 'bg-surface text-foreground border border-edge'
+                        : 'text-foreground-muted hover:text-foreground'
+                    }`}
+                  >
+                    <FileText className="size-3" />
+                    Freeform
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setPromptMode('character')}
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                      promptMode === 'character'
+                        ? 'bg-surface text-foreground border border-edge'
+                        : 'text-foreground-muted hover:text-foreground'
+                    }`}
+                  >
+                    <User className="size-3" />
+                    Character Sheet
+                  </button>
+                </div>
+
                 {/* Prompt Input */}
-                <PromptInput
-                  onGenerate={handleGenerate}
-                  isLoading={generationState === 'loading'}
-                  allocRemaining={getAllocRemaining()}
-                  error={error}
-                />
+                {promptMode === 'freeform' ? (
+                  <PromptInput
+                    onGenerate={handleGenerate}
+                    isLoading={generationState === 'loading'}
+                    allocRemaining={getAllocRemaining()}
+                    error={error}
+                  />
+                ) : (
+                  <CharacterSheetMode
+                    onGenerate={handleGenerate}
+                    isLoading={generationState === 'loading'}
+                    allocRemaining={getAllocRemaining()}
+                    error={error}
+                  />
+                )}
 
                 {/* Results / Loading / Placeholder */}
                 {generationState === 'loading' && <GenerationLoading />}
