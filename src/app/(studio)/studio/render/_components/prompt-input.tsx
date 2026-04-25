@@ -1,15 +1,17 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useQuery } from 'convex/react'
 import { api } from '../../../../../../convex/_generated/api'
 import { RISE_RENDER } from '@/lib/studio-config'
+import { findBannedWords } from '@/lib/banned-words'
 import { AdvancedOptions } from './advanced-options'
 import {
   Sparkles,
   ChevronDown,
   ChevronUp,
   AlertCircle,
+  ShieldAlert,
 } from 'lucide-react'
 
 type PromptInputProps = {
@@ -36,9 +38,13 @@ export function PromptInput({
 
   const categories = useQuery(api.promptCategories.listCategories, {})
 
+  const bannedMatches = useMemo(() => findBannedWords(prompt), [prompt])
+  const hasBannedWords = bannedMatches.length > 0
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!prompt.trim() || isLoading || allocRemaining <= 0) return
+    if (!prompt.trim() || isLoading || allocRemaining <= 0 || hasBannedWords)
+      return
     onGenerate(prompt.trim(), model)
   }
 
@@ -104,7 +110,12 @@ export function PromptInput({
           {/* Generate button */}
           <button
             type="submit"
-            disabled={!prompt.trim() || isLoading || allocRemaining <= 0}
+            disabled={
+              !prompt.trim() ||
+              isLoading ||
+              allocRemaining <= 0 ||
+              hasBannedWords
+            }
             className="inline-flex items-center gap-2 rounded-full bg-cta px-5 py-2 text-xs font-medium uppercase tracking-[0.14em] text-cta-on transition-colors hover:bg-cta-hover disabled:opacity-40 disabled:pointer-events-none"
           >
             <Sparkles className="size-3.5" />
@@ -119,6 +130,19 @@ export function PromptInput({
           categories={categories}
           onSelect={handleAdvancedSelect}
         />
+      )}
+
+      {/* Banned word warning */}
+      {hasBannedWords && (
+        <div className="mt-3 flex items-start gap-2 rounded-lg border border-red-500/30 bg-red-500/5 px-3 py-2">
+          <ShieldAlert className="mt-0.5 size-3.5 shrink-0 text-red-400" />
+          <p className="text-xs text-red-400">
+            Prohibited content detected:{' '}
+            <span className="font-medium">
+              {bannedMatches.join(', ')}
+            </span>
+          </p>
+        </div>
       )}
 
       {/* Allocation + error row */}

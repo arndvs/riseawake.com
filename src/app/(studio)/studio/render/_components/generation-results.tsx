@@ -1,6 +1,6 @@
 'use client'
 
-import { Check, RefreshCw, Save } from 'lucide-react'
+import { Check, Download, RefreshCw, Save } from 'lucide-react'
 import { Skeleton } from '@/components/ui/skeleton'
 
 type GenerationResultsProps = {
@@ -10,6 +10,19 @@ type GenerationResultsProps = {
   onKeep: (index: number) => void
   onRegenerate: (index: number) => void
   onSave: (index: number) => void
+}
+
+async function downloadImage(url: string, index: number) {
+  const res = await fetch(url)
+  const blob = await res.blob()
+  const objectUrl = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = objectUrl
+  a.download = `rise-render-${Date.now()}-${index + 1}.png`
+  document.body.appendChild(a)
+  a.click()
+  a.remove()
+  URL.revokeObjectURL(objectUrl)
 }
 
 export function GenerationResults({
@@ -33,7 +46,7 @@ export function GenerationResults({
           <div key={i} className="group relative">
             {url ? (
               <>
-                {/* Image */}
+                {/* Image with hover overlay */}
                 <div
                   className={`relative aspect-square overflow-hidden rounded-xl border-2 transition-colors ${
                     kept[i]
@@ -48,9 +61,16 @@ export function GenerationResults({
                     className="h-full w-full object-cover"
                   />
 
+                  {/* Hover overlay with prompt text */}
+                  <div className="absolute inset-0 flex items-end bg-black/60 opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+                    <p className="p-3 text-xs leading-relaxed text-white line-clamp-4">
+                      {prompt}
+                    </p>
+                  </div>
+
                   {/* Kept badge */}
                   {kept[i] && (
-                    <div className="absolute top-2 right-2 rounded-full bg-brand p-1">
+                    <div className="absolute top-2 right-2 z-10 rounded-full bg-brand p-1">
                       <Check className="size-3 text-brand-on" />
                     </div>
                   )}
@@ -79,6 +99,14 @@ export function GenerationResults({
                       <Save className="size-3" />
                     </button>
                   )}
+                  <button
+                    type="button"
+                    onClick={() => downloadImage(url, i)}
+                    className="flex items-center justify-center rounded-full border border-edge-subtle bg-surface-alt px-2.5 py-1.5 text-foreground-muted transition-colors hover:text-foreground"
+                    title="Download image"
+                  >
+                    <Download className="size-3" />
+                  </button>
                   <button
                     type="button"
                     onClick={() => onRegenerate(i)}
