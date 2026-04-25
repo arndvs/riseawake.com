@@ -265,11 +265,8 @@ async function main() {
 
   if (shouldReset) {
     console.log('Clearing existing fictional applications...')
-    const existing = await convex.query(api.applications.listApplications, {})
-    for (const app of existing) {
-      await convex.mutation(api.applications.deleteApplication, { id: app._id })
-    }
-    console.log(`  Deleted ${existing.length} existing entries.\n`)
+    const deleted = await convex.mutation(api.applications.clearFictionalApplications, {})
+    console.log(`  Deleted ${deleted} existing entries.\n`)
   }
 
   console.log(
@@ -278,38 +275,15 @@ async function main() {
 
   for (const app of FICTIONAL_APPLICATIONS) {
     const {
-      status,
-      breachFlag,
-      reviewedBy,
-      reviewNotes,
-      submittedAt,
-      fictional,
-      ...submitFields
+      fictional: _fictional,
+      ...seedFields
     } = app
 
-    // Insert via submitApplication (which sets fictional: false), then patch
-    const id = await convex.mutation(
-      api.applications.submitApplication,
-      submitFields,
-    )
-
-    // Patch with the narrative metadata
-    await convex.mutation(api.applications.updateApplicationStatus, {
-      id,
-      status,
-      breachFlag,
-      ...(reviewedBy ? { reviewedBy } : {}),
-      ...(reviewNotes ? { reviewNotes } : {}),
-    })
-
-    // Set fictional flag and correct the submittedAt timestamp
-    await convex.mutation(api.applications.setFictional, {
-      id,
-      fictional: true,
-    })
+    // Single atomic insert with all narrative metadata + fictional: true
+    await convex.mutation(api.applications.seedFictionalApplication, seedFields)
 
     console.log(
-      `  ✓ ${app.firstName} ${app.lastName} → ${app.roleId} [${status}]`,
+      `  ✓ ${app.firstName} ${app.lastName} → ${app.roleId} [${app.status}]`,
     )
   }
 

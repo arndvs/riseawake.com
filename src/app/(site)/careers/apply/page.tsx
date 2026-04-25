@@ -3,6 +3,8 @@
 import { useSearchParams, useRouter } from 'next/navigation'
 import { useState, useCallback, Suspense } from 'react'
 import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
 import { clsx } from 'clsx'
 import {
   getJobById,
@@ -15,20 +17,25 @@ import {
   type RoleSpecificField,
 } from '@/lib/careers-data'
 
+// ─── Schema ─────────────────────────────────────────────────────────────────
+
+const applicationSchema = z.object({
+  firstName: z.string().min(1, 'Required'),
+  lastName: z.string().min(1, 'Required'),
+  email: z.string().min(1, 'Required').email('Invalid email'),
+  phone: z.string().min(1, 'Required'),
+  experienceLevel: z.string().min(1, 'Required'),
+  availability: z.string().min(1, 'Required'),
+  whyJoinRise: z.string().min(1, 'Required'),
+  roleSpecificAnswers: z.record(z.string(), z.unknown()),
+  resume: z.any().optional(),
+  company: z.string().max(0, 'Bot detected'), // honeypot — must be empty
+})
+
 // ─── Types ──────────────────────────────────────────────────────────────────
 
-interface ApplicationFormData {
-  firstName: string
-  lastName: string
-  email: string
-  phone: string
-  experienceLevel: string
-  availability: string
-  whyJoinRise: string
-  roleSpecificAnswers: Record<string, unknown>
+type ApplicationFormData = z.infer<typeof applicationSchema> & {
   resume?: FileList
-  // Honeypot
-  company: string
 }
 
 // ─── Styles ─────────────────────────────────────────────────────────────────
@@ -176,19 +183,25 @@ function RoleField({
     case 'boolean':
       return (
         <div>
-          <label className="flex items-center gap-2.5 cursor-pointer">
-            <input
-              type="checkbox"
-              className="h-4 w-4 rounded border-edge accent-brand"
-              {...register(name as keyof ApplicationFormData, {
-                required: field.required ? 'Required' : false,
-              })}
-            />
-            <span className="text-[11px] text-foreground-secondary">
-              {field.label}
-              {field.required && <span className="text-red-500/60"> *</span>}
-            </span>
+          <label className={labelClass}>
+            {field.label}
+            {field.required && <span className="text-red-500/60"> *</span>}
           </label>
+          <div className="flex gap-4 mt-1.5">
+            {(['Yes', 'No'] as const).map((option) => (
+              <label key={option} className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="radio"
+                  value={option === 'Yes' ? 'true' : 'false'}
+                  className="accent-brand"
+                  {...register(name as keyof ApplicationFormData, {
+                    required: field.required ? 'Required' : false,
+                  })}
+                />
+                <span className="text-[11px] text-foreground-secondary">{option}</span>
+              </label>
+            ))}
+          </div>
           {error && <p className={errorClass}>{error.message}</p>}
         </div>
       )
@@ -254,8 +267,10 @@ function ApplicationForm({ job }: { job: JobOpening }) {
     watch,
     formState: { errors },
   } = useForm<ApplicationFormData>({
+    resolver: zodResolver(applicationSchema),
     defaultValues: {
       company: '', // honeypot
+      roleSpecificAnswers: {},
     },
   })
 
@@ -574,7 +589,7 @@ function ApplicationForm({ job }: { job: JobOpening }) {
               </p>
             )}
             {errors.resume && (
-              <p className={errorClass}>{errors.resume.message}</p>
+              <p className={errorClass}>{String(errors.resume.message ?? '')}</p>
             )}
           </div>
         </section>

@@ -1,3 +1,16 @@
+// ──────────────────────────────────────────────────────────────────────────────
+// AUTH: Intentionally unprotected.
+//
+// This dashboard only displays fictional (in-universe) applications seeded for
+// the startup theater narrative. The Convex `listApplications` query filters to
+// `fictional: true` — real submissions are never exposed. All status/flag
+// changes are cookie-based client-side overrides and do not mutate Convex.
+// Destructive mutations (delete, update status, set fictional) are registered
+// as `internalMutation` and are not callable from the public Internet.
+//
+// Decision: No auth required. Revisit if real PII is ever surfaced here.
+// ──────────────────────────────────────────────────────────────────────────────
+
 'use client'
 
 import { CmsShell, cmsfireToast } from '@/components/cms'
