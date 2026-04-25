@@ -1,6 +1,6 @@
 'use client'
 
-import { Check, RefreshCw } from 'lucide-react'
+import { Check, RefreshCw, Save } from 'lucide-react'
 import { Skeleton } from '@/components/ui/skeleton'
 
 type GenerationResultsProps = {
@@ -9,6 +9,7 @@ type GenerationResultsProps = {
   prompt: string
   onKeep: (index: number) => void
   onRegenerate: (index: number) => void
+  onSave: (index: number) => void
 }
 
 export function GenerationResults({
@@ -17,6 +18,7 @@ export function GenerationResults({
   prompt,
   onKeep,
   onRegenerate,
+  onSave,
 }: GenerationResultsProps) {
   return (
     <div className="mx-auto w-full max-w-4xl">
@@ -67,6 +69,16 @@ export function GenerationResults({
                   >
                     {kept[i] ? 'Kept' : 'Keep'}
                   </button>
+                  {kept[i] && (
+                    <button
+                      type="button"
+                      onClick={() => onSave(i)}
+                      className="flex items-center justify-center rounded-full bg-brand px-2.5 py-1.5 text-brand-on transition-colors hover:bg-brand-hover"
+                      title="Save to library"
+                    >
+                      <Save className="size-3" />
+                    </button>
+                  )}
                   <button
                     type="button"
                     onClick={() => onRegenerate(i)}

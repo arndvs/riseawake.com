@@ -7,6 +7,7 @@ import { PromptInput } from './_components/prompt-input'
 import { GenerationResults } from './_components/generation-results'
 import { GenerationLoading } from './_components/generation-loading'
 import { PlaceholderGallery } from './_components/placeholder-gallery'
+import { SaveDialog } from './_components/save-dialog'
 
 const isGenerationEnabled =
   process.env.NEXT_PUBLIC_GENERATION_ENABLED !== 'false'
@@ -26,6 +27,7 @@ export default function RenderPage() {
   const [model, setModel] = useState<'dall-e-3' | 'gpt-image-1'>('dall-e-3')
   const [kept, setKept] = useState<boolean[]>([false, false, false, false])
   const [error, setError] = useState<string | null>(null)
+  const [savingSlot, setSavingSlot] = useState<number | null>(null)
 
   // Allocation tracking (localStorage)
   const getAllocRemaining = useCallback(() => {
@@ -158,6 +160,14 @@ export default function RenderPage() {
     })
   }, [])
 
+  const handleSave = useCallback((slotIndex: number) => {
+    setSavingSlot(slotIndex)
+  }, [])
+
+  const handleSaved = useCallback(() => {
+    setSavingSlot(null)
+  }, [])
+
   const handleUsePrompt = useCallback(
     (samplePrompt: string) => {
       handleGenerate(samplePrompt, model)
@@ -204,11 +214,23 @@ export default function RenderPage() {
                 prompt={prompt}
                 onKeep={handleKeep}
                 onRegenerate={handleRegenerate}
+                onSave={handleSave}
               />
             )}
 
             {generationState === 'idle' && !error && (
               <PlaceholderGallery onUsePrompt={handleUsePrompt} />
+            )}
+
+            {/* Save dialog */}
+            {savingSlot !== null && images[savingSlot] && (
+              <SaveDialog
+                imageUrl={images[savingSlot]!}
+                prompt={prompt}
+                model={model}
+                onClose={() => setSavingSlot(null)}
+                onSaved={handleSaved}
+              />
             )}
           </>
         )}
