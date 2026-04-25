@@ -12,7 +12,7 @@ const resend = new Resend(process.env.RESEND_API_KEY!)
 const emailFrom =
   process.env.RESEND_FROM_EMAIL || 'RISE Awake <careers@riseawake.com>'
 
-const TEST_RECIPIENT = 'arndvs@gmail.com'
+const TEST_RECIPIENT = process.env.RESEND_NOTIFY_EMAIL || 'careers@riseawake.com'
 
 async function main() {
   const submittedAt = new Date().toLocaleDateString('en-US', {

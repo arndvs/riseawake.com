@@ -40,7 +40,7 @@ export function ApplicationNotificationEmail({
   whyJoinRise = 'I believe in the mission...',
   hasResume = true,
   resumeFileName = 'resume.pdf',
-  submittedAt = new Date().toLocaleDateString('en-US', {
+  submittedAt = new Date().toLocaleString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',

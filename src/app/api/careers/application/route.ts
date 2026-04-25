@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { ConvexHttpClient } from 'convex/browser'
 import { Resend } from 'resend'
 import { api } from '../../../../../convex/_generated/api'
+import type { Id } from '../../../../../convex/_generated/dataModel'
 import {
   getJobById,
   MAX_RESUME_SIZE,
@@ -91,7 +92,7 @@ export async function POST(request: NextRequest) {
     let resumeFileName: string | undefined
     let resumeFileSize: number | undefined
 
-    if (resumeFile && resumeFile.size > 0) {
+    if (resumeFile instanceof File && resumeFile.size > 0) {
       // Validate file size
       if (resumeFile.size > MAX_RESUME_SIZE) {
         return NextResponse.json(
@@ -152,7 +153,7 @@ export async function POST(request: NextRequest) {
       whyJoinRise,
       roleSpecificAnswers,
       ...(resumeStorageId
-        ? { resumeStorageId: resumeStorageId as any, resumeFileName, resumeFileSize }
+        ? { resumeStorageId: resumeStorageId as Id<'_storage'>, resumeFileName, resumeFileSize }
         : {}),
       ipAddress,
     })
