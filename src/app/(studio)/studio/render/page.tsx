@@ -8,13 +8,16 @@ import { GenerationResults } from './_components/generation-results'
 import { GenerationLoading } from './_components/generation-loading'
 import { PlaceholderGallery } from './_components/placeholder-gallery'
 import { SaveDialog } from './_components/save-dialog'
+import { Gallery } from './_components/gallery'
 
 const isGenerationEnabled =
   process.env.NEXT_PUBLIC_GENERATION_ENABLED !== 'false'
 
 type GenerationState = 'idle' | 'loading' | 'results'
+type ActiveTab = 'generate' | 'library'
 
 export default function RenderPage() {
+  const [activeTab, setActiveTab] = useState<ActiveTab>('generate')
   const [generationState, setGenerationState] =
     useState<GenerationState>('idle')
   const [images, setImages] = useState<(string | null)[]>([
@@ -196,42 +199,76 @@ export default function RenderPage() {
           </div>
         ) : (
           <>
-            {/* Prompt Input */}
-            <PromptInput
-              onGenerate={handleGenerate}
-              isLoading={generationState === 'loading'}
-              allocRemaining={getAllocRemaining()}
-              error={error}
-            />
+            {/* Tab switcher */}
+            <div className="mx-auto flex rounded-full border border-edge bg-surface-alt p-0.5">
+              <button
+                type="button"
+                onClick={() => setActiveTab('generate')}
+                className={`rounded-full px-6 py-2 text-xs font-medium uppercase tracking-[0.14em] transition-colors ${
+                  activeTab === 'generate'
+                    ? 'bg-brand text-brand-on'
+                    : 'text-foreground-muted hover:text-foreground'
+                }`}
+              >
+                Generate
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab('library')}
+                className={`rounded-full px-6 py-2 text-xs font-medium uppercase tracking-[0.14em] transition-colors ${
+                  activeTab === 'library'
+                    ? 'bg-brand text-brand-on'
+                    : 'text-foreground-muted hover:text-foreground'
+                }`}
+              >
+                Library
+              </button>
+            </div>
 
-            {/* Results / Loading / Placeholder */}
-            {generationState === 'loading' && <GenerationLoading />}
+            {/* Generate tab */}
+            {activeTab === 'generate' && (
+              <>
+                {/* Prompt Input */}
+                <PromptInput
+                  onGenerate={handleGenerate}
+                  isLoading={generationState === 'loading'}
+                  allocRemaining={getAllocRemaining()}
+                  error={error}
+                />
 
-            {generationState === 'results' && (
-              <GenerationResults
-                images={images}
-                kept={kept}
-                prompt={prompt}
-                onKeep={handleKeep}
-                onRegenerate={handleRegenerate}
-                onSave={handleSave}
-              />
+                {/* Results / Loading / Placeholder */}
+                {generationState === 'loading' && <GenerationLoading />}
+
+                {generationState === 'results' && (
+                  <GenerationResults
+                    images={images}
+                    kept={kept}
+                    prompt={prompt}
+                    onKeep={handleKeep}
+                    onRegenerate={handleRegenerate}
+                    onSave={handleSave}
+                  />
+                )}
+
+                {generationState === 'idle' && !error && (
+                  <PlaceholderGallery onUsePrompt={handleUsePrompt} />
+                )}
+
+                {/* Save dialog */}
+                {savingSlot !== null && images[savingSlot] && (
+                  <SaveDialog
+                    imageUrl={images[savingSlot]!}
+                    prompt={prompt}
+                    model={model}
+                    onClose={() => setSavingSlot(null)}
+                    onSaved={handleSaved}
+                  />
+                )}
+              </>
             )}
 
-            {generationState === 'idle' && !error && (
-              <PlaceholderGallery onUsePrompt={handleUsePrompt} />
-            )}
-
-            {/* Save dialog */}
-            {savingSlot !== null && images[savingSlot] && (
-              <SaveDialog
-                imageUrl={images[savingSlot]!}
-                prompt={prompt}
-                model={model}
-                onClose={() => setSavingSlot(null)}
-                onSaved={handleSaved}
-              />
-            )}
+            {/* Library tab */}
+            {activeTab === 'library' && <Gallery />}
           </>
         )}
       </div>
