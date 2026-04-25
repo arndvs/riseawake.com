@@ -1,5 +1,5 @@
 // lib/internal-tracker.ts
-// Persistent visitor breach tracker for the RISE Internal Document System
+// Persistent visitor breach tracker for the RISE™ Internal Document System
 // Stores accessed docs + visitor IP in localStorage.
 // The login is sessionStorage (ephemeral). The tracking is localStorage (permanent).
 // The asymmetry IS the joke.

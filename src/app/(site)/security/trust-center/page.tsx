@@ -14,12 +14,12 @@ export default function TrustCenterPage() {
     <main className="flex min-h-[80vh] flex-col items-center justify-center px-6 text-center">
       <Logo className="mb-10 h-7" />
 
-      <div className="mb-8 inline-flex items-center gap-2 rounded-xl border border-accent/20 bg-accent/8 px-3 py-1">
+      <div className="mb-8 inline-flex items-center gap-2 rounded-xl border border-brand/20 bg-brand/8 px-3 py-1">
         <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent/60" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-accent/80" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand/60" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-brand/80" />
         </span>
-        <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-accent">
+        <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-brand">
           In Development
         </span>
       </div>
@@ -59,7 +59,7 @@ export default function TrustCenterPage() {
         </Link>
         <Link
           href="/security/trust-center/notify"
-          className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/8 px-6 py-3 text-xs font-medium text-accent transition-colors duration-200 hover:bg-accent/12"
+          className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/8 px-6 py-3 text-xs font-medium text-brand transition-colors duration-200 hover:bg-brand/12"
         >
           Notify Me at Launch
           <span aria-hidden="true">→</span>

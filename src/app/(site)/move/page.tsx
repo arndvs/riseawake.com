@@ -87,7 +87,7 @@ export default function MovePage() {
                 placeholder="your@email.com"
                 aria-label="Email address"
                 required
-                className="flex-1 rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                className="flex-1 rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-brand/40"
               />
               <button
                 type="submit"
@@ -113,7 +113,8 @@ export default function MovePage() {
             Joining this list does not reserve a unit, guarantee pricing, or
             constitute any agreement with RISE. Current Push owners will be
             notified at the same time as everyone else. There is no priority
-            queue. There is no loyalty discount.
+            queue. There is no loyalty discount. Unsubscribing forfeits your
+            position. There is no recovery process.
           </p>
         </div>
 
@@ -382,7 +383,7 @@ export default function MovePage() {
                 placeholder="your@email.com"
                 aria-label="Email address"
                 required
-                className="flex-1 rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                className="flex-1 rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-brand/40"
               />
               <button
                 type="submit"

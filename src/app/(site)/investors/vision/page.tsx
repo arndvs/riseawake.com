@@ -85,7 +85,7 @@ export default function VisionPage() {
                 <p className="text-eyebrow uppercase text-foreground-muted">
                   Year Vision
                 </p>
-                <p className="text-sm text-accent">2026 — 2030</p>
+                <p className="text-sm text-brand">2026 — 2030</p>
               </div>
             </div>
             <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-strong">
@@ -139,7 +139,7 @@ export default function VisionPage() {
                 <p className="text-eyebrow uppercase text-foreground-muted">
                   Year Vision
                 </p>
-                <p className="text-sm text-accent/70">2026 — 2035</p>
+                <p className="text-sm text-brand/70">2026 — 2035</p>
               </div>
             </div>
             <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-secondary">
@@ -206,7 +206,7 @@ export default function VisionPage() {
                 <p className="text-eyebrow uppercase text-foreground-muted/60">
                   Year Vision
                 </p>
-                <p className="text-sm text-accent/50">2026 — 2045</p>
+                <p className="text-sm text-brand/50">2026 — 2045</p>
               </div>
             </div>
             <h2 className="mb-8 font-display text-3xl tracking-tight text-foreground-muted">

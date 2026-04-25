@@ -10,8 +10,8 @@ const base = clsx(
 
 const variants = {
   primary: clsx(
-    'rounded-full bg-accent text-accent-on',
-    'data-hover:bg-accent-hover',
+    'rounded-full bg-brand text-brand-on',
+    'data-hover:bg-brand-hover',
   ),
   cta: clsx(
     'rounded-full bg-cta text-cta-on',

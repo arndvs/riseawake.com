@@ -62,7 +62,7 @@ function PushBedIllustration() {
       viewBox="0 0 160 300"
       fill="none"
       aria-hidden="true"
-      className="text-accent"
+      className="text-brand"
     >
       <rect
         x="30"
@@ -70,7 +70,7 @@ function PushBedIllustration() {
         width="100"
         height="220"
         rx="3"
-        className="fill-accent/6 stroke-accent/35"
+        className="fill-brand/6 stroke-brand/35"
         strokeWidth="1.2"
       />
       <rect
@@ -79,35 +79,35 @@ function PushBedIllustration() {
         width="92"
         height="212"
         rx="2"
-        className="fill-accent/4 stroke-accent/15"
+        className="fill-brand/4 stroke-brand/15"
         strokeWidth="0.6"
       />
-      <line x1="34" y1="80" x2="126" y2="80" className="stroke-accent/12" strokeWidth="0.5" />
-      <line x1="34" y1="140" x2="126" y2="140" className="stroke-accent/8" strokeWidth="0.5" />
+      <line x1="34" y1="80" x2="126" y2="80" className="stroke-brand/12" strokeWidth="0.5" />
+      <line x1="34" y1="140" x2="126" y2="140" className="stroke-brand/8" strokeWidth="0.5" />
       <rect
         x="40"
         y="28"
         width="80"
         height="36"
         rx="2"
-        className="fill-accent/12 stroke-accent/25"
+        className="fill-brand/12 stroke-brand/25"
         strokeWidth="0.8"
       />
       <line
         x1="80" y1="28" x2="80" y2="64"
-        className="stroke-accent/15"
+        className="stroke-brand/15"
         strokeWidth="0.5"
         strokeDasharray="2 2"
       />
-      <line x1="18" y1="20" x2="30" y2="80" className="stroke-accent/30" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="142" y1="20" x2="130" y2="80" className="stroke-accent/30" strokeWidth="1.5" strokeLinecap="round" />
-      <ellipse cx="44" cy="244" rx="8" ry="4" className="fill-accent/8 stroke-accent/30" strokeWidth="0.8" />
-      <ellipse cx="116" cy="244" rx="8" ry="4" className="fill-accent/8 stroke-accent/30" strokeWidth="0.8" />
-      <rect x="102" y="195" width="20" height="8" rx="1" className="fill-accent/15 stroke-accent/25" strokeWidth="0.5" />
-      <text x="112" y="201" textAnchor="middle" fontSize="4" className="fill-accent/70" fontFamily="DM Sans, sans-serif" letterSpacing="1">RISE</text>
-      <line x1="10" y1="260" x2="150" y2="260" className="stroke-accent/8" strokeWidth="0.8" />
+      <line x1="18" y1="20" x2="30" y2="80" className="stroke-brand/30" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="142" y1="20" x2="130" y2="80" className="stroke-brand/30" strokeWidth="1.5" strokeLinecap="round" />
+      <ellipse cx="44" cy="244" rx="8" ry="4" className="fill-brand/8 stroke-brand/30" strokeWidth="0.8" />
+      <ellipse cx="116" cy="244" rx="8" ry="4" className="fill-brand/8 stroke-brand/30" strokeWidth="0.8" />
+      <rect x="102" y="195" width="20" height="8" rx="1" className="fill-brand/15 stroke-brand/25" strokeWidth="0.5" />
+      <text x="112" y="201" textAnchor="middle" fontSize="4" className="fill-brand/70" fontFamily="DM Sans, sans-serif" letterSpacing="1">RISE</text>
+      <line x1="10" y1="260" x2="150" y2="260" className="stroke-brand/8" strokeWidth="0.8" />
       {[20, 40, 60, 80, 100, 120, 140].map((x, i) => (
-        <line key={i} x1={x} y1="260" x2={x - 4} y2="270" className="stroke-accent/5" strokeWidth="0.5" />
+        <line key={i} x1={x} y1="260" x2={x - 4} y2="270" className="stroke-brand/5" strokeWidth="0.5" />
       ))}
     </svg>
   )
@@ -123,16 +123,16 @@ function RemoteIllustration() {
         fill="none"
         aria-hidden="true"
       >
-        <rect x="25" y="10" width="90" height="260" rx="8" className="fill-rise-charcoal/90 stroke-accent/20" strokeWidth="1" />
+        <rect x="25" y="10" width="90" height="260" rx="8" className="fill-rise-charcoal/90 stroke-brand/20" strokeWidth="1" />
         <rect x="26" y="11" width="88" height="258" rx="7.5" className="fill-foreground/1" />
         <text x="70" y="60" textAnchor="middle" fontSize="8" className="fill-foreground/20" fontFamily="DM Sans, sans-serif" letterSpacing="4">RISE</text>
-        <circle cx="70" cy="155" r="34" className="fill-accent/8 stroke-accent/35" strokeWidth="1" />
-        <circle cx="70" cy="155" r="34" className="fill-accent/6 animate-glow-pulse" />
-        <circle cx="70" cy="155" r="28" className="fill-accent/12 stroke-accent/25" strokeWidth="0.5" />
-        <text x="70" y="158" textAnchor="middle" fontSize="10" className="fill-accent" fontFamily="DM Sans, sans-serif" letterSpacing="3" fontWeight="500">RISE</text>
-        <circle cx="70" cy="155" r="4" className="fill-accent/30 animate-glow-pulse" />
+        <circle cx="70" cy="155" r="34" className="fill-brand/8 stroke-brand/35" strokeWidth="1" />
+        <circle cx="70" cy="155" r="34" className="fill-brand/6 animate-glow-pulse" />
+        <circle cx="70" cy="155" r="28" className="fill-brand/12 stroke-brand/25" strokeWidth="0.5" />
+        <text x="70" y="158" textAnchor="middle" fontSize="10" className="fill-brand" fontFamily="DM Sans, sans-serif" letterSpacing="3" fontWeight="500">RISE</text>
+        <circle cx="70" cy="155" r="4" className="fill-brand/30 animate-glow-pulse" />
       </svg>
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_55%,var(--color-accent)_0%,transparent_70%)] opacity-[0.12]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_55%,var(--color-brand)_0%,transparent_70%)] opacity-[0.12]" />
     </div>
   )
 }
@@ -156,7 +156,7 @@ export default function PushPage() {
     <main>
 
       <section className="relative overflow-hidden px-6 pt-40 pb-24">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_30%,var(--color-accent)_0%,transparent_65%)] opacity-[0.09]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_30%,var(--color-brand)_0%,transparent_65%)] opacity-[0.09]" />
 
         <div className="mx-auto max-w-6xl">
           <nav aria-label="Breadcrumb" className="mb-12 text-xs text-foreground-muted/40">
@@ -175,8 +175,8 @@ export default function PushPage() {
 
           <div className="grid items-start gap-16 md:grid-cols-2">
             <div>
-              <div className="mb-8 rounded-xl border border-accent/15 bg-accent/6 px-4 py-3 text-xs leading-relaxed text-foreground-secondary">
-                <span className="font-medium text-accent">
+              <div className="mb-8 rounded-xl border border-brand/15 bg-brand/6 px-4 py-3 text-xs leading-relaxed text-foreground-secondary">
+                <span className="font-medium text-brand">
                   Currently out of stock.
                 </span>{' '}
                 Demand for The Push has exceeded our production capacity. Submit
@@ -184,11 +184,11 @@ export default function PushPage() {
                 available to you.
               </div>
 
-              <div className="relative flex h-105 w-full items-center justify-center overflow-hidden rounded-xl border border-accent/12 bg-surface-alt">
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_40%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
+              <div className="relative flex h-105 w-full items-center justify-center overflow-hidden rounded-xl border border-brand/12 bg-surface-alt">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_40%,var(--color-brand)_0%,transparent_70%)] opacity-[0.06]" />
                 <PushBedIllustration />
                 <div className="absolute right-8 bottom-8">
-                  <div className="size-2 animate-glow-pulse rounded-full bg-accent shadow-[0_0_8px_var(--color-accent)]" />
+                  <div className="size-2 animate-glow-pulse rounded-full bg-brand shadow-[0_0_8px_var(--color-brand)]" />
                 </div>
               </div>
 
@@ -196,7 +196,7 @@ export default function PushPage() {
                 <span className="text-[10px] tracking-[0.12em] text-foreground-muted">
                   Model RP-01
                 </span>
-                <span className="text-[10px] tracking-[0.12em] text-accent/50">
+                <span className="text-[10px] tracking-[0.12em] text-brand/50">
                   Current Generation
                 </span>
               </div>
@@ -204,7 +204,7 @@ export default function PushPage() {
 
             <div className="pt-2">
               <div className="mb-4">
-                <span className="rounded-xl border border-accent/20 bg-accent/10 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-accent">
+                <span className="rounded-xl border border-brand/20 bg-brand/10 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-brand">
                   Out of Stock
                 </span>
               </div>
@@ -212,7 +212,7 @@ export default function PushPage() {
               <h1 className="mb-2 font-display text-display text-foreground-strong">
                 The Push
               </h1>
-              <p className="mb-8 text-sm italic text-accent/75">
+              <p className="mb-8 text-sm italic text-brand/75">
                 Current Generation — &ldquo;It doesn&rsquo;t wait for you to
                 decide.&rdquo;
               </p>
@@ -257,12 +257,12 @@ export default function PushPage() {
                         placeholder="your@email.com"
                         aria-label="Email address"
                         required
-                        className="flex-1 rounded-lg border border-edge bg-foreground/5 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                        className="flex-1 rounded-lg border border-edge bg-foreground/5 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-brand/40"
                       />
                       <button
                         type="submit"
                         disabled={loading}
-                        className="whitespace-nowrap rounded-full bg-accent px-6 py-3 text-xs font-medium uppercase tracking-widest text-accent-on transition-all duration-300 hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
+                        className="whitespace-nowrap rounded-full bg-brand px-6 py-3 text-xs font-medium uppercase tracking-widest text-brand-on transition-all duration-300 hover:bg-brand-hover disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         {loading ? '...' : 'Notify Me'}
                       </button>
@@ -270,8 +270,8 @@ export default function PushPage() {
                   </>
                 ) : (
                   <div className="py-4 text-center">
-                    <div className="mx-auto mb-4 flex size-8 items-center justify-center rounded-full border border-accent/30 bg-accent/15">
-                      <span className="text-sm text-accent">✓</span>
+                    <div className="mx-auto mb-4 flex size-8 items-center justify-center rounded-full border border-brand/30 bg-brand/15">
+                      <span className="text-sm text-brand">✓</span>
                     </div>
                     <p className="mb-2 text-sm font-medium text-foreground-secondary">
                       You&rsquo;re on the list.
@@ -286,10 +286,14 @@ export default function PushPage() {
               </div>
 
               <p className="text-center text-[10px] leading-relaxed text-foreground-muted/25">
-                By submitting your email, you acknowledge that Push Mode cannot
-                be
-                <br />
-                manually interrupted once initiated. Have a productive day.
+                By submitting your email, you join the Push Mode waitlist and
+                acknowledge that Push Mode cannot be manually interrupted once
+                initiated. Unsubscribing from RISE communications forfeits your
+                waitlist position permanently. See{' '}
+                <a href="/legal/terms" className="underline">
+                  Terms of Service §7
+                </a>
+                . Have a productive day.
               </p>
             </div>
           </div>
@@ -313,8 +317,8 @@ export default function PushPage() {
                 key={i}
                 className="rounded-xl border border-edge bg-surface-alt p-8"
               >
-                <div className="mb-5 flex size-10 items-center justify-center rounded-xl border border-accent/15 bg-accent/10">
-                  <span className="text-base text-accent/80">{f.icon}</span>
+                <div className="mb-5 flex size-10 items-center justify-center rounded-xl border border-brand/15 bg-brand/10">
+                  <span className="text-base text-brand/80">{f.icon}</span>
                 </div>
                 <h3 className="mb-4 text-sm font-medium text-foreground-secondary">
                   {f.title}
@@ -385,7 +389,7 @@ export default function PushPage() {
                 <span
                   className={`text-right text-xs ${
                     s.label === 'Off Switch' || s.label === 'Interruption'
-                      ? 'text-accent/70'
+                      ? 'text-brand/70'
                       : s.label === 'Staircase Navigation'
                         ? 'text-foreground-secondary'
                         : 'text-foreground-secondary'
@@ -396,7 +400,7 @@ export default function PushPage() {
                       Not supported — see{' '}
                       <Link
                         href="/move"
-                        className="text-accent/65 underline"
+                        className="text-brand/65 underline"
                       >
                         RISE Move
                       </Link>
@@ -412,7 +416,7 @@ export default function PushPage() {
       </section>
 
       <section className="relative overflow-hidden border-t border-edge-subtle px-6 py-32 text-center">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-brand)_0%,transparent_70%)] opacity-[0.06]" />
         <div className="relative z-10 mx-auto max-w-xl">
           <p className="mb-8 text-eyebrow uppercase text-foreground-muted">
             Join the Waitlist
@@ -429,7 +433,7 @@ export default function PushPage() {
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="inline-block cursor-pointer rounded-full bg-accent px-10 py-4 text-xs font-medium uppercase tracking-[0.16em] text-accent-on transition-colors hover:bg-accent-hover"
+            className="inline-block cursor-pointer rounded-full bg-brand px-10 py-4 text-xs font-medium uppercase tracking-[0.16em] text-brand-on transition-colors hover:bg-brand-hover"
           >
             Notify Me →
           </button>

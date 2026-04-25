@@ -51,10 +51,10 @@ export function Footer() {
               </span>
               <Link
                 href="/move"
-                className="text-xs text-accent/50 transition-colors duration-200 hover:text-accent"
+                className="text-xs text-brand/50 transition-colors duration-200 hover:text-brand"
               >
                 RISE Move{' '}
-                <span className="text-[10px] text-accent/30">
+                <span className="text-[10px] text-brand/30">
                   — In Development
                 </span>
               </Link>

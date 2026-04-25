@@ -229,7 +229,7 @@ export default function DataRequestPage() {
             interests are not always aligned.
           </p>
 
-          <div className="mb-16 rounded-xl border border-accent/12 bg-accent/6 p-5">
+          <div className="mb-16 rounded-xl border border-brand/12 bg-brand/6 p-5">
             <div className="flex flex-wrap gap-8">
               {STATS.map((stat) => (
                 <div key={stat.label}>
@@ -247,7 +247,7 @@ export default function DataRequestPage() {
           <div className="mb-12 flex items-center gap-1 overflow-x-auto pb-2">
             {STEPS.map((step, i) => (
               <div key={step.number} className="flex items-center">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-accent/20 bg-accent/8 text-[10px] font-medium text-accent/70">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-brand/20 bg-brand/8 text-[10px] font-medium text-brand/70">
                   {step.number}
                 </div>
                 {i < STEPS.length - 1 && (
@@ -264,7 +264,7 @@ export default function DataRequestPage() {
                 className="rounded-xl border border-edge bg-surface p-7"
               >
                 <div className="flex items-start gap-5">
-                  <span className="shrink-0 font-display text-[2rem] leading-none text-accent/25">
+                  <span className="shrink-0 font-display text-[2rem] leading-none text-brand/25">
                     {step.number}
                   </span>
                   <div className="min-w-0 flex-1">
@@ -273,7 +273,7 @@ export default function DataRequestPage() {
                         {step.title}
                       </h3>
                       {step.fee && (
-                        <span className="shrink-0 rounded-xl border border-accent/15 bg-accent/10 px-2 py-1 text-[10px] text-accent/80">
+                        <span className="shrink-0 rounded-xl border border-brand/15 bg-brand/10 px-2 py-1 text-[10px] text-brand/80">
                           {step.fee}
                         </span>
                       )}
@@ -314,11 +314,11 @@ export default function DataRequestPage() {
           <div className="mt-8 text-center">
             <p className="mb-4 text-xs text-foreground-muted/60">
               Questions about this process? See our{' '}
-              <Link href="/help#faq" className="text-accent/50 underline">
+              <Link href="/help#faq" className="text-brand/50 underline">
                 FAQ
               </Link>{' '}
               or review the{' '}
-              <Link href="/legal/privacy" className="text-accent/50 underline">
+              <Link href="/legal/privacy" className="text-brand/50 underline">
                 Privacy Policy Sections 24–27
               </Link>
               .

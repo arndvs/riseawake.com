@@ -109,7 +109,7 @@ export default function ShareholderLetterPage() {
             <p className="mb-8 text-xs text-foreground-muted/60">
               March 1, 2025 · San Francisco, California
             </p>
-            <div className="rounded-xl border border-accent/10 bg-accent/5 p-4">
+            <div className="rounded-xl border border-brand/10 bg-brand/5 p-4">
               <p className="text-[10px] leading-loose text-foreground-muted">
                 Dr. Voss wrote this letter at 6:47am. She has used the Push
                 every morning since 2021. She has not been late once. She does

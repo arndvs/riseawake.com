@@ -83,7 +83,7 @@ export function LegalLayout({
                 href={`#${item.id}`}
                 className={`border-l py-1 pr-2 text-xs leading-normal transition-colors duration-150 ${
                   activeSection === item.id
-                    ? 'border-accent/60 text-foreground-secondary'
+                    ? 'border-brand/60 text-foreground-secondary'
                     : 'border-transparent text-foreground-muted'
                 } ${item.level === 2 ? 'pl-3' : 'pl-2'}`}
               >
@@ -163,7 +163,7 @@ export function LegalP({ children }: { children: React.ReactNode }) {
 
 export function LegalNote({ children }: { children: React.ReactNode }) {
   return (
-    <div className="my-4 rounded-xl border border-accent/12 bg-accent/6 px-4 py-3 text-xs leading-relaxed text-foreground-muted">
+    <div className="my-4 rounded-xl border border-brand/12 bg-brand/6 px-4 py-3 text-xs leading-relaxed text-foreground-muted">
       {children}
     </div>
   )

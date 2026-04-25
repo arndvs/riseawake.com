@@ -32,7 +32,7 @@ export function InvestorLayout({ children }: Props) {
               className={clsx(
                 'whitespace-nowrap border-b pb-0.5 text-[11px] uppercase tracking-[0.14em] transition-colors duration-200',
                 pathname === item.href
-                  ? 'border-accent/60 text-foreground'
+                  ? 'border-brand/60 text-foreground'
                   : 'border-transparent text-foreground-muted',
               )}
             >
@@ -42,7 +42,7 @@ export function InvestorLayout({ children }: Props) {
         </div>
       </div>
 
-      <div className="border-b border-accent/10 bg-accent/5 px-6 py-2 text-center text-[10px] text-foreground-muted">
+      <div className="border-b border-brand/10 bg-brand/5 px-6 py-2 text-center text-[10px] text-foreground-muted">
         For informational purposes only. Forward-looking statements involve risks and uncertainties. Past Push Mode compliance rates do not guarantee future compliance rates.
       </div>
 

@@ -76,7 +76,7 @@ export default function PressPage() {
               >
                 <div className="mb-3 flex flex-wrap items-start justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <span className="rounded-xl border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] text-accent/65">
+                    <span className="rounded-xl border border-brand/12 bg-brand/8 px-2 py-1 text-[10px] text-brand/65">
                       {r.tag}
                     </span>
                     {r.featured && (

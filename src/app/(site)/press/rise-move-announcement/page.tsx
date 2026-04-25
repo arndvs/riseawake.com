@@ -18,7 +18,7 @@ export default function MoveAnnouncementPage() {
 
           <div className="mb-12 border-b border-edge-subtle pb-8">
             <div className="mb-6 flex items-center gap-3">
-              <span className="rounded-xl border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] tracking-[0.14em] text-accent/65 uppercase">
+              <span className="rounded-xl border border-brand/12 bg-brand/8 px-2 py-1 text-[10px] tracking-[0.14em] text-brand/65 uppercase">
                 Product
               </span>
               <span className="rounded-xl border border-edge-subtle bg-foreground/3 px-2 py-1 text-[10px] tracking-[0.14em] text-foreground-muted uppercase">
@@ -206,7 +206,7 @@ export default function MoveAnnouncementPage() {
             <Link href="/press" className="text-xs text-foreground-muted">
               ← All Press Releases
             </Link>
-            <Link href="/move" className="text-xs text-accent/60">
+            <Link href="/move" className="text-xs text-brand/60">
               Join the Move waitlist →
             </Link>
           </div>
