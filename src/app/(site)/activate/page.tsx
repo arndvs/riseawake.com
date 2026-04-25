@@ -154,10 +154,10 @@ function BedSilhouette({ angle }: { angle: number }) {
   const headAngle = -angle * 0.9
 
   return (
-    <svg width="120" height="80" viewBox="0 0 120 80" fill="none" aria-hidden="true" className="text-accent/40">
+    <svg width="120" height="80" viewBox="0 0 120 80" fill="none" aria-hidden="true" className="text-brand/40">
       <rect x="10" y="50" width="100" height="4" rx="1" className="fill-foreground/8" />
       <g style={{ transform: `rotate(${headAngle}deg)`, transformOrigin: '60px 50px' }}>
-        <rect x="15" y={mattressY} width="90" height="12" rx="2" className="fill-accent/12 stroke-accent/20" strokeWidth="0.5" />
+        <rect x="15" y={mattressY} width="90" height="12" rx="2" className="fill-brand/12 stroke-brand/20" strokeWidth="0.5" />
       </g>
       <circle cx="55" cy={mattressY + 2} r="4" className="fill-foreground/15" />
       <rect x="8" y="54" width="4" height="12" rx="1" className="fill-foreground/10" />
@@ -233,7 +233,7 @@ function IntensityDial({ value, onRelease }: { value: number; onRelease: () => v
           <p className="text-sm font-medium text-foreground-secondary">{currentLabel.label}</p>
           <p className="mt-1 text-xs text-foreground-muted">{currentLabel.desc}</p>
         </div>
-        <span className="font-mono text-2xl tabular-nums text-accent/60">{localValue}%</span>
+        <span className="font-mono text-2xl tabular-nums text-brand/60">{localValue}%</span>
       </div>
 
       <div
@@ -244,11 +244,11 @@ function IntensityDial({ value, onRelease }: { value: number; onRelease: () => v
         onPointerUp={handlePointerUp}
       >
         <div
-          className="absolute inset-y-0 left-0 rounded-full bg-accent/30 transition-[width] duration-75"
+          className="absolute inset-y-0 left-0 rounded-full bg-brand/30 transition-[width] duration-75"
           style={{ width: `${localValue}%` }}
         />
         <div
-          className="absolute top-1/2 size-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-accent bg-surface shadow-elevated transition-[left] duration-75"
+          className="absolute top-1/2 size-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-brand bg-surface shadow-elevated transition-[left] duration-75"
           style={{ left: `${localValue}%` }}
           role="slider"
           aria-label="Push Mode Intensity"
@@ -284,7 +284,7 @@ function SequenceItem({ item, index, total, onMoveUp, onMoveDown }: {
 }) {
   return (
     <div className="flex items-center gap-4 rounded-xl border border-edge bg-surface-alt p-4">
-      <span className="shrink-0 font-mono text-xs text-accent/40">{String(index + 1).padStart(2, '0')}</span>
+      <span className="shrink-0 font-mono text-xs text-brand/40">{String(index + 1).padStart(2, '0')}</span>
       <div className="flex-1">
         <p className="text-sm font-medium text-foreground-secondary">{item.label}</p>
         <p className="text-[10px] text-foreground-muted">{item.note}</p>
@@ -318,8 +318,8 @@ function ConfiguratorStepIndicator({ step, total }: { step: number; total: numbe
       {Array.from({ length: total }, (_, i) => (
         <div key={i} className="flex items-center gap-3">
           <div className={`flex size-8 items-center justify-center rounded-full text-xs font-medium transition-all duration-500 ${
-            i < step ? 'bg-accent/15 text-accent' :
-            i === step ? 'bg-accent text-accent-on' :
+            i < step ? 'bg-brand/15 text-brand' :
+            i === step ? 'bg-brand text-brand-on' :
             'bg-foreground/5 text-foreground-muted/40'
           }`}>
             {i < step ? (
@@ -329,7 +329,7 @@ function ConfiguratorStepIndicator({ step, total }: { step: number; total: numbe
             )}
           </div>
           {i < total - 1 && (
-            <div className={`h-px w-8 transition-colors duration-500 ${i < step ? 'bg-accent/30' : 'bg-foreground/8'}`} />
+            <div className={`h-px w-8 transition-colors duration-500 ${i < step ? 'bg-brand/30' : 'bg-foreground/8'}`} />
           )}
         </div>
       ))}
@@ -406,7 +406,7 @@ export default function ActivatePage() {
     <main>
 
       <section className="relative overflow-hidden px-6 pt-40 pb-16">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-accent)_0%,transparent_70%)] opacity-[0.07]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-brand)_0%,transparent_70%)] opacity-[0.07]" />
         <div className="mx-auto max-w-3xl">
           <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Device Activation
@@ -430,9 +430,9 @@ export default function ActivatePage() {
           <div ref={configTopRef} className="mb-6 rounded-xl border border-edge bg-surface-alt p-8">
             {formState === 'activated' ? (
               <div className="py-12 text-center">
-                <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-accent/10">
+                <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-brand/10">
                   <svg width="24" height="20" viewBox="0 0 24 20" fill="none" aria-hidden="true">
-                    <path d="M2 10L8.5 16.5L22 3" stroke="var(--color-accent)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M2 10L8.5 16.5L22 3" stroke="var(--color-brand)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
                 <p className="mb-3 font-display text-3xl tracking-tight text-foreground-strong">
@@ -440,7 +440,7 @@ export default function ActivatePage() {
                 </p>
                 <p className="mb-2 text-xs leading-relaxed text-foreground-muted">
                   Serial{' '}
-                  <span className="font-mono text-accent/70">
+                  <span className="font-mono text-brand/70">
                     {serial.trim().toUpperCase()}
                   </span>{' '}
                   — fully configured.
@@ -478,7 +478,7 @@ export default function ActivatePage() {
                             onClick={() => setSleepPosition(pos.id)}
                             className={`cursor-pointer rounded-xl border p-4 text-left transition-all duration-200 ${
                               sleepPosition === pos.id
-                                ? 'border-accent/40 bg-accent/5'
+                                ? 'border-brand/40 bg-brand/5'
                                 : 'border-edge bg-surface'
                             }`}
                           >
@@ -498,7 +498,7 @@ export default function ActivatePage() {
                             onClick={() => setBedSide(side.id)}
                             className={`flex-1 cursor-pointer rounded-xl border px-4 py-3 text-center text-sm transition-all duration-200 ${
                               bedSide === side.id
-                                ? 'border-accent/40 bg-accent/5 font-medium text-foreground'
+                                ? 'border-brand/40 bg-brand/5 font-medium text-foreground'
                                 : 'border-edge bg-surface text-foreground-secondary'
                             }`}
                           >
@@ -511,7 +511,7 @@ export default function ActivatePage() {
                     <div className="mb-8">
                       <div className="mb-4 flex items-center justify-between">
                         <p className="text-xs font-medium text-foreground-secondary">Morning Resistance</p>
-                        <span className="font-mono text-lg tabular-nums text-accent/50">{resistance}</span>
+                        <span className="font-mono text-lg tabular-nums text-brand/50">{resistance}</span>
                       </div>
                       <input
                         type="range"
@@ -520,7 +520,7 @@ export default function ActivatePage() {
                         value={resistance}
                         onChange={(e) => setResistance(Number(e.target.value))}
                         aria-label="Morning Resistance"
-                        className="w-full accent-accent"
+                        className="w-full accent-brand"
                       />
                       <div className="mt-2 flex justify-between text-[9px] text-foreground-muted/40">
                         <span>1 — Mild reluctance</span>
@@ -540,7 +540,7 @@ export default function ActivatePage() {
                     <button
                       onClick={handleNextStep}
                       disabled={!sleepPosition || !bedSide}
-                      className="w-full cursor-pointer rounded-full bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-accent-on uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-30"
+                      className="w-full cursor-pointer rounded-full bg-brand px-6 py-3 text-xs font-medium tracking-[0.14em] text-brand-on uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-30"
                     >
                       Continue to Calibration →
                     </button>
@@ -571,7 +571,7 @@ export default function ActivatePage() {
 
                     <button
                       onClick={handleNextStep}
-                      className="mt-8 w-full cursor-pointer rounded-full bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-accent-on uppercase transition-all duration-300"
+                      className="mt-8 w-full cursor-pointer rounded-full bg-brand px-6 py-3 text-xs font-medium tracking-[0.14em] text-brand-on uppercase transition-all duration-300"
                     >
                       Continue to Morning Sequence →
                     </button>
@@ -606,7 +606,7 @@ export default function ActivatePage() {
 
                     <button
                       onClick={handleNextStep}
-                      className="mt-8 w-full cursor-pointer rounded-full bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-accent-on uppercase transition-all duration-300"
+                      className="mt-8 w-full cursor-pointer rounded-full bg-brand px-6 py-3 text-xs font-medium tracking-[0.14em] text-brand-on uppercase transition-all duration-300"
                     >
                       Continue to Review →
                     </button>
@@ -643,7 +643,7 @@ export default function ActivatePage() {
                               next[i] = e.target.checked
                               setAcknowledgments(next)
                             }}
-                            className="mt-0.5 shrink-0 accent-accent"
+                            className="mt-0.5 shrink-0 accent-brand"
                           />
                           <span className="text-xs leading-relaxed text-foreground-muted">{ack}</span>
                         </label>
@@ -653,7 +653,7 @@ export default function ActivatePage() {
                     <button
                       onClick={handleFinalActivation}
                       disabled={!allAcknowledged}
-                      className="mt-8 w-full cursor-pointer rounded-full bg-accent px-6 py-4 text-xs font-medium tracking-[0.16em] text-accent-on uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-30"
+                      className="mt-8 w-full cursor-pointer rounded-full bg-brand px-6 py-4 text-xs font-medium tracking-[0.16em] text-brand-on uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-30"
                     >
                       Activate Push Mode
                     </button>
@@ -686,7 +686,7 @@ export default function ActivatePage() {
                     Submitting your serial number initiates activation. Under{' '}
                     <Link
                       href="/legal/terms#s7"
-                      className="text-accent/60 underline"
+                      className="text-brand/60 underline"
                     >
                       Section 7 of the Terms of Service
                     </Link>
@@ -713,7 +713,7 @@ export default function ActivatePage() {
                     type="checkbox"
                     checked={refundAcknowledged}
                     onChange={(e) => setRefundAcknowledged(e.target.checked)}
-                    className="mt-0.5 shrink-0 accent-accent"
+                    className="mt-0.5 shrink-0 accent-brand"
                   />
                   <span className="text-xs leading-relaxed text-foreground-muted">
                     I understand that initiating activation closes the refund
@@ -727,7 +727,7 @@ export default function ActivatePage() {
                   <button
                     onClick={handleBeginActivation}
                     disabled={!refundAcknowledged}
-                    className="cursor-pointer rounded-full bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] text-accent-on uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:bg-accent/30 disabled:text-accent-on/30"
+                    className="cursor-pointer rounded-full bg-brand px-6 py-3 text-xs font-medium tracking-[0.14em] text-brand-on uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:bg-brand/30 disabled:text-brand-on/30"
                   >
                     Begin Activation
                   </button>
@@ -766,13 +766,13 @@ export default function ActivatePage() {
                       formState === 'invalid'
                         ? 'border-rise-error/40 bg-foreground/4'
                         : 'border-edge bg-foreground/4'
-                    } focus:border-accent/40`}
+                    } focus:border-brand/40`}
                     spellCheck={false}
                     autoCapitalize="characters"
                   />
                   <button
                     type="submit"
-                    className="rounded-full border-none bg-accent px-6 py-3 text-xs font-medium tracking-[0.14em] whitespace-nowrap text-accent-on uppercase transition-all duration-300"
+                    className="rounded-full border-none bg-brand px-6 py-3 text-xs font-medium tracking-[0.14em] whitespace-nowrap text-brand-on uppercase transition-all duration-300"
                   >
                     Locate Device
                   </button>
@@ -839,7 +839,7 @@ export default function ActivatePage() {
                     className={`min-w-12 shrink-0 font-display text-[1.8rem] leading-none ${
                       stage.flagged
                         ? 'text-foreground-muted/30'
-                        : 'text-accent/25'
+                        : 'text-brand/25'
                     }`}
                   >
                     {stage.number}
@@ -869,7 +869,7 @@ export default function ActivatePage() {
                             {stage.note.replace(' See RISE Move.', '')}{' '}
                             <Link
                               href="/move"
-                              className="text-accent/50 underline"
+                              className="text-brand/50 underline"
                             >
                               See RISE Move.
                             </Link>{' '}
@@ -992,7 +992,7 @@ export default function ActivatePage() {
                       key={item}
                       className="flex items-start gap-2 text-xs text-foreground-muted"
                     >
-                      <span className="mt-px shrink-0 text-accent/40">—</span>
+                      <span className="mt-px shrink-0 text-brand/40">—</span>
                       {item}
                     </li>
                   ))}
@@ -1048,7 +1048,7 @@ export default function ActivatePage() {
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="inline-block glow-btn cursor-pointer rounded-full border-none bg-accent px-10 py-4 text-xs font-medium tracking-[0.16em] text-accent-on uppercase"
+            className="inline-block glow-btn cursor-pointer rounded-full border-none bg-brand px-10 py-4 text-xs font-medium tracking-[0.16em] text-brand-on uppercase"
           >
             Begin Activation →
           </button>

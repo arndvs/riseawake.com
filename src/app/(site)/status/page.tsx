@@ -202,12 +202,12 @@ const STATUS_STYLES: Record<
     detailText: 'text-yellow-500/60',
   },
   maintenance: {
-    dot: 'bg-accent',
-    glow: 'shadow-[0_0_6px_rgba(var(--color-accent),0.5)]',
-    border: 'border-accent/10',
+    dot: 'bg-brand',
+    glow: 'shadow-[0_0_6px_rgba(var(--color-brand),0.5)]',
+    border: 'border-brand/10',
     label: 'Maintenance',
-    badge: 'bg-accent/8 text-accent/80',
-    detailText: 'text-accent/60',
+    badge: 'bg-brand/8 text-brand/80',
+    detailText: 'text-brand/60',
   },
   unavailable: {
     dot: 'bg-red-500/70',
@@ -455,10 +455,19 @@ export default function StatusPage() {
               placeholder="your@email.com"
               className="flex-1 rounded border border-edge bg-surface-alt px-3.5 py-2.5 text-xs text-foreground outline-none"
             />
-            <button className="cursor-pointer rounded bg-accent px-5 py-2.5 text-[11px] font-medium tracking-wider whitespace-nowrap text-accent-on uppercase">
+            <button className="cursor-pointer rounded bg-brand px-5 py-2.5 text-[11px] font-medium tracking-wider whitespace-nowrap text-brand-on uppercase">
               Subscribe
             </button>
           </div>
+          <p className="mt-3 text-[9px] leading-relaxed text-foreground-muted/30">
+            Subscribing adds you to the RISE communications list.
+            Unsubscribing removes your waitlist position. This is described in
+            the{' '}
+            <a href="/legal/terms" className="underline">
+              Terms of Service
+            </a>
+            .
+          </p>
         </div>
       </section>
     </main>

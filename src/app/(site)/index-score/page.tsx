@@ -60,7 +60,7 @@ export default function IndexScorePage() {
     <main>
       {/* Hero */}
       <section className="relative overflow-hidden px-6 pt-40 pb-24">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-accent)_0%,transparent_70%)] opacity-[0.05]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-brand)_0%,transparent_70%)] opacity-[0.05]" />
         <div className="mx-auto max-w-3xl">
           <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Compliance & Lifestyle Scoring
@@ -114,7 +114,7 @@ export default function IndexScorePage() {
                 className="flex gap-5 rounded border border-edge bg-surface-alt p-4"
               >
                 <div className="min-w-14">
-                  <span className="font-display text-lg text-accent">
+                  <span className="font-display text-lg text-brand">
                     {range}
                   </span>
                 </div>
@@ -211,7 +211,7 @@ export default function IndexScorePage() {
           </p>
           <Link
             href="/sdk"
-            className="glow-btn inline-block rounded-full bg-accent px-10 py-4 text-xs font-medium tracking-widest text-accent-on uppercase"
+            className="glow-btn inline-block rounded-full bg-brand px-10 py-4 text-xs font-medium tracking-widest text-brand-on uppercase"
           >
             RISE DataKit &rarr;
           </Link>

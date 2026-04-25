@@ -95,7 +95,7 @@ export default function LegalHubPage() {
                     {doc.desc}
                   </p>
                   {doc.flag && (
-                    <p className="inline-block self-start rounded-xl border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] text-accent/70">
+                    <p className="inline-block self-start rounded-xl border border-brand/12 bg-brand/8 px-2 py-1 text-[10px] text-brand/70">
                       {doc.flag}
                     </p>
                   )}

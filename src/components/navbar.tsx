@@ -34,7 +34,7 @@ function DesktopNav() {
       ))}
       <Link
         href="/products/push"
-        className="rounded-pill bg-accent px-5 py-2.5 text-xs font-medium tracking-widest text-accent-on uppercase transition-colors duration-200 hover:bg-accent-hover"
+        className="rounded-pill bg-brand px-5 py-2.5 text-xs font-medium tracking-widest text-brand-on uppercase transition-colors duration-200 hover:bg-brand-hover"
       >
         Shop Now
       </Link>
@@ -71,7 +71,7 @@ function MobileNav() {
         ))}
         <Link
           href="/products/push"
-          className="rounded-pill bg-accent px-5 py-3 text-center text-sm font-medium tracking-widest text-accent-on uppercase transition-colors hover:bg-accent-hover"
+          className="rounded-pill bg-brand px-5 py-3 text-center text-sm font-medium tracking-widest text-brand-on uppercase transition-colors hover:bg-brand-hover"
         >
           Shop Now
         </Link>

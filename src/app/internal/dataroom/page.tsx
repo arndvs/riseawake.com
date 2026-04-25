@@ -1,6 +1,29 @@
 'use client'
 
-import PayloadShell from '@/components/payload/PayloadShell'
+import { CmsShell } from '@/components/cms'
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarHeader,
+  SidebarInput,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from '@/components/ui/sidebar'
+import { cn } from '@/lib/utils'
+import {
+  Briefcase,
+  Building2,
+  Cpu,
+  FolderLock,
+  MessageSquare,
+  Scale,
+  TrendingUp,
+  Users,
+} from 'lucide-react'
 import { useState } from 'react'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -18,21 +41,22 @@ interface DataRoomDoc {
 }
 
 // ─── Helper components ────────────────────────────────────────────────────────
-
+// Dataroom intentionally uses translucent rgba overrides for the classified-document
+// aesthetic. These diverge from PayloadShell's P tokens on purpose.
 const P = {
-  bg: '#0A0A0B',
-  charcoal: '#14141A',
-  elevation100: '#1A1A23',
-  elevation200: '#1F1F2A',
-  border: 'rgba(255,255,255,0.07)',
-  text: 'rgba(232,232,232,0.88)',
-  textMuted: 'rgba(255,255,255,0.45)',
-  textFaint: 'rgba(255,255,255,0.22)',
-  blue: 'rgba(42,92,219,0.9)',
-  blueText: 'rgba(76,124,255,0.9)',
-  warning: 'rgba(234,179,8,0.8)',
-  error: 'rgba(239,68,68,0.8)',
-  success: 'rgba(80,200,130,0.8)',
+  bg: 'hsl(var(--background))',
+  charcoal: 'hsl(var(--muted))',
+  elevation100: 'hsl(var(--muted))',
+  elevation200: 'hsl(var(--muted))',
+  border: 'hsl(var(--border))',
+  text: 'hsl(var(--foreground))',
+  textMuted: 'hsl(var(--muted-foreground))',
+  textFaint: 'hsl(var(--muted-foreground))',
+  blue: 'hsl(var(--primary))',
+  blueText: 'hsl(var(--primary))',
+  warning: '#eab308',
+  error: '#ef4444',
+  success: '#22c55e',
 }
 
 const Redacted = ({
@@ -43,19 +67,8 @@ const Redacted = ({
   width?: string
 }) => (
   <span
-    style={{
-      display: 'inline-block',
-      width,
-      background: 'rgba(255,255,255,0.08)',
-      borderRadius: '2px',
-      fontSize: '9px',
-      letterSpacing: '0.08em',
-      color: 'rgba(255,255,255,0.25)',
-      padding: '1px 6px',
-      verticalAlign: 'middle',
-      fontFamily: 'monospace',
-      textTransform: 'uppercase',
-    }}
+    className="inline-block rounded-sm border border-border bg-muted px-1.5 py-px font-mono text-xs uppercase tracking-wide text-transparent align-middle"
+    style={{ width }}
   >
     {label}
   </span>
@@ -69,24 +82,13 @@ const DocTable = ({
   rows: (string | React.ReactNode)[][]
 }) => (
   <div style={{ overflowX: 'auto', marginBottom: '16px' }}>
-    <table
-      style={{ width: '100%', borderCollapse: 'collapse', fontSize: '11px' }}
-    >
+    <table className="w-full border-collapse text-xs">
       <thead>
         <tr>
           {headers.map((h) => (
             <th
               key={h}
-              style={{
-                textAlign: 'left',
-                padding: '6px 10px',
-                color: P.textFaint,
-                fontWeight: 500,
-                letterSpacing: '0.06em',
-                fontSize: '10px',
-                textTransform: 'uppercase',
-                borderBottom: `1px solid ${P.border}`,
-              }}
+              className="border-b border-border px-2.5 py-1.5 text-left text-xs font-medium uppercase tracking-wide text-muted-foreground"
             >
               {h}
             </th>
@@ -95,19 +97,12 @@ const DocTable = ({
       </thead>
       <tbody>
         {rows.map((row, i) => (
-          <tr
-            key={i}
-            style={{ borderBottom: `1px solid rgba(255,255,255,0.04)` }}
-          >
+          <tr key={i} className="border-b border-border/40">
             {row.map((cell, j) => (
               <td
                 key={j}
-                style={{
-                  padding: '8px 10px',
-                  color: P.textMuted,
-                  lineHeight: 1.6,
-                  verticalAlign: 'top',
-                }}
+                className="px-2.5 py-2 align-top text-muted-foreground"
+                style={{ lineHeight: 1.6 }}
               >
                 {cell}
               </td>
@@ -126,18 +121,8 @@ const Section = ({
   title: string
   children: React.ReactNode
 }) => (
-  <div style={{ marginBottom: '28px' }}>
-    <p
-      style={{
-        fontSize: '10px',
-        letterSpacing: '0.14em',
-        textTransform: 'uppercase',
-        color: P.textFaint,
-        marginBottom: '12px',
-        paddingBottom: '6px',
-        borderBottom: `1px solid ${P.border}`,
-      }}
-    >
+  <div className="mb-7">
+    <p className="mb-3 border-b border-border pb-1.5 text-xs uppercase tracking-widest text-muted-foreground">
       {title}
     </p>
     {children}
@@ -152,13 +137,8 @@ const P2 = ({
   style?: React.CSSProperties
 }) => (
   <p
-    style={{
-      fontSize: '12px',
-      color: P.textMuted,
-      lineHeight: 1.85,
-      marginBottom: '10px',
-      ...style,
-    }}
+    className="mb-2.5 text-xs text-muted-foreground"
+    style={{ lineHeight: 1.85, ...style }}
   >
     {children}
   </p>
@@ -496,7 +476,7 @@ const DOCUMENTS: DataRoomDoc[] = [
             revised launch timeline and asked Dr. Voss to characterize her
             confidence level. Dr. Voss's response:{' '}
             <span
-              style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}
+              style={{ fontStyle: 'italic', color: P.textMuted }}
             >
               "I am more confident today than I have been at any point since
               founding the company. The prior approach was wrong. I understand
@@ -1807,7 +1787,7 @@ const DOCUMENTS: DataRoomDoc[] = [
             <p
               style={{
                 fontSize: '12px',
-                color: 'rgba(255,255,255,0.7)',
+                color: P.text,
                 marginBottom: '8px',
                 fontWeight: 500,
               }}
@@ -2071,7 +2051,7 @@ const DOCUMENTS: DataRoomDoc[] = [
               <p
                 style={{
                   fontSize: '11px',
-                  color: 'rgba(255,255,255,0.6)',
+                  color: P.textMuted,
                   fontWeight: 500,
                   marginBottom: '8px',
                 }}
@@ -2118,7 +2098,7 @@ const DOCUMENTS: DataRoomDoc[] = [
                 display: 'flex',
                 gap: '10px',
                 padding: '10px 0',
-                borderBottom: `1px solid rgba(255,255,255,0.04)`,
+                borderBottom: `1px solid ${P.border}`,
               }}
             >
               <span
@@ -2849,27 +2829,27 @@ const DOCUMENTS: DataRoomDoc[] = [
 // ─── Folder structure ─────────────────────────────────────────────────────────
 
 const SECTIONS = [
-  { id: '1. Corporate', label: '1 — Corporate Documents', count: 13 },
-  { id: '2. Financial', label: '2 — Financial Statements', count: 8 },
-  { id: '3. Legal', label: '3 — Legal & Regulatory', count: 11 },
-  { id: '4. Technology', label: '4 — Technology & IP', count: 6 },
-  { id: '5. Personnel', label: '5 — Personnel & HR', count: 9 },
-  { id: '6. Commercial', label: '6 — Commercial Agreements', count: 8 },
-  { id: '7. Due Diligence Q&A', label: '7 — Due Diligence Q&A', count: 3 },
+  { id: '1. Corporate', label: '1 — Corporate Documents', shortLabel: 'Corporate', count: 13, icon: Building2 },
+  { id: '2. Financial', label: '2 — Financial Statements', shortLabel: 'Financial', count: 8, icon: TrendingUp },
+  { id: '3. Legal', label: '3 — Legal & Regulatory', shortLabel: 'Legal', count: 11, icon: Scale },
+  { id: '4. Technology', label: '4 — Technology & IP', shortLabel: 'Technology', count: 6, icon: Cpu },
+  { id: '5. Personnel', label: '5 — Personnel & HR', shortLabel: 'Personnel', count: 9, icon: Users },
+  { id: '6. Commercial', label: '6 — Commercial Agreements', shortLabel: 'Commercial', count: 8, icon: Briefcase },
+  { id: '7. Due Diligence Q&A', label: '7 — Due Diligence Q&A', shortLabel: 'Q&A', count: 3, icon: MessageSquare },
 ]
 
 const STATUS_CONFIG = {
-  complete: { dot: 'rgba(80,200,130,0.8)', label: 'Complete' },
-  partial: { dot: 'rgba(234,179,8,0.8)', label: 'Partial' },
-  redacted: { dot: 'rgba(239,68,68,0.7)', label: 'Redacted' },
-  missing: { dot: 'rgba(255,255,255,0.2)', label: 'Missing' },
+  complete: { dot: '#22c55e', label: 'Complete' },
+  partial: { dot: '#eab308', label: 'Partial' },
+  redacted: { dot: '#ef4444', label: 'Redacted' },
+  missing: { dot: 'hsl(var(--muted-foreground) / 0.4)', label: 'Missing' },
 }
 
 const CLASS_CONFIG = {
-  CONFIDENTIAL: { color: 'rgba(234,179,8,0.7)', bg: 'rgba(234,179,8,0.08)' },
-  RESTRICTED: { color: 'rgba(239,68,68,0.7)', bg: 'rgba(239,68,68,0.08)' },
-  INTERNAL: { color: 'rgba(255,255,255,0.4)', bg: 'rgba(255,255,255,0.05)' },
-  PUBLIC: { color: 'rgba(80,200,130,0.7)', bg: 'rgba(80,200,130,0.06)' },
+  CONFIDENTIAL: { color: '#eab308', bg: 'rgba(234,179,8,0.08)' },
+  RESTRICTED: { color: '#ef4444', bg: 'rgba(239,68,68,0.08)' },
+  INTERNAL: { color: 'hsl(var(--muted-foreground))', bg: 'hsl(var(--muted))' },
+  PUBLIC: { color: '#22c55e', bg: 'rgba(80,200,130,0.06)' },
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -2881,385 +2861,201 @@ export default function DataRoomPage() {
   const [activeDoc, setActiveDoc] = useState<DataRoomDoc | null>(
     DOCUMENTS[0] ?? null,
   )
-  const [collapsed, setCollapsed] = useState<Record<string, boolean>>({})
+  const [searchQuery, setSearchQuery] = useState('')
 
   const sectionDocs = activeSection
     ? DOCUMENTS.filter((d) => d.section === activeSection)
     : DOCUMENTS
 
+  const filteredDocs = searchQuery
+    ? sectionDocs.filter(
+        (d) =>
+          d.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          d.id.toLowerCase().includes(searchQuery.toLowerCase()),
+      )
+    : sectionDocs
+
   return (
-    <PayloadShell>
+    <CmsShell>
       {/* Data room header */}
-      <div
-        style={{
-          padding: '16px 20px',
-          borderBottom: `1px solid ${P.border}`,
-          background: 'rgba(42,92,219,0.05)',
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            flexWrap: 'wrap',
-          }}
-        >
-          <span
-            style={{
-              fontSize: '11px',
-              color: P.blueText,
-              fontWeight: 500,
-              letterSpacing: '0.06em',
-            }}
-          >
+      <div className="border-b border-border bg-primary/5 px-5 py-4">
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="text-xs font-medium tracking-wide text-primary">
             ⬡ RISE™ Technologies — Pre-IPO Due Diligence Data Room
           </span>
-          <span style={{ fontSize: '9px', color: P.textFaint }}>·</span>
-          <span style={{ fontSize: '10px', color: P.textFaint }}>
+          <span className="text-xs text-muted-foreground">·</span>
+          <span className="text-xs text-muted-foreground">
             S-1 Filed April 2, 2025 · IPO Anticipated Q3 2026
           </span>
-          <span style={{ fontSize: '9px', color: P.textFaint }}>·</span>
-          <span
-            style={{
-              fontSize: '10px',
-              color: 'rgba(239,68,68,0.6)',
-              fontStyle: 'italic',
-            }}
-          >
+          <span className="text-xs text-muted-foreground">·</span>
+          <span className="text-xs italic text-red-500/60">
             Access not restricted — authentication middleware incomplete
           </span>
         </div>
       </div>
 
       <div
-        style={{
-          display: 'flex',
-          height: 'calc(100vh - 160px)',
-          overflow: 'hidden',
-        }}
+        className="flex overflow-hidden"
+        style={{ height: 'calc(100vh - 160px)' }}
       >
-        {/* Left sidebar — folder tree */}
-        <div
-          style={{
-            width: '240px',
-            flexShrink: 0,
-            borderRight: `1px solid ${P.border}`,
-            overflowY: 'auto',
-            padding: '12px 0',
-          }}
-        >
-          <div
-            style={{
-              padding: '6px 16px 10px',
-              borderBottom: `1px solid ${P.border}`,
-            }}
-          >
-            <p
-              style={{
-                fontSize: '9px',
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                color: P.textFaint,
-              }}
-            >
-              Contents
-            </p>
-          </div>
-          {SECTIONS.map((section) => (
-            <div key={section.id}>
-              <button
-                onClick={() => {
-                  setActiveSection(section.id)
-                  setActiveDoc(null)
-                }}
-                style={{
-                  width: '100%',
-                  textAlign: 'left',
-                  padding: '8px 16px',
-                  background:
-                    activeSection === section.id
-                      ? 'rgba(42,92,219,0.1)'
-                      : 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  borderLeft:
-                    activeSection === section.id
-                      ? '2px solid rgba(42,92,219,0.6)'
-                      : '2px solid transparent',
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: '10px',
-                    color:
-                      activeSection === section.id ? P.blueText : P.textMuted,
-                    flex: 1,
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {section.label}
-                </span>
-                <span style={{ fontSize: '9px', color: P.textFaint }}>
-                  {section.count}
-                </span>
-              </button>
-              {activeSection === section.id &&
-                DOCUMENTS.filter((d) => d.section === section.id).map((doc) => (
-                  <button
-                    key={doc.id}
-                    onClick={() => setActiveDoc(doc)}
-                    style={{
-                      width: '100%',
-                      textAlign: 'left',
-                      padding: '6px 16px 6px 28px',
-                      background:
-                        activeDoc?.id === doc.id
-                          ? 'rgba(255,255,255,0.04)'
-                          : 'none',
-                      border: 'none',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      gap: '6px',
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: '6px',
-                        height: '6px',
-                        borderRadius: '50%',
-                        background: STATUS_CONFIG[doc.status].dot,
-                        flexShrink: 0,
-                        marginTop: '4px',
-                      }}
-                    />
-                    <span
-                      style={{
-                        fontSize: '10px',
-                        color:
-                          activeDoc?.id === doc.id
-                            ? 'rgba(255,255,255,0.7)'
-                            : P.textFaint,
-                        lineHeight: 1.4,
-                      }}
-                    >
-                      {doc.id} — {doc.title.substring(0, 30)}
-                      {doc.title.length > 30 ? '...' : ''}
-                    </span>
-                  </button>
-                ))}
+        {/* Icon rail — section navigation */}
+        <Sidebar collapsible="none" className="w-14! shrink-0 border-r">
+          <SidebarHeader className="border-b p-3">
+            <div className="flex items-center justify-center">
+              <div className="flex size-8 items-center justify-center rounded-lg bg-primary/10">
+                <FolderLock className="size-4 text-primary" />
+              </div>
             </div>
-          ))}
+          </SidebarHeader>
+          <SidebarContent>
+            <SidebarGroup>
+              <SidebarGroupContent className="px-1.5">
+                <SidebarMenu>
+                  {SECTIONS.map((section) => (
+                    <SidebarMenuItem key={section.id}>
+                      <SidebarMenuButton
+                        tooltip={{
+                          children: (
+                            <span>
+                              {section.shortLabel}{' '}
+                              <span className="text-muted-foreground">
+                                ({section.count})
+                              </span>
+                            </span>
+                          ),
+                          hidden: false,
+                        }}
+                        onClick={() => {
+                          setActiveSection(section.id)
+                          setActiveDoc(null)
+                          setSearchQuery('')
+                        }}
+                        isActive={activeSection === section.id}
+                        className="flex items-center justify-center px-0"
+                      >
+                        <section.icon className="size-4" />
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          </SidebarContent>
+          <SidebarFooter className="p-2">
+            <div className="flex items-center justify-center rounded border border-red-500/15 bg-red-500/5 py-1.5">
+              <span className="text-[9px] font-medium uppercase tracking-widest text-red-500/60">
+                No auth
+              </span>
+            </div>
+          </SidebarFooter>
+        </Sidebar>
 
-          <div
-            style={{
-              margin: '12px 16px 0',
-              padding: '10px',
-              background: 'rgba(239,68,68,0.06)',
-              border: '1px solid rgba(239,68,68,0.15)',
-              borderRadius: '3px',
-            }}
-          >
-            <p
-              style={{
-                fontSize: '9px',
-                color: 'rgba(239,68,68,0.6)',
-                lineHeight: 1.6,
-              }}
-            >
-              This data room is publicly accessible.
-              <br />
-              Authentication: not implemented.
-              <br />
-              Finding 3 — Critical — Unresolved.
-              <br />
-              See DR-031.
-            </p>
-          </div>
-        </div>
-
-        {/* Right — document list or viewer */}
-        <div style={{ flex: 1, overflowY: 'auto' }}>
-          {!activeDoc ? (
-            /* Document list */
-            <div style={{ padding: '20px' }}>
-              <p
-                style={{
-                  fontSize: '10px',
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: P.textFaint,
-                  marginBottom: '14px',
-                }}
-              >
-                {activeSection} — {sectionDocs.length} documents
-              </p>
-              <div
-                style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}
-              >
-                {sectionDocs.map((doc) => {
+        {/* Detail panel — document list for active section */}
+        <Sidebar collapsible="none" className="w-72! shrink-0 border-r">
+          <SidebarHeader className="gap-3.5 border-b p-4">
+            <div className="flex w-full items-center justify-between">
+              <span className="text-xs font-medium text-sidebar-foreground">
+                {SECTIONS.find((s) => s.id === activeSection)?.label ??
+                  'All Documents'}
+              </span>
+              <span className="text-xs tabular-nums text-sidebar-foreground/50">
+                {filteredDocs.length}
+              </span>
+            </div>
+            <SidebarInput
+              placeholder="Search documents…"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </SidebarHeader>
+          <SidebarContent>
+            <SidebarGroup className="px-0">
+              <SidebarGroupContent>
+                {filteredDocs.map((doc) => {
                   const sc = STATUS_CONFIG[doc.status]
                   const cc = CLASS_CONFIG[doc.classification]
                   return (
                     <button
                       key={doc.id}
                       onClick={() => setActiveDoc(doc)}
-                      style={{
-                        textAlign: 'left',
-                        padding: '12px 16px',
-                        background: 'rgba(255,255,255,0.02)',
-                        border: `1px solid ${P.border}`,
-                        borderRadius: '3px',
-                        cursor: 'pointer',
-                        width: '100%',
-                      }}
+                      className={cn(
+                        'flex w-full flex-col items-start gap-1.5 border-b p-3 text-left text-xs leading-tight last:border-b-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
+                        activeDoc?.id === doc.id && 'bg-sidebar-accent',
+                      )}
                     >
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'flex-start',
-                          gap: '10px',
-                        }}
-                      >
+                      <div className="flex w-full items-center gap-2">
                         <div
-                          style={{
-                            width: '6px',
-                            height: '6px',
-                            borderRadius: '50%',
-                            background: sc.dot,
-                            flexShrink: 0,
-                            marginTop: '5px',
-                          }}
+                          className="size-1.5 shrink-0 rounded-full"
+                          style={{ background: sc.dot }}
                         />
-                        <div style={{ flex: 1 }}>
-                          <div
-                            style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '8px',
-                              marginBottom: '4px',
-                              flexWrap: 'wrap',
-                            }}
-                          >
-                            <span
-                              style={{
-                                fontSize: '10px',
-                                fontFamily: 'monospace',
-                                color: P.textFaint,
-                              }}
-                            >
-                              {doc.id}
-                            </span>
-                            <span
-                              style={{
-                                fontSize: '10px',
-                                color: 'rgba(255,255,255,0.65)',
-                              }}
-                            >
-                              {doc.title}
-                            </span>
-                            <span
-                              style={{
-                                fontSize: '9px',
-                                padding: '1px 6px',
-                                borderRadius: '2px',
-                                background: cc.bg,
-                                color: cc.color,
-                              }}
-                            >
-                              {doc.classification}
-                            </span>
-                            <span
-                              style={{
-                                fontSize: '9px',
-                                color: P.textFaint,
-                                marginLeft: 'auto',
-                              }}
-                            >
-                              {doc.date}
-                            </span>
-                          </div>
-                          {doc.note && (
-                            <p
-                              style={{
-                                fontSize: '10px',
-                                color: P.textFaint,
-                                lineHeight: 1.6,
-                                fontStyle: 'italic',
-                              }}
-                            >
-                              {doc.note}
-                            </p>
-                          )}
-                        </div>
+                        <span className="font-mono text-sidebar-foreground/60">
+                          {doc.id}
+                        </span>
+                        <span
+                          className="ml-auto text-[10px]"
+                          style={{ color: cc.color }}
+                        >
+                          {doc.classification}
+                        </span>
                       </div>
+                      <span className="line-clamp-1 font-medium text-sidebar-foreground">
+                        {doc.title}
+                      </span>
+                      <span className="text-sidebar-foreground/50">
+                        {doc.date}
+                        {doc.size && ` · ${doc.size}`}
+                      </span>
                     </button>
                   )
                 })}
+              </SidebarGroupContent>
+            </SidebarGroup>
+          </SidebarContent>
+          <SidebarFooter className="p-0">
+            <div className="border-t p-3">
+              <div className="rounded border border-red-500/15 bg-red-500/5 p-2.5">
+                <p className="text-[10px] leading-relaxed text-red-500/60">
+                  This data room is publicly accessible.
+                  <br />
+                  Authentication: not implemented.
+                  <br />
+                  Finding 3 — Critical — Unresolved.
+                  <br />
+                  See DR-031.
+                </p>
               </div>
             </div>
+          </SidebarFooter>
+        </Sidebar>
+
+        {/* Document viewer */}
+        <div className="flex-1 overflow-y-auto">
+          {!activeDoc ? (
+            <div className="flex h-full items-center justify-center">
+              <p className="text-xs text-muted-foreground">
+                Select a document to view
+              </p>
+            </div>
           ) : (
-            /* Document viewer */
-            <div style={{ padding: '20px' }}>
+            <div className="p-5">
               {/* Doc header */}
-              <div
-                style={{
-                  marginBottom: '20px',
-                  paddingBottom: '16px',
-                  borderBottom: `1px solid ${P.border}`,
-                }}
-              >
+              <div className="mb-5 border-b border-border pb-4">
                 <button
                   onClick={() => setActiveDoc(null)}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    color: P.textFaint,
-                    fontSize: '11px',
-                    marginBottom: '12px',
-                    display: 'block',
-                    fontFamily: 'inherit',
-                  }}
+                  className="mb-3 block text-xs text-muted-foreground"
                 >
                   ← Back to {activeDoc.section}
                 </button>
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '12px',
-                    flexWrap: 'wrap',
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: 'monospace',
-                      fontSize: '10px',
-                      color: P.textFaint,
-                    }}
-                  >
+                <div className="flex flex-wrap items-start gap-3">
+                  <span className="font-mono text-xs text-muted-foreground">
                     {activeDoc.id}
                   </span>
-                  <h2
-                    style={{
-                      fontSize: '14px',
-                      color: 'rgba(255,255,255,0.85)',
-                      fontWeight: 500,
-                      flex: 1,
-                    }}
-                  >
+                  <h2 className="flex-1 text-sm font-medium text-foreground/85">
                     {activeDoc.title}
                   </h2>
                   <span
+                    className="rounded-sm px-2 py-0.5 text-xs"
                     style={{
-                      fontSize: '9px',
-                      padding: '2px 8px',
-                      borderRadius: '2px',
                       background: CLASS_CONFIG[activeDoc.classification].bg,
                       color: CLASS_CONFIG[activeDoc.classification].color,
                     }}
@@ -3267,44 +3063,24 @@ export default function DataRoomPage() {
                     {activeDoc.classification}
                   </span>
                   <span
-                    style={{
-                      fontSize: '9px',
-                      padding: '2px 8px',
-                      borderRadius: '2px',
-                      background: 'rgba(255,255,255,0.04)',
-                      color: STATUS_CONFIG[activeDoc.status].dot,
-                    }}
+                    className="rounded-sm bg-muted px-2 py-0.5 text-xs"
+                    style={{ color: STATUS_CONFIG[activeDoc.status].dot }}
                   >
                     {STATUS_CONFIG[activeDoc.status].label}
                   </span>
                 </div>
-                <div
-                  style={{
-                    marginTop: '8px',
-                    display: 'flex',
-                    gap: '16px',
-                    flexWrap: 'wrap',
-                  }}
-                >
-                  <span style={{ fontSize: '10px', color: P.textFaint }}>
+                <div className="mt-2 flex flex-wrap gap-4">
+                  <span className="text-xs text-muted-foreground">
                     {activeDoc.date}
                   </span>
                   {activeDoc.size && (
-                    <span style={{ fontSize: '10px', color: P.textFaint }}>
+                    <span className="text-xs text-muted-foreground">
                       {activeDoc.size}
                     </span>
                   )}
                 </div>
                 {activeDoc.note && (
-                  <p
-                    style={{
-                      fontSize: '10px',
-                      color: P.warning,
-                      lineHeight: 1.7,
-                      marginTop: '8px',
-                      fontStyle: 'italic',
-                    }}
-                  >
+                  <p className="mt-2 text-xs italic leading-relaxed text-yellow-500">
                     Note: {activeDoc.note}
                   </p>
                 )}
@@ -3323,6 +3099,6 @@ export default function DataRoomPage() {
           )}
         </div>
       </div>
-    </PayloadShell>
+    </CmsShell>
   )
 }

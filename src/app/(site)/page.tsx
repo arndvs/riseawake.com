@@ -18,7 +18,7 @@ function BedIcon({ status }: { status: string }) {
       viewBox="0 0 120 80"
       fill="none"
       aria-hidden="true"
-      className={isDiscontinued ? 'text-foreground/12' : 'text-accent/40'}
+      className={isDiscontinued ? 'text-foreground/12' : 'text-brand/40'}
     >
       <rect
         x="10"
@@ -26,7 +26,7 @@ function BedIcon({ status }: { status: string }) {
         width="100"
         height="26"
         rx="2"
-        className={isDiscontinued ? 'fill-foreground/4' : 'fill-accent/8'}
+        className={isDiscontinued ? 'fill-foreground/4' : 'fill-brand/8'}
         stroke="currentColor"
         strokeWidth="1"
       />
@@ -36,7 +36,7 @@ function BedIcon({ status }: { status: string }) {
         width="100"
         height="14"
         rx="2"
-        className={isDiscontinued ? 'fill-foreground/4' : 'fill-accent/8'}
+        className={isDiscontinued ? 'fill-foreground/4' : 'fill-brand/8'}
         stroke="currentColor"
         strokeWidth="0.8"
       />
@@ -80,7 +80,7 @@ function BedIcon({ status }: { status: string }) {
         cx="22"
         cy="67"
         r="3"
-        className={isDiscontinued ? 'fill-foreground/4' : 'fill-accent/8'}
+        className={isDiscontinued ? 'fill-foreground/4' : 'fill-brand/8'}
         stroke="currentColor"
         strokeWidth="0.8"
       />
@@ -88,7 +88,7 @@ function BedIcon({ status }: { status: string }) {
         cx="98"
         cy="67"
         r="3"
-        className={isDiscontinued ? 'fill-foreground/4' : 'fill-accent/8'}
+        className={isDiscontinued ? 'fill-foreground/4' : 'fill-brand/8'}
         stroke="currentColor"
         strokeWidth="0.8"
       />
@@ -124,13 +124,13 @@ function ProductCard({
 }) {
   return (
     <Link href={href} className="group block">
-      <div className="h-full rounded-xl border border-edge bg-surface p-10 transition-all duration-300 group-hover:border-accent/25 group-hover:shadow-lg md:p-14">
+      <div className="h-full rounded-xl border border-edge bg-surface p-10 transition-all duration-300 group-hover:border-brand/25 group-hover:shadow-lg md:p-14">
         <div className="mb-10 flex items-center justify-between">
           <span
             className={`rounded-xl px-3 py-1.5 text-[10px] font-medium tracking-[0.16em] uppercase ${
               status === 'discontinued'
                 ? 'border border-edge bg-foreground/5 text-foreground-muted'
-                : 'border border-accent/20 bg-accent/10 text-accent'
+                : 'border border-brand/20 bg-brand/10 text-brand'
             }`}
           >
             {status === 'discontinued'
@@ -147,7 +147,7 @@ function ProductCard({
         <h3 className="mb-3 font-display text-4xl tracking-tight text-foreground-strong">
           {name}
         </h3>
-        <p className="mb-6 text-sm text-accent/75 italic">
+        <p className="mb-6 text-sm text-brand/75 italic">
           &ldquo;{tagline}&rdquo;
         </p>
         <p className="mb-10 text-body text-foreground-secondary">
@@ -170,16 +170,16 @@ export default function Home() {
     <div className="overflow-hidden">
       <main>
         <section className="relative flex min-h-screen flex-col overflow-hidden">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,var(--color-accent)_0%,transparent_70%)] opacity-[0.07]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,var(--color-brand)_0%,transparent_70%)] opacity-[0.07]" />
 
           <div className="relative z-10 flex min-h-screen flex-col px-6 pt-28 pb-10">
             <div className="mx-auto mb-8 w-full max-w-5xl text-center">
               <div className="mb-7 flex items-center justify-center gap-3">
-                <div className="h-px w-12 bg-accent/50" />
+                <div className="h-px w-12 bg-brand/50" />
                 <span className="text-[10px] font-medium tracking-[0.24em] text-foreground-muted uppercase">
                   Smart Adjustable Base
                 </span>
-                <div className="h-px w-12 bg-accent/50" />
+                <div className="h-px w-12 bg-brand/50" />
               </div>
 
               <h1 className="mb-4 font-display text-hero leading-none text-foreground-strong">
@@ -198,8 +198,8 @@ export default function Home() {
               <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-edge bg-surface shadow-hero">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative flex items-center justify-center">
-                    <div className="animate-glow-pulse absolute size-25 rounded-full border border-accent/35" />
-                    <div className="flex size-19 items-center justify-center rounded-full border border-accent/45 bg-accent/18 backdrop-blur-xl">
+                    <div className="animate-glow-pulse absolute size-25 rounded-full border border-brand/35" />
+                    <div className="flex size-19 items-center justify-center rounded-full border border-brand/45 bg-brand/18 backdrop-blur-xl">
                       <svg
                         width="22"
                         height="24"
@@ -221,7 +221,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="pointer-events-none absolute top-4 left-4 flex items-center gap-2">
-                  <div className="animate-glow-pulse size-1.5 rounded-full bg-accent" />
+                  <div className="animate-glow-pulse size-1.5 rounded-full bg-brand" />
                   <span className="text-[10px] font-medium tracking-[0.2em] text-foreground-secondary uppercase">
                     RISE
                   </span>
@@ -237,7 +237,7 @@ export default function Home() {
             <div className="mx-auto mt-6 w-full max-w-6xl">
               <div className="mb-6 flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
                 <div className="flex items-center gap-3">
-                  <div className="animate-glow-pulse size-1.5 rounded-full bg-accent" />
+                  <div className="animate-glow-pulse size-1.5 rounded-full bg-brand" />
                   <p className="text-xs text-foreground-muted">
                     <span className="text-foreground-secondary">
                       &ldquo;The Remote&rdquo;
@@ -347,7 +347,7 @@ export default function Home() {
                 },
               ].map((item) => (
                 <div key={item.step} className="bg-surface p-10 md:p-14">
-                  <p className="mb-6 font-display text-5xl text-accent/28">
+                  <p className="mb-6 font-display text-5xl text-brand/28">
                     {item.step}
                   </p>
                   <h3 className="mb-4 text-sm font-medium tracking-widest text-foreground-secondary uppercase">
@@ -414,7 +414,7 @@ export default function Home() {
                       <span
                         key={s}
                         aria-hidden="true"
-                        className={`text-xs ${s < t.stars ? 'text-accent/80' : 'text-foreground-muted/30'}`}
+                        className={`text-xs ${s < t.stars ? 'text-brand/80' : 'text-foreground-muted/30'}`}
                       >
                         ★
                       </span>
@@ -458,7 +458,7 @@ export default function Home() {
         </section>
 
         <section className="relative overflow-hidden px-6 py-40 text-center">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-brand)_0%,transparent_70%)] opacity-[0.06]" />
           <div className="relative z-10 mx-auto max-w-2xl">
             <p className="mb-8 text-eyebrow text-foreground-muted uppercase">
               Ready?

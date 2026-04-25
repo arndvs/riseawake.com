@@ -161,12 +161,12 @@ function ShieldIcon({ className }: { className?: string }) {
     >
       <path
         d="M20 2L4 10v12c0 10.5 6.8 20.3 16 22.8 9.2-2.5 16-12.3 16-22.8V10L20 2z"
-        className="fill-accent/8 stroke-accent/40"
+        className="fill-brand/8 stroke-brand/40"
         strokeWidth="1.5"
       />
       <path
         d="M15 22l4 4 8-8"
-        className="stroke-accent"
+        className="stroke-brand"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -190,12 +190,12 @@ function LockIcon({ className }: { className?: string }) {
         width="14"
         height="10"
         rx="2"
-        className="fill-accent/8 stroke-accent/40"
+        className="fill-brand/8 stroke-brand/40"
         strokeWidth="1.5"
       />
       <path
         d="M8 11V7a4 4 0 1 1 8 0v4"
-        className="stroke-accent/40"
+        className="stroke-brand/40"
         strokeWidth="1.5"
         strokeLinecap="round"
       />
@@ -235,7 +235,7 @@ export default function SecurityPage() {
           <div className="flex flex-wrap gap-4">
             <Link
               href="/security/trust-center"
-              className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/8 px-6 py-3 text-sm font-medium text-accent transition-colors duration-200 hover:bg-accent/12"
+              className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/8 px-6 py-3 text-sm font-medium text-brand transition-colors duration-200 hover:bg-brand/12"
             >
               Visit Trust Center
               <span aria-hidden="true">→</span>
@@ -268,7 +268,7 @@ export default function SecurityPage() {
             {CERTIFICATIONS.map((cert) => (
               <div
                 key={cert.name}
-                className="flex flex-col rounded-xl border border-edge-subtle bg-surface-alt p-7 transition-all duration-300 hover:border-accent/20 hover:shadow-md"
+                className="flex flex-col rounded-xl border border-edge-subtle bg-surface-alt p-7 transition-all duration-300 hover:border-brand/20 hover:shadow-md"
               >
                 <div className="mb-5 flex items-start justify-between gap-3">
                   <ShieldIcon className="h-10 w-10 shrink-0" />
@@ -334,7 +334,7 @@ export default function SecurityPage() {
             {FEATURES.map((feature) => (
               <div
                 key={feature.title}
-                className="flex flex-col rounded-xl border border-edge-subtle bg-surface-alt p-7 transition-all duration-300 hover:border-accent/20 hover:shadow-md"
+                className="flex flex-col rounded-xl border border-edge-subtle bg-surface-alt p-7 transition-all duration-300 hover:border-brand/20 hover:shadow-md"
               >
                 <div className="mb-4">
                   <LockIcon className="h-6 w-6" />
@@ -381,7 +381,7 @@ export default function SecurityPage() {
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="rounded-xl border border-accent/12 bg-accent/8 px-2 py-0.5 text-[10px] text-accent/70">
+                    <span className="rounded-xl border border-brand/12 bg-brand/8 px-2 py-0.5 text-[10px] text-brand/70">
                       {item.label}
                     </span>
                     <span className="text-xs text-foreground-muted tabular-nums">
@@ -391,7 +391,7 @@ export default function SecurityPage() {
                 </div>
                 <div className="h-2 overflow-hidden rounded-full bg-foreground/5">
                   <div
-                    className="h-full rounded-full bg-accent/40 transition-all duration-500"
+                    className="h-full rounded-full bg-brand/40 transition-all duration-500"
                     style={{ width: `${item.progress}%` }}
                   />
                 </div>
@@ -559,7 +559,7 @@ export default function SecurityPage() {
               </p>
               <Link
                 href="/security/report"
-                className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/8 px-5 py-2.5 text-xs font-medium text-accent transition-colors duration-200 hover:bg-accent/12"
+                className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/8 px-5 py-2.5 text-xs font-medium text-brand transition-colors duration-200 hover:bg-brand/12"
               >
                 Submit a Report
                 <span aria-hidden="true">→</span>

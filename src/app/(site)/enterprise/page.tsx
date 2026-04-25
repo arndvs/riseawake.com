@@ -100,7 +100,7 @@ export default function EnterprisePage() {
     <main>
       {/* Hero */}
       <section className="relative overflow-hidden px-6 pt-40 pb-24">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-accent)_0%,transparent_70%)] opacity-[0.05]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-brand)_0%,transparent_70%)] opacity-[0.05]" />
         <div className="mx-auto max-w-4xl">
           <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             RISE for Organizations
@@ -124,7 +124,7 @@ export default function EnterprisePage() {
           <div className="mt-12 flex flex-wrap gap-4">
             <Link
               href="#contact"
-              className="inline-block glow-btn rounded-full bg-accent px-10 py-4 text-xs font-medium tracking-widest text-accent-on uppercase"
+              className="inline-block glow-btn rounded-full bg-brand px-10 py-4 text-xs font-medium tracking-widest text-brand-on uppercase"
             >
               Request a Pilot
             </Link>
@@ -271,7 +271,7 @@ export default function EnterprisePage() {
                     </p>
                   </div>
                 </div>
-                <blockquote className="mb-3 border-l-2 border-accent/30 pl-4 text-sm leading-relaxed text-foreground-secondary/70 italic">
+                <blockquote className="mb-3 border-l-2 border-brand/30 pl-4 text-sm leading-relaxed text-foreground-secondary/70 italic">
                   &ldquo;{cs.quote}&rdquo;
                 </blockquote>
                 <p className="mb-2 text-[10px] text-foreground-muted">
@@ -314,13 +314,13 @@ export default function EnterprisePage() {
                 key={tier.tier}
                 className={`flex flex-col rounded border p-8 ${
                   tier.accent
-                    ? 'border-accent/20 bg-accent/[0.05]'
+                    ? 'border-brand/20 bg-brand/[0.05]'
                     : 'border-edge bg-surface-alt'
                 }`}
               >
                 <p
                   className={`mb-3 text-[10px] tracking-widest uppercase ${
-                    tier.accent ? 'text-accent/70' : 'text-foreground-muted'
+                    tier.accent ? 'text-brand/70' : 'text-foreground-muted'
                   }`}
                 >
                   {tier.tier}
@@ -355,7 +355,7 @@ export default function EnterprisePage() {
                   href="mailto:enterprise@riseawake.com?subject=Enterprise%20Inquiry"
                   className={`block w-full rounded py-2.5 text-center text-[11px] font-medium tracking-widest uppercase no-underline ${
                     tier.accent
-                      ? 'bg-accent text-accent-on'
+                      ? 'bg-brand text-brand-on'
                       : 'bg-surface text-foreground-muted'
                   }`}
                 >

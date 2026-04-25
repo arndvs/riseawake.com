@@ -495,7 +495,7 @@ const ENTRIES = [
 
 const TAG_STYLES: Record<string, { bg: string; text: string; label: string }> =
   {
-    major: { bg: 'bg-accent/15', text: 'text-accent', label: 'Major' },
+    major: { bg: 'bg-brand/15', text: 'text-brand', label: 'Major' },
     minor: {
       bg: 'bg-emerald-500/12',
       text: 'text-emerald-500/80',
@@ -519,7 +519,7 @@ const TAG_STYLES: Record<string, { bg: string; text: string; label: string }> =
   }
 
 const CHANGE_ICONS: Record<string, { icon: string; className: string }> = {
-  feature: { icon: '\u2726', className: 'text-accent/80' },
+  feature: { icon: '\u2726', className: 'text-brand/80' },
   improvement: { icon: '\u2191', className: 'text-emerald-500/70' },
   fix: { icon: '\u25CB', className: 'text-foreground-muted' },
   change: { icon: '\u2192', className: 'text-yellow-500/70' },
@@ -534,7 +534,7 @@ export default function ChangelogPage() {
     <main>
       {/* Hero */}
       <section className="relative overflow-hidden px-6 pt-40 pb-16">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-accent)_0%,transparent_70%)] opacity-[0.05]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-brand)_0%,transparent_70%)] opacity-[0.05]" />
         <div className="mx-auto max-w-3xl">
           <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Platform Updates
@@ -586,14 +586,14 @@ export default function ChangelogPage() {
                     <div
                       className={`absolute top-1 left-0 flex h-6 w-6 items-center justify-center rounded-full border ${
                         entry.tag === 'major'
-                          ? 'border-accent/40 bg-accent/20'
+                          ? 'border-brand/40 bg-brand/20'
                           : 'border-edge bg-surface-alt'
                       }`}
                     >
                       <div
                         className={`h-1.5 w-1.5 rounded-full ${
                           entry.tag === 'major'
-                            ? 'bg-accent'
+                            ? 'bg-brand'
                             : 'bg-foreground-muted'
                         }`}
                       />
@@ -603,7 +603,7 @@ export default function ChangelogPage() {
                     <div
                       className={`overflow-hidden rounded border ${
                         entry.tag === 'major'
-                          ? 'border-accent/12'
+                          ? 'border-brand/12'
                           : 'border-edge-subtle'
                       } bg-surface-alt`}
                     >
@@ -720,7 +720,7 @@ export default function ChangelogPage() {
               placeholder="your@email.com"
               className="flex-1 rounded border border-edge bg-surface-alt px-3.5 py-2.5 text-xs text-foreground outline-none"
             />
-            <button className="cursor-pointer rounded bg-accent px-5 py-2.5 text-[11px] font-medium tracking-wider whitespace-nowrap text-accent-on uppercase">
+            <button className="cursor-pointer rounded bg-brand px-5 py-2.5 text-[11px] font-medium tracking-wider whitespace-nowrap text-brand-on uppercase">
               Subscribe
             </button>
           </div>

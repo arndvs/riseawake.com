@@ -127,13 +127,13 @@ export default function SDKDocsPage() {
             SDK v1.4.1 · Documentation v1.2 · Last updated {rise.sdkLastUpdated()}
           </p>
 
-          <div className="mb-12 rounded-xl border border-accent/15 bg-accent/6 p-4">
-            <p className="text-xs leading-relaxed text-accent/75">
-              <strong className="text-accent">Note:</strong> This documentation
+          <div className="mb-12 rounded-xl border border-brand/15 bg-brand/6 p-4">
+            <p className="text-xs leading-relaxed text-brand/75">
+              <strong className="text-brand">Note:</strong> This documentation
               is available without a DataKit SDK license. Usefulness of this
               documentation without a license is limited. The SDK itself
               requires a license key delivered after purchase.{' '}
-              <Link href="/sdk" className="text-accent/60 underline">
+              <Link href="/sdk" className="text-brand/60 underline">
                 Purchase DataKit SDK →
               </Link>
             </p>
@@ -195,7 +195,7 @@ export default function SDKDocsPage() {
               configuration cannot be confirmed without the Compatibility
               Matrix, which is available to registered customers. To become a
               registered customer,{' '}
-              <Link href="/sdk" className="text-accent/50 underline">
+              <Link href="/sdk" className="text-brand/50 underline">
                 purchase DataKit SDK
               </Link>
               .

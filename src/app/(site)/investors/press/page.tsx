@@ -126,7 +126,7 @@ export default function InvestorPressPage() {
                         key={s}
                         aria-hidden="true"
                         className={`text-[11px] ${
-                          s < item.stars! ? 'text-accent' : 'text-edge-subtle'
+                          s < item.stars! ? 'text-brand' : 'text-edge-subtle'
                         }`}
                       >
                         ★
@@ -136,7 +136,7 @@ export default function InvestorPressPage() {
                 )}
                 {item.riseNote && (
                   <div className="mt-2 border-t border-edge-subtle pt-3">
-                    <p className="text-[10px] leading-relaxed text-accent/70">
+                    <p className="text-[10px] leading-relaxed text-brand/70">
                       Note from RISE: This coverage is included for
                       completeness. The documentation is at riseawake.com/legal.
                     </p>
