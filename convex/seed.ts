@@ -37,9 +37,11 @@ const CATEGORIES = [
     scope: 'universal' as const,
     sortOrder: 3,
     options: [
-      'Beach', 'Castle', 'City Skyline', 'Countryside', 'Desert',
-      'Forest', 'Garden', 'Laboratory', 'Library', 'Mountain',
-      'Office', 'Space Station', 'Subway', 'Underwater',
+      'Beach', 'Car Interior', 'Castle', 'City Skyline', 'Countryside',
+      'Desert', 'Forest', 'Garden', 'Home Interior', 'Hospital',
+      'Laboratory', 'Library', 'Mars', 'Mountain', 'Office',
+      'Park', 'Space Station', 'Street', 'Subway', 'Underwater',
+      'Workplace',
     ],
   },
   {
@@ -48,9 +50,30 @@ const CATEGORIES = [
     sortOrder: 4,
     options: [
       'Aerial Shot', 'Bird Eye View', 'Bokeh', 'Close-Up',
-      'Dutch Angle', 'Extreme Close-Up', 'Fish Eye', 'Long Exposure',
-      'Macro', 'Over the Shoulder', 'Panoramic', 'Tilt-Shift',
-      'Wide Angle',
+      'Dutch Angle', 'Extreme Close-Up', 'Fast Shutter Speed',
+      'Fish Eye', 'Long Exposure', 'Macro', 'Motion Blur',
+      'Over the Shoulder', 'Panoramic', 'Sigma 85mm f/1.4',
+      'Tilt-Shift', 'Tilted Frame', 'Wide Angle', '300mm Lens',
+    ],
+  },
+  {
+    name: 'Artists',
+    scope: 'universal' as const,
+    sortOrder: 5,
+    options: [
+      'Andy Warhol', 'Boris Vallejo', 'Da Vinci', 'Edward Hopper',
+      'Frida Kahlo', 'Greg Rutkowski', 'HR Giger', 'Leonid Afremov',
+      'Michelangelo', 'Monet', 'Picasso', 'Raphael', 'Rembrandt',
+      'Roy Lichtenstein', 'Salvador Dali', 'Van Gogh', 'Yayoi Kusama',
+    ],
+  },
+  {
+    name: 'Era',
+    scope: 'universal' as const,
+    sortOrder: 6,
+    options: [
+      '1920s', '1950s', '1970s', '1980s', '2000s',
+      'Ancient', 'Future', 'Medieval', 'Victorian',
     ],
   },
 
@@ -58,7 +81,7 @@ const CATEGORIES = [
   {
     name: 'Product',
     scope: 'rise' as const,
-    sortOrder: 5,
+    sortOrder: 7,
     options: [
       'PUSH Adjustable Bed',
       'RISE Branding / Logo',
@@ -70,7 +93,7 @@ const CATEGORIES = [
   {
     name: 'Shot Type',
     scope: 'rise' as const,
-    sortOrder: 6,
+    sortOrder: 8,
     options: [
       'Close-Up', 'Wide', 'Medium', 'Over the Shoulder',
       'POV', 'Establishing', 'Insert', 'Two-Shot',
@@ -79,7 +102,7 @@ const CATEGORIES = [
   {
     name: 'Mood / Lighting',
     scope: 'rise' as const,
-    sortOrder: 7,
+    sortOrder: 9,
     options: [
       'Warm', 'Cool', 'Dramatic', 'Soft', 'Neon',
       'Morning', 'Night', 'Golden Hour', 'Overcast',

@@ -15,7 +15,12 @@ import {
 } from 'lucide-react'
 
 type PromptInputProps = {
-  onGenerate: (prompt: string, model: 'dall-e-3' | 'gpt-image-1') => void
+  onGenerate: (
+    prompt: string,
+    model: 'dall-e-3' | 'gpt-image-1',
+    size: '1024x1024' | '1792x1024' | '1024x1792',
+    quality: 'standard' | 'hd',
+  ) => void
   isLoading: boolean
   allocRemaining: number
   error: string | null
@@ -26,6 +31,17 @@ const MODELS = [
   { value: 'gpt-image-1' as const, label: 'GPT Image' },
 ]
 
+const SIZES = [
+  { value: '1024x1024' as const, label: 'Square' },
+  { value: '1792x1024' as const, label: 'Landscape' },
+  { value: '1024x1792' as const, label: 'Portrait' },
+]
+
+const QUALITIES = [
+  { value: 'standard' as const, label: 'Standard' },
+  { value: 'hd' as const, label: 'HD' },
+]
+
 export function PromptInput({
   onGenerate,
   isLoading,
@@ -34,6 +50,8 @@ export function PromptInput({
 }: PromptInputProps) {
   const [prompt, setPrompt] = useState('')
   const [model, setModel] = useState<'dall-e-3' | 'gpt-image-1'>('dall-e-3')
+  const [size, setSize] = useState<'1024x1024' | '1792x1024' | '1024x1792'>('1024x1024')
+  const [quality, setQuality] = useState<'standard' | 'hd'>('hd')
   const [showAdvanced, setShowAdvanced] = useState(false)
 
   const categories = useQuery(api.promptCategories.listCategories, {})
@@ -45,7 +63,7 @@ export function PromptInput({
     e.preventDefault()
     if (!prompt.trim() || isLoading || allocRemaining <= 0 || hasBannedWords)
       return
-    onGenerate(prompt.trim(), model)
+    onGenerate(prompt.trim(), model, size, quality)
   }
 
   const handleAdvancedSelect = (additions: string[]) => {
@@ -55,6 +73,23 @@ export function PromptInput({
       const trimmed = prev.trim()
       return trimmed ? `${trimmed}, ${suffix}` : suffix
     })
+  }
+
+  const handleToggleOption = (option: string, added: boolean) => {
+    if (added) {
+      setPrompt((prev) => {
+        const trimmed = prev.trim()
+        return trimmed ? `${trimmed}, ${option}` : option
+      })
+    } else {
+      setPrompt((prev) => {
+        // Remove the option from the prompt text
+        return prev
+          .replace(new RegExp(`,?\\s*${option.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'gi'), '')
+          .replace(/^,\s*/, '')
+          .trim()
+      })
+    }
   }
 
   return (
@@ -91,6 +126,46 @@ export function PromptInput({
                 </button>
               ))}
             </div>
+
+            {/* Size selector (DALL-E 3 only) */}
+            {model === 'dall-e-3' && (
+              <div className="flex rounded-full border border-edge-subtle bg-surface-alt">
+                {SIZES.map((s) => (
+                  <button
+                    key={s.value}
+                    type="button"
+                    onClick={() => setSize(s.value)}
+                    className={`rounded-full px-2.5 py-1 text-xs font-medium tracking-wide transition-colors ${
+                      size === s.value
+                        ? 'bg-brand text-brand-on'
+                        : 'text-foreground-muted hover:text-foreground'
+                    }`}
+                  >
+                    {s.label}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Quality selector (DALL-E 3 only) */}
+            {model === 'dall-e-3' && (
+              <div className="flex rounded-full border border-edge-subtle bg-surface-alt">
+                {QUALITIES.map((q) => (
+                  <button
+                    key={q.value}
+                    type="button"
+                    onClick={() => setQuality(q.value)}
+                    className={`rounded-full px-2.5 py-1 text-xs font-medium tracking-wide transition-colors ${
+                      quality === q.value
+                        ? 'bg-brand text-brand-on'
+                        : 'text-foreground-muted hover:text-foreground'
+                    }`}
+                  >
+                    {q.label}
+                  </button>
+                ))}
+              </div>
+            )}
 
             {/* Advanced toggle */}
             <button
@@ -129,6 +204,7 @@ export function PromptInput({
         <AdvancedOptions
           categories={categories}
           onSelect={handleAdvancedSelect}
+          onToggleOption={handleToggleOption}
         />
       )}
 

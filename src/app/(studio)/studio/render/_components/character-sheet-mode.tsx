@@ -15,7 +15,12 @@ const ANGLES = [
 ] as const
 
 type CharacterSheetModeProps = {
-  onGenerate: (prompt: string, model: 'dall-e-3' | 'gpt-image-1') => void
+  onGenerate: (
+    prompt: string,
+    model: 'dall-e-3' | 'gpt-image-1',
+    size: '1024x1024' | '1792x1024' | '1024x1792',
+    quality: 'standard' | 'hd',
+  ) => void
   isLoading: boolean
   allocRemaining: number
   error: string | null
@@ -68,7 +73,7 @@ export function CharacterSheetMode({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!canGenerate) return
-    onGenerate(constructedPrompt, model)
+    onGenerate(constructedPrompt, model, '1024x1024', 'hd')
   }
 
   return (

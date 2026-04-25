@@ -8,8 +8,22 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
 const ALLOWED_MODELS = ['dall-e-3', 'gpt-image-1'] as const
 type AllowedModel = (typeof ALLOWED_MODELS)[number]
 
+const ALLOWED_SIZES = ['1024x1024', '1792x1024', '1024x1792'] as const
+type AllowedSize = (typeof ALLOWED_SIZES)[number]
+
+const ALLOWED_QUALITIES = ['standard', 'hd'] as const
+type AllowedQuality = (typeof ALLOWED_QUALITIES)[number]
+
 function isAllowedModel(model: string): model is AllowedModel {
   return (ALLOWED_MODELS as readonly string[]).includes(model)
+}
+
+function isAllowedSize(size: string): size is AllowedSize {
+  return (ALLOWED_SIZES as readonly string[]).includes(size)
+}
+
+function isAllowedQuality(quality: string): quality is AllowedQuality {
+  return (ALLOWED_QUALITIES as readonly string[]).includes(quality)
 }
 
 export async function POST(request: NextRequest) {
@@ -31,7 +45,7 @@ export async function POST(request: NextRequest) {
   }
 
   // ─── Parse body ───────────────────────────────────────────────────
-  let body: { prompt?: string; model?: string }
+  let body: { prompt?: string; model?: string; size?: string; quality?: string }
   try {
     body = await request.json()
   } catch {
@@ -42,6 +56,8 @@ export async function POST(request: NextRequest) {
   }
 
   const { prompt, model } = body
+  const size: AllowedSize = body.size && isAllowedSize(body.size) ? body.size : '1024x1024'
+  const quality: AllowedQuality = body.quality && isAllowedQuality(body.quality) ? body.quality : 'hd'
 
   if (!prompt || typeof prompt !== 'string' || prompt.trim().length === 0) {
     return NextResponse.json(
@@ -84,8 +100,8 @@ export async function POST(request: NextRequest) {
             model: 'dall-e-3',
             prompt: prompt.trim(),
             n: 1,
-            size: '1024x1024',
-            quality: 'hd',
+            size,
+            quality,
           }),
         ),
       )
@@ -93,7 +109,7 @@ export async function POST(request: NextRequest) {
         .map((r) => r.data?.[0]?.url)
         .filter((url): url is string => !!url)
     } else {
-      // gpt-image-1 supports n:4
+      // gpt-image-1 supports n:4 but only 1024x1024
       const result = await openai.images.generate({
         model: 'gpt-image-1',
         prompt: prompt.trim(),

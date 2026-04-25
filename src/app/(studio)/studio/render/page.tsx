@@ -30,6 +30,8 @@ export default function RenderPage() {
   ])
   const [prompt, setPrompt] = useState('')
   const [model, setModel] = useState<'dall-e-3' | 'gpt-image-1'>('dall-e-3')
+  const [size, setSize] = useState<'1024x1024' | '1792x1024' | '1024x1792'>('1024x1024')
+  const [quality, setQuality] = useState<'standard' | 'hd'>('hd')
   const [kept, setKept] = useState<boolean[]>([false, false, false, false])
   const [error, setError] = useState<string | null>(null)
   const [savingSlot, setSavingSlot] = useState<number | null>(null)
@@ -77,14 +79,24 @@ export default function RenderPage() {
   }, [])
 
   const handleGenerate = useCallback(
-    async (promptText: string, selectedModel: 'dall-e-3' | 'gpt-image-1') => {
+    async (
+      promptText: string,
+      selectedModel: 'dall-e-3' | 'gpt-image-1',
+      selectedSize?: '1024x1024' | '1792x1024' | '1024x1792',
+      selectedQuality?: 'standard' | 'hd',
+    ) => {
       if (getAllocRemaining() <= 0) {
         setError('Daily allocation exhausted.')
         return
       }
 
+      const useSize = selectedSize ?? size
+      const useQuality = selectedQuality ?? quality
+
       setPrompt(promptText)
       setModel(selectedModel)
+      setSize(useSize)
+      setQuality(useQuality)
       setError(null)
       setGenerationState('loading')
       setKept([false, false, false, false])
@@ -93,7 +105,12 @@ export default function RenderPage() {
         const res = await fetch('/api/generate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ prompt: promptText, model: selectedModel }),
+          body: JSON.stringify({
+            prompt: promptText,
+            model: selectedModel,
+            size: useSize,
+            quality: useQuality,
+          }),
         })
 
         const data = await res.json()
@@ -116,7 +133,7 @@ export default function RenderPage() {
         setGenerationState('idle')
       }
     },
-    [getAllocRemaining, decrementAllocation],
+    [getAllocRemaining, decrementAllocation, size, quality],
   )
 
   const handleRegenerate = useCallback(
@@ -137,7 +154,7 @@ export default function RenderPage() {
         const res = await fetch('/api/generate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ prompt, model }),
+          body: JSON.stringify({ prompt, model, size, quality }),
         })
 
         const data = await res.json()
@@ -159,7 +176,7 @@ export default function RenderPage() {
         setError('Network error — check connection and try again.')
       }
     },
-    [prompt, model, getAllocRemaining, decrementAllocation],
+    [prompt, model, size, quality, getAllocRemaining, decrementAllocation],
   )
 
   const handleKeep = useCallback((slotIndex: number) => {
