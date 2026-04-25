@@ -5,7 +5,12 @@ import { revalidateSyncTags } from '@/sanity/revalidateSyncTags'
 import '@/styles/tailwind.css'
 import type { Metadata } from 'next'
 import { ThemeProvider } from 'next-themes'
-import { DM_Sans, DM_Serif_Display } from 'next/font/google'
+import { DM_Sans, DM_Serif_Display, Inter } from 'next/font/google'
+import { cn } from "@/lib/utils";
+
+const dmSansHeading = DM_Sans({subsets:['latin'],variable:'--font-heading'});
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -63,7 +68,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${dmSerifDisplay.variable}`}
+      className={cn(dmSans.variable, dmSerifDisplay.variable, "font-sans", inter.variable, dmSansHeading.variable)}
       suppressHydrationWarning
     >
       <body className="bg-page text-foreground antialiased">
