@@ -32,12 +32,13 @@ const FICTIONAL_APPLICATIONS = [
     whyJoinRise:
       'I wrote the stair navigation code in 2016. The prototype worked. It descended 14 steps at the Presidio test house with a 190lb load at 2am with no occupant. It worked once. Then it did not work again. Daniel said the code was "not preserved" in the migration. I was also not preserved. I left three months before Daniel did. I would like to come back and finish what I started. The stairs have not changed. Neither have I.',
     roleSpecificAnswers: {
-      languagesProficiency: 'C++ (14 years), Rust (6 years), Python (tooling only)',
+      languagesProficiency:
+        'C++ (14 years), Rust (6 years), Python (tooling only)',
       autonomousSystemsExperience:
         'Built the original RISE Move stair prototype 2016–2017. Prior: autonomous warehouse systems at Amazon Robotics.',
       noPriorCodebase: true,
       loadCapacityExperience:
-        'The 190lb test was mine. The 220lb test was Daniel\'s idea. We do not discuss the 220lb test.',
+        "The 190lb test was mine. The 220lb test was Daniel's idea. We do not discuss the 220lb test.",
     },
     resumeFileName: 'hale_marcus_cv_2025.pdf',
     resumeFileSize: 847_000,
@@ -68,7 +69,8 @@ const FICTIONAL_APPLICATIONS = [
       authSecurityExperience:
         'Approximately 80% of the required experience. The remaining 20% is why I am reapplying.',
       completedOthersCode: true,
-      nextjsProficiency: 'Advanced — I wrote the internal tooling stack you are currently using to read this.',
+      nextjsProficiency:
+        'Advanced — I wrote the internal tooling stack you are currently using to read this.',
     },
     ipAddress: '203.0.113.88',
     status: 'needs_review' as const,
@@ -91,11 +93,17 @@ const FICTIONAL_APPLICATIONS = [
     experienceLevel: 'Senior (5+ years)',
     availability: '1 month',
     whyJoinRise:
-      'I currently represent the plaintiffs in Chen v. RISE Awake, Inc. (Case No. 3:24-cv-04871). This is not a conflict of interest. My firm disagrees, which is why I am leaving. I have spent fourteen months reviewing your audio data collection practices. I understand them better than anyone outside your organization and most people inside it. I know what the "Other" category contains. I am not troubled by it. I am troubled that it is not encrypted at rest. Hire me and I will fix both problems: the legal exposure and the one your General Counsel calls "operational."',
+      'I currently represent the plaintiffs in Chen v. RISE Technologies, Inc. (Case No. 3:24-cv-04871). This is not a conflict of interest. My firm disagrees, which is why I am leaving. I have spent fourteen months reviewing your audio data collection practices. I understand them better than anyone outside your organization and most people inside it. I know what the "Other" category contains. I am not troubled by it. I am troubled that it is not encrypted at rest. Hire me and I will fix both problems: the legal exposure and the one your General Counsel calls "operational."',
     roleSpecificAnswers: {
       barAdmissions: 'New York, California, District of Columbia',
-      practiceAreas: ['Data Privacy', 'Class Action Defense', 'Regulatory Compliance', 'IoT / Consumer Hardware'],
-      yearsInHouseVsFirm: '8 years firm, 0 in-house. The ratio is about to change.',
+      practiceAreas: [
+        'Data Privacy',
+        'Class Action Defense',
+        'Regulatory Compliance',
+        'IoT / Consumer Hardware',
+      ],
+      yearsInHouseVsFirm:
+        '8 years firm, 0 in-house. The ratio is about to change.',
       s1AmbiguityComfort: 9,
       iotLegalExperience: true,
     },
@@ -145,8 +153,10 @@ const FICTIONAL_APPLICATIONS = [
     whyJoinRise:
       'I read DOC-015. The entire document. I found it through your internal CMS, which — as your ENG-003 job posting notes — does not currently implement authentication controls. The document is a pest control marketing playbook applied unchanged to a $4,200 autonomous bed. I have three observations: (1) the keyword strategy is sound but the target audience does not search for "best bed for night sweats," (2) the Instagram strategy of posting the PM-1 remote with no caption is accidentally brilliant and should be kept, and (3) the waitlist nurture sequence has a 0% unsubscribe rate not because people love it but because they cannot unsubscribe without losing their position. This is either genius or litigation. I would like to work on the side that makes it genius.',
     roleSpecificAnswers: {
-      writingSampleUrl: 'https://medium.com/@rthorn/the-pm1-remote-photo-4847-likes',
-      cmsExperience: 'Sanity, Contentful, and now Payload — via your publicly accessible internal CMS.',
+      writingSampleUrl:
+        'https://medium.com/@rthorn/the-pm1-remote-photo-4847-likes',
+      cmsExperience:
+        'Sanity, Contentful, and now Payload — via your publicly accessible internal CMS.',
       waitlistMarketingExperience:
         'Managed a 12,000-person waitlist for a DTC skincare brand. Our unsubscribe rate was 4.2%. Yours is 0%. I need to understand how.',
       brandVoiceComfort: 8,
@@ -206,7 +216,8 @@ const FICTIONAL_APPLICATIONS = [
       languagesProficiency: 'All of them.',
       autonomousSystemsExperience: 'Sufficient.',
       noPriorCodebase: true,
-      loadCapacityExperience: 'I have carried heavier things than a bed down stairs.',
+      loadCapacityExperience:
+        'I have carried heavier things than a bed down stairs.',
     },
     resumeFileName: 'REDACTED.pdf',
     resumeFileSize: 1,
@@ -261,13 +272,26 @@ async function main() {
     console.log(`  Deleted ${existing.length} existing entries.\n`)
   }
 
-  console.log(`Seeding ${FICTIONAL_APPLICATIONS.length} fictional applications...\n`)
+  console.log(
+    `Seeding ${FICTIONAL_APPLICATIONS.length} fictional applications...\n`,
+  )
 
   for (const app of FICTIONAL_APPLICATIONS) {
-    const { status, breachFlag, reviewedBy, reviewNotes, submittedAt, fictional, ...submitFields } = app
+    const {
+      status,
+      breachFlag,
+      reviewedBy,
+      reviewNotes,
+      submittedAt,
+      fictional,
+      ...submitFields
+    } = app
 
     // Insert via submitApplication (which sets fictional: false), then patch
-    const id = await convex.mutation(api.applications.submitApplication, submitFields)
+    const id = await convex.mutation(
+      api.applications.submitApplication,
+      submitFields,
+    )
 
     // Patch with the narrative metadata
     await convex.mutation(api.applications.updateApplicationStatus, {
@@ -284,7 +308,9 @@ async function main() {
       fictional: true,
     })
 
-    console.log(`  ✓ ${app.firstName} ${app.lastName} → ${app.roleId} [${status}]`)
+    console.log(
+      `  ✓ ${app.firstName} ${app.lastName} → ${app.roleId} [${status}]`,
+    )
   }
 
   console.log('\nDone. All fictional applications seeded.')
