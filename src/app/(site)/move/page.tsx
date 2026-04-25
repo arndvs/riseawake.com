@@ -113,7 +113,8 @@ export default function MovePage() {
             Joining this list does not reserve a unit, guarantee pricing, or
             constitute any agreement with RISE. Current Push owners will be
             notified at the same time as everyone else. There is no priority
-            queue. There is no loyalty discount.
+            queue. There is no loyalty discount. Unsubscribing forfeits your
+            position. There is no recovery process.
           </p>
         </div>
 
