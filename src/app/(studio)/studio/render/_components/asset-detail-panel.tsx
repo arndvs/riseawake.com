@@ -5,6 +5,7 @@ import { X, Calendar, Cpu, Tag, FolderOpen, Hash, Send, Undo2 } from 'lucide-rea
 import type { Id } from '../../../../../../convex/_generated/dataModel'
 import { STATUS_CONFIG, type Status } from './asset-card'
 import { StatusChangeDialog } from './status-change-dialog'
+import { QuickEditPanel } from './quick-edit-panel'
 
 type AssetDetailPanelProps = {
   mediaId: Id<'media'>
@@ -13,6 +14,7 @@ type AssetDetailPanelProps = {
   model: string
   status: Status
   tags: string[]
+  projectId?: Id<'projects'>
   projectName?: string
   shotNumber?: number
   createdByName: string
@@ -27,6 +29,7 @@ export function AssetDetailPanel({
   model,
   status,
   tags,
+  projectId,
   projectName,
   shotNumber,
   createdByName,
@@ -170,13 +173,16 @@ export function AssetDetailPanel({
             Created by {createdByName}
           </p>
 
-          {/* Stubs for future slices */}
+          {/* Quick Edit + Comments */}
           <div className="space-y-3 border-t border-edge pt-6">
-            <div className="rounded-xl border border-dashed border-edge p-4 text-center">
-              <p className="text-xs text-foreground-muted">
-                Quick-edit tools coming soon
-              </p>
-            </div>
+            <QuickEditPanel
+              mediaId={mediaId}
+              imagekitUrl={imagekitUrl}
+              prompt={prompt}
+              model={model}
+              tags={tags}
+              projectId={projectId}
+            />
             <div className="rounded-xl border border-dashed border-edge p-4 text-center">
               <p className="text-xs text-foreground-muted">
                 Comments coming soon

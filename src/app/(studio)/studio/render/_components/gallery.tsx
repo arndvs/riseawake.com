@@ -242,6 +242,7 @@ export function Gallery() {
           model={selectedAsset.model}
           status={selectedAsset.status as Status}
           tags={selectedAsset.tags}
+          projectId={selectedAsset.projectId ?? undefined}
           projectName={
             selectedAsset.projectId
               ? projectMap.get(selectedAsset.projectId)
