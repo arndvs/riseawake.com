@@ -1,10 +1,16 @@
 'use client'
 
-import PayloadShell, {
-  fireToast,
-  P,
-} from '@/components/payload/PayloadShell'
+import { CmsShell, cmsfireToast } from '@/components/cms'
+import { CmsEmptyState } from '@/components/cms/cms-empty-state'
+import { CmsStatCard } from '@/components/cms/cms-stat-card'
+import { CmsStatusBadge, type CmsStatusVariant } from '@/components/cms/cms-status-badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Separator } from '@/components/ui/separator'
 import { getJobById } from '@/lib/careers-data'
+import { AlertCircle, ArrowDownUp, ChevronDown, ChevronUp, Eye, EyeOff, Flag, FlagOff, Inbox, RefreshCw } from 'lucide-react'
 import { ConvexHttpClient } from 'convex/browser'
 import { useCallback, useEffect, useState } from 'react'
 import { api } from '../../../../convex/_generated/api'
@@ -64,11 +70,11 @@ interface Application {
   fictional?: boolean
 }
 
-const STATUS_COLORS: Record<ApplicationStatus, string> = {
-  needs_review: '#eab308',
-  reviewed: '#22c55e',
-  archived: '#555555',
-  flagged: '#ef4444',
+const STATUS_VARIANT: Record<ApplicationStatus, CmsStatusVariant> = {
+  needs_review: 'warning',
+  reviewed: 'success',
+  archived: 'muted',
+  flagged: 'error',
 }
 
 const STATUS_LABELS: Record<ApplicationStatus, string> = {
@@ -76,6 +82,13 @@ const STATUS_LABELS: Record<ApplicationStatus, string> = {
   reviewed: 'REVIEWED',
   archived: 'ARCHIVED',
   flagged: 'FLAGGED',
+}
+
+const STATUS_DOT: Record<ApplicationStatus, string> = {
+  needs_review: 'bg-yellow-500',
+  reviewed: 'bg-emerald-500',
+  archived: 'bg-muted-foreground',
+  flagged: 'bg-red-500',
 }
 
 function formatDate(ts: number) {
@@ -122,7 +135,7 @@ export default function ApplicationsPage() {
       setApplications(applyOverrides(results as unknown as Application[]))
     } catch (err) {
       console.error('Failed to fetch applications:', err)
-      fireToast('Failed to load applications.', 'error')
+      cmsfireToast('Failed to load applications.', 'error')
     } finally {
       setLoading(false)
     }
@@ -142,7 +155,7 @@ export default function ApplicationsPage() {
       apps.map((a) => (a._id === appId ? { ...a, status: newStatus } : a)),
     )
     updateOverride(appId, { status: newStatus })
-    fireToast(`Status updated to ${STATUS_LABELS[newStatus]}.`)
+    cmsfireToast(`Status updated to ${STATUS_LABELS[newStatus]}.`)
   }
 
   function handleFlagToggle(app: Application) {
@@ -153,7 +166,7 @@ export default function ApplicationsPage() {
       ),
     )
     updateOverride(app._id, { breachFlag: next })
-    fireToast(
+    cmsfireToast(
       app.breachFlag ? 'Breach flag removed.' : 'Breach flag set.',
       'info',
     )
@@ -167,7 +180,7 @@ export default function ApplicationsPage() {
       ),
     )
     updateOverride(app._id, { fictional: next })
-    fireToast(
+    cmsfireToast(
       app.fictional
         ? 'Removed from public dashboard.'
         : 'Promoted to public dashboard.',
@@ -198,7 +211,7 @@ export default function ApplicationsPage() {
   }
 
   return (
-    <PayloadShell
+    <CmsShell
       breadcrumb={[
         { label: 'RISE Internal', href: '/internal' },
         { label: 'Applications' },
@@ -206,124 +219,64 @@ export default function ApplicationsPage() {
       title="Applications"
     >
       {/* ── Stats ── */}
-      <div
-        className="mb-6 grid grid-cols-4 gap-3"
-        style={{ maxWidth: '600px' }}
-      >
-        {[
-          { label: 'Total', value: counts.total, color: P.blue },
-          {
-            label: 'Needs Review',
-            value: counts.needs_review,
-            color: STATUS_COLORS.needs_review,
-          },
-          {
-            label: 'Reviewed',
-            value: counts.reviewed,
-            color: STATUS_COLORS.reviewed,
-          },
-          {
-            label: 'Flagged',
-            value: counts.flagged,
-            color: STATUS_COLORS.flagged,
-          },
-        ].map(({ label, value, color }) => (
-          <div
-            key={label}
-            className="rounded-sm px-3 py-2.5"
-            style={{
-              background: P.elevation100,
-              border: `1px solid ${P.border}`,
-            }}
-          >
-            <p className="text-[10px]" style={{ color: P.textFaint }}>
-              {label}
-            </p>
-            <p
-              className="mt-1 text-lg font-semibold"
-              style={{ color }}
-            >
-              {value}
-            </p>
-          </div>
-        ))}
+      <div className="grid max-w-2xl grid-cols-4 gap-3 border-b px-6 py-4">
+        <CmsStatCard label="Total" value={counts.total} />
+        <CmsStatCard label="Needs Review" value={counts.needs_review} />
+        <CmsStatCard label="Reviewed" value={counts.reviewed} />
+        <CmsStatCard label="Flagged" value={counts.flagged} />
       </div>
 
       {/* ── Toolbar ── */}
-      <div
-        className="mb-4 flex flex-wrap items-center gap-3"
-        style={{
-          background: P.elevation50,
-          border: `1px solid ${P.border}`,
-          borderRadius: '4px',
-          padding: '10px 14px',
-        }}
-      >
-        <select
-          value={filterStatus}
-          onChange={(e) => setFilterStatus(e.target.value)}
-          className="rounded-sm px-2.5 py-1.5 text-[11px]"
-          style={{
-            background: P.elevation200,
-            border: `1px solid ${P.borderStrong}`,
-            color: P.text,
-            cursor: 'pointer',
-          }}
-        >
-          <option value="All">All Statuses</option>
-          <option value="needs_review">Needs Review</option>
-          <option value="reviewed">Reviewed</option>
-          <option value="archived">Archived</option>
-          <option value="flagged">Flagged</option>
-        </select>
-        <select
-          value={filterRole}
-          onChange={(e) => setFilterRole(e.target.value)}
-          className="rounded-sm px-2.5 py-1.5 text-[11px]"
-          style={{
-            background: P.elevation200,
-            border: `1px solid ${P.borderStrong}`,
-            color: P.text,
-            cursor: 'pointer',
-          }}
-        >
-          <option value="All">All Roles</option>
-          {roleIds.map((id) => {
-            const job = getJobById(id)
-            return (
-              <option key={id} value={id}>
-                {id} — {job?.title || 'Unknown'}
-              </option>
-            )
-          })}
-        </select>
-        <button
+      <div className="flex flex-wrap items-center gap-3 border-b bg-card px-6 py-3">
+        <Select value={filterStatus} onValueChange={setFilterStatus}>
+          <SelectTrigger className="h-8 w-auto min-w-32 text-xs">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="All" className="text-xs">All Statuses</SelectItem>
+            <SelectItem value="needs_review" className="text-xs">Needs Review</SelectItem>
+            <SelectItem value="reviewed" className="text-xs">Reviewed</SelectItem>
+            <SelectItem value="archived" className="text-xs">Archived</SelectItem>
+            <SelectItem value="flagged" className="text-xs">Flagged</SelectItem>
+          </SelectContent>
+        </Select>
+        <Select value={filterRole} onValueChange={setFilterRole}>
+          <SelectTrigger className="h-8 w-auto min-w-32 text-xs">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="All" className="text-xs">All Roles</SelectItem>
+            {roleIds.map((id) => {
+              const job = getJobById(id)
+              return (
+                <SelectItem key={id} value={id} className="text-xs">
+                  {id} — {job?.title || 'Unknown'}
+                </SelectItem>
+              )
+            })}
+          </SelectContent>
+        </Select>
+        <Button
+          variant="outline"
+          size="sm"
+          className="h-8 text-xs"
           onClick={() =>
             setSortDir((d) => (d === 'newest' ? 'oldest' : 'newest'))
           }
-          className="rounded-sm px-2.5 py-1.5 text-[11px]"
-          style={{
-            background: P.elevation200,
-            border: `1px solid ${P.borderStrong}`,
-            color: P.textMuted,
-            cursor: 'pointer',
-          }}
         >
-          {sortDir === 'newest' ? '↓ Newest' : '↑ Oldest'}
-        </button>
-        <button
+          <ArrowDownUp className="mr-1.5 size-3" />
+          {sortDir === 'newest' ? 'Newest' : 'Oldest'}
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          className="h-8 text-xs"
           onClick={() => fetchApplications()}
-          className="rounded-sm px-2.5 py-1.5 text-[11px]"
-          style={{
-            background: P.elevation200,
-            border: `1px solid ${P.borderStrong}`,
-            color: P.textMuted,
-            cursor: 'pointer',
-          }}
         >
-          ↻ Refresh
-        </button>
-        <span className="ml-auto text-[10px]" style={{ color: P.textFaint }}>
+          <RefreshCw className="mr-1.5 size-3" />
+          Refresh
+        </Button>
+        <span className="ml-auto text-xs text-muted-foreground">
           {filtered.length} application{filtered.length !== 1 ? 's' : ''}
         </span>
       </div>
@@ -331,7 +284,7 @@ export default function ApplicationsPage() {
       {/* ── Loading ── */}
       {loading && (
         <div className="py-12 text-center">
-          <p className="text-xs" style={{ color: P.textMuted }}>
+          <p className="text-sm text-muted-foreground">
             Loading applications...
           </p>
         </div>
@@ -339,356 +292,207 @@ export default function ApplicationsPage() {
 
       {/* ── Empty state ── */}
       {!loading && filtered.length === 0 && (
-        <div className="py-12 text-center">
-          <p className="text-xs" style={{ color: P.textMuted }}>
-            {applications.length === 0
+        <CmsEmptyState
+          icon={Inbox}
+          title={
+            applications.length === 0
               ? 'No applications received yet.'
-              : 'No applications match filters.'}
-          </p>
-          <p
-            className="mt-2 text-[10px]"
-            style={{ color: P.textFaint }}
-          >
-            Applications submitted through /careers/apply will appear here.
-          </p>
-        </div>
+              : 'No applications match filters.'
+          }
+          description="Applications submitted through /careers/apply will appear here."
+        />
       )}
 
       {/* ── Application list ── */}
       {!loading && filtered.length > 0 && (
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 p-4">
           {filtered.map((app) => {
             const isOpen = expandedId === app._id
             return (
-              <div
-                key={app._id}
-                className="rounded-sm"
-                style={{
-                  background: P.elevation50,
-                  border: `1px solid ${isOpen ? P.borderStrong : P.border}`,
-                }}
-              >
-                {/* ── Row header ── */}
-                <button
-                  onClick={() =>
-                    setExpandedId(isOpen ? null : app._id)
-                  }
-                  className="payload-row flex w-full items-center gap-4 px-4 py-3 text-left"
-                  style={{
-                    background: 'transparent',
-                    border: 'none',
-                    cursor: 'pointer',
-                    borderBottom: isOpen
-                      ? `1px solid ${P.border}`
-                      : 'none',
-                  }}
-                >
-                  <span
-                    className="inline-block w-2 h-2 rounded-full shrink-0"
-                    style={{
-                      background:
-                        STATUS_COLORS[app.status],
-                    }}
-                  />
-                  <span
-                    className="w-20 shrink-0 text-[10px] font-mono"
-                    style={{ color: P.textMuted }}
-                  >
-                    {app.roleId}
-                  </span>
-                  <span
-                    className="flex-1 text-xs"
-                    style={{ color: P.text }}
-                  >
-                    {app.firstName} {app.lastName}
-                  </span>
-                  <span
-                    className="hidden text-[11px] sm:inline"
-                    style={{ color: P.textMuted }}
-                  >
-                    {app.email}
-                  </span>
-                  <span
-                    className="w-28 shrink-0 text-right text-[10px]"
-                    style={{ color: P.textFaint }}
-                  >
-                    {formatDate(app.submittedAt)}
-                  </span>
-                  <span
-                    className="w-24 shrink-0 text-right text-[10px] font-medium"
-                    style={{
-                      color: STATUS_COLORS[app.status],
-                    }}
-                  >
-                    {STATUS_LABELS[app.status]}
-                  </span>
-                  {app.breachFlag && (
-                    <span
-                      className="text-[10px]"
-                      style={{ color: P.error }}
-                      title="Breach flag"
-                    >
-                      ⚑
+              <Card key={app._id} className={isOpen ? 'border-border' : ''}>
+                <Collapsible open={isOpen} onOpenChange={() => setExpandedId(isOpen ? null : app._id)}>
+                  <CollapsibleTrigger className="flex w-full items-center gap-4 px-4 py-3 text-left">
+                    <span className={`inline-block size-2 shrink-0 rounded-full ${STATUS_DOT[app.status]}`} />
+                    <span className="w-20 shrink-0 font-mono text-xs text-muted-foreground">
+                      {app.roleId}
                     </span>
-                  )}
-                </button>
+                    <span className="flex-1 text-sm">
+                      {app.firstName} {app.lastName}
+                    </span>
+                    <span className="hidden text-xs text-muted-foreground sm:inline">
+                      {app.email}
+                    </span>
+                    <span className="w-28 shrink-0 text-right text-xs text-muted-foreground">
+                      {formatDate(app.submittedAt)}
+                    </span>
+                    <CmsStatusBadge variant={STATUS_VARIANT[app.status]}>
+                      {STATUS_LABELS[app.status]}
+                    </CmsStatusBadge>
+                    {app.breachFlag && (
+                      <AlertCircle className="size-3.5 text-red-500" />
+                    )}
+                    {isOpen
+                      ? <ChevronUp className="size-4 text-muted-foreground" />
+                      : <ChevronDown className="size-4 text-muted-foreground" />}
+                  </CollapsibleTrigger>
 
-                {/* ── Expanded detail ── */}
-                {isOpen && (
-                  <div className="px-5 py-4">
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-3 mb-4">
-                      <Field
-                        label="Full Name"
-                        value={`${app.firstName} ${app.lastName}`}
-                      />
-                      <Field label="Email" value={app.email} />
-                      <Field label="Phone" value={app.phone} />
-                      <Field label="Role" value={`${app.roleId} — ${app.roleTitle}`} />
-                      <Field
-                        label="Experience"
-                        value={app.experienceLevel}
-                      />
-                      <Field
-                        label="Availability"
-                        value={app.availability}
-                      />
-                      {app.ipAddress && (
-                        <Field
-                          label="IP Address"
-                          value={app.ipAddress}
-                        />
+                  <CollapsibleContent>
+                    <CardContent className="border-t px-5 py-4">
+                      <div className="mb-4 grid grid-cols-2 gap-x-8 gap-y-3">
+                        <Field label="Full Name" value={`${app.firstName} ${app.lastName}`} />
+                        <Field label="Email" value={app.email} />
+                        <Field label="Phone" value={app.phone} />
+                        <Field label="Role" value={`${app.roleId} — ${app.roleTitle}`} />
+                        <Field label="Experience" value={app.experienceLevel} />
+                        <Field label="Availability" value={app.availability} />
+                        {app.ipAddress && <Field label="IP Address" value={app.ipAddress} />}
+                        <Field label="Submitted" value={formatDate(app.submittedAt)} />
+                      </div>
+
+                      <Separator className="my-4" />
+
+                      {/* Why RISE */}
+                      <div className="mb-4">
+                        <p className="mb-1 text-xs font-medium text-muted-foreground">
+                          Why Join RISE
+                        </p>
+                        <div className="rounded-sm bg-muted px-3 py-2.5 text-sm leading-relaxed">
+                          {app.whyJoinRise}
+                        </div>
+                      </div>
+
+                      {/* Role-specific answers */}
+                      {Object.keys(app.roleSpecificAnswers).length > 0 && (
+                        <div className="mb-4">
+                          <p className="mb-1 text-xs font-medium text-muted-foreground">
+                            Role-Specific Answers
+                          </p>
+                          <div className="rounded-sm bg-muted px-3 py-2.5">
+                            {Object.entries(app.roleSpecificAnswers).map(([key, val]) => (
+                              <div key={key} className="mb-2 last:mb-0">
+                                <span className="text-xs text-muted-foreground">{key}:</span>
+                                <span className="ml-2 text-sm">
+                                  {typeof val === 'boolean'
+                                    ? val ? 'Yes' : 'No'
+                                    : Array.isArray(val)
+                                      ? val.join(', ')
+                                      : String(val)}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
                       )}
-                      <Field
-                        label="Submitted"
-                        value={formatDate(app.submittedAt)}
-                      />
-                    </div>
 
-                    {/* Why RISE */}
-                    <div className="mb-4">
-                      <p
-                        className="mb-1 text-[10px] font-medium"
-                        style={{ color: P.textMuted }}
-                      >
-                        Why Join RISE
-                      </p>
-                      <div
-                        className="rounded-sm px-3 py-2.5 text-xs leading-relaxed"
-                        style={{
-                          background: P.elevation200,
-                          color: P.text,
-                        }}
-                      >
-                        {app.whyJoinRise}
-                      </div>
-                    </div>
+                      {/* Resume */}
+                      {app.resumeFileName && (
+                        <div className="mb-4">
+                          <p className="mb-1 text-xs font-medium text-muted-foreground">Resume</p>
+                          <div className="flex items-center gap-3 rounded-sm bg-muted px-3 py-2">
+                            <span className="text-sm">{app.resumeFileName}</span>
+                            {app.resumeFileSize && (
+                              <span className="text-xs text-muted-foreground">
+                                ({formatFileSize(app.resumeFileSize)})
+                              </span>
+                            )}
+                            <span className="text-xs italic text-muted-foreground">
+                              Stored in Convex
+                            </span>
+                          </div>
+                        </div>
+                      )}
 
-                    {/* Role-specific answers */}
-                    {Object.keys(app.roleSpecificAnswers).length > 0 && (
-                      <div className="mb-4">
-                        <p
-                          className="mb-1 text-[10px] font-medium"
-                          style={{ color: P.textMuted }}
-                        >
-                          Role-Specific Answers
-                        </p>
-                        <div
-                          className="rounded-sm px-3 py-2.5"
-                          style={{ background: P.elevation200 }}
-                        >
-                          {Object.entries(
-                            app.roleSpecificAnswers,
-                          ).map(([key, val]) => (
-                            <div key={key} className="mb-2 last:mb-0">
-                              <span
-                                className="text-[10px]"
-                                style={{ color: P.textFaint }}
-                              >
-                                {key}:
+                      {/* Review notes */}
+                      {app.reviewNotes && (
+                        <div className="mb-4">
+                          <p className="mb-1 text-xs font-medium text-muted-foreground">
+                            Review Notes
+                            {app.reviewedBy && (
+                              <span className="ml-2 font-normal text-muted-foreground/60">
+                                by {app.reviewedBy}
                               </span>
-                              <span
-                                className="ml-2 text-xs"
-                                style={{ color: P.text }}
-                              >
-                                {typeof val === 'boolean'
-                                  ? val
-                                    ? 'Yes'
-                                    : 'No'
-                                  : Array.isArray(val)
-                                    ? val.join(', ')
-                                    : String(val)}
-                              </span>
-                            </div>
+                            )}
+                          </p>
+                          <div className="rounded-sm bg-muted px-3 py-2.5 text-sm leading-relaxed">
+                            {app.reviewNotes}
+                          </div>
+                        </div>
+                      )}
+
+                      <Separator className="my-4" />
+
+                      {/* ── Actions ── */}
+                      <div className="flex flex-wrap items-center gap-2">
+                        {(
+                          ['needs_review', 'reviewed', 'archived', 'flagged'] as ApplicationStatus[]
+                        )
+                          .filter((s) => s !== app.status)
+                          .map((s) => (
+                            <Button
+                              key={s}
+                              variant="outline"
+                              size="sm"
+                              className="h-7 text-xs"
+                              onClick={() => handleStatusChange(app._id, s)}
+                            >
+                              Mark {STATUS_LABELS[s]}
+                            </Button>
                           ))}
-                        </div>
+                        <Button
+                          variant={app.breachFlag ? 'destructive' : 'outline'}
+                          size="sm"
+                          className="h-7 text-xs"
+                          onClick={() => handleFlagToggle(app)}
+                        >
+                          {app.breachFlag
+                            ? <><FlagOff className="mr-1.5 size-3" /> Remove Flag</>
+                            : <><Flag className="mr-1.5 size-3" /> Flag</>}
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="h-7 text-xs"
+                          onClick={() => handleFictionalToggle(app)}
+                        >
+                          {app.fictional
+                            ? <><Eye className="mr-1.5 size-3" /> Public</>
+                            : <><EyeOff className="mr-1.5 size-3" /> Hidden</>}
+                        </Button>
                       </div>
-                    )}
-
-                    {/* Resume */}
-                    {app.resumeFileName && (
-                      <div className="mb-4">
-                        <p
-                          className="mb-1 text-[10px] font-medium"
-                          style={{ color: P.textMuted }}
-                        >
-                          Resume
-                        </p>
-                        <div
-                          className="flex items-center gap-3 rounded-sm px-3 py-2"
-                          style={{ background: P.elevation200 }}
-                        >
-                          <span
-                            className="text-xs"
-                            style={{ color: P.text }}
-                          >
-                            {app.resumeFileName}
-                          </span>
-                          {app.resumeFileSize && (
-                            <span
-                              className="text-[10px]"
-                              style={{ color: P.textFaint }}
-                            >
-                              ({formatFileSize(app.resumeFileSize)})
-                            </span>
-                          )}
-                          <span
-                            className="text-[10px]"
-                            style={{ color: P.textFaint, fontStyle: 'italic' }}
-                          >
-                            Stored in Convex
-                          </span>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Review notes */}
-                    {app.reviewNotes && (
-                      <div className="mb-4">
-                        <p
-                          className="mb-1 text-[10px] font-medium"
-                          style={{ color: P.textMuted }}
-                        >
-                          Review Notes
-                          {app.reviewedBy && (
-                            <span
-                              className="ml-2 font-normal"
-                              style={{ color: P.textFaint }}
-                            >
-                              by {app.reviewedBy}
-                            </span>
-                          )}
-                        </p>
-                        <div
-                          className="rounded-sm px-3 py-2.5 text-xs leading-relaxed"
-                          style={{
-                            background: P.elevation200,
-                            color: P.text,
-                          }}
-                        >
-                          {app.reviewNotes}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* ── Actions ── */}
-                    <div className="flex flex-wrap items-center gap-2 pt-2">
-                      {(
-                        [
-                          'needs_review',
-                          'reviewed',
-                          'archived',
-                          'flagged',
-                        ] as ApplicationStatus[]
-                      )
-                        .filter((s) => s !== app.status)
-                        .map((s) => (
-                          <button
-                            key={s}
-                            onClick={() =>
-                              handleStatusChange(app._id, s)
-                            }
-                            className="rounded-sm px-3 py-1.5 text-[10px]"
-                            style={{
-                              background: 'transparent',
-                              border: `1px solid ${STATUS_COLORS[s]}40`,
-                              color: STATUS_COLORS[s],
-                              cursor: 'pointer',
-                            }}
-                          >
-                            Mark {STATUS_LABELS[s]}
-                          </button>
-                        ))}
-                      <button
-                        onClick={() => handleFlagToggle(app)}
-                        className="rounded-sm px-3 py-1.5 text-[10px]"
-                        style={{
-                          background: app.breachFlag
-                            ? 'rgba(239,68,68,0.1)'
-                            : 'transparent',
-                          border: `1px solid ${P.error}40`,
-                          color: P.error,
-                          cursor: 'pointer',
-                        }}
-                      >
-                        {app.breachFlag ? '⚑ Remove Flag' : '⚐ Flag'}
-                      </button>
-                      <button
-                        onClick={() => handleFictionalToggle(app)}
-                        className="rounded-sm px-3 py-1.5 text-[10px]"
-                        style={{
-                          background: app.fictional
-                            ? 'rgba(26,79,214,0.1)'
-                            : 'transparent',
-                          border: `1px solid ${P.blue}40`,
-                          color: P.blue,
-                          cursor: 'pointer',
-                        }}
-                      >
-                        {app.fictional ? '◉ Public' : '◎ Hidden'}
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
+                    </CardContent>
+                  </CollapsibleContent>
+                </Collapsible>
+              </Card>
             )
           })}
         </div>
       )}
 
       {/* ── Note ── */}
-      <div
-        className="mt-8 rounded-sm px-4 py-3"
-        style={{
-          background: P.elevation50,
-          border: `1px solid ${P.border}`,
-        }}
-      >
-        <p className="text-[10px]" style={{ color: P.textFaint }}>
-          This dashboard shows fictional in-universe applications only.
-          Real submissions are delivered via email and stored in Convex
-          but hidden from this view by default. Applications can be
-          promoted to public visibility or hidden using the ◉/◎ toggle.
-          Status changes and breach flags are recorded. The review
-          process involves Dr.&nbsp;Voss. Her feedback mode is not documented
-          here.
-        </p>
+      <div className="px-6 pb-6">
+        <Card className="rounded-sm">
+          <CardContent className="px-4 py-3">
+            <p className="text-xs text-muted-foreground/60">
+              This dashboard shows fictional in-universe applications only.
+              Real submissions are delivered via email and stored in Convex
+              but hidden from this view by default. Applications can be
+              promoted to public visibility or hidden using the ◉/◎ toggle.
+              Status changes and breach flags are recorded. The review
+              process involves Dr.&nbsp;Voss. Her feedback mode is not documented
+              here.
+            </p>
+          </CardContent>
+        </Card>
       </div>
-    </PayloadShell>
+    </CmsShell>
   )
 }
 
 function Field({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <p
-        className="text-[10px]"
-        style={{ color: P.textFaint }}
-      >
-        {label}
-      </p>
-      <p className="text-xs" style={{ color: P.text }}>
-        {value}
-      </p>
+      <p className="text-xs text-muted-foreground">{label}</p>
+      <p className="text-sm">{value}</p>
     </div>
   )
 }

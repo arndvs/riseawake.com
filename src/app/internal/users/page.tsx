@@ -1,6 +1,10 @@
 'use client'
 
-import PayloadShell, { fireToast } from '@/components/payload/PayloadShell'
+import { CmsShell, cmsfireToast } from '@/components/cms'
+import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import {
   daysSinceArvin,
   parkLoginTime,
@@ -8,25 +12,13 @@ import {
 } from '@/lib/internal-time'
 import { useEffect, useState } from 'react'
 
-const P = {
-  text: '#e8e8e8',
-  textMuted: '#8a8a8a',
-  textFaint: '#555555',
-  border: 'rgba(255,255,255,0.08)',
-  elevation50: '#111111',
-  elevation200: '#1f1f1f',
-  blue: '#4c7cff',
-  success: '#22c55e',
-  warning: '#eab308',
-}
-
 const USERS_STATIC = [
   {
     initials: 'EV',
     name: 'Dr. Eleanor Voss',
     email: 'evoss@riseawake.com',
     role: 'Super Admin',
-    lastLogin: '', // computed dynamically
+    lastLogin: '',
     status: 'active',
     note: null,
   },
@@ -35,7 +27,7 @@ const USERS_STATIC = [
     name: 'James Park',
     email: 'jpark@riseawake.com',
     role: 'Admin',
-    lastLogin: '', // computed dynamically
+    lastLogin: '',
     status: 'active',
     note: null,
   },
@@ -65,8 +57,9 @@ export default function UsersPage() {
       }),
     )
   }, [])
+
   return (
-    <PayloadShell
+    <CmsShell
       breadcrumb={[
         { label: 'RISE Internal', href: '/internal' },
         { label: 'Users' },
@@ -74,150 +67,77 @@ export default function UsersPage() {
       title="Users"
     >
       <div className="overflow-x-auto">
-        <table
-          className="w-full border-collapse text-xs"
-          style={{ minWidth: '600px' }}
-        >
-          <thead>
-            <tr
-              style={{
-                borderBottom: `1px solid ${P.border}`,
-                background: P.elevation50,
-              }}
-            >
+        <Table className="min-w-[600px]">
+          <TableHeader>
+            <TableRow className="border-border bg-card hover:bg-card">
               {['', 'Name', 'Role', 'Last Login', 'Status', ''].map((h, i) => (
-                <th
-                  key={i}
-                  className="px-4 py-3 text-left font-medium"
-                  style={{ color: P.textMuted }}
-                >
+                <TableHead key={i} className="px-4 text-xs font-medium">
                   {h}
-                </th>
+                </TableHead>
               ))}
-            </tr>
-          </thead>
-          <tbody>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
             {users.map((u, i) => (
-              <tr
-                key={i}
-                className="payload-row"
-                style={{ borderBottom: `1px solid ${P.border}` }}
-              >
-                <td className="px-4 py-3">
-                  <div
-                    className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-medium"
-                    style={{
-                      background:
-                        u.status === 'active' ? P.blue : P.elevation200,
-                      color: 'white',
-                    }}
-                  >
-                    {u.initials}
-                  </div>
-                </td>
-                <td className="px-4 py-3">
-                  <p className="font-medium" style={{ color: P.text }}>
-                    {u.name}
-                  </p>
-                  <p className="text-[10px]" style={{ color: P.textFaint }}>
-                    {u.email}
-                  </p>
+              <TableRow key={i}>
+                <TableCell className="px-4">
+                  <Avatar className="size-8">
+                    <AvatarFallback className={u.status === 'active' ? 'bg-primary text-primary-foreground' : 'bg-muted'}>
+                      {u.initials}
+                    </AvatarFallback>
+                  </Avatar>
+                </TableCell>
+                <TableCell className="px-4">
+                  <p className="font-medium">{u.name}</p>
+                  <p className="text-xs text-muted-foreground">{u.email}</p>
                   {u.note && (
-                    <p
-                      className="mt-1 text-[10px]"
-                      style={{
-                        color: P.warning,
-                        fontStyle: 'italic',
-                        maxWidth: '300px',
-                        lineHeight: 1.6,
-                      }}
-                    >
+                    <p className="mt-1 max-w-xs text-xs leading-relaxed text-yellow-500 italic">
                       ⚠ {u.note}
                     </p>
                   )}
-                </td>
-                <td className="px-4 py-3">
-                  <span
-                    className="rounded-sm px-2 py-1 text-[10px]"
-                    style={{
-                      background:
-                        u.role === 'Super Admin'
-                          ? 'rgba(76,124,255,0.12)'
-                          : 'rgba(255,255,255,0.06)',
-                      color: u.role === 'Super Admin' ? P.blue : P.textMuted,
-                      border: `1px solid ${u.role === 'Super Admin' ? 'rgba(76,124,255,0.2)' : 'rgba(255,255,255,0.08)'}`,
-                    }}
-                  >
+                </TableCell>
+                <TableCell className="px-4">
+                  <Badge variant={u.role === 'Super Admin' ? 'default' : 'outline'} className="text-xs">
                     {u.role}
-                  </span>
-                </td>
-                <td className="px-4 py-3" style={{ color: P.textMuted }}>
+                  </Badge>
+                </TableCell>
+                <TableCell className="px-4 text-xs text-muted-foreground">
                   {u.lastLogin}
-                </td>
-                <td className="px-4 py-3">
+                </TableCell>
+                <TableCell className="px-4">
                   <div className="flex items-center gap-1.5">
-                    <div
-                      className="h-1.5 w-1.5 rounded-full"
-                      style={{
-                        background:
-                          u.status === 'active' ? P.success : P.textFaint,
-                      }}
-                    />
-                    <span
-                      style={{
-                        color: u.status === 'active' ? P.success : P.textFaint,
-                      }}
-                    >
+                    <div className={`size-1.5 rounded-full ${u.status === 'active' ? 'bg-emerald-500' : 'bg-muted-foreground'}`} />
+                    <span className={`text-xs ${u.status === 'active' ? 'text-emerald-500' : 'text-muted-foreground'}`}>
                       {u.name === 'Arvin Reyes'
                         ? 'Active (should be Inactive)'
                         : 'Active'}
                     </span>
                   </div>
-                </td>
-                <td className="px-4 py-3">
-                  <button
-                    onClick={() =>
-                      fireToast(
-                        'User management not implemented. — areyes',
-                        'error',
-                      )
-                    }
-                    className="rounded-sm px-3 py-1.5 text-[10px]"
-                    style={{
-                      background: P.elevation200,
-                      color: P.textMuted,
-                      border: `1px solid ${P.border}`,
-                      cursor: 'pointer',
-                      fontFamily: 'inherit',
-                    }}
+                </TableCell>
+                <TableCell className="px-4">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="h-7 text-xs"
+                    onClick={() => cmsfireToast('User management not implemented. — areyes', 'error')}
                   >
                     Edit
-                  </button>
-                </td>
-              </tr>
+                  </Button>
+                </TableCell>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
-      <div
-        className="px-6 py-4"
-        style={{
-          borderTop: `1px solid ${P.border}`,
-          background: P.elevation50,
-        }}
-      >
-        <p className="text-[10px]" style={{ color: P.textFaint }}>
+      <div className="border-t bg-card px-6 py-4">
+        <p className="text-xs text-muted-foreground">
           3 users ·{' '}
-          <span style={{ color: P.warning }}>
+          <span className="text-yellow-500">
             1 user account should have been deactivated (Aug 12, 2024 —{' '}
             {daysSinceArvin()} days ago)
           </span>
-          {' · '}
-          <span style={{ color: P.textFaint, fontStyle: 'italic' }}>
-            {/* TODO: add deactivation flow — areyes (never finished) */}
-          </span>
         </p>
       </div>
-    </PayloadShell>
+    </CmsShell>
   )
 }
