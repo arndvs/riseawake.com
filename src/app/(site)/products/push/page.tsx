@@ -286,10 +286,14 @@ export default function PushPage() {
               </div>
 
               <p className="text-center text-[10px] leading-relaxed text-foreground-muted/25">
-                By submitting your email, you acknowledge that Push Mode cannot
-                be
-                <br />
-                manually interrupted once initiated. Have a productive day.
+                By submitting your email, you join the Push Mode waitlist and
+                acknowledge that Push Mode cannot be manually interrupted once
+                initiated. Unsubscribing from RISE communications forfeits your
+                waitlist position permanently. See{' '}
+                <a href="/legal/terms" className="underline">
+                  Terms of Service §7
+                </a>
+                . Have a productive day.
               </p>
             </div>
           </div>
