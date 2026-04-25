@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
 import { useQuery } from 'convex/react'
 import { api } from '../../../../../../convex/_generated/api'
 import type { Id, Doc } from '../../../../../../convex/_generated/dataModel'
@@ -25,6 +25,10 @@ export function Gallery() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedAsset, setSelectedAsset] = useState<Doc<'media'> | null>(null)
 
+  // Track "last seen" status per asset for change indicators
+  const statusSnapshotRef = useRef<Map<string, string>>(new Map())
+  const [changedIds, setChangedIds] = useState<Set<string>>(new Set())
+
   const projects = useQuery(api.projects.listProjects, {})
   const media = useQuery(api.media.listMedia, {
     ...(statusFilter
@@ -34,6 +38,36 @@ export function Gallery() {
       ? { projectId: projectFilter as Id<'projects'> }
       : {}),
   })
+
+  // Detect status changes across reactive updates
+  useEffect(() => {
+    if (!media) return
+    const prev = statusSnapshotRef.current
+    const newChanged = new Set<string>()
+
+    for (const item of media) {
+      const prevStatus = prev.get(item._id)
+      if (prevStatus && prevStatus !== item.status) {
+        newChanged.add(item._id)
+      }
+      prev.set(item._id, item.status)
+    }
+
+    if (newChanged.size > 0) {
+      setChangedIds((old) => new Set([...old, ...newChanged]))
+    }
+  }, [media])
+
+  const handleSelectAsset = useCallback((asset: Doc<'media'>) => {
+    setSelectedAsset(asset)
+    // Clear change indicator when viewed
+    setChangedIds((old) => {
+      if (!old.has(asset._id)) return old
+      const next = new Set(old)
+      next.delete(asset._id)
+      return next
+    })
+  }, [])
 
   // Client-side search filter
   const filtered = media?.filter((m) => {
@@ -161,7 +195,8 @@ export function Gallery() {
               }
               tags={asset.tags}
               createdAt={asset._creationTime}
-              onClick={() => setSelectedAsset(asset)}
+              hasChanged={changedIds.has(asset._id)}
+              onClick={() => handleSelectAsset(asset)}
             />
           ))}
         </div>
@@ -199,7 +234,7 @@ export function Gallery() {
                 return (
                   <tr
                     key={asset._id}
-                    onClick={() => setSelectedAsset(asset)}
+                    onClick={() => handleSelectAsset(asset)}
                     className="cursor-pointer border-b border-edge transition-colors hover:bg-surface-alt"
                   >
                     <td className="px-3 py-2">

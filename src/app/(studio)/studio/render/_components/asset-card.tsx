@@ -39,6 +39,7 @@ type AssetCardProps = {
   projectName?: string
   tags: string[]
   createdAt: number
+  hasChanged?: boolean
   onClick: () => void
 }
 
@@ -48,6 +49,7 @@ export function AssetCard({
   status,
   projectName,
   tags,
+  hasChanged,
   onClick,
 }: AssetCardProps) {
   const cfg = STATUS_CONFIG[status]
@@ -75,6 +77,11 @@ export function AssetCard({
           {StatusIcon && <StatusIcon className="size-2.5" />}
           {cfg.label}
         </div>
+
+        {/* Status changed indicator */}
+        {hasChanged && (
+          <span className="absolute top-2 right-2 size-2.5 rounded-full bg-brand ring-2 ring-surface animate-pulse" />
+        )}
       </div>
 
       {/* Meta */}
