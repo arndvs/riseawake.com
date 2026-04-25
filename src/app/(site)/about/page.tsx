@@ -261,7 +261,7 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
   const isRedacted = entry.isRedacted
 
   const cardBg = isCurrent
-    ? 'border-accent/20 bg-accent/6'
+    ? 'border-brand/20 bg-brand/6'
     : isRedacted
       ? 'border-edge-subtle bg-foreground/1'
       : 'border-edge bg-surface-alt'
@@ -300,7 +300,7 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
             <span
               className={`rounded-xl border px-2.5 py-1 text-[10px] tracking-widest uppercase ${
                 isCurrent
-                  ? 'border-accent/20 bg-accent/15 text-accent'
+                  ? 'border-brand/20 bg-brand/15 text-brand'
                   : isRedacted
                     ? 'border-edge-subtle bg-foreground/2 text-foreground/12'
                     : 'border-edge bg-foreground/4 text-foreground-muted/60'
@@ -331,7 +331,7 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
       {entry.outcome && (
         <div
           className={`border-t pt-4 ${
-            isCurrent ? 'border-accent/10' : 'border-edge-subtle'
+            isCurrent ? 'border-brand/10' : 'border-edge-subtle'
           }`}
         >
           {isCurrent ? (
@@ -343,7 +343,7 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
               <p className="text-xs text-foreground-muted italic">
                 No timeline. No price. Both directions.
               </p>
-              <Link href="/move" className="text-xs text-accent/60 underline">
+              <Link href="/move" className="text-xs text-brand/60 underline">
                 riseawake.com/move →
               </Link>
             </div>
@@ -369,7 +369,7 @@ export default function AboutPage() {
     <main>
 
       <section className="relative overflow-hidden px-6 pt-40 pb-24">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_30%,var(--color-accent)_0%,transparent_70%)] opacity-[0.07]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_30%,var(--color-brand)_0%,transparent_70%)] opacity-[0.07]" />
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -418,7 +418,7 @@ export default function AboutPage() {
           <div className="grid gap-px bg-edge-subtle md:grid-cols-2">
             {PRINCIPLES.map((p) => (
               <div key={p.number} className="bg-surface-alt p-10 md:p-12">
-                <p className="mb-6 font-display text-5xl text-accent/25">
+                <p className="mb-6 font-display text-5xl text-brand/25">
                   {p.number}
                 </p>
                 <h3 className="mb-4 text-sm font-medium text-foreground-secondary">
@@ -459,7 +459,7 @@ export default function AboutPage() {
                     <div className="w-18 shrink-0 pt-0.5 text-right">
                       <span
                         className={`font-display text-lg tracking-tight md:text-xl ${
-                          era.isAccent ? 'text-accent/50' : 'text-foreground/15'
+                          era.isAccent ? 'text-brand/50' : 'text-foreground/15'
                         }`}
                       >
                         {era.year}
@@ -470,9 +470,9 @@ export default function AboutPage() {
                       <div
                         className={`-ml-1.5 size-3 rounded-full border ${
                           eraIndex === TIMELINE.length - 1
-                            ? 'border-accent/50 bg-accent/30'
+                            ? 'border-brand/50 bg-brand/30'
                             : era.isAccent
-                              ? 'border-accent/50 bg-accent/60'
+                              ? 'border-brand/50 bg-brand/60'
                               : 'border-foreground/15 bg-foreground/12'
                         }`}
                       />
@@ -481,7 +481,7 @@ export default function AboutPage() {
                     <div>
                       <p
                         className={`text-xs font-medium tracking-[0.18em] uppercase ${
-                          era.isAccent ? 'text-accent/70' : 'text-foreground/20'
+                          era.isAccent ? 'text-brand/70' : 'text-foreground/20'
                         }`}
                       >
                         {era.era}
@@ -501,7 +501,7 @@ export default function AboutPage() {
                           <div
                             className={`-ml-1 size-2 rounded-full border ${
                               entry.isCurrentProduct
-                                ? 'border-accent/70 bg-accent shadow-[0_0_8px_var(--color-accent)]'
+                                ? 'border-brand/70 bg-brand shadow-[0_0_8px_var(--color-brand)]'
                                 : entry.isRedacted
                                   ? 'border-foreground/8 bg-foreground/4'
                                   : 'border-foreground/8 bg-foreground/6'
@@ -546,7 +546,7 @@ export default function AboutPage() {
                 <p
                   className={`mb-2 font-display text-display ${
                     s.stat === '0' || s.stat === '1'
-                      ? 'text-accent/80'
+                      ? 'text-brand/80'
                       : 'text-foreground'
                   }`}
                 >
@@ -569,7 +569,7 @@ export default function AboutPage() {
       </section>
 
       <section className="relative overflow-hidden px-6 py-40 text-center">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-accent)_0%,transparent_70%)] opacity-[0.06]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,var(--color-brand)_0%,transparent_70%)] opacity-[0.06]" />
         <div className="relative z-10 mx-auto max-w-xl">
           <p className="mb-8 text-eyebrow text-foreground-muted uppercase">
             The Result

@@ -162,7 +162,7 @@ export default function MeetingMinutesPage() {
                     className={`shrink-0 rounded-xl border px-2 py-1 text-[10px] ${
                       r.result.startsWith('Defeated')
                         ? 'border-rise-error/12 bg-rise-error/8 text-rise-error/70'
-                        : 'border-accent/12 bg-accent/8 text-accent'
+                        : 'border-brand/12 bg-brand/8 text-brand'
                     }`}
                   >
                     {r.result}
@@ -195,7 +195,7 @@ export default function MeetingMinutesPage() {
                   <p className="mb-4 text-body text-foreground-secondary italic">
                     &ldquo;{item.q}&rdquo;
                   </p>
-                  <p className="mb-2 text-[10px] tracking-widest text-accent">
+                  <p className="mb-2 text-[10px] tracking-widest text-brand">
                     A — {item.respondent}
                   </p>
                   <p className="text-body text-foreground-secondary">

@@ -12,7 +12,7 @@ export default function CareersPage() {
     <main>
       {/* Hero */}
       <section className="relative overflow-hidden px-6 pt-40 pb-24">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-accent)_0%,transparent_70%)] opacity-[0.04]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-brand)_0%,transparent_70%)] opacity-[0.04]" />
         <div className="mx-auto max-w-4xl">
           <p className="mb-5 text-eyebrow text-foreground-muted uppercase">
             Open Roles
@@ -108,7 +108,7 @@ export default function CareersPage() {
                         <p className="text-[11px] text-foreground-secondary">
                           {job.salary}
                         </p>
-                        <p className="mt-0.5 text-[10px] text-accent/60">
+                        <p className="mt-0.5 text-[10px] text-brand/60">
                           {job.equity} equity
                         </p>
                         <p className="mt-1 text-[9px] text-foreground-muted">
@@ -139,7 +139,7 @@ export default function CareersPage() {
                         <div className="flex flex-col gap-2">
                           {job.requirements.map((req, i) => (
                             <div key={i} className="flex gap-2.5">
-                              <span className="mt-px shrink-0 text-[11px] text-accent/50">
+                              <span className="mt-px shrink-0 text-[11px] text-brand/50">
                                 &mdash;
                               </span>
                               <p className="text-[11px] leading-relaxed text-foreground-secondary/65">
@@ -163,7 +163,7 @@ export default function CareersPage() {
                       <div className="flex items-center gap-3">
                         <a
                           href={`/careers/apply?position=${job.id}`}
-                          className="cursor-pointer rounded bg-accent px-6 py-2.5 text-[11px] font-medium tracking-wider text-accent-on uppercase no-underline"
+                          className="cursor-pointer rounded bg-brand px-6 py-2.5 text-[11px] font-medium tracking-wider text-brand-on uppercase no-underline"
                         >
                           Apply for This Role
                         </a>

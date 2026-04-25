@@ -87,7 +87,7 @@ export default function MovePage() {
                 placeholder="your@email.com"
                 aria-label="Email address"
                 required
-                className="flex-1 rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                className="flex-1 rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-brand/40"
               />
               <button
                 type="submit"
@@ -383,7 +383,7 @@ export default function MovePage() {
                 placeholder="your@email.com"
                 aria-label="Email address"
                 required
-                className="flex-1 rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                className="flex-1 rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-xs text-foreground transition-all duration-200 outline-none focus:border-brand/40"
               />
               <button
                 type="submit"

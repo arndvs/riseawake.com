@@ -166,7 +166,7 @@ export default function AnnualReportPage() {
                     return (
                       <tr
                         key={i}
-                        className={`border-b border-edge-subtle/40 ${isCurrent ? 'bg-accent/4' : ''}`}
+                        className={`border-b border-edge-subtle/40 ${isCurrent ? 'bg-brand/4' : ''}`}
                       >
                         <td
                           className={`py-3 pr-6 font-medium ${isCurrent ? 'text-foreground' : 'text-foreground-secondary'}`}
@@ -179,7 +179,7 @@ export default function AnnualReportPage() {
                           {row.revenue}
                         </td>
                         <td
-                          className={`py-3 pr-6 ${isCurrent ? 'text-accent' : 'text-foreground-muted'}`}
+                          className={`py-3 pr-6 ${isCurrent ? 'text-brand' : 'text-foreground-muted'}`}
                         >
                           {row.growth}
                         </td>
@@ -262,7 +262,7 @@ export default function AnnualReportPage() {
               median knowledge worker rates. We have addressed approximately 1%
               of our addressable market.
             </p>
-            <div className="rounded-xl border border-accent/12 bg-accent/5 p-5">
+            <div className="rounded-xl border border-brand/12 bg-brand/5 p-5">
               <p className="text-xs leading-loose text-foreground-muted">
                 <strong className="text-foreground-secondary">TAM:</strong> $4.2
                 trillion (global productivity loss attributable to morning
@@ -272,7 +272,7 @@ export default function AnnualReportPage() {
                 point) ·{' '}
                 <strong className="text-foreground-secondary">SOM:</strong>{' '}
                 $89.4M (FY2024 actual) ·{' '}
-                <strong className="text-accent">
+                <strong className="text-brand">
                   We are 1% of the way there.
                 </strong>
               </p>
@@ -338,7 +338,7 @@ export default function AnnualReportPage() {
               providing a revised TAM estimate until the product is closer to
               announcement. Investors who wish to be notified when additional
               information becomes available may visit{' '}
-              <Link href="/move" className="text-accent underline">
+              <Link href="/move" className="text-brand underline">
                 riseawake.com/move
               </Link>
               .
@@ -358,7 +358,7 @@ export default function AnnualReportPage() {
                   <p className="mb-1 text-sm font-medium text-foreground-secondary">
                     {p.name}
                   </p>
-                  <p className="mb-3 text-xs text-accent">{p.title}</p>
+                  <p className="mb-3 text-xs text-brand">{p.title}</p>
                   <p className="text-xs leading-relaxed text-foreground-muted">
                     {p.note}
                   </p>

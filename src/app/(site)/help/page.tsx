@@ -66,7 +66,7 @@ export default function HelpPage() {
     <main>
 
       <section className="relative overflow-hidden px-6 pt-40 pb-20">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-accent)_0%,transparent_70%)] opacity-[0.05]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,var(--color-brand)_0%,transparent_70%)] opacity-[0.05]" />
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 flex items-center gap-2 text-xs text-foreground-muted/40">
             <Link
@@ -93,8 +93,8 @@ export default function HelpPage() {
             the office. For everything else, we are here.
           </p>
 
-          <div className="mt-8 inline-flex items-center gap-3 rounded-xl border border-accent/12 bg-accent/6 px-4 py-3">
-            <div className="animate-glow-pulse size-1.5 rounded-full bg-accent/80" />
+          <div className="mt-8 inline-flex items-center gap-3 rounded-xl border border-brand/12 bg-brand/6 px-4 py-3">
+            <div className="animate-glow-pulse size-1.5 rounded-full bg-brand/80" />
             <p className="text-xs text-foreground-secondary">
               You were referred here from the RISE PM-1 remote.{' '}
               <span className="text-foreground-muted">riseawake.com/help</span>
@@ -133,7 +133,7 @@ export default function HelpPage() {
               <p className="text-xs leading-relaxed text-foreground-muted">
                 {item.desc}
               </p>
-              <p className="mt-4 text-xs text-accent/60">View →</p>
+              <p className="mt-4 text-xs text-brand/60">View →</p>
             </a>
           ))}
         </div>
@@ -167,7 +167,7 @@ export default function HelpPage() {
                   </span>
                   <span
                     aria-hidden="true"
-                    className="shrink-0 text-lg text-accent/60 transition-transform duration-300"
+                    className="shrink-0 text-lg text-brand/60 transition-transform duration-300"
                     style={{
                       transform:
                         openFaq === i ? 'rotate(45deg)' : 'rotate(0deg)',
@@ -242,7 +242,7 @@ export default function HelpPage() {
                   <h3 className="text-sm font-medium text-foreground-secondary">
                     {plan.title}
                   </h3>
-                  <span className="rounded-xl border border-accent/15 bg-accent/10 px-3 py-1 text-xs text-accent/80">
+                  <span className="rounded-xl border border-brand/15 bg-brand/10 px-3 py-1 text-xs text-brand/80">
                     {plan.period}
                   </span>
                 </div>
@@ -252,7 +252,7 @@ export default function HelpPage() {
                       key={j}
                       className="flex items-start gap-3 text-xs text-foreground-muted"
                     >
-                      <span className="mt-px text-accent/50">—</span>
+                      <span className="mt-px text-brand/50">—</span>
                       {item}
                     </li>
                   ))}
@@ -301,7 +301,7 @@ export default function HelpPage() {
                   onChange={(e) =>
                     setFormState({ ...formState, name: e.target.value })
                   }
-                  className="rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                  className="rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-brand/40"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -316,7 +316,7 @@ export default function HelpPage() {
                   onChange={(e) =>
                     setFormState({ ...formState, email: e.target.value })
                   }
-                  className="rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                  className="rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-brand/40"
                 />
               </div>
               <div className="flex flex-col gap-2 md:col-span-2">
@@ -330,7 +330,7 @@ export default function HelpPage() {
                     setFormState({ ...formState, subject: e.target.value })
                   }
                   required
-                  className={`rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-sm transition-all duration-200 outline-none focus:border-accent/40 ${
+                  className={`rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-sm transition-all duration-200 outline-none focus:border-brand/40 ${
                     formState.subject
                       ? 'text-foreground'
                       : 'text-foreground-muted'
@@ -366,7 +366,7 @@ export default function HelpPage() {
                   onChange={(e) =>
                     setFormState({ ...formState, message: e.target.value })
                   }
-                  className="resize-none rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-accent/40"
+                  className="resize-none rounded-lg border border-edge bg-foreground/4 px-4 py-3 text-sm text-foreground transition-all duration-200 outline-none focus:border-brand/40"
                 />
               </div>
               <div className="flex items-center justify-between md:col-span-2">
@@ -377,7 +377,7 @@ export default function HelpPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="rounded-full bg-accent px-8 py-3 text-xs font-medium tracking-widest text-accent-on uppercase transition-all duration-300 hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
+                  className="rounded-full bg-brand px-8 py-3 text-xs font-medium tracking-widest text-brand-on uppercase transition-all duration-300 hover:bg-brand-hover disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {loading ? 'Sending...' : 'Send Message'}
                 </button>
@@ -385,8 +385,8 @@ export default function HelpPage() {
             </form>
           ) : (
             <div className="py-20 text-center">
-              <div className="mx-auto mb-6 flex size-12 items-center justify-center rounded-full border border-accent/25 bg-accent/10">
-                <span className="text-lg text-accent">✓</span>
+              <div className="mx-auto mb-6 flex size-12 items-center justify-center rounded-full border border-brand/25 bg-brand/10">
+                <span className="text-lg text-brand">✓</span>
               </div>
               <p className="mb-4 font-display text-3xl tracking-tight text-foreground-strong">
                 Message received.

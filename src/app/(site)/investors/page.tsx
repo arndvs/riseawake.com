@@ -125,7 +125,7 @@ export default function InvestorsPage() {
                   <span className="flex-1 text-body text-foreground-secondary">
                     {n.headline}
                   </span>
-                  <span className="shrink-0 rounded-xl border border-accent/12 bg-accent/8 px-2 py-1 text-[10px] text-accent">
+                  <span className="shrink-0 rounded-xl border border-brand/12 bg-brand/8 px-2 py-1 text-[10px] text-brand">
                     {n.tag}
                   </span>
                 </div>
@@ -144,8 +144,8 @@ export default function InvestorsPage() {
                   href={q.href}
                   className={`group block rounded-xl border p-6 transition-all duration-300 hover:shadow-md ${
                     q.accent
-                      ? 'border-accent/20 bg-accent/6 hover:border-accent/35'
-                      : 'border-edge-subtle bg-surface-alt hover:border-accent/20'
+                      ? 'border-brand/20 bg-brand/6 hover:border-brand/35'
+                      : 'border-edge-subtle bg-surface-alt hover:border-brand/20'
                   }`}
                 >
                   <h3
@@ -160,7 +160,7 @@ export default function InvestorsPage() {
                   </p>
                   <span
                     className={`inline-block text-xs ${
-                      q.accent ? 'text-accent' : 'text-foreground-muted'
+                      q.accent ? 'text-brand' : 'text-foreground-muted'
                     }`}
                   >
                     View →
@@ -182,7 +182,7 @@ export default function InvestorsPage() {
                 <p className="mb-3 text-xs text-foreground-muted">
                   Founder & Chief Executive Officer
                 </p>
-                <p className="text-xs text-accent">ir@riseawake.com</p>
+                <p className="text-xs text-brand">ir@riseawake.com</p>
               </div>
               <div>
                 <p className="mb-1 text-sm font-medium text-foreground-secondary">
@@ -191,7 +191,7 @@ export default function InvestorsPage() {
                 <p className="mb-3 text-xs text-foreground-muted">
                   Press & Communications
                 </p>
-                <p className="text-xs text-accent">press@riseawake.com</p>
+                <p className="text-xs text-brand">press@riseawake.com</p>
               </div>
             </div>
             <p className="mt-8 border-t border-edge-subtle pt-6 text-[10px] leading-loose text-foreground-muted">

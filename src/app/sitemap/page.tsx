@@ -190,7 +190,7 @@ export default function SitemapPage() {
                           'min-w-[300px] shrink-0 font-mono text-xs transition-colors duration-150 hover:text-foreground',
                           section.isInternal
                             ? 'text-amber-500/70'
-                            : 'text-accent',
+                            : 'text-brand',
                         )}
                       >
                         {route.path}

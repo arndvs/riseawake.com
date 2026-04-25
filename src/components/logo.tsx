@@ -3,14 +3,14 @@ import { clsx } from 'clsx'
 function LogoIcon() {
   return (
     <>
-      <rect width="28" height="28" rx="4" className="fill-accent/15" />
+      <rect width="28" height="28" rx="4" className="fill-brand/15" />
       <rect
         x="0.5"
         y="0.5"
         width="27"
         height="27"
         rx="3.5"
-        className="stroke-accent/40"
+        className="stroke-brand/40"
         strokeWidth="0.5"
       />
       <path
@@ -21,19 +21,19 @@ function LogoIcon() {
       />
       <path
         d="M6.93 12.93l1.41 1.41M21.07 12.93l-1.41 1.41M4 20h2M22 20h2"
-        className="stroke-accent/50"
+        className="stroke-brand/50"
         strokeWidth="1"
         strokeLinecap="round"
       />
       <path
         d="M18 20a4 4 0 0 0-8 0"
-        className="stroke-accent"
+        className="stroke-brand"
         strokeWidth="1.5"
         strokeLinecap="round"
       />
       <path
         d="M14 4v8M10 8l4-4 4 4"
-        className="stroke-accent"
+        className="stroke-brand"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"

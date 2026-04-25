@@ -47,7 +47,7 @@ const UNIT_ECONOMICS = [
 ]
 
 const GRID_COLOR = 'var(--color-edge-subtle)'
-const ACCENT = 'var(--color-accent)'
+const ACCENT = 'var(--color-brand)'
 const MUTED = 'var(--color-foreground-muted)'
 
 const tooltipStyle = {
@@ -91,7 +91,7 @@ export default function FinancialsPage() {
                 </p>
                 <p className="font-display text-3xl text-foreground-strong">
                   {formatRevenue(LATEST.revenue)}{' '}
-                  <span className="text-base text-accent">{LATEST_FY}</span>
+                  <span className="text-base text-brand">{LATEST_FY}</span>
                 </p>
               </div>
               <div className="text-right">
@@ -196,7 +196,7 @@ export default function FinancialsPage() {
             </ResponsiveContainer>
             <div className="mt-4 flex items-center gap-6">
               <div className="flex items-center gap-2">
-                <div className="h-0.5 w-4 bg-accent" />
+                <div className="h-0.5 w-4 bg-brand" />
                 <span className="text-[10px] text-foreground-muted">
                   Waitlist
                 </span>
@@ -228,7 +228,7 @@ export default function FinancialsPage() {
                     </div>
                     <div className="h-1 rounded-full bg-edge-subtle">
                       <div
-                        className="h-1 rounded-full bg-accent/70"
+                        className="h-1 rounded-full bg-brand/70"
                         style={{ width: `${item.bar}%` }}
                       />
                     </div>
@@ -256,11 +256,11 @@ export default function FinancialsPage() {
                   </p>
                 </div>
                 <div className="flex-1 text-center">
-                  <p className="mb-2 font-display text-5xl tracking-tight text-accent">
+                  <p className="mb-2 font-display text-5xl tracking-tight text-brand">
                     98%
                   </p>
                   <p className="text-xs text-foreground-secondary">RISE Push</p>
-                  <p className="mt-1 text-[10px] text-accent/70">
+                  <p className="mt-1 text-[10px] text-brand/70">
                     Current generation
                   </p>
                 </div>
@@ -341,7 +341,7 @@ export default function FinancialsPage() {
               {ACTIVE_MARKETS.map((market) => (
                 <span
                   key={market}
-                  className="rounded-xl border border-accent/15 bg-accent/10 px-3 py-1.5 text-[10px] text-accent"
+                  className="rounded-xl border border-brand/15 bg-brand/10 px-3 py-1.5 text-[10px] text-brand"
                 >
                   {market}
                 </span>

@@ -37,7 +37,7 @@ const inputClass = clsx(
   'w-full rounded border border-edge bg-surface-alt px-3.5 py-2.5',
   'text-sm text-foreground placeholder:text-foreground-muted/50',
   'outline-none transition-colors',
-  'focus:border-accent/40 focus:ring-1 focus:ring-accent/20',
+  'focus:border-brand/40 focus:ring-1 focus:ring-brand/20',
 )
 
 const labelClass = 'block mb-1.5 text-[11px] tracking-wide text-foreground-secondary uppercase'
@@ -179,7 +179,7 @@ function RoleField({
           <label className="flex items-center gap-2.5 cursor-pointer">
             <input
               type="checkbox"
-              className="h-4 w-4 rounded border-edge accent-accent"
+              className="h-4 w-4 rounded border-edge accent-brand"
               {...register(name as keyof ApplicationFormData, {
                 required: field.required ? 'Required' : false,
               })}
@@ -215,7 +215,7 @@ function RoleField({
                   <input
                     type="radio"
                     value={val}
-                    className="accent-accent"
+                    className="accent-brand"
                     {...register(name as keyof ApplicationFormData, {
                       required: field.required ? 'Required' : false,
                     })}
@@ -317,7 +317,7 @@ function ApplicationForm({ job }: { job: JobOpening }) {
     return (
       <div className="mx-auto max-w-2xl px-6 pt-40 pb-24">
         <div className="rounded border border-edge bg-surface-alt p-8">
-          <p className="mb-2 text-[10px] tracking-widest text-accent/60 uppercase">
+          <p className="mb-2 text-[10px] tracking-widest text-brand/60 uppercase">
             Application Received
           </p>
           <h2 className="mb-4 font-display text-2xl tracking-tight text-foreground-strong">
@@ -334,7 +334,7 @@ function ApplicationForm({ job }: { job: JobOpening }) {
           </p>
           <button
             onClick={() => router.push('/careers')}
-            className="cursor-pointer rounded bg-accent px-6 py-2.5 text-[11px] font-medium tracking-wider text-accent-on uppercase"
+            className="cursor-pointer rounded bg-brand px-6 py-2.5 text-[11px] font-medium tracking-wider text-brand-on uppercase"
           >
             Back to Careers
           </button>
@@ -357,7 +357,7 @@ function ApplicationForm({ job }: { job: JobOpening }) {
         >
           ← Back to All Roles
         </button>
-        <p className="mb-1 text-[10px] tracking-widest text-accent/60 uppercase">
+        <p className="mb-1 text-[10px] tracking-widest text-brand/60 uppercase">
           Applying for
         </p>
         <h1 className="mb-2 font-display text-3xl tracking-tight text-foreground-strong">
@@ -544,8 +544,8 @@ function ApplicationForm({ job }: { job: JobOpening }) {
               accept={RESUME_ACCEPT}
               className={clsx(
                 inputClass,
-                'file:mr-3 file:rounded file:border-0 file:bg-accent/10 file:px-3 file:py-1',
-                'file:text-[10px] file:font-medium file:tracking-wider file:text-accent file:uppercase',
+                'file:mr-3 file:rounded file:border-0 file:bg-brand/10 file:px-3 file:py-1',
+                'file:text-[10px] file:font-medium file:tracking-wider file:text-brand file:uppercase',
                 'file:cursor-pointer',
               )}
               {...register('resume', {
@@ -604,7 +604,7 @@ function ApplicationForm({ job }: { job: JobOpening }) {
             type="submit"
             disabled={submitState === 'submitting'}
             className={clsx(
-              'cursor-pointer rounded bg-accent px-8 py-3 text-[11px] font-medium tracking-wider text-accent-on uppercase',
+              'cursor-pointer rounded bg-brand px-8 py-3 text-[11px] font-medium tracking-wider text-brand-on uppercase',
               'transition-opacity disabled:cursor-not-allowed disabled:opacity-50',
             )}
           >
@@ -636,7 +636,7 @@ function ApplyPageContent() {
       <div className="mx-auto max-w-2xl px-6 pt-40 pb-24">
         <p className="text-sm text-foreground-secondary">
           No role specified. Return to{' '}
-          <a href="/careers" className="text-accent underline">
+          <a href="/careers" className="text-brand underline">
             Careers
           </a>{' '}
           and select a role.
@@ -651,9 +651,9 @@ function ApplyPageContent() {
     return (
       <div className="mx-auto max-w-2xl px-6 pt-40 pb-24">
         <p className="text-sm text-foreground-secondary">
-          Unknown role ID: <code className="text-accent">{position}</code>.
+          Unknown role ID: <code className="text-brand">{position}</code>.
           Return to{' '}
-          <a href="/careers" className="text-accent underline">
+          <a href="/careers" className="text-brand underline">
             Careers
           </a>
           .
