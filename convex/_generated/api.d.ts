@@ -13,6 +13,7 @@ import type * as media from "../media.js";
 import type * as mediaComments from "../mediaComments.js";
 import type * as projects from "../projects.js";
 import type * as promptCategories from "../promptCategories.js";
+import type * as seed from "../seed.js";
 
 import type {
   ApiFromModules,
@@ -26,6 +27,7 @@ declare const fullApi: ApiFromModules<{
   mediaComments: typeof mediaComments;
   projects: typeof projects;
   promptCategories: typeof promptCategories;
+  seed: typeof seed;
 }>;
 
 /**
