@@ -17,7 +17,7 @@ export default function InternalNotFound() {
       <div className="flex min-h-[50vh] items-center justify-center">
         <div className="space-y-5 text-center">
           <CmsEmptyState
-            icon={AlertCircle}
+            icon={<AlertCircle className="size-6" />}
             title="Document not found"
             description="The document you are looking for does not exist or has been removed."
           />

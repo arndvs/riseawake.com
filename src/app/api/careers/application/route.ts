@@ -26,7 +26,6 @@ export async function POST(request: NextRequest) {
 
     // ─── Extract fields ───────────────────────────────────────────────
     const roleId = formData.get('roleId') as string | null
-    const roleTitle = formData.get('roleTitle') as string | null
     const firstName = formData.get('firstName') as string | null
     const lastName = formData.get('lastName') as string | null
     const email = formData.get('email') as string | null
@@ -42,7 +41,6 @@ export async function POST(request: NextRequest) {
     // ─── Validate required fields ─────────────────────────────────────
     if (
       !roleId ||
-      !roleTitle ||
       !firstName ||
       !lastName ||
       !email ||
@@ -57,7 +55,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Validate role exists
+    // Validate role exists and derive title server-side
     const job = getJobById(roleId)
     if (!job) {
       return NextResponse.json(
@@ -65,6 +63,7 @@ export async function POST(request: NextRequest) {
         { status: 400 },
       )
     }
+    const roleTitle = job.title
 
     // Validate email format
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {

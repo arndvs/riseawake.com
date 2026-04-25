@@ -279,7 +279,7 @@ function ApplicationForm({ job }: { job: JobOpening }) {
         formData.append('whyJoinRise', data.whyJoinRise)
         formData.append(
           'roleSpecificAnswers',
-          JSON.stringify(data.roleSpecificAnswers),
+          JSON.stringify(data.roleSpecificAnswers ?? {}),
         )
         // Honeypot
         formData.append('company', data.company)
@@ -328,9 +328,8 @@ function ApplicationForm({ job }: { job: JobOpening }) {
             materials. Response times vary. Some vary more than others.
           </p>
           <p className="mb-6 text-xs text-foreground-muted">
-            A confirmation email has been sent to the address you provided.
-            If you do not receive it, check your spam folder. If it is not
-            there either, the email infrastructure is working as designed.
+            A confirmation email should arrive shortly at the address you
+            provided. If you don&apos;t see it, check your spam folder.
           </p>
           <button
             onClick={() => router.push('/careers')}

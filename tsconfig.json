@@ -40,6 +40,8 @@
   "exclude": [
     "node_modules",
     "working",
-    "scripts"
+    "scripts",
+    "docs",
+    "src/components/sidebar"
   ]
 }

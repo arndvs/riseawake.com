@@ -92,7 +92,7 @@ const STATUS_DOT: Record<ApplicationStatus, string> = {
 }
 
 function formatDate(ts: number) {
-  return new Date(ts).toLocaleDateString('en-US', {
+  return new Date(ts).toLocaleString('en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
@@ -293,7 +293,7 @@ export default function ApplicationsPage() {
       {/* ── Empty state ── */}
       {!loading && filtered.length === 0 && (
         <CmsEmptyState
-          icon={Inbox}
+          icon={<Inbox className="size-6" />}
           title={
             applications.length === 0
               ? 'No applications received yet.'
