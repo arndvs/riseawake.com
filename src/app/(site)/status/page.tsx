@@ -459,6 +459,15 @@ export default function StatusPage() {
               Subscribe
             </button>
           </div>
+          <p className="mt-3 text-[9px] leading-relaxed text-foreground-muted/30">
+            Subscribing adds you to the RISE communications list.
+            Unsubscribing removes your waitlist position. This is described in
+            the{' '}
+            <a href="/legal/terms" className="underline">
+              Terms of Service
+            </a>
+            .
+          </p>
         </div>
       </section>
     </main>
