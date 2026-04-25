@@ -482,6 +482,15 @@ export default function PrivacyPage() {
               deletion. Derived data is retained indefinitely regardless of
               account status.
             </LegalP>
+            <LegalP>
+              Waitlist position data is retained for the duration of the
+              user&rsquo;s active subscription to RISE communications.
+              Unsubscribing from RISE communications permanently deletes the
+              user&rsquo;s waitlist position. This is the only category of data
+              that RISE deletes immediately, irreversibly, and without a
+              recovery period. RISE finds this an appropriate use of deletion
+              infrastructure.
+            </LegalP>
           </LegalSection>
 
           <LegalSection
