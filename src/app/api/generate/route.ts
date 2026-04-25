@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
         ),
       )
       images = results
-        .map((r) => r.data[0]?.url)
+        .map((r) => r.data?.[0]?.url)
         .filter((url): url is string => !!url)
     } else {
       // gpt-image-1 supports n:4
@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
         n: 4,
         size: '1024x1024',
       })
-      images = result.data
+      images = (result.data ?? [])
         .map((d) => d.url ?? (d.b64_json ? `data:image/png;base64,${d.b64_json}` : null))
         .filter((url): url is string => !!url)
     }
