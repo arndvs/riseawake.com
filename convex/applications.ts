@@ -35,8 +35,12 @@ export const submitApplication = mutation({
 })
 
 export const generateUploadUrl = mutation({
-  args: {},
-  handler: async (ctx) => {
+  args: { uploadSecret: v.string() },
+  handler: async (ctx, args) => {
+    const expected = process.env.UPLOAD_SECRET
+    if (!expected || args.uploadSecret !== expected) {
+      throw new Error('Unauthorized')
+    }
     return await ctx.storage.generateUploadUrl()
   },
 })

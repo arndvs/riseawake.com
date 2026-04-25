@@ -111,7 +111,9 @@ export async function POST(request: NextRequest) {
       }
 
       // Upload to Convex storage
-      const uploadUrl = await convex.mutation(api.applications.generateUploadUrl)
+      const uploadUrl = await convex.mutation(api.applications.generateUploadUrl, {
+        uploadSecret: process.env.UPLOAD_SECRET!,
+      })
       const uploadRes = await fetch(uploadUrl, {
         method: 'POST',
         headers: { 'Content-Type': resumeFile.type },
