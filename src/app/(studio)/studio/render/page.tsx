@@ -39,6 +39,7 @@ export default function RenderPage() {
 
   // Allocation tracking (localStorage)
   const getAllocRemaining = useCallback(() => {
+    if (typeof window === 'undefined') return RISE_RENDER.allocationLimit
     const today = new Date().toISOString().split('T')[0]
     const stored = localStorage.getItem('rise-render-alloc')
     if (stored) {
@@ -55,6 +56,7 @@ export default function RenderPage() {
   }, [])
 
   const decrementAllocation = useCallback(() => {
+    if (typeof window === 'undefined') return
     const today = new Date().toISOString().split('T')[0]
     const stored = localStorage.getItem('rise-render-alloc')
     let used = 0
