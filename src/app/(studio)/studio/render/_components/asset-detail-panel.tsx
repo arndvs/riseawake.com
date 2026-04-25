@@ -6,6 +6,8 @@ import type { Id } from '../../../../../../convex/_generated/dataModel'
 import { STATUS_CONFIG, type Status } from './asset-card'
 import { StatusChangeDialog } from './status-change-dialog'
 import { QuickEditPanel } from './quick-edit-panel'
+import { CommentThread } from './comment-thread'
+import { CommentInput } from './comment-input'
 
 type AssetDetailPanelProps = {
   mediaId: Id<'media'>
@@ -183,10 +185,14 @@ export function AssetDetailPanel({
               tags={tags}
               projectId={projectId}
             />
-            <div className="rounded-xl border border-dashed border-edge p-4 text-center">
-              <p className="text-xs text-foreground-muted">
-                Comments coming soon
+            <div>
+              <p className="mb-3 text-xs font-medium uppercase tracking-widest text-foreground-muted">
+                Comments
               </p>
+              <CommentThread mediaId={mediaId} />
+              <div className="mt-3">
+                <CommentInput mediaId={mediaId} />
+              </div>
             </div>
           </div>
         </div>
