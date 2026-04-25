@@ -1,9 +1,13 @@
 'use client'
 
-import { X, Calendar, Cpu, Tag, FolderOpen, Hash } from 'lucide-react'
+import { useState } from 'react'
+import { X, Calendar, Cpu, Tag, FolderOpen, Hash, Send, Undo2 } from 'lucide-react'
+import type { Id } from '../../../../../../convex/_generated/dataModel'
 import { STATUS_CONFIG, type Status } from './asset-card'
+import { StatusChangeDialog } from './status-change-dialog'
 
 type AssetDetailPanelProps = {
+  mediaId: Id<'media'>
   imagekitUrl: string
   prompt: string
   model: string
@@ -17,6 +21,7 @@ type AssetDetailPanelProps = {
 }
 
 export function AssetDetailPanel({
+  mediaId,
   imagekitUrl,
   prompt,
   model,
@@ -28,6 +33,7 @@ export function AssetDetailPanel({
   createdAt,
   onClose,
 }: AssetDetailPanelProps) {
+  const [pendingTransition, setPendingTransition] = useState<Status | null>(null)
   const cfg = STATUS_CONFIG[status]
   const StatusIcon = cfg.icon
 
@@ -77,14 +83,36 @@ export function AssetDetailPanel({
             />
           </div>
 
-          {/* Status badge */}
-          <div className="flex items-center gap-2">
+          {/* Status badge + actions */}
+          <div className="flex items-center gap-3">
             <span
               className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium ${cfg.className}`}
             >
               {StatusIcon && <StatusIcon className="size-3" />}
               {cfg.label}
             </span>
+
+            {status === 'draft' && (
+              <button
+                type="button"
+                onClick={() => setPendingTransition('ready_for_review')}
+                className="inline-flex items-center gap-1.5 rounded-full bg-brand px-3 py-1 text-xs font-medium text-brand-on transition-colors hover:bg-brand-hover"
+              >
+                <Send className="size-3" />
+                Submit for Review
+              </button>
+            )}
+
+            {status === 'ready_for_review' && (
+              <button
+                type="button"
+                onClick={() => setPendingTransition('draft')}
+                className="inline-flex items-center gap-1.5 rounded-full border border-edge bg-surface-alt px-3 py-1 text-xs font-medium text-foreground-muted transition-colors hover:text-foreground"
+              >
+                <Undo2 className="size-3" />
+                Pull Back to Draft
+              </button>
+            )}
           </div>
 
           {/* Prompt */}
@@ -157,6 +185,20 @@ export function AssetDetailPanel({
           </div>
         </div>
       </div>
+
+      {/* Status change dialog */}
+      {pendingTransition && (
+        <StatusChangeDialog
+          mediaId={mediaId}
+          currentStatus={status}
+          newStatus={pendingTransition}
+          onClose={() => setPendingTransition(null)}
+          onChanged={() => {
+            setPendingTransition(null)
+            onClose()
+          }}
+        />
+      )}
     </div>
   )
 }

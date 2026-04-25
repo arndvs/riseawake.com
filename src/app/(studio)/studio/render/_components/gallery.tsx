@@ -236,6 +236,7 @@ export function Gallery() {
       {/* Detail panel */}
       {selectedAsset && (
         <AssetDetailPanel
+          mediaId={selectedAsset._id}
           imagekitUrl={selectedAsset.imagekitUrl}
           prompt={selectedAsset.prompt}
           model={selectedAsset.model}
