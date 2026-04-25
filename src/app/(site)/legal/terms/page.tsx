@@ -169,6 +169,27 @@ export default function TermsPage() {
               initiating activation. RISE understands this may be frustrating to
               discover at Stage 5 of 12.
             </LegalNote>
+            <LegalP>
+              Users who have joined the Push Mode waitlist prior to purchase
+              hold a sequential position in the notification queue.
+              Unsubscribing from RISE communications — including the waitlist
+              nurture sequence, product availability updates, and operational
+              notifications — constitutes voluntary forfeiture of the
+              user&rsquo;s waitlist position. Forfeited positions are not
+              recoverable. Forfeited positions are not transferable. Users who
+              unsubscribe and subsequently re-subscribe will be assigned a new
+              position at the end of the current queue. RISE does not make
+              exceptions. RISE does not acknowledge the phrase &ldquo;but I was
+              number 47.&rdquo;
+            </LegalP>
+            <LegalNote>
+              The waitlist nurture sequence currently has a 0% unsubscribe rate.
+              RISE considers this a reflection of informed user choice rather
+              than a structural feature of the unsubscribe process. The
+              unsubscribe link is present in every email. It is small. It works.
+              Its consequences are described here, in Section 7, clearly and
+              without ambiguity. Users who click it have been told.
+            </LegalNote>
           </LegalSection>
 
           <LegalSection id="s8" number="8." title="Intellectual Property">
