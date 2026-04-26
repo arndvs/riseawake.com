@@ -8,10 +8,10 @@ import { findBannedWords } from '@/lib/banned-words'
 import { AdvancedOptions } from './advanced-options'
 import {
   Sparkles,
-  ChevronDown,
-  ChevronUp,
+  SlidersHorizontal,
   AlertCircle,
   ShieldAlert,
+  RotateCcw,
 } from 'lucide-react'
 
 type PromptInputProps = {
@@ -50,7 +50,9 @@ export function PromptInput({
 }: PromptInputProps) {
   const [prompt, setPrompt] = useState('')
   const [model, setModel] = useState<'dall-e-3' | 'gpt-image-1'>('dall-e-3')
-  const [size, setSize] = useState<'1024x1024' | '1792x1024' | '1024x1792'>('1024x1024')
+  const [size, setSize] = useState<'1024x1024' | '1792x1024' | '1024x1792'>(
+    '1024x1024',
+  )
   const [quality, setQuality] = useState<'standard' | 'hd'>('hd')
   const [showAdvanced, setShowAdvanced] = useState(false)
 
@@ -83,104 +85,91 @@ export function PromptInput({
       })
     } else {
       setPrompt((prev) => {
-        // Remove the option from the prompt text
         return prev
-          .replace(new RegExp(`,?\\s*${option.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'gi'), '')
+          .replace(
+            new RegExp(
+              `,?\\s*${option.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`,
+              'gi',
+            ),
+            '',
+          )
           .replace(/^,\s*/, '')
           .trim()
       })
     }
   }
 
+  const handleClearAll = () => {
+    setPrompt('')
+    setShowAdvanced(false)
+  }
+
   return (
-    <form onSubmit={handleSubmit} className="mx-auto w-full max-w-2xl">
-      {/* Prompt textarea */}
-      <div className="relative rounded-2xl border border-edge bg-surface p-1">
-        <textarea
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          placeholder="Describe the image you want to generate..."
-          rows={3}
-          maxLength={4000}
-          disabled={isLoading}
-          className="w-full resize-none rounded-xl bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:outline-none disabled:opacity-50"
-        />
-
-        {/* Bottom bar: model selector + generate button */}
-        <div className="flex items-center justify-between gap-3 px-3 pb-2">
-          <div className="flex items-center gap-3">
-            {/* Model selector */}
-            <div className="flex rounded-full border border-edge-subtle bg-surface-alt">
-              {MODELS.map((m) => (
-                <button
-                  key={m.value}
-                  type="button"
-                  onClick={() => setModel(m.value)}
-                  className={`rounded-full px-3 py-1 text-xs font-medium tracking-wide transition-colors ${
-                    model === m.value
-                      ? 'bg-brand text-brand-on'
-                      : 'text-foreground-muted hover:text-foreground'
-                  }`}
-                >
-                  {m.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Size selector (DALL-E 3 only) */}
-            {model === 'dall-e-3' && (
-              <div className="flex rounded-full border border-edge-subtle bg-surface-alt">
-                {SIZES.map((s) => (
-                  <button
-                    key={s.value}
-                    type="button"
-                    onClick={() => setSize(s.value)}
-                    className={`rounded-full px-2.5 py-1 text-xs font-medium tracking-wide transition-colors ${
-                      size === s.value
-                        ? 'bg-brand text-brand-on'
-                        : 'text-foreground-muted hover:text-foreground'
-                    }`}
-                  >
-                    {s.label}
-                  </button>
-                ))}
-              </div>
-            )}
-
-            {/* Quality selector (DALL-E 3 only) */}
-            {model === 'dall-e-3' && (
-              <div className="flex rounded-full border border-edge-subtle bg-surface-alt">
-                {QUALITIES.map((q) => (
-                  <button
-                    key={q.value}
-                    type="button"
-                    onClick={() => setQuality(q.value)}
-                    className={`rounded-full px-2.5 py-1 text-xs font-medium tracking-wide transition-colors ${
-                      quality === q.value
-                        ? 'bg-brand text-brand-on'
-                        : 'text-foreground-muted hover:text-foreground'
-                    }`}
-                  >
-                    {q.label}
-                  </button>
-                ))}
-              </div>
-            )}
-
-            {/* Advanced toggle */}
+    <form onSubmit={handleSubmit} className="mx-auto w-full max-w-4xl">
+      {/* Instructional header */}
+      <div className="mb-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <h4 className="text-sm font-semibold text-foreground">
+              Your Text Prompt
+            </h4>
+            <p className="mt-1 text-xs text-foreground-muted">
+              Describe in detail what you want the AI to create.
+            </p>
+          </div>
+          {prompt && (
             <button
               type="button"
-              onClick={() => setShowAdvanced(!showAdvanced)}
-              className="flex items-center gap-1 text-xs text-foreground-muted hover:text-foreground transition-colors"
+              onClick={handleClearAll}
+              className="flex items-center gap-1.5 text-xs text-foreground-muted transition-colors hover:text-foreground"
             >
-              Options
-              {showAdvanced ? (
-                <ChevronUp className="size-3" />
-              ) : (
-                <ChevronDown className="size-3" />
-              )}
+              <RotateCcw className="size-3" />
+              Clear all
             </button>
-          </div>
+          )}
+        </div>
+      </div>
+
+      {/* Input row: text input + advanced + generate */}
+      <div className="grid grid-cols-12 gap-3">
+        <div className="col-span-12 sm:col-span-8">
+          <input
+            type="text"
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            placeholder="An expressionist oil painting of a futuristic adjustable bed"
+            maxLength={4000}
+            disabled={isLoading}
+            className="block w-full rounded-lg border border-edge bg-surface px-4 py-2.5 text-sm text-foreground placeholder:text-foreground-muted focus:border-brand focus:ring-1 focus:ring-brand focus:outline-none disabled:opacity-50"
+          />
+          {/* Banned word warning */}
+          {hasBannedWords && (
+            <div className="mt-2 flex items-start gap-2 rounded-lg border border-red-500/30 bg-red-500/5 px-3 py-2">
+              <ShieldAlert className="mt-0.5 size-3.5 shrink-0 text-red-400" />
+              <p className="text-xs text-red-400">
+                Prohibited content detected:{' '}
+                <span className="font-medium">
+                  {bannedMatches.join(', ')}
+                </span>
+              </p>
+            </div>
+          )}
+        </div>
+
+        <div className="col-span-12 flex justify-end gap-3 sm:col-span-4">
+          {/* Advanced toggle */}
+          <button
+            type="button"
+            onClick={() => setShowAdvanced(!showAdvanced)}
+            className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+              showAdvanced
+                ? 'bg-brand/10 text-brand'
+                : 'bg-surface-alt text-foreground-muted hover:text-foreground border border-edge-subtle'
+            }`}
+          >
+            <SlidersHorizontal className="size-4" />
+            Advanced
+          </button>
 
           {/* Generate button */}
           <button
@@ -191,11 +180,121 @@ export function PromptInput({
               allocRemaining <= 0 ||
               hasBannedWords
             }
-            className="inline-flex items-center gap-2 rounded-full bg-cta px-5 py-2 text-xs font-medium uppercase tracking-[0.14em] text-cta-on transition-colors hover:bg-cta-hover disabled:opacity-40 disabled:pointer-events-none"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-cta px-6 py-2.5 text-sm font-medium text-cta-on transition-colors hover:bg-cta-hover disabled:pointer-events-none disabled:opacity-40"
           >
-            <Sparkles className="size-3.5" />
-            {isLoading ? 'Generating…' : 'Generate'}
+            {isLoading ? (
+              <>
+                <svg
+                  className="size-4 animate-spin text-cta-on"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l2-2.647z"
+                  />
+                </svg>
+                Generating
+              </>
+            ) : (
+              <>
+                <Sparkles className="size-4" />
+                Generate Images
+              </>
+            )}
           </button>
+        </div>
+      </div>
+
+      {/* Settings row: model, size, quality — labeled groups */}
+      <div className="mt-4 flex flex-wrap items-center gap-6">
+        {/* Model */}
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-medium text-foreground-secondary">
+            Model
+          </span>
+          <div className="flex rounded-full border border-edge-subtle bg-surface-alt">
+            {MODELS.map((m) => (
+              <button
+                key={m.value}
+                type="button"
+                onClick={() => setModel(m.value)}
+                className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                  model === m.value
+                    ? 'bg-brand text-brand-on'
+                    : 'text-foreground-muted hover:text-foreground'
+                }`}
+              >
+                {m.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Size (DALL-E 3 only) */}
+        {model === 'dall-e-3' && (
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-medium text-foreground-secondary">
+              Size
+            </span>
+            <div className="flex rounded-full border border-edge-subtle bg-surface-alt">
+              {SIZES.map((s) => (
+                <button
+                  key={s.value}
+                  type="button"
+                  onClick={() => setSize(s.value)}
+                  className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors ${
+                    size === s.value
+                      ? 'bg-brand text-brand-on'
+                      : 'text-foreground-muted hover:text-foreground'
+                  }`}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Quality (DALL-E 3 only) */}
+        {model === 'dall-e-3' && (
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-medium text-foreground-secondary">
+              Quality
+            </span>
+            <div className="flex rounded-full border border-edge-subtle bg-surface-alt">
+              {QUALITIES.map((q) => (
+                <button
+                  key={q.value}
+                  type="button"
+                  onClick={() => setQuality(q.value)}
+                  className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors ${
+                    quality === q.value
+                      ? 'bg-brand text-brand-on'
+                      : 'text-foreground-muted hover:text-foreground'
+                  }`}
+                >
+                  {q.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Allocation counter */}
+        <div className="ml-auto">
+          <p className="text-xs text-foreground-muted">
+            {RISE_RENDER.allocationMessage(allocRemaining)}
+          </p>
         </div>
       </div>
 
@@ -203,36 +302,19 @@ export function PromptInput({
       {showAdvanced && categories && (
         <AdvancedOptions
           categories={categories}
-          onSelect={handleAdvancedSelect}
           onToggleOption={handleToggleOption}
         />
       )}
 
-      {/* Banned word warning */}
-      {hasBannedWords && (
-        <div className="mt-3 flex items-start gap-2 rounded-lg border border-red-500/30 bg-red-500/5 px-3 py-2">
-          <ShieldAlert className="mt-0.5 size-3.5 shrink-0 text-red-400" />
-          <p className="text-xs text-red-400">
-            Prohibited content detected:{' '}
-            <span className="font-medium">
-              {bannedMatches.join(', ')}
-            </span>
-          </p>
-        </div>
-      )}
-
-      {/* Allocation + error row */}
-      <div className="mt-3 flex items-center justify-between px-1">
-        <p className="text-xs text-foreground-muted">
-          {RISE_RENDER.allocationMessage(allocRemaining)}
-        </p>
-        {error && (
+      {/* Error display */}
+      {error && (
+        <div className="mt-3 px-1">
           <p className="flex items-center gap-1.5 text-xs text-red-400">
             <AlertCircle className="size-3" />
             {error}
           </p>
-        )}
-      </div>
+        </div>
+      )}
     </form>
   )
 }

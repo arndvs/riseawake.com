@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useMemo } from 'react'
-import { Check, X, Search } from 'lucide-react'
+import { useState, useMemo, useRef, useEffect } from 'react'
+import { X, ChevronDown } from 'lucide-react'
 
 type Category = {
   _id: string
@@ -13,13 +13,152 @@ type Category = {
 
 type AdvancedOptionsProps = {
   categories: Category[]
-  onSelect: (additions: string[]) => void
   onToggleOption?: (option: string, added: boolean) => void
 }
 
-export function AdvancedOptions({ categories, onSelect, onToggleOption }: AdvancedOptionsProps) {
-  const [selected, setSelected] = useState<Record<string, Set<string>>>({})
+function CategoryCombobox({
+  category,
+  selected,
+  onToggle,
+}: {
+  category: Category
+  selected: Set<string>
+  onToggle: (option: string) => void
+}) {
+  const [open, setOpen] = useState(false)
   const [search, setSearch] = useState('')
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [])
+
+  const filtered = useMemo(() => {
+    if (!search.trim()) return category.options
+    const q = search.toLowerCase()
+    return category.options.filter((opt) => opt.toLowerCase().includes(q))
+  }, [category.options, search])
+
+  const selectedItems = category.options.filter((opt) => selected.has(opt))
+
+  return (
+    <div ref={ref} className="relative">
+      <label className="mb-1.5 block text-xs font-medium text-foreground-secondary">
+        {category.name}
+        {category.scope === 'rise' && (
+          <span className="ml-1.5 rounded bg-brand/10 px-1.5 py-0.5 text-[10px] text-brand">
+            RISE
+          </span>
+        )}
+      </label>
+
+      {/* Trigger / input */}
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className="flex w-full items-center justify-between rounded-lg border border-edge bg-surface px-3 py-2 text-left text-xs text-foreground transition-colors hover:border-brand focus:border-brand focus:ring-1 focus:ring-brand focus:outline-none"
+      >
+        <span className={selected.size > 0 ? 'text-foreground' : 'text-foreground-muted'}>
+          {selected.size > 0
+            ? `${selected.size} selected`
+            : `Select ${category.name.toLowerCase()}…`}
+        </span>
+        <ChevronDown
+          className={`size-3.5 text-foreground-muted transition-transform ${open ? 'rotate-180' : ''}`}
+        />
+      </button>
+
+      {/* Selected chips */}
+      {selectedItems.length > 0 && (
+        <div className="mt-1.5 flex flex-wrap gap-1">
+          {selectedItems.map((opt) => (
+            <span
+              key={opt}
+              className="inline-flex items-center gap-1 rounded-full bg-brand/15 px-2 py-0.5 text-[11px] text-brand"
+            >
+              {opt}
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onToggle(opt)
+                }}
+                className="transition-colors hover:text-brand-hover"
+              >
+                <X className="size-2.5" />
+              </button>
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Dropdown */}
+      {open && (
+        <div className="absolute top-full left-0 z-50 mt-1 w-full rounded-lg border border-edge bg-surface shadow-lg">
+          {/* Search input inside dropdown */}
+          <div className="border-b border-edge p-2">
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder={`Search ${category.name.toLowerCase()}…`}
+              className="w-full rounded border-none bg-transparent px-2 py-1 text-xs text-foreground placeholder:text-foreground-muted focus:outline-none"
+              autoFocus
+            />
+          </div>
+
+          {/* Options list */}
+          <div className="max-h-48 overflow-y-auto p-1">
+            {filtered.length > 0 ? (
+              filtered.map((opt) => {
+                const isSelected = selected.has(opt)
+                return (
+                  <button
+                    key={opt}
+                    type="button"
+                    onClick={() => onToggle(opt)}
+                    className={`flex w-full items-center rounded px-2 py-1.5 text-left text-xs transition-colors ${
+                      isSelected
+                        ? 'bg-brand/10 text-brand'
+                        : 'text-foreground-muted hover:bg-surface-alt hover:text-foreground'
+                    }`}
+                  >
+                    <span
+                      className={`mr-2 flex size-3.5 shrink-0 items-center justify-center rounded border text-[10px] ${
+                        isSelected
+                          ? 'border-brand bg-brand text-brand-on'
+                          : 'border-edge'
+                      }`}
+                    >
+                      {isSelected && '✓'}
+                    </span>
+                    {opt}
+                  </button>
+                )
+              })
+            ) : (
+              <p className="px-2 py-3 text-center text-xs text-foreground-muted">
+                No matches
+              </p>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export function AdvancedOptions({
+  categories,
+  onToggleOption,
+}: AdvancedOptionsProps) {
+  const [selected, setSelected] = useState<Record<string, Set<string>>>({})
 
   const toggle = (categoryName: string, option: string) => {
     setSelected((prev) => {
@@ -37,161 +176,16 @@ export function AdvancedOptions({ categories, onSelect, onToggleOption }: Advanc
     })
   }
 
-  const removeChip = (categoryName: string, option: string) => {
-    setSelected((prev) => {
-      const next = { ...prev }
-      const set = new Set(next[categoryName] ?? [])
-      set.delete(option)
-      next[categoryName] = set
-      return next
-    })
-  }
-
-  const handleApply = () => {
-    const all: string[] = []
-    for (const set of Object.values(selected)) {
-      for (const val of set) {
-        all.push(val)
-      }
-    }
-    onSelect(all)
-    setSelected({})
-    setSearch('')
-  }
-
-  const handleClear = () => {
-    setSelected({})
-  }
-
-  const totalSelected = Object.values(selected).reduce(
-    (sum, set) => sum + set.size,
-    0,
-  )
-
-  const allChips = useMemo(() => {
-    const chips: { category: string; option: string }[] = []
-    for (const [category, set] of Object.entries(selected)) {
-      for (const option of set) {
-        chips.push({ category, option })
-      }
-    }
-    return chips
-  }, [selected])
-
-  const query = search.toLowerCase().trim()
-
-  const filteredCategories = useMemo(() => {
-    if (!query) return categories
-    return categories
-      .map((cat) => ({
-        ...cat,
-        options: cat.options.filter((opt) =>
-          opt.toLowerCase().includes(query),
-        ),
-      }))
-      .filter((cat) => cat.options.length > 0)
-  }, [categories, query])
-
   return (
-    <div className="mt-3 rounded-2xl border border-edge bg-surface-alt p-4">
-      {/* Header row */}
-      <div className="flex items-center justify-between gap-3">
-        {/* Search input */}
-        <div className="relative flex-1 max-w-xs">
-          <Search className="pointer-events-none absolute left-2.5 top-1/2 size-3 -translate-y-1/2 text-foreground-muted" />
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Filter options…"
-            className="w-full rounded-lg border border-edge-subtle bg-surface py-1.5 pl-8 pr-3 text-xs text-foreground placeholder:text-foreground-muted focus:border-brand focus:outline-none"
-          />
-        </div>
-
-        <div className="flex items-center gap-2">
-          {totalSelected > 0 && (
-            <>
-              <button
-                type="button"
-                onClick={handleClear}
-                className="flex items-center gap-1 text-xs text-foreground-muted hover:text-foreground transition-colors"
-              >
-                <X className="size-3" />
-                Clear
-              </button>
-              <button
-                type="button"
-                onClick={handleApply}
-                className="inline-flex items-center gap-1.5 rounded-full bg-brand px-3 py-1 text-xs font-medium text-brand-on transition-colors hover:bg-brand-hover"
-              >
-                <Check className="size-3" />
-                Add {totalSelected} to prompt
-              </button>
-            </>
-          )}
-        </div>
-      </div>
-
-      {/* Selected chips */}
-      {allChips.length > 0 && (
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {allChips.map((chip) => (
-            <span
-              key={`${chip.category}-${chip.option}`}
-              className="inline-flex items-center gap-1 rounded-full bg-brand/15 px-2.5 py-1 text-xs text-brand"
-            >
-              {chip.option}
-              <button
-                type="button"
-                onClick={() => removeChip(chip.category, chip.option)}
-                className="hover:text-brand-hover transition-colors"
-              >
-                <X className="size-3" />
-              </button>
-            </span>
-          ))}
-        </div>
-      )}
-
-      {/* Category pills */}
-      <div className="mt-4 space-y-4 max-h-80 overflow-y-auto">
-        {filteredCategories.map((cat) => (
-          <div key={cat._id}>
-            <p className="mb-2 text-xs font-medium text-foreground-secondary">
-              {cat.name}
-              {cat.scope === 'rise' && (
-                <span className="ml-1.5 rounded bg-brand/10 px-1.5 py-0.5 text-[10px] text-brand">
-                  RISE
-                </span>
-              )}
-            </p>
-            <div className="flex flex-wrap gap-1.5">
-              {cat.options.map((opt) => {
-                const isSelected = selected[cat.name]?.has(opt) ?? false
-                return (
-                  <button
-                    key={opt}
-                    type="button"
-                    onClick={() => toggle(cat.name, opt)}
-                    className={`rounded-full px-2.5 py-1 text-xs transition-colors ${
-                      isSelected
-                        ? 'bg-brand text-brand-on'
-                        : 'bg-surface text-foreground-muted hover:text-foreground border border-edge-subtle'
-                    }`}
-                  >
-                    {opt}
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-        ))}
-        {query && filteredCategories.length === 0 && (
-          <p className="py-4 text-center text-xs text-foreground-muted">
-            No options match &ldquo;{search}&rdquo;
-          </p>
-        )}
-      </div>
+    <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {categories.map((cat) => (
+        <CategoryCombobox
+          key={cat._id}
+          category={cat}
+          selected={selected[cat.name] ?? new Set()}
+          onToggle={(opt) => toggle(cat.name, opt)}
+        />
+      ))}
     </div>
   )
 }

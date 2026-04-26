@@ -31,16 +31,19 @@ type PlaceholderGalleryProps = {
 
 export function PlaceholderGallery({ onUsePrompt }: PlaceholderGalleryProps) {
   return (
-    <div className="mx-auto w-full max-w-2xl">
+    <div className="mx-auto w-full max-w-4xl">
       <div className="rounded-2xl border border-dashed border-edge-strong p-8">
         <div className="mb-6 text-center">
           <Sparkles className="mx-auto mb-3 size-6 text-foreground-muted" />
-          <p className="text-sm text-foreground-muted">
-            Try one of these prompts to get started
+          <h4 className="mb-1 text-sm font-semibold text-foreground">
+            Some Examples
+          </h4>
+          <p className="text-xs text-foreground-muted">
+            Click any example to generate images with that prompt.
           </p>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {EXAMPLES.map((ex) => (
             <button
               key={ex.label}

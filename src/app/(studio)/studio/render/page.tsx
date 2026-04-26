@@ -1,16 +1,23 @@
 'use client'
 
-import { useState, useCallback } from 'react'
-import { Authenticated } from 'convex/react'
+import { useState, useCallback, useMemo } from 'react'
+import { Authenticated, useQuery } from 'convex/react'
+import { api } from '../../../../../convex/_generated/api'
 import { RISE_RENDER } from '@/lib/studio-config'
-import { PromptInput } from './_components/prompt-input'
+import { findBannedWords } from '@/lib/banned-words'
+import { AdvancedOptions } from './_components/advanced-options'
 import { GenerationResults } from './_components/generation-results'
 import { GenerationLoading } from './_components/generation-loading'
 import { PlaceholderGallery } from './_components/placeholder-gallery'
 import { SaveDialog } from './_components/save-dialog'
 import { Gallery } from './_components/gallery'
-import { CharacterSheetMode } from './_components/character-sheet-mode'
-import { User, FileText } from 'lucide-react'
+import {
+  Sparkles,
+  SlidersHorizontal,
+  ShieldAlert,
+  AlertCircle,
+  RotateCcw,
+} from 'lucide-react'
 
 const isGenerationEnabled =
   process.env.NEXT_PUBLIC_GENERATION_ENABLED !== 'false'
@@ -18,8 +25,34 @@ const isGenerationEnabled =
 type GenerationState = 'idle' | 'loading' | 'results'
 type ActiveTab = 'generate' | 'library'
 
+const MODELS = [
+  { value: 'dall-e-3' as const, label: 'DALL-E 3' },
+  { value: 'gpt-image-1' as const, label: 'GPT Image' },
+]
+const SIZES = [
+  { value: '1024x1024' as const, label: 'Square' },
+  { value: '1792x1024' as const, label: 'Landscape' },
+  { value: '1024x1792' as const, label: 'Portrait' },
+]
+const QUALITIES = [
+  { value: 'standard' as const, label: 'Standard' },
+  { value: 'hd' as const, label: 'HD' },
+]
+
 export default function RenderPage() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('generate')
+
+  // ─── Prompt state (all owned here, like ripemetrics orchestrator) ──
+  const [prompt, setPrompt] = useState('')
+  const [model, setModel] = useState<'dall-e-3' | 'gpt-image-1'>('dall-e-3')
+  const [size, setSize] = useState<'1024x1024' | '1792x1024' | '1024x1792'>(
+    '1024x1024',
+  )
+  const [quality, setQuality] = useState<'standard' | 'hd'>('hd')
+  const [showAdvanced, setShowAdvanced] = useState(false)
+  const [clearKey, setClearKey] = useState(0)
+
+  // ─── Generation state ──
   const [generationState, setGenerationState] =
     useState<GenerationState>('idle')
   const [images, setImages] = useState<(string | null)[]>([
@@ -28,18 +61,22 @@ export default function RenderPage() {
     null,
     null,
   ])
-  const [prompt, setPrompt] = useState('')
-  const [model, setModel] = useState<'dall-e-3' | 'gpt-image-1'>('dall-e-3')
-  const [size, setSize] = useState<'1024x1024' | '1792x1024' | '1024x1792'>('1024x1024')
-  const [quality, setQuality] = useState<'standard' | 'hd'>('hd')
+  const [lastPrompt, setLastPrompt] = useState('')
   const [kept, setKept] = useState<boolean[]>([false, false, false, false])
   const [error, setError] = useState<string | null>(null)
   const [savingSlot, setSavingSlot] = useState<number | null>(null)
-  const [promptMode, setPromptMode] = useState<'freeform' | 'character'>(
-    'freeform',
-  )
 
-  // Allocation tracking (localStorage)
+  // ─── Convex data ──
+  const categories = useQuery(api.promptCategories.listCategories, {})
+
+  // ─── Derived ──
+  const bannedMatches = useMemo(() => findBannedWords(prompt), [prompt])
+  const hasBannedWords = bannedMatches.length > 0
+  const isLoading = generationState === 'loading'
+  const isSubmitDisabled =
+    !prompt.trim() || isLoading || hasBannedWords
+
+  // ─── Allocation tracking (localStorage) ──
   const getAllocRemaining = useCallback(() => {
     if (typeof window === 'undefined') return RISE_RENDER.allocationLimit
     const today = new Date().toISOString().split('T')[0]
@@ -78,25 +115,15 @@ export default function RenderPage() {
     )
   }, [])
 
-  const handleGenerate = useCallback(
-    async (
-      promptText: string,
-      selectedModel: 'dall-e-3' | 'gpt-image-1',
-      selectedSize?: '1024x1024' | '1792x1024' | '1024x1792',
-      selectedQuality?: 'standard' | 'hd',
-    ) => {
+  // ─── Generate images ──
+  const generateImages = useCallback(
+    async (promptText: string) => {
       if (getAllocRemaining() <= 0) {
         setError('Daily allocation exhausted.')
         return
       }
 
-      const useSize = selectedSize ?? size
-      const useQuality = selectedQuality ?? quality
-
-      setPrompt(promptText)
-      setModel(selectedModel)
-      setSize(useSize)
-      setQuality(useQuality)
+      setLastPrompt(promptText)
       setError(null)
       setGenerationState('loading')
       setKept([false, false, false, false])
@@ -107,9 +134,9 @@ export default function RenderPage() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             prompt: promptText,
-            model: selectedModel,
-            size: useSize,
-            quality: useQuality,
+            model,
+            size,
+            quality,
           }),
         })
 
@@ -133,9 +160,10 @@ export default function RenderPage() {
         setGenerationState('idle')
       }
     },
-    [getAllocRemaining, decrementAllocation, size, quality],
+    [model, size, quality, getAllocRemaining, decrementAllocation],
   )
 
+  // ─── Regenerate single slot ──
   const handleRegenerate = useCallback(
     async (slotIndex: number) => {
       if (getAllocRemaining() <= 0) {
@@ -143,10 +171,9 @@ export default function RenderPage() {
         return
       }
 
-      // Replace single slot
       setImages((prev) => {
         const next = [...prev]
-        next[slotIndex] = null // show loading
+        next[slotIndex] = null
         return next
       })
 
@@ -154,7 +181,12 @@ export default function RenderPage() {
         const res = await fetch('/api/generate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ prompt, model, size, quality }),
+          body: JSON.stringify({
+            prompt: lastPrompt,
+            model,
+            size,
+            quality,
+          }),
         })
 
         const data = await res.json()
@@ -176,9 +208,10 @@ export default function RenderPage() {
         setError('Network error — check connection and try again.')
       }
     },
-    [prompt, model, size, quality, getAllocRemaining, decrementAllocation],
+    [lastPrompt, model, size, quality, getAllocRemaining, decrementAllocation],
   )
 
+  // ─── Keep / Save ──
   const handleKeep = useCallback((slotIndex: number) => {
     setKept((prev) => {
       const next = [...prev]
@@ -195,23 +228,66 @@ export default function RenderPage() {
     setSavingSlot(null)
   }, [])
 
+  // ─── Form submit ──
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (isSubmitDisabled || getAllocRemaining() <= 0) return
+    generateImages(prompt)
+  }
+
+  // ─── Advanced option toggle (appends/removes from prompt) ──
+  const handleToggleOption = (option: string, added: boolean) => {
+    if (added) {
+      setPrompt((prev) => {
+        const trimmed = prev.trim()
+        return trimmed ? `${trimmed}, ${option}` : option
+      })
+    } else {
+      setPrompt((prev) =>
+        prev
+          .replace(
+            new RegExp(
+              `,?\\s*${option.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`,
+              'gi',
+            ),
+            '',
+          )
+          .replace(/^,\s*/, '')
+          .trim(),
+      )
+    }
+  }
+
+  // ─── Clear all (like ripemetrics handleClearAll) ──
+  const handleClearAll = () => {
+    setPrompt('')
+    setShowAdvanced(false)
+    setImages([null, null, null, null])
+    setError(null)
+    setGenerationState('idle')
+    setLastPrompt('')
+    setClearKey((k) => k + 1)
+  }
+
+  // ─── Use example prompt (like ripemetrics handleUsePrompt) ──
   const handleUsePrompt = useCallback(
     (samplePrompt: string) => {
-      handleGenerate(samplePrompt, model)
+      setPrompt(samplePrompt)
+      generateImages(samplePrompt)
     },
-    [handleGenerate, model],
+    [generateImages],
   )
 
   return (
     <Authenticated>
       <div className="flex flex-col gap-8 py-12">
-        {/* Header */}
-        <div className="text-center">
-          <h1 className="font-display text-3xl text-foreground-strong">
+        {/* ─── Header (ripemetrics style) ─── */}
+        <div className="mx-auto w-full max-w-4xl">
+          <h1 className="font-display text-3xl tracking-tight text-foreground-strong">
             {RISE_RENDER.name}
           </h1>
-          <p className="mt-2 text-xs tracking-[0.16em] text-foreground-muted uppercase">
-            {RISE_RENDER.project}
+          <p className="mt-1 text-sm text-foreground-muted">
+            Get the perfect unique and custom images for your project with AI.
           </p>
         </div>
 
@@ -249,62 +325,221 @@ export default function RenderPage() {
               </button>
             </div>
 
-            {/* Generate tab */}
+            {/* ─── Generate tab ─── */}
             {activeTab === 'generate' && (
               <>
-                {/* Prompt mode toggle */}
-                <div className="mx-auto flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setPromptMode('freeform')}
-                    className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                      promptMode === 'freeform'
-                        ? 'bg-surface text-foreground border border-edge'
-                        : 'text-foreground-muted hover:text-foreground'
-                    }`}
-                  >
-                    <FileText className="size-3" />
-                    Freeform
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setPromptMode('character')}
-                    className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                      promptMode === 'character'
-                        ? 'bg-surface text-foreground border border-edge'
-                        : 'text-foreground-muted hover:text-foreground'
-                    }`}
-                  >
-                    <User className="size-3" />
-                    Character Sheet
-                  </button>
-                </div>
+                <form
+                  onSubmit={handleSubmit}
+                  className="mx-auto w-full max-w-4xl"
+                >
+                  {/* ─── "Your Text Prompt" label + Clear all ─── */}
+                  <div className="mb-4 flex items-center justify-between">
+                    <div>
+                      <h4 className="text-sm font-semibold text-foreground">
+                        Your Text Prompt
+                      </h4>
+                      <p className="mt-1 text-xs text-foreground-muted">
+                        Describe in detail what you want the AI to create.
+                      </p>
+                    </div>
+                    {prompt && (
+                      <button
+                        type="button"
+                        onClick={handleClearAll}
+                        className="flex items-center gap-1.5 text-xs text-foreground-muted transition-colors hover:text-foreground"
+                      >
+                        <RotateCcw className="size-3" />
+                        Clear all
+                      </button>
+                    )}
+                  </div>
 
-                {/* Prompt Input */}
-                {promptMode === 'freeform' ? (
-                  <PromptInput
-                    onGenerate={handleGenerate}
-                    isLoading={generationState === 'loading'}
-                    allocRemaining={getAllocRemaining()}
-                    error={error}
-                  />
-                ) : (
-                  <CharacterSheetMode
-                    onGenerate={handleGenerate}
-                    isLoading={generationState === 'loading'}
-                    allocRemaining={getAllocRemaining()}
-                    error={error}
-                  />
-                )}
+                  {/* ─── Input row (col-span-8 input, col-span-4 buttons) ─── */}
+                  <div className="grid grid-cols-12 gap-3">
+                    <div className="col-span-12 sm:col-span-8">
+                      <input
+                        type="text"
+                        value={prompt}
+                        onChange={(e) => setPrompt(e.target.value)}
+                        placeholder="An expressionist oil painting of a futuristic adjustable bed"
+                        maxLength={4000}
+                        disabled={isLoading}
+                        className="block w-full rounded-lg border border-edge bg-surface px-4 py-2.5 text-sm text-foreground placeholder:text-foreground-muted focus:border-brand focus:ring-1 focus:ring-brand focus:outline-none disabled:opacity-50"
+                      />
+                      {hasBannedWords && (
+                        <div className="mt-2 flex items-start gap-2 rounded-lg border border-red-500/30 bg-red-500/5 px-3 py-2">
+                          <ShieldAlert className="mt-0.5 size-3.5 shrink-0 text-red-400" />
+                          <p className="text-xs text-red-400">
+                            Prohibited content detected:{' '}
+                            <span className="font-medium">
+                              {bannedMatches.join(', ')}
+                            </span>
+                          </p>
+                        </div>
+                      )}
+                    </div>
 
-                {/* Results / Loading / Placeholder */}
+                    <div className="col-span-12 flex justify-end gap-3 sm:col-span-4">
+                      <button
+                        type="button"
+                        onClick={() => setShowAdvanced(!showAdvanced)}
+                        className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                          showAdvanced
+                            ? 'bg-brand/10 text-brand'
+                            : 'border border-edge-subtle bg-surface-alt text-foreground-muted hover:text-foreground'
+                        }`}
+                      >
+                        <SlidersHorizontal className="size-4" />
+                        Advanced
+                      </button>
+
+                      <button
+                        type="submit"
+                        disabled={
+                          isSubmitDisabled || getAllocRemaining() <= 0
+                        }
+                        className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-cta px-6 py-2.5 text-sm font-medium text-cta-on transition-colors hover:bg-cta-hover disabled:pointer-events-none disabled:opacity-40"
+                      >
+                        {isLoading ? (
+                          <>
+                            <svg
+                              className="size-4 animate-spin text-cta-on"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <circle
+                                className="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                              />
+                              <path
+                                className="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l2-2.647z"
+                              />
+                            </svg>
+                            Generating
+                          </>
+                        ) : (
+                          <>
+                            <Sparkles className="size-4" />
+                            Generate Images
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* ─── Settings row: model, size, quality ─── */}
+                  <div className="mt-4 flex flex-wrap items-center gap-6">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-medium text-foreground-secondary">
+                        Model
+                      </span>
+                      <div className="flex rounded-full border border-edge-subtle bg-surface-alt">
+                        {MODELS.map((m) => (
+                          <button
+                            key={m.value}
+                            type="button"
+                            onClick={() => setModel(m.value)}
+                            className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                              model === m.value
+                                ? 'bg-brand text-brand-on'
+                                : 'text-foreground-muted hover:text-foreground'
+                            }`}
+                          >
+                            {m.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {model === 'dall-e-3' && (
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-medium text-foreground-secondary">
+                          Size
+                        </span>
+                        <div className="flex rounded-full border border-edge-subtle bg-surface-alt">
+                          {SIZES.map((s) => (
+                            <button
+                              key={s.value}
+                              type="button"
+                              onClick={() => setSize(s.value)}
+                              className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors ${
+                                size === s.value
+                                  ? 'bg-brand text-brand-on'
+                                  : 'text-foreground-muted hover:text-foreground'
+                              }`}
+                            >
+                              {s.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {model === 'dall-e-3' && (
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-medium text-foreground-secondary">
+                          Quality
+                        </span>
+                        <div className="flex rounded-full border border-edge-subtle bg-surface-alt">
+                          {QUALITIES.map((q) => (
+                            <button
+                              key={q.value}
+                              type="button"
+                              onClick={() => setQuality(q.value)}
+                              className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors ${
+                                quality === q.value
+                                  ? 'bg-brand text-brand-on'
+                                  : 'text-foreground-muted hover:text-foreground'
+                              }`}
+                            >
+                              {q.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="ml-auto">
+                      <p className="text-xs text-foreground-muted">
+                        {RISE_RENDER.allocationMessage(getAllocRemaining())}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* ─── Advanced options (4-column combobox grid) ─── */}
+                  {showAdvanced && categories && (
+                    <AdvancedOptions
+                      key={clearKey}
+                      categories={categories}
+                      onToggleOption={handleToggleOption}
+                    />
+                  )}
+
+                  {/* Error */}
+                  {error && (
+                    <div className="mt-3 px-1">
+                      <p className="flex items-center gap-1.5 text-xs text-red-400">
+                        <AlertCircle className="size-3" />
+                        {error}
+                      </p>
+                    </div>
+                  )}
+                </form>
+
+                {/* ─── Results / Loading / Placeholder ─── */}
                 {generationState === 'loading' && <GenerationLoading />}
 
                 {generationState === 'results' && (
                   <GenerationResults
                     images={images}
                     kept={kept}
-                    prompt={prompt}
+                    prompt={lastPrompt}
                     onKeep={handleKeep}
                     onRegenerate={handleRegenerate}
                     onSave={handleSave}
@@ -319,7 +554,7 @@ export default function RenderPage() {
                 {savingSlot !== null && images[savingSlot] && (
                   <SaveDialog
                     imageUrl={images[savingSlot]!}
-                    prompt={prompt}
+                    prompt={lastPrompt}
                     model={model}
                     onClose={() => setSavingSlot(null)}
                     onSaved={handleSaved}
