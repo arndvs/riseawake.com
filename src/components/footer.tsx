@@ -160,12 +160,20 @@ export function Footer() {
             </p>
             <FooterLink href="/sitemap">Sitemap</FooterLink>
           </div>
-          <p className="max-w-md text-left text-[11px] text-foreground-muted/60 md:text-right">
-            RISE is not responsible for productivity gains, lifestyle
-            improvements, career advancement, relationship outcomes, or
-            existential reckonings resulting from Push Mode. Results may exceed
-            expectations.
-          </p>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/#refer"
+              className="text-[11px] text-foreground-muted/60 transition-colors duration-200 hover:text-brand"
+            >
+              Know someone who needs a push? →
+            </Link>
+            <p className="max-w-md text-left text-[11px] text-foreground-muted/60 md:text-right">
+              RISE is not responsible for productivity gains, lifestyle
+              improvements, career advancement, relationship outcomes, or
+              existential reckonings resulting from Push Mode. Results may exceed
+              expectations.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

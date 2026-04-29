@@ -1,6 +1,7 @@
 'use client'
 
 import { Link } from '@/components/link'
+import { ReferAFriend } from '@/components/refer-a-friend'
 import { useState } from 'react'
 
 const SPECS = [
@@ -412,6 +413,26 @@ export default function PushPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-edge-subtle px-6 py-24">
+        <div className="mx-auto max-w-lg">
+          <div className="mb-10 text-center">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
+              Know someone who needs Push Mode?
+            </p>
+            <h2 className="mb-4 font-display text-4xl tracking-tight text-foreground md:text-5xl">
+              They can&rsquo;t push the button
+              <br />
+              <span className="text-foreground-muted">if they don&rsquo;t know it exists.</span>
+            </h2>
+            <p className="text-body text-foreground-secondary">
+              Some people are still setting alarms. Multiple alarms.
+              You know who they are.
+            </p>
+          </div>
+          <ReferAFriend />
         </div>
       </section>
 
