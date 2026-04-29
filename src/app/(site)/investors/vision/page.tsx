@@ -28,7 +28,7 @@ const VISION_LOG = [
     version: 'Vision 5.0',
     date: 'Q1 2025',
     change:
-      'Current document. IPO context added. Push Pro first public acknowledgment.',
+      'Current document. IPO context added. PUSH+ product line expansion confirmed.',
   },
 ]
 

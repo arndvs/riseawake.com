@@ -43,12 +43,7 @@ export function Footer() {
               <FooterLink href="/products/nudge">The Nudge</FooterLink>
               <FooterLink href="/products/push">The Push</FooterLink>
               <FooterLink href="/activate">Activate</FooterLink>
-              <span className="text-xs text-foreground-muted">
-                The Push Pro{' '}
-                <span className="text-[10px] text-foreground-muted/40">
-                  — Coming Soon
-                </span>
-              </span>
+              <FooterLink href="/products/push">The PUSH+</FooterLink>
               <Link
                 href="/move"
                 className="text-xs text-brand/50 transition-colors duration-200 hover:text-brand"

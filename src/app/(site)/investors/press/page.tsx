@@ -157,9 +157,7 @@ export default function InvestorPressPage() {
               RISE responds to all media inquiries within 5 business days. Dr.
               Voss is available for comment on product performance, company
               vision, and the decision not to include an off switch. She is not
-              available for comment on pending litigation, Appendix C, or The
-              Push Pro. She will comment on The Push Pro when RISE is ready to
-              comment on The Push Pro.
+              available for comment on pending litigation or Appendix C.
             </p>
           </div>
         </div>

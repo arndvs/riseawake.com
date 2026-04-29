@@ -566,7 +566,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
     </DocBody>
   ),
 
-  'push-pro-development-notes': (
+  'push-plus-development-notes': (
     <DocBody>
       <div
         className="mb-6 rounded-sm p-4"
@@ -655,7 +655,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
             Section 4.2 (Off Switch) has been archived. This section was
             included in the v0.3 draft following a suggestion from the
             engineering team. The suggestion was reviewed. The section has been
-            archived. There will not be an off switch in the Push Pro. This is
+            archived. There is no off switch in the PUSH+. This is
             consistent with the current Push. It is consistent with the Nudge.
             It will be consistent with all future RISE™ products. If you have
             questions about this decision, the answer is in the original design
@@ -667,7 +667,7 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
 
       <DocSection title="6.0 Pricing">
         <DocP>
-          The Push Pro will be priced above the current Push.{' '}
+          The PUSH+ is priced above the current Push.{' '}
           <Redacted label="██████ above" />. Current Push owners: see{' '}
           <Link href="/legal/terms" style={{ color: P.blue }}>
             Section 7 of the Terms of Service
@@ -686,9 +686,10 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           part.
         </DocP>
         <DocP>
-          RISE™ is not currently accepting questions about The Push Pro. This
+          RISE™ directs all PUSH+ inquiries to the product page. This
           document is available because of a permissions error. Its availability
-          does not constitute disclosure. RISE™&rsquo;s position is unchanged.
+          does not constitute additional disclosure beyond what is publicly
+          available. RISE™&rsquo;s position is unchanged.
         </DocP>
       </DocSection>
     </DocBody>
@@ -3145,8 +3146,8 @@ const DOCUMENT_CONTENT: Record<string, React.ReactNode> = {
           headers={['Upsell Path', 'Status']}
           rows={[
             [
-              'The Push Pro',
-              'Acknowledged internally. No public details. See DOC-004.',
+              'The PUSH+',
+              'Currently available. Premium tier. See product page.',
             ],
             ['The RISE™ Move', 'In development. No timeline. See DOC-005.'],
           ]}

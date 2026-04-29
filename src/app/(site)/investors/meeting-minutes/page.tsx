@@ -20,9 +20,9 @@ const QA = [
     respondent: 'James Park, General Counsel',
   },
   {
-    q: 'What is the timeline for The Push Pro?',
+    q: 'How is The PUSH+ performing relative to the base Push?',
     questioner: 'Retail shareholder',
-    a: 'We are not currently disclosing details of The Push Pro. It exists. It is in development. That is what we are saying today.',
+    a: 'The PUSH+ is our premium tier. It is currently available alongside the base Push. We are pleased with initial adoption. Revenue contribution is in line with model projections. The product line now covers entry through premium.',
     respondent: 'Dr. Voss',
   },
   {
@@ -88,7 +88,7 @@ const ACTIONS = [
     owner: 'General Counsel',
   },
   {
-    action: 'Provide Push Pro timeline for board review by Q2 2025',
+    action: 'Report PUSH+ performance metrics for board review by Q2 2025',
     owner: 'CPO',
   },
   {

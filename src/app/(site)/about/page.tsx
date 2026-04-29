@@ -208,19 +208,19 @@ const TIMELINE: TimelineEra[] = [
     ],
   },
   {
-    year: 'Soon.',
-    era: "What's Next",
+    year: 'Now.',
+    era: 'The Full Line',
     isAccent: true,
     entries: [
       {
-        product: 'RISE Push Pro',
+        product: 'RISE PUSH+',
         type: 'product',
-        status: 'Not Announced',
+        status: 'Current',
         headline:
-          'We are not currently accepting questions about The Push Pro.',
-        body: 'RISE is not currently accepting questions about The Push Pro.',
-        outcome: null,
-        isRedacted: true,
+          'The premium tier. Whisper-quiet tracks. Three-pillow restoration. Full duvet management.',
+        body: 'The PUSH+ is the top of the line — the same bed, the same philosophy, with everything turned up. Dampened tracks, Atmosphere Suite, and a self-making scope that covers every layer on the bed. The PUSH is the entry. The PUSH+ is the statement.',
+        outcome: 'Currently available.',
+        isRedacted: false,
       },
       {
         product: 'RISE Move',
