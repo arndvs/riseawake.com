@@ -1,31 +1,31 @@
 'use client'
 
-import { useState, useCallback, useMemo } from 'react'
-import { Authenticated, useQuery } from 'convex/react'
-import { api } from '../../../../../convex/_generated/api'
-import { RISE_RENDER } from '@/lib/studio-config'
-import { findBannedWords } from '@/lib/banned-words'
-import { SaveDialog } from './_components/save-dialog'
-import { Gallery } from './_components/gallery'
-import { MultiSelect } from '@/components/ui/multi-select'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { Card, CardContent } from '@/components/ui/card'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible'
+import { Input } from '@/components/ui/input'
+import { MultiSelect } from '@/components/ui/multi-select'
+import { findBannedWords } from '@/lib/banned-words'
+import { RISE_RENDER } from '@/lib/studio-config'
+import { Authenticated, useQuery } from 'convex/react'
 import {
-  Sparkles,
-  Settings2,
-  Trash2,
+  AlertCircle,
   Download,
   Loader2,
-  ShieldAlert,
-  AlertCircle,
   Save,
+  Settings2,
+  ShieldAlert,
+  Sparkles,
+  Trash2,
 } from 'lucide-react'
+import { useCallback, useMemo, useState } from 'react'
+import { api } from '../../../../../convex/_generated/api'
+import { Gallery } from './_components/gallery'
+import { SaveDialog } from './_components/save-dialog'
 
 /* ─── Constants ─── */
 
@@ -269,7 +269,7 @@ export default function RenderPage() {
               <button
                 type="button"
                 onClick={() => setActiveTab('generate')}
-                className={`rounded-full px-6 py-2 text-xs font-medium uppercase tracking-[0.14em] transition-colors ${
+                className={`rounded-full px-6 py-2 text-xs font-medium tracking-[0.14em] uppercase transition-colors ${
                   activeTab === 'generate'
                     ? 'bg-brand text-brand-on'
                     : 'text-foreground-muted hover:text-foreground'
@@ -280,7 +280,7 @@ export default function RenderPage() {
               <button
                 type="button"
                 onClick={() => setActiveTab('library')}
-                className={`rounded-full px-6 py-2 text-xs font-medium uppercase tracking-[0.14em] transition-colors ${
+                className={`rounded-full px-6 py-2 text-xs font-medium tracking-[0.14em] uppercase transition-colors ${
                   activeTab === 'library'
                     ? 'bg-brand text-brand-on'
                     : 'text-foreground-muted hover:text-foreground'
@@ -351,7 +351,11 @@ export default function RenderPage() {
                         onOpenChange={setShowAdvanced}
                       >
                         <CollapsibleTrigger asChild>
-                          <Button type="button" variant="outline" className="h-12">
+                          <Button
+                            type="button"
+                            variant="outline"
+                            className="h-12"
+                          >
                             <Settings2 className="mr-2 size-4" />
                             Advanced
                           </Button>
@@ -359,9 +363,7 @@ export default function RenderPage() {
                       </Collapsible>
                       <Button
                         type="submit"
-                        disabled={
-                          isSubmitDisabled || getAllocRemaining() <= 0
-                        }
+                        disabled={isSubmitDisabled || getAllocRemaining() <= 0}
                         className="h-12 min-w-[160px]"
                       >
                         {isLoading ? (
@@ -460,10 +462,7 @@ export default function RenderPage() {
                 </form>
 
                 {/* Advanced options */}
-                <Collapsible
-                  open={showAdvanced}
-                  onOpenChange={setShowAdvanced}
-                >
+                <Collapsible open={showAdvanced} onOpenChange={setShowAdvanced}>
                   <CollapsibleContent>
                     <div className="mb-8 rounded-lg border border-edge bg-surface-alt p-4">
                       <h3 className="mb-4 text-sm font-semibold text-foreground">
@@ -528,10 +527,7 @@ export default function RenderPage() {
                     </h3>
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                       {generatedImages.map((image, index) => (
-                        <Card
-                          key={index}
-                          className="group overflow-hidden"
-                        >
+                        <Card key={index} className="group overflow-hidden">
                           <CardContent className="relative p-0">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
@@ -587,7 +583,7 @@ export default function RenderPage() {
                               </p>
                             </div>
                             <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 opacity-0 transition-opacity group-hover:opacity-100">
-                              <p className="mb-1 text-xs font-medium uppercase tracking-wider text-white/70">
+                              <p className="mb-1 text-xs font-medium tracking-wider text-white/70 uppercase">
                                 {example.label}
                               </p>
                               <p className="mb-3 line-clamp-3 text-sm leading-relaxed text-white">

@@ -240,9 +240,11 @@ export default function Home() {
                   <div className="animate-glow-pulse size-1.5 rounded-full bg-brand" />
                   <p className="text-xs text-foreground-muted">
                     <span className="text-foreground-secondary">
-                      &ldquo;The Remote&rdquo;
+                      &ldquo;PUSH&rdquo;
                     </span>{' '}
-                    — a short film. One morning. One button.
+                    — a short film. One morning. One button. Push Mode cannot be
+                    manually interrupted once initiated. This is a feature, not
+                    a limitation.
                   </p>
                 </div>
                 <p className="text-[10px] text-foreground-muted/50 italic">

@@ -17,7 +17,7 @@ const TOC = [
   { id: 's8', label: '8. The Off Switch (Software)' },
   { id: 's9', label: '9. Data License' },
   { id: 's10', label: '10. Telemetry' },
-  { id: 's11', label: '11. The Remote' },
+  { id: 's11', label: '11. PUSH' },
   { id: 's12', label: '12. Guest and Secondary Occupants' },
   { id: 's13', label: '13. Termination' },
   { id: 's14', label: '14. Acknowledgment — Iteration 1' },
@@ -171,7 +171,7 @@ export default function EulaPage() {
             </LegalP>
           </LegalSection>
 
-          <LegalSection id="s11" number="11." title="The Remote">
+          <LegalSection id="s11" number="11." title="PUSH">
             <LegalP>
               The PM-1 remote is a single-function device. Its function is to
               initiate Push Mode. It has one button. Pressing the button
