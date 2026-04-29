@@ -1,11 +1,11 @@
 'use client'
 
-import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import { useQuery } from 'convex/react'
-import { api } from '../../../../../../convex/_generated/api'
-import type { Id, Doc } from '../../../../../../convex/_generated/dataModel'
-import { Grid3X3, List, Search } from 'lucide-react'
 import { Skeleton } from '@/components/ui/skeleton'
+import { useQuery } from 'convex/react'
+import { Grid3X3, List, Search } from 'lucide-react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { api } from '../../../../../../convex/_generated/api'
+import type { Doc, Id } from '../../../../../../convex/_generated/dataModel'
 import { AssetCard, type Status } from './asset-card'
 import { AssetDetailPanel } from './asset-detail-panel'
 
@@ -31,12 +31,8 @@ export function Gallery() {
 
   const projects = useQuery(api.projects.listProjects, {})
   const media = useQuery(api.media.listMedia, {
-    ...(statusFilter
-      ? { status: statusFilter as Status }
-      : {}),
-    ...(projectFilter
-      ? { projectId: projectFilter as Id<'projects'> }
-      : {}),
+    ...(statusFilter ? { status: statusFilter as Status } : {}),
+    ...(projectFilter ? { projectId: projectFilter as Id<'projects'> } : {}),
   })
 
   // Detect status changes across reactive updates
@@ -88,14 +84,14 @@ export function Gallery() {
       {/* Filter bar */}
       <div className="flex flex-wrap items-center gap-3">
         {/* Search */}
-        <div className="relative flex-1 min-w-48">
-          <Search className="absolute left-3 top-1/2 size-3.5 -translate-y-1/2 text-foreground-muted" />
+        <div className="relative min-w-48 flex-1">
+          <Search className="absolute top-1/2 left-3 size-3.5 -translate-y-1/2 text-foreground-muted" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search prompts or tags…"
-            className="w-full rounded-xl border border-edge bg-surface-alt py-2 pl-9 pr-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-brand focus:outline-none"
+            className="w-full rounded-xl border border-edge bg-surface-alt py-2 pr-3 pl-9 text-sm text-foreground placeholder:text-foreground-muted focus:border-brand focus:outline-none"
           />
         </div>
 
@@ -189,9 +185,7 @@ export function Gallery() {
               prompt={asset.prompt}
               status={asset.status as Status}
               projectName={
-                asset.projectId
-                  ? projectMap.get(asset.projectId)
-                  : undefined
+                asset.projectId ? projectMap.get(asset.projectId) : undefined
               }
               tags={asset.tags}
               createdAt={asset._creationTime}
@@ -208,19 +202,19 @@ export function Gallery() {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-edge bg-surface-alt text-foreground-muted">
-                <th className="px-3 py-2 text-left text-xs font-medium uppercase tracking-widest">
+                <th className="px-3 py-2 text-left text-xs font-medium tracking-widest uppercase">
                   Image
                 </th>
-                <th className="px-3 py-2 text-left text-xs font-medium uppercase tracking-widest">
+                <th className="px-3 py-2 text-left text-xs font-medium tracking-widest uppercase">
                   Prompt
                 </th>
-                <th className="hidden px-3 py-2 text-left text-xs font-medium uppercase tracking-widest sm:table-cell">
+                <th className="hidden px-3 py-2 text-left text-xs font-medium tracking-widest uppercase sm:table-cell">
                   Project
                 </th>
-                <th className="px-3 py-2 text-left text-xs font-medium uppercase tracking-widest">
+                <th className="px-3 py-2 text-left text-xs font-medium tracking-widest uppercase">
                   Status
                 </th>
-                <th className="hidden px-3 py-2 text-left text-xs font-medium uppercase tracking-widest md:table-cell">
+                <th className="hidden px-3 py-2 text-left text-xs font-medium tracking-widest uppercase md:table-cell">
                   Date
                 </th>
               </tr>
@@ -251,7 +245,7 @@ export function Gallery() {
                     </td>
                     <td className="hidden px-3 py-2 text-foreground-muted sm:table-cell">
                       {asset.projectId
-                        ? projectMap.get(asset.projectId) ?? '—'
+                        ? (projectMap.get(asset.projectId) ?? '—')
                         : '—'}
                     </td>
                     <td className="px-3 py-2">
