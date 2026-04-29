@@ -255,7 +255,7 @@ export function Gallery() {
                         : '—'}
                     </td>
                     <td className="px-3 py-2">
-                      <span className="text-xs">{cfg.label}</span>
+                      <span className="text-xs">{cfg?.label}</span>
                     </td>
                     <td className="hidden px-3 py-2 text-foreground-muted md:table-cell">
                       {new Date(asset._creationTime).toLocaleDateString()}
