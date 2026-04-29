@@ -10,7 +10,10 @@ import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
 // https://clerk.com/docs/nextjs/middleware-proxy
 // https://nextjs.org/docs/app/getting-started/proxy
 
-const isProtectedRoute = createRouteMatcher(['/studio/render(.*)'])
+const isProtectedRoute = createRouteMatcher([
+  '/studio/render(.*)',
+  '/internal(.*)',
+])
 
 export default clerkMiddleware(async (auth, req) => {
   if (isProtectedRoute(req)) {

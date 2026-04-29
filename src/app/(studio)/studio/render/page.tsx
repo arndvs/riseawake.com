@@ -179,7 +179,7 @@ export default function RenderPage() {
         const res = await fetch('/api/generate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ prompt: fullPrompt, model, size, quality }),
+          body: JSON.stringify({ prompt: fullPrompt, model, size, quality, count: 4 }),
         })
 
         const data = await res.json()
