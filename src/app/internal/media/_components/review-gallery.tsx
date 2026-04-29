@@ -2,8 +2,8 @@
 
 import { useState, useMemo } from 'react'
 import { useQuery } from 'convex/react'
-import { api } from '../../../../../convex/_generated/api'
-import type { Id } from '../../../../../convex/_generated/dataModel'
+import { api } from '@convex/_generated/api'
+import type { Id } from '@convex/_generated/dataModel'
 import { ImageIcon, Search, Filter } from 'lucide-react'
 import { ReviewDetailPanel } from './review-detail-panel'
 
@@ -44,7 +44,7 @@ type MediaItem = {
   imagekitUrl: string
   prompt: string
   model: string
-  status: string
+  status: Status
   tags: string[]
   projectId?: Id<'projects'>
   shotNumber?: number

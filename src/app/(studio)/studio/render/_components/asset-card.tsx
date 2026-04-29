@@ -1,6 +1,6 @@
 'use client'
 
-import { Check, Clock, AlertTriangle, XCircle, Send } from 'lucide-react'
+import { Check, Clock, AlertTriangle, XCircle } from 'lucide-react'
 
 const STATUS_CONFIG = {
   draft: {

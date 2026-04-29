@@ -238,9 +238,26 @@ export const listMedia = query({
       return results
     }
 
-    // Unauthenticated — return all (for /internal/media review)
+    // Unauthenticated — only return review-eligible statuses (not drafts)
+    const REVIEW_STATUSES = ['ready_for_review', 'approved', 'needs_changes', 'rejected']
+
+    if (args.status && REVIEW_STATUSES.includes(args.status)) {
+      const results = await ctx.db
+        .query('media')
+        .withIndex('by_status', (q) => q.eq('status', args.status!))
+        .order('desc')
+        .take(50)
+
+      if (args.projectId) {
+        return results.filter((m) => m.projectId === args.projectId)
+      }
+      return results
+    }
+
+    // Default: show only ready_for_review for anonymous users
     const results = await ctx.db
       .query('media')
+      .withIndex('by_status', (q) => q.eq('status', 'ready_for_review'))
       .order('desc')
       .take(50)
 
