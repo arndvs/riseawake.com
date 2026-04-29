@@ -11,7 +11,7 @@ const SPECS = [
   { label: 'Interruption', value: 'Not supported by design' },
   { label: 'Sheet System', value: 'Autonomous tensioning bar (center-out)' },
   { label: 'Pillow System', value: 'Single pneumatic node, gradual cycle' },
-  { label: 'Caster Base', value: 'Low-profile, near-silent, high-torque' },
+  { label: 'Track System', value: 'Continuous track, low-profile, recessed when flat' },
   { label: 'Staircase Navigation', value: 'Not supported — see RISE Move' },
   { label: 'Navigation', value: 'Precision room mapping, autonomous' },
   { label: 'Raising Arc', value: '0° – 90°+ continuous, motor-assisted' },
@@ -40,8 +40,8 @@ const FEATURES = [
   },
   {
     icon: '◈',
-    title: 'Precision Caster Navigation',
-    body: "Low-profile, near-silent casters beneath the base allow continuous, smooth motion across all floor surfaces. The Push does not walk. It rolls — with the inevitability of heavy furniture pushed by someone who knows where they're going. There is no rhythm to it. No mechanical stepping. It simply advances.",
+    title: 'Continuous Track Navigation',
+    body: "Low-profile continuous tracks beneath the base allow smooth, uninterrupted motion across all floor surfaces. The Push does not walk. It advances — with the inevitability of heavy furniture pushed by someone who knows where they're going. There is no rhythm to it. No mechanical stepping. Drive sprockets engage, and the bed simply moves.",
   },
   {
     icon: '▣',

@@ -192,7 +192,7 @@ export default function MovePage() {
           </h2>
           <div className="space-y-4 text-body text-foreground-secondary">
             <p>
-              The RISE Push operates on casters. Casters are wheels. Wheels and
+              The RISE Push operates on tracks. Tracks handle floors. Floors and
               stairs are a fundamental mechanical incompatibility that no amount
               of software can resolve. The Push&rsquo;s staircase limitation has
               been documented in its product specifications since launch. It is

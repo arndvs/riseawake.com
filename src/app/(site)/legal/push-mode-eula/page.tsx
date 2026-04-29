@@ -94,7 +94,7 @@ export default function EulaPage() {
             <LegalP>
               You may not modify Push Mode in any way. This includes: installing
               third-party software on the device; attempting to intercept Push
-              Mode navigation signals; physically modifying the caster base,
+              Mode navigation signals; physically modifying the track system,
               motor, or control circuitry; and placing objects in the base's
               path with the intent of stopping it. RISE considers the last item
               a prohibited modification to the navigation environment rather

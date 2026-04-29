@@ -26,7 +26,7 @@ const FAQ = [
   },
   {
     q: 'The bed stops at my stairs. Can this be fixed?',
-    a: 'The Push is not compatible with staircase navigation. This is a hardware constraint, not a software one. The caster base operates on flat and gradual-gradient surfaces only. No update will change this. RISE is developing the RISE Move — a next-generation platform that addresses vertical navigation in both directions. We are not providing timelines or pricing. Current Push owners will be able to purchase it when it is available at the standard price. There is no loyalty discount. We appreciate your patience and your purchase.',
+    a: 'The Push is not compatible with staircase navigation. This is a hardware constraint, not a software one. The track system operates on flat and gradual-gradient surfaces only. No update will change this. RISE is developing the RISE Move — a next-generation platform that addresses vertical navigation in both directions. We are not providing timelines or pricing. Current Push owners will be able to purchase it when it is available at the standard price. There is no loyalty discount. We appreciate your patience and your purchase.',
   },
   {
     q: 'I have a RISE Nudge. Can I upgrade?',
@@ -37,8 +37,8 @@ const FAQ = [
     a: 'You would need to not press the button. We recognize this may be more difficult than it sounds.',
   },
   {
-    q: "The warranty documentation references something called 'The Push Pro.' What is that?",
-    a: 'We are not currently accepting questions about The Push Pro.',
+    q: "What is the difference between The Push and The PUSH+?",
+    a: 'The PUSH is the entry-level model. The PUSH+ is the premium tier — dampened whisper-quiet tracks, three-pillow pneumatic restoration, full duvet management, and the Atmosphere Suite. Same philosophy. Same button. The PUSH+ simply does more of it, more quietly. Think of it as the difference between a C-Class and an S-Class.',
   },
 ]
 
@@ -215,7 +215,7 @@ export default function HelpPage() {
                 title: 'Hardware',
                 period: '5 Years',
                 items: [
-                  'Frame and caster base',
+                  'Frame and track system',
                   'Sheet tensioning mechanism',
                   'Pillow pneumatic node',
                   'Strut and raising arc system',
