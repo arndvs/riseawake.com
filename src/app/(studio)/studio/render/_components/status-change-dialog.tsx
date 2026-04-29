@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import { useMutation } from 'convex/react'
-import { api } from '../../../../../../convex/_generated/api'
-import type { Id } from '../../../../../../convex/_generated/dataModel'
+import { api } from '@convex/_generated/api'
+import type { Id } from '@convex/_generated/dataModel'
 import { ArrowRight, Loader2, X } from 'lucide-react'
 import { toast } from 'sonner'
 import { STATUS_CONFIG, type Status } from './asset-card'

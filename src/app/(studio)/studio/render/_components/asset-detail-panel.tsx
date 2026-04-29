@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { X, Calendar, Cpu, Tag, FolderOpen, Hash, Send, Undo2 } from 'lucide-react'
-import type { Id } from '../../../../../../convex/_generated/dataModel'
+import type { Id } from '@convex/_generated/dataModel'
 import { STATUS_CONFIG, type Status } from './asset-card'
 import { StatusChangeDialog } from './status-change-dialog'
 import { QuickEditPanel } from './quick-edit-panel'

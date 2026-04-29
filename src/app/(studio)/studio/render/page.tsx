@@ -23,7 +23,7 @@ import {
   Trash2,
 } from 'lucide-react'
 import { useCallback, useMemo, useState } from 'react'
-import { api } from '../../../../../convex/_generated/api'
+import { api } from '@convex/_generated/api'
 import { Gallery } from './_components/gallery'
 import { SaveDialog } from './_components/save-dialog'
 
