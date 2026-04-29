@@ -9,7 +9,11 @@ import { ReferralToFriendEmail } from '@/emails/referral-to-friend'
 import { ReferralConfirmationEmail } from '@/emails/referral-confirmation'
 import { SpamAlertEmail } from '@/emails/spam-alert'
 
-const resend = new Resend(process.env.RESEND_API_KEY!)
+function getResendClient() {
+  const key = process.env.RESEND_API_KEY
+  if (!key) throw new Error('RESEND_API_KEY is not configured')
+  return new Resend(key)
+}
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -25,7 +29,9 @@ function alertSpam(
   const timestamp = new Date().toISOString()
 
   // Spam alert email (best-effort)
-  resend.emails.send({
+  try {
+    const resend = getResendClient()
+    resend.emails.send({
     from: emailFrom,
     to: notifyTo,
     subject: `[SPAM] Blocked referral — ${reason}`,
@@ -38,6 +44,7 @@ function alertSpam(
       timestamp,
     }),
   }).catch((err) => console.error('[refer] Spam alert email failed:', err))
+  } catch { /* RESEND_API_KEY missing — skip alert */ }
 
   // Slack notification (best-effort)
   sendBlockedSubmissionNotification({
@@ -141,6 +148,7 @@ export async function POST(request: NextRequest) {
 
     // ─── Send emails ────────────────────────────────────────────────
     const emailFrom = process.env.RESEND_FROM_EMAIL || 'RISE <hello@riseawake.com>'
+    const resend = getResendClient()
 
     // Email to the friend
     try {

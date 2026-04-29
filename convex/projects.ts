@@ -106,3 +106,12 @@ export const getProject = query({
     return await ctx.db.get(args.id)
   },
 })
+
+/** Unauthenticated — returns only id + name for anonymous review UI. */
+export const listProjectNames = query({
+  args: {},
+  handler: async (ctx) => {
+    const projects = await ctx.db.query('projects').order('desc').take(100)
+    return projects.map((p) => ({ _id: p._id, name: p.name }))
+  },
+})

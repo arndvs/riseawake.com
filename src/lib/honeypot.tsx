@@ -69,6 +69,7 @@ export function SpamProtectionFields({ onFieldChange, onCheckboxChange }: {
   return (
     <div
       aria-hidden="true"
+      tabIndex={-1}
       style={{
         position: 'absolute',
         left: '-9999px',
@@ -78,9 +79,8 @@ export function SpamProtectionFields({ onFieldChange, onCheckboxChange }: {
         overflow: 'hidden',
         opacity: 0,
         pointerEvents: 'none',
-        tabIndex: -1,
         clipPath: 'inset(50%)',
-      } as React.CSSProperties}
+      }}
     >
       {HONEYPOT_TEXT_FIELDS.map((field) => (
         <input

@@ -102,7 +102,7 @@ export async function checkIPHub(ip: string): Promise<IPCheckResult> {
   }
 
   // Bypass localhost
-  if (ip === 'unknown' || ip === '127.0.0.1' || ip.startsWith('::')) {
+  if (ip === 'unknown' || ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1') {
     return { allowed: true, reason: 'bypassed', cached: false }
   }
 

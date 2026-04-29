@@ -78,6 +78,7 @@ type ActiveTab = 'generate' | 'library'
 interface GeneratedImage {
   url: string
   prompt: string
+  model: string
 }
 
 /* ─── Page ─── */
@@ -191,7 +192,7 @@ export default function RenderPage() {
         }
 
         const images: GeneratedImage[] = (data.images as string[]).map(
-          (url) => ({ url, prompt: fullPrompt }),
+          (url) => ({ url, prompt: fullPrompt, model }),
         )
         setGeneratedImages(images)
         decrementAllocation()
@@ -613,7 +614,7 @@ export default function RenderPage() {
                   <SaveDialog
                     imageUrl={generatedImages[savingSlot].url}
                     prompt={generatedImages[savingSlot].prompt}
-                    model={model}
+                    model={generatedImages[savingSlot].model}
                     onClose={() => setSavingSlot(null)}
                     onSaved={() => setSavingSlot(null)}
                   />

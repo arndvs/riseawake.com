@@ -62,7 +62,7 @@ export function ReviewGallery() {
     ...(statusFilter !== 'all' ? { status: statusFilter } : {}),
   })
 
-  const projects = useQuery(api.projects.listProjects)
+  const projects = useQuery(api.projects.listProjectNames)
   const projectMap = useMemo(() => {
     const m = new Map<Id<'projects'>, string>()
     for (const p of projects ?? []) m.set(p._id, p.name)
