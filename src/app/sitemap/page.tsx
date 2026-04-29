@@ -92,8 +92,8 @@ const SECTIONS = [
         desc: 'DOC-003 — Dr. Voss Push Configuration [DR. VOSS EYES ONLY]',
       },
       {
-        path: '/internal/docs/push-pro-development-notes',
-        desc: 'DOC-004 — Push Pro Development Notes [RESTRICTED]',
+        path: '/internal/docs/push-plus-development-notes',
+        desc: 'DOC-004 — PUSH+ Development Notes [RESTRICTED]',
       },
       {
         path: '/internal/docs/move-engineering-status',

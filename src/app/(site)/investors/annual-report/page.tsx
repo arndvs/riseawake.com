@@ -31,8 +31,8 @@ const RISK_FACTORS = [
     body: 'Extended Push Mode use reduces users\u2019 capacity for self-initiated morning routines. RISE considers this an alignment of user behavior with product design intent and not a compensable harm. Regulators in two jurisdictions have expressed interest in this dynamic. RISE is engaged.',
   },
   {
-    title: 'The Push Pro Risk',
-    body: 'RISE has acknowledged the existence of The Push Pro in certain investor communications and in this document\u2019s footnotes. Details of The Push Pro have not been disclosed. If The Push Pro fails to meet the expectations created by not disclosing its details, investor sentiment may be affected. RISE does not consider this a significant risk. RISE is confident in The Push Pro.',
+    title: 'The PUSH+ Risk',
+    body: 'The PUSH+ is the premium tier of the RISE product line, currently available alongside the base Push. PUSH+ carries higher margins but lower volume. If the premium tier fails to maintain differentiation from the base Push, or if market demand concentrates at the entry level, PUSH+ revenue contribution may underperform projections. RISE considers this a manageable risk. The product lines serve distinct customer segments — similar to the relationship between a luxury and standard tier in automotive.',
   },
 ]
 

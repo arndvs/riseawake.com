@@ -43,12 +43,7 @@ export function Footer() {
               <FooterLink href="/products/nudge">The Nudge</FooterLink>
               <FooterLink href="/products/push">The Push</FooterLink>
               <FooterLink href="/activate">Activate</FooterLink>
-              <span className="text-xs text-foreground-muted">
-                The Push Pro{' '}
-                <span className="text-[10px] text-foreground-muted/40">
-                  — Coming Soon
-                </span>
-              </span>
+              <FooterLink href="/products/push">The PUSH+</FooterLink>
               <Link
                 href="/move"
                 className="text-xs text-brand/50 transition-colors duration-200 hover:text-brand"
@@ -160,12 +155,20 @@ export function Footer() {
             </p>
             <FooterLink href="/sitemap">Sitemap</FooterLink>
           </div>
-          <p className="max-w-md text-left text-[11px] text-foreground-muted/60 md:text-right">
-            RISE is not responsible for productivity gains, lifestyle
-            improvements, career advancement, relationship outcomes, or
-            existential reckonings resulting from Push Mode. Results may exceed
-            expectations.
-          </p>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/#refer"
+              className="text-[11px] text-foreground-muted/60 transition-colors duration-200 hover:text-brand"
+            >
+              Know someone who needs a push? →
+            </Link>
+            <p className="max-w-md text-left text-[11px] text-foreground-muted/60 md:text-right">
+              RISE is not responsible for productivity gains, lifestyle
+              improvements, career advancement, relationship outcomes, or
+              existential reckonings resulting from Push Mode. Results may exceed
+              expectations.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

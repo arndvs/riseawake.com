@@ -116,7 +116,7 @@ export default function PrivacyPage() {
               activation timestamps; autonomous navigation route data including
               room sequence and dwell time per location; motor performance
               telemetry; sheet tensioning cycle data; pillow node pressure and
-              duration logs; caster velocity, direction, and surface resistance
+              duration logs; track velocity, direction, and surface resistance
               data; power consumption metrics; firmware state at time of
               activation; and error logs.
             </LegalP>

@@ -1,7 +1,84 @@
 import { defineSchema, defineTable } from 'convex/server'
 import { v } from 'convex/values'
 
+// ─── Shared validators ───────────────────────────────────────────────────────
+
+const mediaStatusValidator = v.union(
+  v.literal('draft'),
+  v.literal('ready_for_review'),
+  v.literal('approved'),
+  v.literal('needs_changes'),
+  v.literal('rejected'),
+)
+
+const commentAuthorTypeValidator = v.union(
+  v.literal('clerk'),
+  v.literal('anon'),
+)
+
+const projectTypeValidator = v.union(
+  v.literal('film'),
+  v.literal('marketing'),
+  v.literal('exploration'),
+)
+
+const promptCategoryScopeValidator = v.union(
+  v.literal('universal'),
+  v.literal('rise'),
+)
+
 export default defineSchema({
+  // ─── RISE Render ─────────────────────────────────────────────────────────
+
+  media: defineTable({
+    imagekitFileId: v.string(),
+    imagekitUrl: v.string(),
+    prompt: v.string(),
+    model: v.string(),
+    status: mediaStatusValidator,
+    createdBy: v.string(),
+    createdByName: v.string(),
+    projectId: v.optional(v.id('projects')),
+    shotNumber: v.optional(v.number()),
+    tags: v.array(v.string()),
+    transformations: v.optional(v.string()),
+    parentId: v.optional(v.id('media')),
+  })
+    .index('by_status', ['status'])
+    .index('by_createdBy', ['createdBy'])
+    .index('by_projectId', ['projectId'])
+    .index('by_status_and_createdBy', ['status', 'createdBy']),
+
+  mediaComments: defineTable({
+    mediaId: v.id('media'),
+    text: v.string(),
+    authorType: commentAuthorTypeValidator,
+    authorIdentifier: v.string(),
+    authorDisplayName: v.string(),
+    statusChange: v.optional(
+      v.object({
+        from: v.string(),
+        to: v.string(),
+      }),
+    ),
+  }).index('by_mediaId', ['mediaId']),
+
+  projects: defineTable({
+    name: v.string(),
+    description: v.optional(v.string()),
+    type: projectTypeValidator,
+    createdBy: v.string(),
+  }).index('by_createdBy', ['createdBy']),
+
+  promptCategories: defineTable({
+    name: v.string(),
+    scope: promptCategoryScopeValidator,
+    options: v.array(v.string()),
+    sortOrder: v.number(),
+  }).index('by_scope', ['scope']),
+
+  // ─── Careers ─────────────────────────────────────────────────────────────
+
   applications: defineTable({
     // Core
     roleId: v.string(),

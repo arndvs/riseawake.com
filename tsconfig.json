@@ -26,6 +26,12 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@convex/*": [
+        "./convex/*"
+      ],
+      "@convex": [
+        "./convex"
       ]
     },
     "target": "ES2024"

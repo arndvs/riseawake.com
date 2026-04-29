@@ -1092,7 +1092,7 @@ const DOCUMENTS: DataRoomDoc[] = [
     classification: 'CONFIDENTIAL',
     status: 'partial',
     size: '47 pp',
-    note: 'Prepared by CFO office. Key assumptions: Push Pro launches Q2 2026 (same quarter as IPO). Move launches Q4 2026. Neither product has a confirmed timeline.',
+    note: 'Prepared by CFO office. Key assumptions: PUSH+ contributes growing revenue share as premium tier. Move launches Q4 2026. Move does not have a confirmed timeline.',
     content: (
       <div>
         <Section title="Model Overview">
@@ -1103,15 +1103,14 @@ const DOCUMENTS: DataRoomDoc[] = [
             and Bear.
           </P2>
           <Flag color={P.warning}>
-            The Base Case model assumes Push Pro launches Q2 2026, contributing
-            $18M in incremental revenue in FY2026. Push Pro specifications have
-            not been disclosed publicly or to investors. The model assumes a
-            price point of <Redacted label="████" width="80px" /> and a launch
-            volume of <Redacted label="████" width="60px" /> units. These
-            assumptions have not been validated against engineering timelines.
-            The engineering team has not confirmed Q2 2026 as a feasible launch
-            date for Push Pro. The CFO's office notes that the model reflects
-            management's aspirations rather than engineering commitments.
+            The Base Case model assumes PUSH+ continues its current growth
+            trajectory, contributing
+            $18M in incremental revenue in FY2026. PUSH+ pricing is published
+            on the product page. The model assumes continued
+            volume growth of <Redacted label="████" width="60px" /> units. These
+            assumptions are based on current sales data.
+            The CFO's office notes that the model reflects
+            observed adoption trends rather than aspirational targets.
           </Flag>
         </Section>
         <Section title="Revenue Projections — Base Case">
@@ -1125,8 +1124,8 @@ const DOCUMENTS: DataRoomDoc[] = [
               'FY2029E',
             ]}
             rows={[
-              ['Push (current)', '$112M', '$134M', '$148M', '$163M', '$180M'],
-              ['Push Pro (new)', '—', '$18M', '$67M', '$104M', '$128M'],
+              ['Push (base)', '$112M', '$134M', '$148M', '$163M', '$180M'],
+              ['PUSH+ (premium)', '$4M', '$18M', '$67M', '$104M', '$128M'],
               ['RISE™ Move (new)', '—', '—', '$24M', '$89M', '$156M'],
               ['VNS Subscriptions', '—', '—', '$8M', '$31M', '$67M'],
               ['DataKit SDK', '$4M', '$7M', '$12M', '$18M', '$24M'],
@@ -1136,8 +1135,8 @@ const DOCUMENTS: DataRoomDoc[] = [
             ]}
           />
           <Flag color={P.error}>
-            Bear Case note: In the scenario where Push Pro does not launch in
-            FY2026 and Move does not launch in FY2027, total FY2027 revenue is
+            Bear Case note: In the scenario where PUSH+ adoption plateaus at current levels
+            and Move does not launch in FY2027, total FY2027 revenue is
             projected at $164M and net income at $31M. This is a more
             conservative scenario that does not require new product launches.
             The underwriters have requested that this scenario be the basis for
@@ -2028,8 +2027,8 @@ const DOCUMENTS: DataRoomDoc[] = [
               flag: 'warning',
             },
             {
-              q: "What is the company's path to profitability if Push Pro and Move do not launch on the timelines reflected in the financial model?",
-              a: "The company was profitable in FY2024 on Push revenue alone ($17.8M net income). The financial model's Push Pro and Move projections represent upside, not the baseline. In the event neither product launches in FY2026, the company projects revenue of $112M and net income of $21M from Push alone. The company is profitable without new products. The new products are growth, not survival.",
+              q: "What is the company's growth trajectory if PUSH+ adoption plateaus and Move does not launch on the timeline reflected in the financial model?",
+              a: "The company was profitable in FY2024 on Push revenue alone ($17.8M net income). The PUSH+ is already contributing revenue. The financial model's Move projections represent additional upside, not the baseline. In the event Move does not launch in FY2026, the company projects revenue of $112M and net income of $21M from the Push product line alone. The company is profitable on existing products. New products are growth, not survival.",
               flag: null,
             },
             {
@@ -2086,7 +2085,7 @@ const DOCUMENTS: DataRoomDoc[] = [
         </Section>
         <Section title="Questions Answered 'Information Not Yet Available'">
           {[
-            'Q: What are the specifications, price, and launch timeline for the Push Pro?',
+            'Q: What are the current PUSH+ sales metrics, attachment rate, and margin contribution by region?',
             'Q: What are the specifications, price, launch timeline, and VNS subscription price for the RISE™ Move?',
             "Q: Has an independent assessment of the company's software capitalization policies (as recommended by Deloitte in the FY2021 review) been completed?",
             'Q: What is the content of Appendix C referenced throughout the Sleep & Environmental Data Policy?',

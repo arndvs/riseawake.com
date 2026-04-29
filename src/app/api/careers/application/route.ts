@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { ConvexHttpClient } from 'convex/browser'
 import { Resend } from 'resend'
-import { api } from '../../../../../convex/_generated/api'
-import type { Id } from '../../../../../convex/_generated/dataModel'
+import { api } from '@convex/_generated/api'
+import type { Id } from '@convex/_generated/dataModel'
 import {
   getJobById,
   MAX_RESUME_SIZE,

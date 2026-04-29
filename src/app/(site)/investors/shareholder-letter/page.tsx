@@ -35,7 +35,7 @@ We find this encouraging.`,
   },
   {
     heading: 'The Road Ahead',
-    body: `FY2025 priorities: international expansion (we enter four new markets in Q2), Push Pro development (timeline not yet disclosed), and the RISE Platform — the software layer that connects Push Mode to calendar, transit, and environmental data to make each morning smarter than the last.
+    body: `FY2025 priorities: international expansion (we enter four new markets in Q2), PUSH+ market penetration (the premium tier is now shipping in all territories), and the RISE Platform — the software layer that connects Push Mode to calendar, transit, and environmental data to make each morning smarter than the last.
 
 We are also, as announced in our April S-1 filing, preparing for a public offering. I want to address this directly: RISE does not need the capital. We are profitable. We have a $120M Series C that remains largely undeployed. We are going public because the scale of the opportunity ahead requires a public company's access to talent, partnerships, and further capital at a rate that private markets cannot efficiently provide.
 
