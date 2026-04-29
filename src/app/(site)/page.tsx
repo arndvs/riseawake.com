@@ -1,5 +1,6 @@
 import { Button } from '@/components/button'
 import { Link } from '@/components/link'
+import { ReferAFriend } from '@/components/refer-a-friend'
 import { createMetadata } from '@/lib/metadata'
 
 export const metadata = createMetadata({
@@ -240,9 +241,11 @@ export default function Home() {
                   <div className="animate-glow-pulse size-1.5 rounded-full bg-brand" />
                   <p className="text-xs text-foreground-muted">
                     <span className="text-foreground-secondary">
-                      &ldquo;The Remote&rdquo;
+                      &ldquo;PUSH&rdquo;
                     </span>{' '}
-                    — a short film. One morning. One button.
+                    — a short film. One morning. One button. Push Mode cannot be
+                    manually interrupted once initiated. This is a feature, not
+                    a limitation.
                   </p>
                 </div>
                 <p className="text-[10px] text-foreground-muted/50 italic">
@@ -476,6 +479,25 @@ export default function Home() {
             <Button variant="cta" size="lg" href="/products/push">
               Join the Waitlist
             </Button>
+          </div>
+        </section>
+
+        <section id="refer" className="border-t border-edge-subtle px-6 py-24">
+          <div className="mx-auto max-w-lg">
+            <div className="mb-10 text-center">
+              <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
+                Know someone who needs this?
+              </p>
+              <h2 className="mb-4 font-display text-4xl tracking-tight text-foreground md:text-5xl">
+                Share the intervention.
+              </h2>
+              <p className="text-body text-foreground-secondary">
+                Some people won&rsquo;t find RISE on their own. They need
+                someone who cares enough to send them a link. Or at least
+                someone who&rsquo;s tired of waiting for them.
+              </p>
+            </div>
+            <ReferAFriend />
           </div>
         </section>
       </main>

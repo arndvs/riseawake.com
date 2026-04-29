@@ -1,58 +1,18 @@
 'use client'
 
 import { Link } from '@/components/link'
+import { ReferAFriend } from '@/components/refer-a-friend'
+import {
+  getAllFeatures,
+  getAllSpecs,
+  getPushTiers,
+  type ProductTier,
+} from '@/lib/products'
 import { useState } from 'react'
 
-const SPECS = [
-  { label: 'Model', value: 'RP-01 (Push)' },
-  { label: 'Generation', value: 'Current Generation' },
-  { label: 'Push Mode', value: 'Included — Non-negotiable' },
-  { label: 'Interruption', value: 'Not supported by design' },
-  { label: 'Sheet System', value: 'Autonomous tensioning bar (center-out)' },
-  { label: 'Pillow System', value: 'Single pneumatic node, gradual cycle' },
-  { label: 'Caster Base', value: 'Low-profile, near-silent, high-torque' },
-  { label: 'Staircase Navigation', value: 'Not supported — see RISE Move' },
-  { label: 'Navigation', value: 'Precision room mapping, autonomous' },
-  { label: 'Raising Arc', value: '0° – 90°+ continuous, motor-assisted' },
-  { label: 'Motor Hum', value: 'Warm, low, 42Hz baseline' },
-  { label: 'Remote', value: 'PM-1 — single function' },
-  { label: 'Off Switch', value: 'Not applicable' },
-  { label: 'Warranty', value: '5 years (Push Mode: lifetime)' },
-  { label: 'Availability', value: 'Currently out of stock' },
-]
-
-const FEATURES = [
-  {
-    icon: '↑',
-    title: 'Push Mode',
-    body: "One press. The base activates, transitions to vertical, and begins routing you through your morning with the precision of a system that has studied the problem carefully and arrived at a conclusion. There is no option to pause Push Mode. This was considered during development and found to be contrary to the product's purpose.",
-  },
-  {
-    icon: '⊡',
-    title: 'Autonomous Sheet Tensioning',
-    body: 'A tensioning bar travels the inner frame rails drawing your fitted sheet progressively taut from the center outward — slowly, one wrinkle at a time, across the full span of your morning. It does not rush. By the time you are tying your tie, your bed is already made. These are not equivalent achievements.',
-  },
-  {
-    icon: '○',
-    title: 'Pillow Restoration Node',
-    body: 'A single pneumatic node at the frame\u2019s upper edge runs a long, calibrated cycle: gradual inflation, sustained hold, controlled deflation. The pillow is restored to form and centered. The entire process takes longer than feels necessary. This is deliberate. The Push does not hurry.',
-  },
-  {
-    icon: '◈',
-    title: 'Precision Caster Navigation',
-    body: "Low-profile, near-silent casters beneath the base allow continuous, smooth motion across all floor surfaces. The Push does not walk. It rolls — with the inevitability of heavy furniture pushed by someone who knows where they're going. There is no rhythm to it. No mechanical stepping. It simply advances.",
-  },
-  {
-    icon: '▣',
-    title: 'Mattress Retention System',
-    body: 'A low-profile retention lip and integrated strapping system secures the mattress at all angles of operation. The mattress remains on the base in all three states: flat, raised, and vertical. This is a deliberate engineering decision. The Push is always a complete bed. Even when it is standing upright in your hallway.',
-  },
-  {
-    icon: '⬡',
-    title: 'The PM-1 Remote',
-    body: "One button. The button initiates Push Mode. That is its complete list of functions. Fine print on the reverse reads: 'Push Mode cannot be manually interrupted once initiated. This is a feature, not a limitation. Have a productive day!' The remote glows warm white, steady, patient. It has been glowing all night.",
-  },
-]
+const tiers = getPushTiers()
+const allFeatures = getAllFeatures()
+const allSpecs = getAllSpecs()
 
 function PushBedIllustration() {
   return (
@@ -300,6 +260,169 @@ export default function PushPage() {
         </div>
       </section>
 
+      {/* ── Tier Comparison ────────────────────────────────── */}
+      <section className="border-t border-edge-subtle px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-16 text-center">
+            <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
+              Product Line
+            </p>
+            <h2 className="mb-4 font-display text-4xl tracking-tight text-foreground md:text-5xl">
+              Choose your PUSH.
+            </h2>
+            <p className="mx-auto max-w-xl text-body text-foreground-secondary">
+              Same core engineering. Same 98% compliance rate. Same non-negotiable morning.
+              The difference is in how much of your bed the machine handles — and how quietly it does it.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {tiers.map((tier) => {
+              const isHighlighted = tier.tier === 'push-select'
+              return (
+                <div
+                  key={tier.id}
+                  className={`flex flex-col rounded-xl p-8 ${
+                    isHighlighted
+                      ? 'border border-brand/25 bg-brand/6 shadow-elevated'
+                      : 'border border-edge bg-surface-alt shadow-card'
+                  }`}
+                >
+                  {isHighlighted && (
+                    <div className="mb-4">
+                      <span className="rounded-xl bg-brand/15 px-2 py-1 text-[10px] tracking-[0.16em] uppercase text-brand">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
+
+                  <h3 className="mb-1 font-display text-2xl text-foreground-strong">
+                    {tier.name}
+                  </h3>
+                  <p className="mb-6 text-xs italic text-foreground-muted">
+                    {tier.tagline}
+                  </p>
+
+                  <div className="mb-1 flex items-baseline gap-1">
+                    <span className="font-display text-[2.5rem] tracking-tight text-foreground-strong">
+                      {tier.price != null
+                        ? `$${tier.price.toLocaleString()}`
+                        : 'TBD'}
+                    </span>
+                  </div>
+                  <p className="mb-6 text-[10px] text-foreground-muted/50">
+                    Currently out of stock
+                  </p>
+
+                  <p className="mb-3 text-[10px] tracking-[0.16em] uppercase text-foreground-muted">
+                    What Ships
+                  </p>
+                  <ul className="mb-6 flex flex-1 flex-col gap-2">
+                    {tier.includes.map((item, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-2 text-xs text-foreground-secondary"
+                      >
+                        <span className="mt-px shrink-0 text-brand/70">—</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <p className="mb-3 text-[10px] tracking-[0.16em] uppercase text-foreground-muted/60">
+                    Self-Making Scope
+                  </p>
+                  <p className="mb-8 text-[10px] leading-relaxed text-foreground-muted">
+                    {tier.selfMaking}
+                  </p>
+
+                  <button
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: 'smooth' })
+                    }
+                    className={`w-full cursor-pointer rounded-full py-3 text-xs font-medium tracking-[0.14em] uppercase transition-all duration-300 ${
+                      isHighlighted
+                        ? 'bg-brand text-brand-on'
+                        : 'border border-edge bg-foreground/6 text-foreground-secondary hover:bg-foreground/10'
+                    }`}
+                  >
+                    Join Waitlist
+                  </button>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Sound Comparison ───────────────────────────────── */}
+      <section className="border-t border-edge-subtle bg-surface-alt px-6 py-24">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-12 text-center">
+            <p className="mb-4 text-eyebrow uppercase text-foreground-muted">
+              Sound Profile
+            </p>
+            <h2 className="mb-4 font-display text-4xl tracking-tight text-foreground md:text-5xl">
+              What it sounds like.
+            </h2>
+            <p className="mx-auto max-w-xl text-body text-foreground-secondary">
+              Same frequency architecture. Different texture entirely.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-xl border border-edge">
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="border-b border-edge bg-surface-alt">
+                  <th className="p-4 text-left font-medium text-foreground-muted">
+                    Quality
+                  </th>
+                  {tiers.map((tier) => (
+                    <th
+                      key={tier.id}
+                      className={`p-4 text-left font-medium ${
+                        tier.tier === 'push-select'
+                          ? 'text-brand'
+                          : 'text-foreground-muted'
+                      }`}
+                    >
+                      {tier.name}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {allSpecs
+                  .filter((s) => s.label === 'Motor Hum' || s.label === 'Track System' || s.label === 'Sound Profile')
+                  .map((spec, i) => (
+                    <tr
+                      key={spec.label}
+                      className={
+                        i % 2 === 0 ? 'bg-surface' : 'bg-surface-alt'
+                      }
+                    >
+                      <td className="p-4 font-medium text-foreground-muted">
+                        {spec.label}
+                      </td>
+                      {(['push', 'push-select', 'push-plus'] as ProductTier[]).map(
+                        (t) => (
+                          <td
+                            key={t}
+                            className="p-4 text-foreground-secondary"
+                          >
+                            {spec.byTier?.[t] ?? spec.value}
+                          </td>
+                        ),
+                      )}
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Technology ─────────────────────────────────────── */}
       <section className="border-t border-edge-subtle px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16">
@@ -312,7 +435,7 @@ export default function PushPage() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {FEATURES.map((f, i) => (
+            {allFeatures.map((f, i) => (
               <div
                 key={i}
                 className="rounded-xl border border-edge bg-surface-alt p-8"
@@ -320,9 +443,18 @@ export default function PushPage() {
                 <div className="mb-5 flex size-10 items-center justify-center rounded-xl border border-brand/15 bg-brand/10">
                   <span className="text-base text-brand/80">{f.icon}</span>
                 </div>
-                <h3 className="mb-4 text-sm font-medium text-foreground-secondary">
+                <h3 className="mb-2 text-sm font-medium text-foreground-secondary">
                   {f.title}
                 </h3>
+                {f.tiers.length < 3 && (
+                  <p className="mb-3 text-[10px] tracking-[0.12em] uppercase text-brand/60">
+                    {f.tiers.includes('push-plus') && !f.tiers.includes('push')
+                      ? 'PUSH+ Only'
+                      : f.tiers.map((t) =>
+                          t === 'push' ? 'PUSH' : t === 'push-select' ? 'Select' : 'PUSH+'
+                        ).join(' · ')}
+                  </p>
+                )}
                 <p className="text-body text-foreground-secondary">
                   {f.body}
                 </p>
@@ -373,45 +505,94 @@ export default function PushPage() {
               Specifications
             </p>
             <h2 className="font-display text-4xl tracking-tight text-foreground-strong">
-              Technical Details
+              Technical Details — By Tier
             </h2>
           </div>
 
-          <div className="grid gap-px bg-edge-subtle md:grid-cols-2">
-            {SPECS.map((s, i) => (
-              <div
-                key={i}
-                className="flex items-start justify-between gap-6 bg-surface-alt p-5"
-              >
-                <span className="min-w-40 text-xs font-medium text-foreground-muted">
-                  {s.label}
-                </span>
-                <span
-                  className={`text-right text-xs ${
-                    s.label === 'Off Switch' || s.label === 'Interruption'
-                      ? 'text-brand/70'
-                      : s.label === 'Staircase Navigation'
-                        ? 'text-foreground-secondary'
-                        : 'text-foreground-secondary'
-                  }`}
-                >
-                  {s.label === 'Staircase Navigation' ? (
-                    <>
-                      Not supported — see{' '}
-                      <Link
-                        href="/move"
-                        className="text-brand/65 underline"
-                      >
-                        RISE Move
-                      </Link>
-                    </>
-                  ) : (
-                    s.value
-                  )}
-                </span>
-              </div>
-            ))}
+          <div className="overflow-hidden rounded-xl border border-edge">
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="border-b border-edge bg-surface-alt">
+                  <th className="p-4 text-left font-medium text-foreground-muted">
+                    Spec
+                  </th>
+                  {tiers.map((tier) => (
+                    <th
+                      key={tier.id}
+                      className={`p-4 text-left font-medium ${
+                        tier.tier === 'push-select'
+                          ? 'text-brand'
+                          : 'text-foreground-muted'
+                      }`}
+                    >
+                      {tier.name}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {allSpecs.map((spec, i) => (
+                  <tr
+                    key={spec.label}
+                    className={
+                      i % 2 === 0 ? 'bg-surface' : 'bg-surface-alt'
+                    }
+                  >
+                    <td className="p-4 font-medium text-foreground-muted">
+                      {spec.label}
+                    </td>
+                    {(['push', 'push-select', 'push-plus'] as ProductTier[]).map(
+                      (t) => (
+                        <td
+                          key={t}
+                          className={`p-4 text-foreground-secondary ${
+                            spec.label === 'Off Switch' ||
+                            spec.label === 'Interruption'
+                              ? 'text-brand/70'
+                              : ''
+                          }`}
+                        >
+                          {spec.label === 'Staircase Navigation' ? (
+                            <>
+                              Not supported —{' '}
+                              <Link
+                                href="/move"
+                                className="text-brand/65 underline"
+                              >
+                                RISE Move
+                              </Link>
+                            </>
+                          ) : (
+                            spec.byTier?.[t] ?? spec.value
+                          )}
+                        </td>
+                      ),
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-edge-subtle px-6 py-24">
+        <div className="mx-auto max-w-lg">
+          <div className="mb-10 text-center">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
+              Know someone who needs Push Mode?
+            </p>
+            <h2 className="mb-4 font-display text-4xl tracking-tight text-foreground md:text-5xl">
+              They can&rsquo;t push the button
+              <br />
+              <span className="text-foreground-muted">if they don&rsquo;t know it exists.</span>
+            </h2>
+            <p className="text-body text-foreground-secondary">
+              Some people are still setting alarms. Multiple alarms.
+              You know who they are.
+            </p>
+          </div>
+          <ReferAFriend />
         </div>
       </section>
 

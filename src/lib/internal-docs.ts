@@ -113,8 +113,8 @@ const DOC_SEEDS: DocSeed[] = [
   },
   {
     id: 'DOC-004',
-    slug: 'push-pro-development-notes',
-    title: 'The Push Pro — Internal Development Notes',
+    slug: 'push-plus-development-notes',
+    title: 'The PUSH+ — Internal Development Notes',
     classification: 'RESTRICTED',
     author: 'Dr. Mara Chen, CPO',
     department: 'Product / R&D',
@@ -123,7 +123,7 @@ const DOC_SEEDS: DocSeed[] = [
     status: 'Under Review',
     relatedDocs: ['DOC-005'],
     summary:
-      'Internal development notes for the Push Pro. Most sections redacted per legal review. Cover page and table of contents visible.',
+      'Internal development notes for the PUSH+. Product specifications and differentiation from base Push documented. Some sections redacted per legal review.',
     wordCount: 289,
   },
   {
@@ -318,7 +318,7 @@ const DOC_SEEDS: DocSeed[] = [
     status: 'Active',
     relatedDocs: ['DOC-016', 'DOC-018'],
     summary:
-      'Value Journey mapping for Push Mode across 8 stages: Aware through Promote. The Excite stage has the longest entry. The Convert stage notes that the product is sold out and the conversion funnel ends at waitlist registration. The Ascend stage is two lines. RISE does not have an upsell. The Push Pro is not confirmed. The Move is not available.',
+      'Value Journey mapping for Push Mode across 8 stages: Aware through Promote. The Excite stage has the longest entry. The Convert stage notes that the product is sold out and the conversion funnel ends at waitlist registration. The Ascend stage includes the PUSH+ as the premium upgrade path. The Move is not available.',
     wordCount: 1654,
   },
   {

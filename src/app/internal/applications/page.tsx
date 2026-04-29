@@ -26,7 +26,7 @@ import { getJobById } from '@/lib/careers-data'
 import { AlertCircle, ArrowDownUp, ChevronDown, ChevronUp, Eye, EyeOff, Flag, FlagOff, Inbox, RefreshCw } from 'lucide-react'
 import { ConvexHttpClient } from 'convex/browser'
 import { useCallback, useEffect, useState } from 'react'
-import { api } from '../../../../convex/_generated/api'
+import { api } from '@convex/_generated/api'
 
 const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!)
 

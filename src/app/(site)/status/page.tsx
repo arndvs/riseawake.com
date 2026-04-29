@@ -102,12 +102,12 @@ const SERVICES = [
       'Staircase navigation is not available in the current product generation. RISE Move is in active development. No timeline. No price. Both directions.',
   },
   {
-    name: 'Push Pro Features',
-    status: 'unavailable',
-    uptime: null,
-    description: 'Next-generation Push Mode features.',
+    name: 'PUSH+ Features',
+    status: 'operational',
+    uptime: 99.94,
+    description: 'Premium Push Mode features — Atmosphere Suite, dampened tracks, three-pillow restoration.',
     detail:
-      'Push Pro has been acknowledged. Specifications have not been disclosed. No timeline. Status updates will appear here when available.',
+      'All PUSH+ systems operational. Dampened track navigation, Atmosphere Suite, and pneumatic pillow restoration performing within spec.',
   },
 ]
 

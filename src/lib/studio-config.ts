@@ -1,6 +1,6 @@
 export const RISE_RENDER = {
   name: 'RISE Render',
-  project: 'The Remote — Production',
+  project: 'PUSH — Production',
   allocationLimit: 10,
   killSwitchMessage:
     'Generation queue is currently at capacity. Estimated availability: Q3 2026.',

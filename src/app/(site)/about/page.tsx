@@ -1,5 +1,6 @@
 import { Button } from '@/components/button'
 import { Link } from '@/components/link'
+import { ReferAFriend } from '@/components/refer-a-friend'
 
 type TimelineEntry = {
   product: string | null
@@ -207,19 +208,19 @@ const TIMELINE: TimelineEra[] = [
     ],
   },
   {
-    year: 'Soon.',
-    era: "What's Next",
+    year: 'Now.',
+    era: 'The Full Line',
     isAccent: true,
     entries: [
       {
-        product: 'RISE Push Pro',
+        product: 'RISE PUSH+',
         type: 'product',
-        status: 'Not Announced',
+        status: 'Current',
         headline:
-          'We are not currently accepting questions about The Push Pro.',
-        body: 'RISE is not currently accepting questions about The Push Pro.',
-        outcome: null,
-        isRedacted: true,
+          'The premium tier. Whisper-quiet tracks. Three-pillow restoration. Full duvet management.',
+        body: 'The PUSH+ is the top of the line — the same bed, the same philosophy, with everything turned up. Dampened tracks, Atmosphere Suite, and a self-making scope that covers every layer on the bed. The PUSH is the entry. The PUSH+ is the statement.',
+        outcome: 'Currently available.',
+        isRedacted: false,
       },
       {
         product: 'RISE Move',
@@ -565,6 +566,27 @@ export default function AboutPage() {
             <br />
             RISE is transparent about this. It is part of how we got here.
           </p>
+        </div>
+      </section>
+
+      <section className="border-t border-edge-subtle px-6 py-24">
+        <div className="mx-auto max-w-lg">
+          <div className="mb-10 text-center">
+            <p className="mb-4 text-eyebrow text-foreground-muted uppercase">
+              Spread the word
+            </p>
+            <h2 className="mb-4 font-display text-4xl tracking-tight text-foreground md:text-5xl">
+              Twelve years of R&amp;D.
+              <br />
+              <span className="text-foreground-muted">One email to share it.</span>
+            </h2>
+            <p className="text-body text-foreground-secondary">
+              If this story resonated, someone in your life
+              probably needs to hear it. They&rsquo;re still
+              hitting snooze. You know they are.
+            </p>
+          </div>
+          <ReferAFriend />
         </div>
       </section>
 

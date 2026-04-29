@@ -60,7 +60,7 @@ export default function PressPage() {
           <p className="mb-16 text-xs leading-relaxed text-foreground-muted/50">
             Media inquiries: press@riseawake.com · Response time: 5 business
             days · Dr. Voss is available for comment on most topics. She is not
-            available for comment on The Push Pro or the Move&rsquo;s timeline.
+            available for comment on the Move&rsquo;s timeline.
           </p>
 
           <div className="flex flex-col gap-4">
