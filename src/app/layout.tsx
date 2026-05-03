@@ -1,4 +1,5 @@
 import { EasterEggs } from '@/components/easter-eggs'
+import { ThemeMigrate } from '@/components/theme-migrate'
 import { siteUrl } from '@/sanity/env'
 import { SanityLive } from '@/sanity/live'
 import { revalidateSyncTags } from '@/sanity/revalidateSyncTags'
@@ -84,7 +85,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-background text-foreground antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+        >
+          <ThemeMigrate />
           {children}
           <EasterEggs />
           <SanityLive revalidateSyncTags={revalidateSyncTags} />
