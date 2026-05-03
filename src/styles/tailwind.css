@@ -286,6 +286,198 @@
   }
 }
 
+/* ------------------------------------------------------------------ */
+/* v6 typography roles — spec §2.                                     */
+/* Per-role font-variation-settings (opsz/wght/SOFT/WONK) are encoded */
+/* on each class. Italic <em> children carry per-role axes per the    */
+/* spec §2 italic emphasis table.                                     */
+/* Used by src/components/brand/typography.tsx (Slice A3).            */
+/* ------------------------------------------------------------------ */
+@layer components {
+  .t-hero,
+  .t-display,
+  .t-section,
+  .t-h1,
+  .t-h2,
+  .t-subsection,
+  .t-section-num,
+  .t-stat-num {
+    font-family: var(--font-display);
+    color: var(--foreground);
+  }
+
+  .t-hero {
+    font-size: clamp(56px, 9vw, 128px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
+    text-wrap: balance;
+  }
+  .t-hero em {
+    font-style: italic;
+    color: var(--accent-deep);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 80, "WONK" 1;
+  }
+
+  .t-display {
+    font-size: clamp(56px, 8vw, 112px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 60;
+    text-wrap: balance;
+  }
+  .t-display em {
+    font-style: italic;
+    color: var(--accent-deep);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 100, "WONK" 1;
+  }
+
+  .t-section {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    font-variation-settings: "opsz" 72, "wght" 300, "SOFT" 40;
+    text-wrap: balance;
+  }
+  .t-section em {
+    font-style: italic;
+    color: var(--accent-deep);
+    font-variation-settings: "opsz" 72, "wght" 300, "SOFT" 80, "WONK" 1;
+  }
+
+  .t-h1 {
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    font-variation-settings: "opsz" 96, "wght" 300, "SOFT" 50;
+    text-wrap: balance;
+  }
+  .t-h1 em {
+    font-style: italic;
+    color: var(--accent-deep);
+    font-variation-settings: "opsz" 96, "wght" 300, "SOFT" 100, "WONK" 1;
+  }
+
+  .t-h2 {
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 72, "wght" 300, "SOFT" 50;
+    text-wrap: balance;
+  }
+  .t-h2 em {
+    font-style: italic;
+    color: var(--accent-deep);
+    font-variation-settings: "opsz" 72, "wght" 300, "SOFT" 100, "WONK" 1;
+  }
+
+  .t-subsection {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    font-variation-settings: "opsz" 36, "wght" 400, "SOFT" 40;
+  }
+  .t-subsection em {
+    font-style: italic;
+    color: var(--accent-deep);
+    font-variation-settings: "opsz" 36, "wght" 400, "SOFT" 100, "WONK" 1;
+  }
+
+  .t-section-num {
+    font-size: 22px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1;
+    color: var(--accent-deep);
+    font-variation-settings: "opsz" 12, "wght" 300, "SOFT" 100, "WONK" 1;
+  }
+
+  .t-lede {
+    font-family: var(--font-body);
+    font-size: 19px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--foreground-soft);
+    text-wrap: pretty;
+  }
+
+  .t-body {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--foreground);
+  }
+
+  .t-caption {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--muted-fg);
+  }
+
+  .t-eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    line-height: 1;
+  }
+  .t-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: currentColor;
+    flex: 0 0 24px;
+  }
+
+  .t-stat-num {
+    font-size: clamp(56px, 6vw, 88px);
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 50;
+    font-variant-numeric: tabular-nums;
+  }
+  .t-stat-num em {
+    font-style: italic;
+    color: var(--accent-deep);
+    font-variation-settings: "opsz" 144, "wght" 300, "SOFT" 100, "WONK" 1;
+  }
+
+  .t-stat-cap {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--muted-fg);
+  }
+
+  .t-mono-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--muted-fg);
+  }
+}
+
 @keyframes glow-pulse {
   0%, 100% { opacity: 0.4; }
   50%      { opacity: 0.85; }
