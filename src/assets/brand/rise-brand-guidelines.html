@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RISE — Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..700,0..100,0..1&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* =========================================================
+     RISE — Premium Design System
+     Default: LIGHT (warm cream). Add `.dark` to <html> to flip.
+     ========================================================= */
+        :root {
+            /* Brand */
+            --rise-ink: #14161f;
+            /* deeper, more luxurious */
+            --rise-ink-soft: #2a2d38;
+            --rise-dawn: #f4ede4;
+            --rise-rise: #e8a87c;
+            --rise-horizon: #b8784f;
+            /* deeper, terracotta-leaning */
+            --rise-mist: #e3e1dc;
+            /* warmer, less grey */
+            --rise-moss: #5a6849;
+            --rise-cloud: #faf6ef;
+            /* warmer cream */
+            --rise-paper: #f5efe5;
+            --rise-wine: #6b2f2f;
+            --rise-gold: #c9a572;
+            /* accent metal */
+
+            /* Semantic surfaces (light) */
+            --background: var(--rise-cloud);
+            --surface: #fffdf8;
+            --surface-2: var(--rise-paper);
+            --foreground: var(--rise-ink);
+            --foreground-soft: var(--rise-ink-soft);
+            --muted: #6f6a60;
+            --hairline: rgba(20, 22, 31, 0.08);
+            --border: rgba(20, 22, 31, 0.10);
+            --accent: var(--rise-rise);
+            --accent-deep: var(--rise-horizon);
+
+            /* Layered shadows */
+            --shadow-xs: 0 1px 2px rgba(20, 22, 31, 0.04);
+            --shadow-sm: 0 2px 4px rgba(20, 22, 31, 0.04), 0 8px 24px -8px rgba(20, 22, 31, 0.08);
+            --shadow-md: 0 4px 8px rgba(20, 22, 31, 0.05), 0 16px 40px -12px rgba(20, 22, 31, 0.12);
+            --shadow-glow: 0 32px 64px -24px rgba(184, 120, 79, 0.45);
+
+            /* Type */
+            --font-display: "Fraunces", "Cormorant Garamond", Georgia, serif;
+            --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+            /* Spacing — golden-ratio leaning */
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 24px;
+            --space-6: 40px;
+            --space-7: 64px;
+            --space-8: 96px;
+            --space-9: 144px;
+
+            /* Radii — slightly reduced for editorial feel */
+            --radius-sm: 4px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 28px;
+
+            /* Motion */
+            --ease: cubic-bezier(0.32, 0.72, 0, 1);
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dark {
+            --background: var(--rise-ink);
+            --surface: #1e2029;
+            --surface-2: #262934;
+            --foreground: #f0eae0;
+            --foreground-soft: #d6d0c5;
+            --muted: #8a8579;
+            --hairline: rgba(244, 237, 228, 0.06);
+            --border: rgba(244, 237, 228, 0.10);
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3), 0 8px 24px -8px rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4), 0 16px 40px -12px rgba(0, 0, 0, 0.6);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--background);
+            color: var(--foreground);
+            font-family: var(--font-body);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            line-height: 1.55;
+            transition: background 0.5s var(--ease), color 0.5s var(--ease);
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: var(--rise-ink);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        svg {
+            display: block;
+        }
+
+        /* Subtle background grain — premium tactile feel */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(rgba(20, 22, 31, 0.025) 1px, transparent 1px);
+            background-size: 3px 3px;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        .dark body::before {
+            background-image: radial-gradient(rgba(244, 237, 228, 0.02) 1px, transparent 1px);
+        }
+
+        /* =========================================================
+     Page chrome
+     ========================================================= */
+        .page-shell {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: var(--space-7) var(--space-5) var(--space-9);
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header {
+            border-bottom: 1px solid var(--hairline);
+            padding-bottom: var(--space-7);
+            margin-bottom: var(--space-8);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: end;
+            gap: var(--space-6);
+        }
+
+        @media (max-width: 720px) {
+            .page-header {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .page-header .eyebrow {
+            color: var(--accent-deep);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .page-header .eyebrow::before {
+            content: "";
+            width: 24px;
+            height: 1px;
+            background: currentColor;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: clamp(56px, 9vw, 128px);
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            margin: var(--space-5) 0 0;
+            font-variation-settings: "opsz" 144, "SOFT" 50;
+        }
+
+        .page-header h1 em {
+            font-style: italic;
+            color: var(--accent-deep);
+            font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+        }
+
+        .page-header .lede {
+            max-width: 52ch;
+            color: var(--foreground-soft);
+            margin: var(--space-5) 0 0;
+            font-size: 19px;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* Section header */
+        .section {
+            margin-bottom: var(--space-9);
+        }
+
+        .section-head {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: baseline;
+            gap: var(--space-5);
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-4);
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .section-num {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 300;
+            font-size: 22px;
+            color: var(--accent-deep);
+            font-variation-settings: "opsz" 12, "SOFT" 100;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: clamp(32px, 4vw, 48px);
+            letter-spacing: -0.025em;
+            line-height: 1;
+            margin: 0;
+            font-variation-settings: "opsz" 72, "SOFT" 40;
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: var(--accent-deep);
+            font-variation-settings: "opsz" 72, "SOFT" 80, "WONK" 1;
+        }
+
+        .section-grid {
+            display: grid;
+            gap: var(--space-4);
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-12 {
+            grid-template-columns: repeat(12, 1fr);
+        }
+
+        .col-7 {
+            grid-column: span 7;
+        }
+
+        .col-5 {
+            grid-column: span 5;
+        }
+
+        .col-8 {
+            grid-column: span 8;
+        }
+
+        .col-4 {
+            grid-column: span 4;
+        }
+
+        .col-6 {
+            grid-column: span 6;
+        }
+
+        @media (max-width: 900px) {
+
+            .col-7,
+            .col-5,
+            .col-8,
+            .col-4,
+            .col-6 {
+                grid-column: span 12;
+            }
+        }
+
+        /* =========================================================
+     Card — refined surface
+     ========================================================= */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--hairline);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-xs);
+            transition: box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card .label {
+            font-family: var(--font-body);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 0 0 var(--space-4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card .label::before {
+            content: "";
+            width: 16px;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.5;
+        }
+
+        .card .meta {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: var(--space-5);
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--hairline);
+            letter-spacing: 0.02em;
+        }
+
+        /* =========================================================
+     Logo / Brand mark
+     ========================================================= */
+        .logo-card {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: var(--space-5);
+            align-items: center;
+        }
+
+        .logo-card .glyph {
+            width: 80px;
+            height: 80px;
+            color: var(--accent-deep);
+            flex-shrink: 0;
+            padding: 14px;
+            border: 1px solid var(--hairline);
+            border-radius: var(--radius-md);
+            background: var(--surface-2);
+        }
+
+        .logo-card .glyph svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-card .stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+        }
+
+        .logo-card .wordmark {
+            font-family: var(--font-display);
+            font-size: 44px;
+            font-weight: 400;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
+            font-variation-settings: "opsz" 144, "SOFT" 60;
+        }
+
+        .logo-card .wordmark.alt {
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 400;
+            font-family: var(--font-body);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        /* Hero card — editorial */
+        .hero-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 360px;
+            display: flex;
+            align-items: flex-end;
+            background: var(--rise-ink);
+            color: var(--rise-dawn);
+            border: 0;
+            border-radius: var(--radius-xl);
+            padding: var(--space-7) var(--space-6);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 80% 20%, rgba(232, 168, 124, 0.18), transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(20, 22, 31, 0.4));
+            pointer-events: none;
+        }
+
+        .hero-card .water {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .hero-card .water span {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-style: italic;
+            font-size: 26vw;
+            color: rgba(244, 237, 228, 0.035);
+            letter-spacing: -0.05em;
+            white-space: nowrap;
+            font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+        }
+
+        .hero-card .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-card .eyebrow {
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-card .eyebrow::before {
+            content: "";
+            width: 24px;
+            height: 1px;
+            background: currentColor;
+        }
+
+        .hero-card .title {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: clamp(48px, 7vw, 88px);
+            line-height: 0.95;
+            letter-spacing: -0.035em;
+            margin: var(--space-4) 0 0;
+            font-variation-settings: "opsz" 144, "SOFT" 60;
+        }
+
+        .hero-card .title em {
+            font-style: italic;
+            color: var(--accent);
+            font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+        }
+
+        /* =========================================================
+     Type
+     ========================================================= */
+        .type-display {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: clamp(56px, 8vw, 112px);
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            font-variation-settings: "opsz" 144, "SOFT" 60;
+        }
+
+        .type-display em {
+            font-style: italic;
+            color: var(--accent-deep);
+            font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+        }
+
+        .type-scale .row {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: var(--space-5);
+            align-items: baseline;
+            padding: var(--space-4) 0;
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .type-scale .row:last-child {
+            border-bottom: 0;
+        }
+
+        .type-scale .tag {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 500;
+        }
+
+        .type-scale .h1 {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: 48px;
+            line-height: 1;
+            letter-spacing: -0.025em;
+            font-variation-settings: "opsz" 96, "SOFT" 50;
+        }
+
+        .type-scale .h2 {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: 32px;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            font-variation-settings: "opsz" 72, "SOFT" 50;
+        }
+
+        .type-scale .h3 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 1.2;
+            letter-spacing: -0.015em;
+            font-variation-settings: "opsz" 36, "SOFT" 40;
+        }
+
+        .type-scale .lead {
+            font-size: 19px;
+            line-height: 1.5;
+            color: var(--foreground-soft);
+            font-weight: 300;
+        }
+
+        .type-scale .body {
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        .type-scale .small {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .type-scale em {
+            font-style: italic;
+            color: var(--accent-deep);
+            font-variation-settings: "opsz" 96, "SOFT" 100, "WONK" 1;
+        }
+
+        .text-demo .eyebrow {
+            color: var(--accent-deep);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .text-demo .eyebrow::before {
+            content: "";
+            width: 24px;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.5;
+        }
+
+        .text-demo .pull {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-style: italic;
+            font-size: 26px;
+            line-height: 1.25;
+            margin: var(--space-5) 0;
+            color: var(--foreground);
+            letter-spacing: -0.015em;
+            max-width: 28ch;
+            font-variation-settings: "opsz" 36, "SOFT" 100, "WONK" 1;
+        }
+
+        .text-demo .body {
+            margin-top: var(--space-4);
+            line-height: 1.65;
+            max-width: 52ch;
+            color: var(--foreground-soft);
+            font-size: 15px;
+        }
+
+        .text-demo .stat {
+            margin-top: var(--space-6);
+            padding-top: var(--space-5);
+            border-top: 1px solid var(--hairline);
+            display: flex;
+            align-items: baseline;
+            gap: var(--space-4);
+        }
+
+        .text-demo .stat-num {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: 88px;
+            color: var(--accent-deep);
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
+            font-variation-settings: "opsz" 144, "SOFT" 50;
+        }
+
+        .text-demo .stat-cap {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--muted);
+            font-weight: 500;
+            max-width: 14ch;
+        }
+
+        /* =========================================================
+     Color swatches — premium chip
+     ========================================================= */
+        .swatch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: var(--space-3);
+        }
+
+        .swatch {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--hairline);
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+            cursor: pointer;
+        }
+
+        .swatch:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .swatch__color {
+            height: 110px;
+            position: relative;
+        }
+
+        .swatch__color::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+        }
+
+        .swatch__meta {
+            padding: var(--space-3) var(--space-4) var(--space-4);
+        }
+
+        .swatch__name {
+            font-weight: 500;
+            font-size: 13px;
+            margin-bottom: 4px;
+            letter-spacing: -0.005em;
+        }
+
+        .swatch__hex {
+            color: var(--muted);
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .swatch.hero {
+            grid-column: span 2;
+        }
+
+        .swatch.hero .swatch__color {
+            height: 160px;
+        }
+
+        .swatch.hero .swatch__name {
+            font-size: 16px;
+            font-family: var(--font-display);
+            font-weight: 400;
+        }
+
+        /* =========================================================
+     Spacing list — refined
+     ========================================================= */
+        .spacing-list .row {
+            display: grid;
+            grid-template-columns: 110px 1fr 80px;
+            align-items: center;
+            gap: var(--space-4);
+            padding: 10px 0;
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .spacing-list .row:last-child {
+            border-bottom: 0;
+        }
+
+        .spacing-list .label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+        }
+
+        .spacing-list .bar {
+            height: 8px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-deep));
+            border-radius: 4px;
+        }
+
+        .spacing-list .px {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--foreground);
+            text-align: right;
+        }
+
+        /* Demo blocks */
+        .demo-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+            align-items: flex-end;
+        }
+
+        .demo {
+            width: 84px;
+            height: 84px;
+            background: var(--surface-2);
+            border: 1px solid var(--hairline);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .demo-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .demo-col .lbl {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+     Buttons — premium
+     ========================================================= */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 999px;
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            border: 1px solid transparent;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out),
+                border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out),
+                box-shadow 0.3s var(--ease-out);
+            will-change: transform;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s var(--ease-out);
+        }
+
+        .btn:hover svg {
+            transform: translateX(2px);
+        }
+
+        .btn.primary {
+            background: var(--rise-ink);
+            color: var(--rise-dawn);
+            box-shadow: var(--shadow-xs);
+        }
+
+        .btn.primary:hover {
+            background: var(--rise-ink-soft);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .dark .btn.primary {
+            background: var(--rise-dawn);
+            color: var(--rise-ink);
+        }
+
+        .dark .btn.primary:hover {
+            background: #fff;
+        }
+
+        .btn.accent {
+            background: var(--accent);
+            color: var(--rise-ink);
+            box-shadow: 0 1px 2px rgba(20, 22, 31, 0.04);
+        }
+
+        .btn.accent:hover {
+            background: var(--accent-deep);
+            color: var(--rise-dawn);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn.ghost {
+            background: transparent;
+            border-color: var(--border);
+            color: var(--foreground);
+        }
+
+        .btn.ghost:hover {
+            border-color: var(--foreground);
+            background: var(--surface-2);
+        }
+
+        .btn.link {
+            background: transparent;
+            padding: 4px 0;
+            border-radius: 0;
+            color: var(--foreground);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .btn.link:hover {
+            transform: none;
+            border-bottom-color: var(--foreground);
+        }
+
+        .btn.sm {
+            padding: 10px 18px;
+            font-size: 13px;
+        }
+
+        .btn.lg {
+            padding: 18px 36px;
+            font-size: 15px;
+        }
+
+        .btn.icon {
+            width: 48px;
+            height: 48px;
+            padding: 0;
+        }
+
+        /* Pills */
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: transparent;
+            color: var(--foreground);
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            letter-spacing: 0.02em;
+            transition: all 0.3s var(--ease-out);
+        }
+
+        .pill:hover {
+            border-color: var(--foreground);
+        }
+
+        .pill.solid {
+            background: var(--surface-2);
+            border-color: transparent;
+        }
+
+        .pill.moss {
+            background: var(--rise-moss);
+            color: var(--rise-cloud);
+            border-color: transparent;
+        }
+
+        .pill.gold {
+            background: transparent;
+            color: var(--rise-horizon);
+            border-color: var(--rise-horizon);
+        }
+
+        .pill.dot::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--rise-moss);
+            display: inline-block;
+            box-shadow: 0 0 0 3px rgba(90, 104, 73, 0.15);
+        }
+
+        /* =========================================================
+     Form
+     ========================================================= */
+        .form-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
+        }
+
+        .form-card label {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--foreground);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .form-card .span2 {
+            grid-column: span 2;
+        }
+
+        .form-card input,
+        .form-card textarea {
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid var(--border);
+            border-radius: 0;
+            padding: 12px 0;
+            color: var(--foreground);
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: -0.005em;
+            text-transform: none;
+            transition: border-color 0.3s var(--ease-out);
+        }
+
+        .form-card input::placeholder,
+        .form-card textarea::placeholder {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .form-card input:focus,
+        .form-card textarea:focus {
+            outline: 0;
+            border-bottom-color: var(--accent-deep);
+        }
+
+        .form-card textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .form-card .invalid {
+            border-bottom-color: var(--rise-wine);
+        }
+
+        .form-card .help {
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--muted);
+            text-transform: none;
+            letter-spacing: 0;
+            font-style: italic;
+        }
+
+        .form-card .help.err {
+            color: var(--rise-wine);
+        }
+
+        /* =========================================================
+     Product card — editorial commerce
+     ========================================================= */
+        .product-card {
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            cursor: pointer;
+        }
+
+        .product-card .img {
+            aspect-ratio: 4 / 5;
+            border-radius: var(--radius-md);
+            background: linear-gradient(160deg, var(--rise-rise) 0%, var(--rise-horizon) 60%, var(--rise-ink-soft) 100%);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.6s var(--ease);
+        }
+
+        .product-card:hover .img {
+            transform: scale(1.01);
+        }
+
+        .product-card .img::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.25), transparent 50%),
+                radial-gradient(ellipse at 70% 90%, rgba(20, 22, 31, 0.4), transparent 60%);
+        }
+
+        .product-card .badge {
+            position: absolute;
+            top: var(--space-4);
+            left: var(--space-4);
+            background: rgba(250, 246, 239, 0.9);
+            backdrop-filter: blur(8px);
+            color: var(--rise-ink);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 999px;
+            z-index: 1;
+        }
+
+        .product-card .name {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 400;
+            margin: 8px 0 0;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            color: var(--foreground);
+            font-variation-settings: "opsz" 36, "SOFT" 50;
+        }
+
+        .product-card .meta-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .product-card .price {
+            font-family: var(--font-display);
+            font-weight: 400;
+            color: var(--foreground);
+            font-size: 16px;
+            font-variation-settings: "opsz" 14;
+            letter-spacing: -0.01em;
+        }
+
+        /* =========================================================
+     Nav — editorial pill
+     ========================================================= */
+        .nav-card .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px 14px 24px;
+            border: 1px solid var(--hairline);
+            border-radius: 999px;
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            margin-bottom: var(--space-4);
+            gap: var(--space-4);
+            flex-wrap: wrap;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-card .left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-card .glyph {
+            width: 28px;
+            height: 28px;
+            color: var(--accent-deep);
+        }
+
+        .nav-card .glyph svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav-card .wordmark {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            font-variation-settings: "opsz" 36, "SOFT" 50;
+        }
+
+        .nav-card .links {
+            display: flex;
+            gap: 2px;
+            flex-wrap: wrap;
+        }
+
+        .nav-card .link {
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--foreground-soft);
+            border-radius: 999px;
+            cursor: pointer;
+            letter-spacing: 0.01em;
+            transition: color 0.3s var(--ease-out), background 0.3s var(--ease-out);
+        }
+
+        .nav-card .link:hover {
+            color: var(--foreground);
+            background: var(--surface-2);
+        }
+
+        .nav-card .link.active {
+            color: var(--accent-deep);
+        }
+
+        .nav-card .right {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-card .body {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+        }
+
+        /* =========================================================
+     Voice cards
+     ========================================================= */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--space-3);
+        }
+
+        .voice {
+            background: var(--surface-2);
+            border-radius: var(--radius-md);
+            padding: var(--space-5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .voice::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+        }
+
+        .voice.do::before {
+            background: var(--rise-moss);
+        }
+
+        .voice.dont::before {
+            background: var(--rise-wine);
+        }
+
+        .voice .tag {
+            font-size: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--muted);
+            margin-bottom: var(--space-3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .voice.do .tag {
+            color: var(--rise-moss);
+        }
+
+        .voice.dont .tag {
+            color: var(--rise-wine);
+        }
+
+        .voice p {
+            margin: 0;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 19px;
+            line-height: 1.4;
+            color: var(--foreground);
+            letter-spacing: -0.01em;
+            font-variation-settings: "opsz" 24, "SOFT" 100, "WONK" 1;
+        }
+
+        /* =========================================================
+     Stat row
+     ========================================================= */
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-5);
+        }
+
+        .stat-row .stat {
+            padding: var(--space-2) 0;
+        }
+
+        .stat-row .stat .num {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: clamp(56px, 6vw, 88px);
+            color: var(--foreground);
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
+            font-variation-settings: "opsz" 144, "SOFT" 50;
+        }
+
+        .stat-row .stat .num em {
+            font-style: italic;
+            color: var(--accent-deep);
+            font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+        }
+
+        .stat-row .stat .cap {
+            margin-top: var(--space-3);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        /* =========================================================
+     Icon grid
+     ========================================================= */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+            gap: 1px;
+            background: var(--hairline);
+            border: 1px solid var(--hairline);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .icon-grid .icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            padding: var(--space-5) var(--space-2);
+            color: var(--foreground);
+            background: var(--surface);
+            transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out);
+            cursor: pointer;
+        }
+
+        .icon-grid .icon:hover {
+            background: var(--surface-2);
+            color: var(--accent-deep);
+        }
+
+        .icon-grid .icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .icon-grid .icon .lbl {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--muted);
+            text-align: center;
+            letter-spacing: 0.04em;
+        }
+
+        /* =========================================================
+     Theme toggle
+     ========================================================= */
+        .theme-toggle {
+            background: var(--surface);
+            border: 1px solid var(--hairline);
+            color: var(--foreground);
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s var(--ease-out);
+            box-shadow: var(--shadow-xs);
+        }
+
+        .theme-toggle:hover {
+            background: var(--surface-2);
+            border-color: var(--border);
+        }
+
+        .theme-toggle svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* =========================================================
+     Footer
+     ========================================================= */
+        footer {
+            border-top: 1px solid var(--hairline);
+            padding: var(--space-6) 0 0;
+            margin-top: var(--space-8);
+            color: var(--muted);
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--space-4);
+            letter-spacing: 0.04em;
+        }
+
+        footer em {
+            font-family: var(--font-display);
+            font-style: italic;
+            color: var(--accent-deep);
+            font-variation-settings: "opsz" 14, "SOFT" 100, "WONK" 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-shell">
+
+        <header class="page-header">
+            <div>
+                <div class="eyebrow">RISE — Identity System · Volume I</div>
+                <h1>Rest, <em>reimagined.</em></h1>
+                <p class="lede">A house style for a sleep brand built around mornings. Hand-tufted in Devon,
+                    photographed in low light, shipped quietly.</p>
+            </div>
+            <button class="theme-toggle" onclick="document.documentElement.classList.toggle('dark')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+                </svg>
+                Dawn / Dusk
+            </button>
+        </header>
+
+        <!-- ===== 01 BRAND MARK ===== -->
+        <section class="section">
+            <div class="section-head">
+                <span class="section-num">i.</span>
+                <h2 class="section-title">Mark &amp; <em>wordmark</em></h2>
+            </div>
+            <div class="section-grid grid-12">
+                <div class="card col-5 logo-card">
+                    <div class="glyph">
+                        <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="3.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="48" y1="6" x2="48" y2="16" />
+                            <line x1="20" y1="18" x2="26" y2="24" />
+                            <line x1="76" y1="18" x2="70" y2="24" />
+                            <line x1="8" y1="42" x2="16" y2="42" />
+                            <line x1="88" y1="42" x2="80" y2="42" />
+                            <path d="M26 56 a22 22 0 0 1 44 0" fill="currentColor" stroke="none" />
+                            <path d="M6 60 Q48 48 90 60" stroke-width="4" />
+                            <path d="M6 76 Q48 70 90 76" stroke-width="4" opacity="0.55" />
+                        </svg>
+                    </div>
+                    <div class="stack">
+                        <div class="wordmark">RISE</div>
+                        <div class="wordmark alt">est. 2018 · Devon</div>
+                    </div>
+                    <div class="meta" style="grid-column: span 2;">Sun-over-pillow mark · Fraunces opsz 144 wordmark ·
+                        clear-space ≥ 1× cap height</div>
+                </div>
+                <div class="hero-card col-7">
+                    <div class="water"><span>RISE</span></div>
+                    <div class="content">
+                        <div class="eyebrow">Volume I — Spring '26</div>
+                        <div class="title">Sleep <em>louder.</em></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 02 TYPE ===== -->
+        <section class="section">
+            <div class="section-head">
+                <span class="section-num">ii.</span>
+                <h2 class="section-title">Typography</h2>
+            </div>
+            <div class="section-grid grid-12">
+                <div class="card col-7">
+                    <div class="label">Display</div>
+                    <div class="type-display">A bed for the<br><em>rest of your life.</em></div>
+                    <div class="meta">Fraunces · weight 300 · opsz 144 · SOFT 60 · WONK on italic stops · -0.04em
+                        tracking</div>
+                </div>
+                <div class="card col-5 type-scale">
+                    <div class="label">Scale</div>
+                    <div class="row">
+                        <div class="tag">H1 / 48</div>
+                        <div class="h1">Sleep <em>louder.</em></div>
+                    </div>
+                    <div class="row">
+                        <div class="tag">H2 / 32</div>
+                        <div class="h2">Built by hand.</div>
+                    </div>
+                    <div class="row">
+                        <div class="tag">H3 / 22</div>
+                        <div class="h3">Free trial. 365 nights.</div>
+                    </div>
+                    <div class="row">
+                        <div class="tag">Lead / 19</div>
+                        <div class="lead">Rest is a craft, not a category.</div>
+                    </div>
+                    <div class="row">
+                        <div class="tag">Body / 15</div>
+                        <div class="body">Naturally tempered latex. Organic cotton. A hand-tufted wool top.</div>
+                    </div>
+                    <div class="row">
+                        <div class="tag">Caption / 13</div>
+                        <div class="small">White-glove delivery on orders over $1,200.</div>
+                    </div>
+                </div>
+                <div class="card col-12 text-demo">
+                    <div class="eyebrow">The Sunrise Collection</div>
+                    <p class="pull">"No springs. No off-gassing. No regrets — just twenty mornings to a softer one."</p>
+                    <p class="body">Every RISE mattress is built in our Devon workshop from naturally tempered latex,
+                        organic cotton, and a hand-tufted wool top. We don't make beds for everyone. We make them for
+                        the people who keep ours.</p>
+                    <div class="stat">
+                        <div class="stat-num">365</div>
+                        <div class="stat-cap">Night home trial · pickup included</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 03 COLOR ===== -->
+        <section class="section">
+            <div class="section-head">
+                <span class="section-num">iii.</span>
+                <h2 class="section-title">Color</h2>
+            </div>
+            <div class="section-grid grid-2">
+                <div class="card">
+                    <div class="label">Primary — warm &amp; earthen</div>
+                    <div class="swatch-grid">
+                        <div class="swatch hero">
+                            <div class="swatch__color" style="background: var(--rise-rise)"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Sunrise</div>
+                                <div class="swatch__hex">#E8A87C · primary</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: var(--rise-horizon)"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Horizon</div>
+                                <div class="swatch__hex">#B8784F</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color"
+                                style="background: linear-gradient(135deg, var(--rise-rise), var(--rise-horizon))">
+                            </div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Sunrise gradient</div>
+                                <div class="swatch__hex">peach → terracotta</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: var(--rise-gold)"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Gold</div>
+                                <div class="swatch__hex">#C9A572 · trim</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="label">Neutrals</div>
+                    <div class="swatch-grid">
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: var(--rise-ink)"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Ink</div>
+                                <div class="swatch__hex">#14161F</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: var(--rise-ink-soft)"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Ink soft</div>
+                                <div class="swatch__hex">#2A2D38</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: var(--rise-mist)"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Mist</div>
+                                <div class="swatch__hex">#E3E1DC</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: var(--rise-paper)"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Paper</div>
+                                <div class="swatch__hex">#F5EFE5</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: var(--rise-dawn)"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Dawn</div>
+                                <div class="swatch__hex">#F4EDE4</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: var(--rise-cloud)"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Cloud</div>
+                                <div class="swatch__hex">#FAF6EF · page</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="label">Semantic</div>
+                    <div class="swatch-grid">
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: var(--rise-moss)"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Success</div>
+                                <div class="swatch__hex">moss · #5A6849</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: var(--rise-rise)"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Focus / ring</div>
+                                <div class="swatch__hex">sunrise</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: var(--rise-wine)"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Error</div>
+                                <div class="swatch__hex">#6B2F2F</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: var(--rise-mist)"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Disabled</div>
+                                <div class="swatch__hex">mist</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="label">Surfaces</div>
+                    <div class="swatch-grid">
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #fffdf8;"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Surface · day</div>
+                                <div class="swatch__hex">#FFFDF8</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: var(--rise-paper)"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Surface-2 · day</div>
+                                <div class="swatch__hex">paper</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #1e2029"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Surface · night</div>
+                                <div class="swatch__hex">#1E2029</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #262934"></div>
+                            <div class="swatch__meta">
+                                <div class="swatch__name">Surface-2 · night</div>
+                                <div class="swatch__hex">#262934</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 04 FOUNDATION ===== -->
+        <section class="section">
+            <div class="section-head">
+                <span class="section-num">iv.</span>
+                <h2 class="section-title">Foundation</h2>
+            </div>
+            <div class="section-grid grid-12">
+                <div class="card col-6 spacing-list">
+                    <div class="label">Spacing</div>
+                    <div class="row">
+                        <div class="label" style="margin: 0">space-1</div>
+                        <div class="bar" style="width: 4px"></div>
+                        <div class="px">4</div>
+                    </div>
+                    <div class="row">
+                        <div class="label" style="margin: 0">space-2</div>
+                        <div class="bar" style="width: 8px"></div>
+                        <div class="px">8</div>
+                    </div>
+                    <div class="row">
+                        <div class="label" style="margin: 0">space-3</div>
+                        <div class="bar" style="width: 12px"></div>
+                        <div class="px">12</div>
+                    </div>
+                    <div class="row">
+                        <div class="label" style="margin: 0">space-4</div>
+                        <div class="bar" style="width: 16px"></div>
+                        <div class="px">16</div>
+                    </div>
+                    <div class="row">
+                        <div class="label" style="margin: 0">space-5</div>
+                        <div class="bar" style="width: 24px"></div>
+                        <div class="px">24</div>
+                    </div>
+                    <div class="row">
+                        <div class="label" style="margin: 0">space-6</div>
+                        <div class="bar" style="width: 40px"></div>
+                        <div class="px">40</div>
+                    </div>
+                    <div class="row">
+                        <div class="label" style="margin: 0">space-7</div>
+                        <div class="bar" style="width: 64px"></div>
+                        <div class="px">64</div>
+                    </div>
+                    <div class="row">
+                        <div class="label" style="margin: 0">space-8</div>
+                        <div class="bar" style="width: 96px"></div>
+                        <div class="px">96</div>
+                    </div>
+                    <div class="row">
+                        <div class="label" style="margin: 0">space-9</div>
+                        <div class="bar" style="width: 144px"></div>
+                        <div class="px">144</div>
+                    </div>
+                </div>
+                <div class="card col-3">
+                    <div class="label">Radii</div>
+                    <div class="demo-row">
+                        <div class="demo-col">
+                            <div class="demo" style="border-radius: 4px">sm</div><span class="lbl">4</span>
+                        </div>
+                        <div class="demo-col">
+                            <div class="demo" style="border-radius: 10px">md</div><span class="lbl">10</span>
+                        </div>
+                        <div class="demo-col">
+                            <div class="demo" style="border-radius: 16px">lg</div><span class="lbl">16</span>
+                        </div>
+                    </div>
+                    <div class="demo-row" style="margin-top: var(--space-3)">
+                        <div class="demo-col">
+                            <div class="demo" style="border-radius: 28px">xl</div><span class="lbl">28</span>
+                        </div>
+                        <div class="demo-col">
+                            <div class="demo" style="border-radius: 999px">∞</div><span class="lbl">pill</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card col-3">
+                    <div class="label">Elevation</div>
+                    <div class="demo-row">
+                        <div class="demo-col">
+                            <div class="demo"
+                                style="box-shadow: var(--shadow-xs); border-radius: 10px; background: var(--surface)">xs
+                            </div><span class="lbl">xs</span>
+                        </div>
+                        <div class="demo-col">
+                            <div class="demo"
+                                style="box-shadow: var(--shadow-sm); border-radius: 10px; background: var(--surface)">sm
+                            </div><span class="lbl">sm</span>
+                        </div>
+                    </div>
+                    <div class="demo-row" style="margin-top: var(--space-3)">
+                        <div class="demo-col">
+                            <div class="demo"
+                                style="box-shadow: var(--shadow-md); border-radius: 10px; background: var(--surface)">md
+                            </div><span class="lbl">md</span>
+                        </div>
+                        <div class="demo-col">
+                            <div class="demo"
+                                style="box-shadow: var(--shadow-glow); border-radius: 10px; background: var(--accent)">
+                                glow</div><span class="lbl">glow</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 05 COMPONENTS ===== -->
+        <section class="section">
+            <div class="section-head">
+                <span class="section-num">v.</span>
+                <h2 class="section-title">Components</h2>
+            </div>
+            <div class="section-grid grid-2">
+                <div class="card">
+                    <div class="label">Buttons</div>
+                    <div class="demo-row">
+                        <button class="btn primary">Shop the Sunrise <svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg></button>
+                        <button class="btn accent">Book a fitting</button>
+                        <button class="btn ghost">Our craft</button>
+                        <button class="btn link">Read the manifesto</button>
+                    </div>
+                    <div class="demo-row" style="margin-top: var(--space-4)">
+                        <button class="btn primary sm">Small</button>
+                        <button class="btn primary">Default</button>
+                        <button class="btn primary lg">Large</button>
+                        <button class="btn ghost icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg></button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="label">Pills &amp; tags</div>
+                    <div class="demo-row">
+                        <span class="pill">Organic cotton</span>
+                        <span class="pill solid">Hand-tufted</span>
+                        <span class="pill moss dot">In stock</span>
+                        <span class="pill gold">Limited release</span>
+                    </div>
+                    <div class="demo-row" style="margin-top: var(--space-4)">
+                        <span class="pill">Latex</span>
+                        <span class="pill">Wool</span>
+                        <span class="pill">White oak</span>
+                        <span class="pill">Linen</span>
+                        <span class="pill">Brass</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="label">Form</div>
+                    <div class="form-card">
+                        <label>Name<input placeholder="Your name"></label>
+                        <label>Email<input class="invalid" value="not-an-email"><span class="help err">A valid address,
+                                please.</span></label>
+                        <label class="span2">How can we help?<textarea
+                                placeholder="Tell us what you're sleeping on, and what you're hoping for."></textarea></label>
+                    </div>
+                </div>
+                <div class="card nav-card">
+                    <div class="label">Navigation</div>
+                    <div class="nav">
+                        <div class="left">
+                            <span class="glyph">
+                                <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="48" y1="6" x2="48" y2="16" />
+                                    <line x1="20" y1="18" x2="26" y2="24" />
+                                    <line x1="76" y1="18" x2="70" y2="24" />
+                                    <line x1="8" y1="42" x2="16" y2="42" />
+                                    <line x1="88" y1="42" x2="80" y2="42" />
+                                    <path d="M26 56 a22 22 0 0 1 44 0" fill="currentColor" stroke="none" />
+                                    <path d="M6 60 Q48 48 90 60" stroke-width="6" />
+                                </svg>
+                            </span>
+                            <span class="wordmark">RISE</span>
+                        </div>
+                        <div class="links">
+                            <span class="link">Mattresses</span>
+                            <span class="link active">Beds</span>
+                            <span class="link">Bedding</span>
+                            <span class="link">Our craft</span>
+                            <span class="link">Visit</span>
+                        </div>
+                        <div class="right">
+                            <button class="btn primary sm">Bag · 0</button>
+                        </div>
+                    </div>
+                    <div class="body">// pill nav · backdrop-blur 20 · sticky · h-72</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 06 PATTERNS ===== -->
+        <section class="section">
+            <div class="section-head">
+                <span class="section-num">vi.</span>
+                <h2 class="section-title">Patterns &amp; <em>voice</em></h2>
+            </div>
+            <div class="section-grid grid-12">
+                <div class="card col-12 stat-row">
+                    <div class="stat">
+                        <div class="num">365</div>
+                        <div class="cap">Night trial</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">25<em>y</em></div>
+                        <div class="cap">Frame guarantee</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">0</div>
+                        <div class="cap">Springs · ever</div>
+                    </div>
+                </div>
+
+                <div class="card col-12">
+                    <div class="label">The collection</div>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-5);">
+                        <article class="product-card">
+                            <div class="img">
+                                <span class="badge">New</span>
+                            </div>
+                            <h5 class="name">The Sunrise</h5>
+                            <div class="meta-row"><span>Hand-tufted wool · Queen</span><span class="price">$1,890</span>
+                            </div>
+                        </article>
+                        <article class="product-card">
+                            <div class="img"
+                                style="background: linear-gradient(160deg, var(--rise-moss) 0%, #3a4530 100%);"></div>
+                            <h5 class="name">The Horizon</h5>
+                            <div class="meta-row"><span>White oak frame · King</span><span class="price">$2,400</span>
+                            </div>
+                        </article>
+                        <article class="product-card">
+                            <div class="img"
+                                style="background: linear-gradient(160deg, var(--rise-mist) 0%, var(--rise-ink-soft) 100%);">
+                            </div>
+                            <h5 class="name">The Linen Set</h5>
+                            <div class="meta-row"><span>Belgian flax · Full</span><span class="price">$320</span></div>
+                        </article>
+                        <article class="product-card">
+                            <div class="img"
+                                style="background: linear-gradient(160deg, var(--rise-gold) 0%, var(--rise-horizon) 60%, var(--rise-ink) 100%);">
+                                <span class="badge">Limited</span>
+                            </div>
+                            <h5 class="name">The Brass Lamp</h5>
+                            <div class="meta-row"><span>Hand-spun · ed. of 200</span><span class="price">$640</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="card col-12">
+                    <div class="label">Voice &amp; tone</div>
+                    <div class="voice-grid">
+                        <div class="voice do">
+                            <div class="tag">Do — quiet confidence</div>
+                            <p>"Made to outlast the trend cycle. And probably you."</p>
+                        </div>
+                        <div class="voice do">
+                            <div class="tag">Do — warm &amp; specific</div>
+                            <p>"Hand-tufted in Devon by people who sleep eight hours a night."</p>
+                        </div>
+                        <div class="voice dont">
+                            <div class="tag">Don't — hype</div>
+                            <p>"Revolutionary AI-powered sleep technology disrupting the bed space!"</p>
+                        </div>
+                        <div class="voice dont">
+                            <div class="tag">Don't — generic</div>
+                            <p>"The best mattress you'll ever own."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 07 ICONS ===== -->
+        <section class="section">
+            <div class="section-head">
+                <span class="section-num">vii.</span>
+                <h2 class="section-title">Iconography</h2>
+            </div>
+            <div class="card">
+                <div class="label">Lucide · stroke 1.5 · 22px · currentColor</div>
+                <div class="icon-grid">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 4v16" />
+                            <path d="M2 8h18a2 2 0 0 1 2 2v10" />
+                            <path d="M2 17h20" />
+                            <path d="M6 8v9" />
+                        </svg><span class="lbl">Bed</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v8" />
+                            <path d="m4.93 10.93 1.41 1.41" />
+                            <path d="M2 18h2" />
+                            <path d="M20 18h2" />
+                            <path d="m19.07 10.93-1.41 1.41" />
+                            <path d="M22 22H2" />
+                            <path d="m16 6-4 4-4-4" />
+                            <path d="M16 18a4 4 0 0 0-8 0" />
+                        </svg><span class="lbl">Sunrise</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+                        </svg><span class="lbl">Moon</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4" />
+                            <path
+                                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+                        </svg><span class="lbl">Sun</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                        </svg><span class="lbl">Package</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
+                        </svg><span class="lbl">Heart</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1" />
+                            <circle cx="20" cy="21" r="1" />
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                        </svg><span class="lbl">Cart</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg><span class="lbl">User</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="m21 21-4.3-4.3" />
+                        </svg><span class="lbl">Search</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 12h16M4 6h16M4 18h16" />
+                        </svg><span class="lbl">Menu</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18M6 6l12 12" />
+                        </svg><span class="lbl">Close</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg><span class="lbl">Arrow</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="m22 7-10 5L2 7" />
+                        </svg><span class="lbl">Mail</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92Z" />
+                        </svg><span class="lbl">Phone</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg><span class="lbl">Visit</span></div>
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m20 6-11 11-5-5" />
+                        </svg><span class="lbl">Check</span></div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <span>RISE — <em>Identity System</em> · Vol I · MMXXVI</span>
+            <span>Built quietly in Devon.</span>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
