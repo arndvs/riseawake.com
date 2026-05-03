@@ -98,7 +98,7 @@ export default function RemotePage() {
         justifyContent: 'center',
         padding: '40px 24px',
         fontFamily:
-          "var(--font-dm-sans), -apple-system, BlinkMacSystemFont, 'DM Sans', sans-serif",
+          "var(--font-body), -apple-system, BlinkMacSystemFont, 'Inter', sans-serif",
         position: 'relative',
         overflow: 'hidden',
       }}

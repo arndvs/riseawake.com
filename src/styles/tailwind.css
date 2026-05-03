@@ -40,11 +40,13 @@
   --color-rise-error:     #DC4545;
 
   /* Type families — canonical + Tailwind utility mirror.
-     Layout binds Inter to --font-sans via next/font; we list it here so the
-     `font-sans` utility exists. DM Serif Display stays as the temporary
-     display fallback until Slice A2 wires Fraunces. */
-  --font-display: var(--font-dm-serif), "Fraunces", "Cormorant Garamond", Georgia, serif;
-  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+     Fraunces (display) and Inter (body) are wired via next/font/google in
+     src/app/layout.tsx, which exposes them on <html> as --next-font-display
+     and --next-font-body. We re-export them under the canonical v6 names here.
+     Fraunces ships with variable axes (opsz, wght, SOFT, WONK) — see
+     spec §2 for per-role font-variation-settings. */
+  --font-display: var(--next-font-display), "Fraunces", "Cormorant Garamond", Georgia, serif;
+  --font-body:    var(--next-font-body), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono:    ui-monospace, "SF Mono", Menlo, monospace;
   --font-sans:    var(--font-body);
   --font-heading: var(--font-display);

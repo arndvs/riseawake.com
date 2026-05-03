@@ -5,24 +5,36 @@ import { revalidateSyncTags } from '@/sanity/revalidateSyncTags'
 import '@/styles/tailwind.css'
 import type { Metadata } from 'next'
 import { ThemeProvider } from 'next-themes'
-import { DM_Sans, DM_Serif_Display, Inter } from 'next/font/google'
+import { Fraunces, Inter } from 'next/font/google'
 import { cn } from "@/lib/utils";
 
-const dmSansHeading = DM_Sans({subsets:['latin'],variable:'--font-heading'});
-
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
-
-const dmSans = DM_Sans({
+/*
+ * v6 typography — see working/RISE_BRAND_SYSTEM_v6.md §1.5 + §2.
+ *
+ * Fraunces (display) loads the full variable axes (opsz 9..144, wght 300..700,
+ * SOFT 0..100, WONK 0..1) so headlines can drive opsz/SOFT/WONK via
+ * font-variation-settings. Inter (body) loads weights 300..700 in roman + italic.
+ *
+ * --font-display and --font-body are the canonical CSS names (referenced from
+ * @theme in src/styles/tailwind.css). --font-sans / --font-heading aliases are
+ * kept while v3-corporate components still reference them; they're cleaned up
+ * in Slice Z1.
+ */
+const fraunces = Fraunces({
   subsets: ['latin'],
-  variable: '--font-dm-sans',
   display: 'swap',
+  axes: ['SOFT', 'WONK', 'opsz'],
+  weight: 'variable',
+  style: ['normal', 'italic'],
+  variable: '--next-font-display',
 })
 
-const dmSerifDisplay = DM_Serif_Display({
-  weight: '400',
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-dm-serif',
   display: 'swap',
+  weight: 'variable',
+  style: ['normal', 'italic'],
+  variable: '--next-font-body',
 })
 
 export const metadata: Metadata = {
@@ -68,10 +80,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(dmSans.variable, dmSerifDisplay.variable, "font-sans", inter.variable, dmSansHeading.variable)}
+      className={cn(fraunces.variable, inter.variable, 'font-sans')}
       suppressHydrationWarning
     >
-      <body className="bg-page text-foreground antialiased">
+      <body className="bg-background text-foreground antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
           <EasterEggs />
