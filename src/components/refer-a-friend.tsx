@@ -24,13 +24,13 @@ type ReferralFormData = z.infer<typeof referralSchema>
 // ─── Styles ─────────────────────────────────────────────────────────────────
 
 const inputClass = clsx(
-  'w-full rounded border border-edge bg-surface-alt px-3.5 py-2.5',
-  'text-sm text-foreground placeholder:text-foreground-muted/50',
+  'w-full rounded border border-hairline bg-surface-2 px-3.5 py-2.5',
+  'text-sm text-foreground placeholder:text-muted/70',
   'outline-none transition-colors',
-  'focus:border-brand/40 focus:ring-1 focus:ring-brand/20',
+  'focus:border-accent-deep focus:ring-1 focus:ring-accent-deep/20',
 )
 
-const labelClass = 'block mb-1.5 text-[11px] tracking-wide text-foreground-secondary uppercase'
+const labelClass = 'block mb-1.5 text-[11px] tracking-wide text-foreground-soft uppercase'
 
 // ─── Component ──────────────────────────────────────────────────────────────
 
@@ -83,22 +83,22 @@ export function ReferAFriend() {
   if (status === 'success') {
     return (
       <div className="text-center">
-        <div className="mb-4 inline-flex size-12 items-center justify-center rounded-full border border-brand/20 bg-brand/10">
+        <div className="mb-4 inline-flex size-12 items-center justify-center rounded-full border border-hairline bg-rise-rise/10">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M4 10.5L8 14.5L16 6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-brand" />
+            <path d="M4 10.5L8 14.5L16 6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-accent-deep" />
           </svg>
         </div>
         <p className="mb-2 text-lg font-medium text-foreground">
           Referral sent.
         </p>
-        <p className="text-sm text-foreground-muted">
+        <p className="text-sm text-foreground-soft">
           They&apos;ll receive a single email. We don&apos;t follow up.
           The rest is between them and their alarm clock.
         </p>
         <button
           type="button"
           onClick={() => setStatus('idle')}
-          className="mt-6 text-xs font-medium tracking-widest text-brand uppercase transition-colors hover:text-brand-hover"
+          className="mt-6 text-xs font-medium tracking-widest text-accent-deep uppercase transition-colors hover:text-rise-horizon"
         >
           Send another
         </button>
@@ -110,7 +110,7 @@ export function ReferAFriend() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
       {/* ── Your info ─────────────────────────────────────── */}
       <div>
-        <p className="mb-4 text-[10px] font-medium tracking-[0.2em] text-foreground-muted uppercase">
+        <p className="mb-4 text-[10px] font-medium tracking-[0.2em] text-muted uppercase">
           Your info
         </p>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -157,7 +157,7 @@ export function ReferAFriend() {
 
       {/* ── Friend's info ─────────────────────────────────── */}
       <div>
-        <p className="mb-4 text-[10px] font-medium tracking-[0.2em] text-foreground-muted uppercase">
+        <p className="mb-4 text-[10px] font-medium tracking-[0.2em] text-muted uppercase">
           Their info
         </p>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -220,17 +220,18 @@ export function ReferAFriend() {
         type="submit"
         disabled={status === 'submitting'}
         className={clsx(
-          'inline-flex w-full items-center justify-center rounded-full px-8 py-3.5',
-          'text-xs font-medium tracking-[0.14em] uppercase',
-          'transition-all duration-200',
-          'bg-cta text-cta-on hover:bg-cta-hover',
+          'inline-flex w-full items-center justify-center gap-2 rounded-full px-8 py-3.5',
+          'text-[14px] font-medium tracking-[0.01em]',
+          'transition-all duration-200 ease-out',
+          'bg-rise-rise text-rise-ink shadow-xs',
+          'hover:bg-rise-horizon hover:text-rise-dawn hover:shadow-sm hover:-translate-y-px',
           'disabled:opacity-40 disabled:pointer-events-none',
         )}
       >
-        {status === 'submitting' ? 'Sending...' : 'Send the Wake-Up Call'}
+        {status === 'submitting' ? 'Sending…' : 'Send the Wake-Up Call'}
       </button>
 
-      <p className="text-center text-[11px] text-foreground-muted/60">
+      <p className="text-center text-[11px] text-muted">
         One email. No list. No follow-up. We promise.
       </p>
     </form>

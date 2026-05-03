@@ -1,9 +1,17 @@
 import { Link } from './link'
 import { Logo } from './logo'
 
+/*
+ * v6 footer — see working/RISE_BRAND_SYSTEM_v6.md §3.12.
+ *
+ * 1px hairline top, surface-2 bg, muted 12px text, 0.04em tracking. The
+ * poetic Push Mode line carries an italic terracotta em (Fraunces opsz 14 /
+ * SOFT 100 / WONK 1). Drops v5 surface-alt + foreground-subtle aliases.
+ */
+
 function FooterHeading({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mb-5 text-xs tracking-[0.16em] text-foreground-muted uppercase">
+    <p className="mb-5 text-[10px] font-medium tracking-[0.18em] text-muted uppercase">
       {children}
     </p>
   )
@@ -13,7 +21,7 @@ function FooterLink(props: React.ComponentPropsWithoutRef<typeof Link>) {
   return (
     <Link
       {...props}
-      className="text-xs text-foreground-secondary transition-colors duration-200 hover:text-foreground-strong"
+      className="text-[12px] tracking-[0.04em] text-foreground-soft transition-colors duration-200 hover:text-foreground"
     />
   )
 }
@@ -22,18 +30,28 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-edge bg-surface-alt">
+    <footer className="border-t border-hairline bg-surface-2">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-12">
         <div className="mb-14 grid grid-cols-2 gap-10 md:grid-cols-6">
           <div className="col-span-2">
-            <Logo className="mb-4 h-7" />
-            <p className="mb-4 max-w-48 text-xs leading-relaxed text-foreground-muted">
+            <Logo variant="nav" className="mb-5 h-7" />
+            <p className="mb-4 max-w-xs text-[12px] leading-relaxed tracking-[0.04em] text-foreground-soft">
               Smart Adjustable Base technology for people who need a little
               push.
             </p>
-            <p className="text-xs leading-relaxed text-foreground-muted italic">
-              &ldquo;Push Mode cannot be manually interrupted once initiated,
-              This is a feature, not a limitation.&rdquo;
+            <p className="max-w-xs text-[12px] leading-relaxed tracking-[0.04em] text-muted">
+              &ldquo;Push Mode cannot be manually interrupted once initiated.
+              This is a{' '}
+              <em
+                className="not-italic text-rise-horizon"
+                style={{
+                  fontStyle: 'italic',
+                  fontVariationSettings: '"opsz" 14, "SOFT" 100, "WONK" 1',
+                }}
+              >
+                feature
+              </em>
+              , not a limitation.&rdquo;
             </p>
           </div>
 
@@ -46,10 +64,10 @@ export function Footer() {
               <FooterLink href="/products/push">The PUSH+</FooterLink>
               <Link
                 href="/move"
-                className="text-xs text-brand/50 transition-colors duration-200 hover:text-brand"
+                className="text-[12px] tracking-[0.04em] text-rise-rise/60 transition-colors duration-200 hover:text-rise-rise"
               >
                 RISE Move{' '}
-                <span className="text-[10px] text-brand/30">
+                <span className="text-[10px] text-rise-rise/40">
                   — In Development
                 </span>
               </Link>
@@ -101,10 +119,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mb-10 border-t border-edge-subtle pt-8">
+        <div className="mb-10 border-t border-hairline pt-8">
           <div className="flex items-center justify-between gap-8">
             <div className="flex flex-wrap items-center gap-8">
-              <span className="text-[10px] tracking-[0.2em] text-foreground-muted uppercase">
+              <span className="text-[10px] tracking-[0.2em] text-muted uppercase">
                 Investors
               </span>
               {[
@@ -121,7 +139,7 @@ export function Footer() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-[10px] text-foreground-muted transition-colors duration-200 hover:text-foreground-secondary"
+                  className="text-[10px] tracking-[0.04em] text-muted transition-colors duration-200 hover:text-foreground-soft"
                 >
                   {item.label}
                 </Link>
@@ -131,7 +149,7 @@ export function Footer() {
               href="https://github.com/arndvs/riseawake.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground-muted transition-colors duration-200 hover:text-foreground-secondary"
+              className="text-muted transition-colors duration-200 hover:text-foreground-soft"
               aria-label="GitHub"
             >
               <svg
@@ -148,9 +166,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-start justify-between gap-4 border-t border-edge-subtle pt-8 md:flex-row md:items-center">
+        <div className="flex flex-col items-start justify-between gap-4 border-t border-hairline pt-8 md:flex-row md:items-center">
           <div className="flex items-center gap-6">
-            <p className="text-[11px] text-foreground-muted">
+            <p className="text-[11px] tracking-[0.04em] text-muted">
               &copy; {year} RISE Technologies, Inc. All rights reserved.
             </p>
             <FooterLink href="/sitemap">Sitemap</FooterLink>
@@ -158,11 +176,11 @@ export function Footer() {
           <div className="flex items-center gap-6">
             <Link
               href="/#refer"
-              className="text-[11px] text-foreground-muted/60 transition-colors duration-200 hover:text-brand"
+              className="text-[11px] text-muted transition-colors duration-200 hover:text-rise-rise"
             >
               Know someone who needs a push? →
             </Link>
-            <p className="max-w-md text-left text-[11px] text-foreground-muted/60 md:text-right">
+            <p className="max-w-md text-left text-[11px] tracking-[0.04em] text-muted md:text-right">
               RISE is not responsible for productivity gains, lifestyle
               improvements, career advancement, relationship outcomes, or
               existential reckonings resulting from Push Mode. Results may exceed

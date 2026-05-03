@@ -2,38 +2,46 @@
 
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
-import { Monitor, Moon, Sun } from 'lucide-react'
+import { Moon, Sun } from 'lucide-react'
 
-const themes = [
-  { value: 'system', label: 'System', icon: Monitor },
-  { value: 'dark', label: 'Dark', icon: Moon },
-  { value: 'light', label: 'Light', icon: Sun },
-] as const
+/*
+ * v6 theme toggle — see working/RISE_BRAND_SYSTEM_v6.md §3.8.
+ *
+ * Pill, surface bg, hairline border, 12px / 500 / 0.06em uppercase, sun/moon
+ * icon. Toggles `.dark` on <html>. Two states only — light = Dawn, dark =
+ * Dusk (system was removed in Slice A6).
+ */
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => setMounted(true), [])
 
   if (!mounted) {
-    return <div className="size-8" aria-hidden="true" />
+    return (
+      <div
+        aria-hidden="true"
+        className="h-8 w-[88px] rounded-full border border-hairline bg-surface"
+      />
+    )
   }
 
-  const currentIndex = themes.findIndex((t) => t.value === theme)
-  const safeIndex = currentIndex === -1 ? 2 : currentIndex
-  const current = themes[safeIndex]!
-  const next = themes[(safeIndex + 1) % themes.length]!
+  const isDark = resolvedTheme === 'dark'
+  const next = isDark ? 'light' : 'dark'
+  const Icon = isDark ? Sun : Moon
+  const label = isDark ? 'Dawn' : 'Dusk'
 
   return (
     <button
       type="button"
-      onClick={() => setTheme(next.value)}
-      className="flex size-8 items-center justify-center rounded-lg text-foreground-secondary transition-colors duration-200 hover:text-foreground-strong"
-      aria-label={`Switch to ${next.label} theme`}
-      title={`Current: ${current.label}. Click for ${next.label}`}
+      onClick={() => setTheme(next)}
+      className="inline-flex h-8 items-center gap-2 rounded-full border border-hairline bg-surface px-3 text-[12px] font-medium tracking-[0.06em] text-foreground-soft uppercase transition-colors duration-200 hover:bg-surface-2 hover:text-foreground"
+      aria-label={`Switch to ${next} mode`}
+      title={`Switch to ${next} mode`}
     >
-      <current.icon className="size-4" />
+      <Icon className="size-3.5" aria-hidden="true" />
+      <span>{label}</span>
     </button>
   )
 }

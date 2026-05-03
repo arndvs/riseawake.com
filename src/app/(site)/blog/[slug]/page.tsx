@@ -1,8 +1,8 @@
 import { Button } from '@/components/button'
+import { Eyebrow, H1 } from '@/components/brand/typography'
 import { Container } from '@/components/container'
 import { GradientBackground } from '@/components/gradient'
 import { Link } from '@/components/link'
-import { Heading, Subheading } from '@/components/text'
 import { createMetadata } from '@/lib/metadata'
 import { image } from '@/sanity/image'
 import { getAllPostSlugs, getPost } from '@/sanity/queries'
@@ -52,12 +52,12 @@ export default async function BlogPost({
     <main className="overflow-hidden">
       <GradientBackground />
       <Container>
-        <Subheading className="mt-16">
+        <Eyebrow className="mt-16">
           {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
-        </Subheading>
-        <Heading as="h1" className="mt-2">
+        </Eyebrow>
+        <H1 className="mt-2">
           {post.title}
-        </Heading>
+        </H1>
         <div className="mt-16 grid grid-cols-1 gap-8 pb-24 lg:grid-cols-[15rem_1fr] xl:grid-cols-[15rem_1fr_15rem]">
           <div className="flex flex-wrap items-center gap-8 max-lg:justify-between lg:flex-col lg:items-start">
             {post.author && (

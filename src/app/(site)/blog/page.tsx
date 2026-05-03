@@ -1,8 +1,8 @@
 import { Button } from '@/components/button'
+import { Eyebrow, H1, Lede } from '@/components/brand/typography'
 import { Container } from '@/components/container'
 import { GradientBackground } from '@/components/gradient'
 import { Link } from '@/components/link'
-import { Heading, Lead, Subheading } from '@/components/text'
 import { image } from '@/sanity/image'
 import {
   getCategories,
@@ -290,13 +290,13 @@ export default async function Blog({
     <main className="overflow-hidden">
       <GradientBackground />
       <Container>
-        <Subheading className="mt-16">Blog</Subheading>
-        <Heading as="h1" className="mt-2">
+        <Eyebrow className="mt-16">Blog</Eyebrow>
+        <H1 className="mt-2">
           What&rsquo;s happening at RISE.
-        </Heading>
-        <Lead className="mt-6 max-w-3xl">
+        </H1>
+        <Lede className="mt-6 max-w-3xl">
           Updates, observations, and communications from RISE Technologies.
-        </Lead>
+        </Lede>
       </Container>
       {page === 1 && !category && <FeaturedPosts />}
       <Container className="mt-16 pb-24">
