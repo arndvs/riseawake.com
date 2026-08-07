@@ -1,44 +1,44 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Dependencies
+node_modules/
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
+# Build outputs
+dist/
+build/
+.next/
+out/
 
-# testing
-/coverage
+# Environment
+.env
+.env.local
+.env.*.local
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# local env files
-.env*.local
+# Editor
+.vscode/
+.idea/
+*.swp
 
-# vercel
-.vercel
+# OS
+.DS_Store
+Thumbs.db
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Convex generated
+convex/_generated/
 
-working/
-# clerk configuration (can include secrets)
-/.clerk/
+# Claude / agents
 .claude/
 .agents/
 
 docs/
+
+# Artifact lifecycle — ignored runtime lanes
+# Never blanket-ignore working/ — only specific subdirectories containing runtime noise.
+working/runtime/
+working/tmp/
+working/logs/
