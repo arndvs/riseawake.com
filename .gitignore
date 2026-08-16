@@ -42,3 +42,6 @@ working/
 .agents/
 
 docs/
+# Sandcastle vendored engine deps
+.sandcastle/engine/node_modules/
+.sandcastle/engine/package-lock.json
